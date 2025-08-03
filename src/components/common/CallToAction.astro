@@ -1,0 +1,90 @@
+---
+export interface Props {
+  title: string;
+  subtitle?: string;
+  benefits?: string[];
+  buttonText?: string;
+  buttonSubject?: string;
+  buttonHref?: string;
+  features?: string[];
+  style?: 'default' | 'gradient' | 'minimal';
+}
+
+const { 
+  title,
+  subtitle,
+  benefits = [],
+  buttonText = "GET STARTED",
+  buttonSubject = "Ready to get started with SEO",
+  buttonHref,
+  features = [],
+  style = 'gradient'
+} = Astro.props;
+
+const href = buttonHref || `mailto:dave@daveshap.com?subject=${encodeURIComponent(buttonSubject)}`;
+const bgClass = style === 'gradient' ? 'bg-gradient-hero' : style === 'minimal' ? 'bg-transparent' : 'bg-background';
+const textColor = style === 'gradient' ? 'text-white' : 'text-foreground';
+---
+
+<section class={`py-32 px-6 ${bgClass} relative overflow-hidden`}>
+  <!-- Background Elements for gradient style -->
+  {style === 'gradient' && (
+    <div class="absolute inset-0">
+      <div class="absolute top-10 left-1/4 w-64 h-64 bg-primary/20 rounded-full blur-3xl animate-pulse"></div>
+      <div class="absolute bottom-20 right-1/4 w-80 h-80 bg-accent/20 rounded-full blur-3xl animate-pulse delay-700"></div>
+    </div>
+  )}
+  
+  <div class="max-w-6xl mx-auto text-center relative z-10">
+    <div class="mb-12">
+      <span class={`inline-block px-6 py-3 bg-accent/20 text-accent rounded-full text-lg font-bold mb-8 border border-accent/30`}>
+        🎯 {title}
+      </span>
+      
+      {subtitle && (
+        <h2 class={`text-5xl md:text-6xl lg:text-7xl font-black ${textColor} mb-8 leading-tight`} set:html={subtitle}>
+        </h2>
+      )}
+    </div>
+
+    <!-- Benefits Grid -->
+    {benefits.length > 0 && (
+      <div class="max-w-4xl mx-auto mb-16">
+        <div class="grid md:grid-cols-3 gap-8">
+          {benefits.map((benefit, index) => (
+            <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8 text-left hover:scale-105 transition-all duration-300 shadow-elegant">
+              <div class="flex items-center gap-4 mb-4">
+                <div class="w-12 h-12 bg-gradient-to-r from-accent to-primary-glow rounded-full flex items-center justify-center shadow-glow">
+                  <span class="text-white font-black text-lg">
+                    {index + 1}
+                  </span>
+                </div>
+                <div class="h-px bg-accent/30 flex-1"></div>
+              </div>
+              <p class={`text-lg leading-relaxed ${style === 'gradient' ? 'text-white/90' : 'text-foreground'}`}>
+                {benefit}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    )}
+
+    <!-- CTA Button -->
+    <div class="space-y-6">
+      <a href={href} 
+         class="btn-accent btn-xl group min-w-[300px] bg-accent hover:bg-accent/90 text-white shadow-glow hover:shadow-premium inline-flex items-center">
+        <span class="mr-3">🚀</span>
+        {buttonText}
+        <span class="ml-3 group-hover:translate-x-1 transition-transform">→</span>
+      </a>
+      
+      <!-- Features -->
+      {features.length > 0 && (
+        <div class={`text-sm ${style === 'gradient' ? 'text-white/60' : 'text-muted-foreground'}`}>
+          {features.join(' • ')}
+        </div>
+      )}
+    </div>
+  </div>
+</section>

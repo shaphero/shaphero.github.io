@@ -1,0 +1,14 @@
+<svg width="120" height="40" viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
+  <g>
+    <!-- Bank of America flag-inspired design -->
+    <rect x="8" y="10" width="20" height="20" fill="#012169"/>
+    <rect x="8" y="10" width="20" height="2" fill="#DC143C"/>
+    <rect x="8" y="14" width="20" height="2" fill="#DC143C"/>
+    <rect x="8" y="18" width="20" height="2" fill="#DC143C"/>
+    <rect x="8" y="22" width="20" height="2" fill="#DC143C"/>
+    <rect x="8" y="26" width="20" height="2" fill="#DC143C"/>
+    <!-- Text -->
+    <text x="35" y="18" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#012169">BANK OF</text>
+    <text x="35" y="26" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#012169">AMERICA</text>
+  </g>
+</svg>

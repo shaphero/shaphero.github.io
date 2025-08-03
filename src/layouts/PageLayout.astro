@@ -1,0 +1,33 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Header from '../components/Header.astro';
+import CTASection from '../components/CTASection.astro';
+
+export interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  showHeader?: boolean;
+  showCTA?: boolean;
+  headerOffset?: boolean;
+}
+
+const { 
+  title, 
+  description, 
+  image,
+  showHeader = true,
+  showCTA = true,
+  headerOffset = true
+} = Astro.props;
+---
+
+<BaseLayout title={title} description={description} image={image}>
+  {showHeader && <Header />}
+  
+  <main class={headerOffset ? "pt-20" : ""}>
+    <slot />
+    
+    {showCTA && <CTASection />}
+  </main>
+</BaseLayout>

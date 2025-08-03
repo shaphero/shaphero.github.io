@@ -1,0 +1,10 @@
+<svg width="120" height="40" viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
+  <g fill="#E20074">
+    <!-- T-Mobile T symbol -->
+    <rect x="10" y="8" width="20" height="4" fill="#E20074"/>
+    <rect x="18" y="8" width="4" height="24" fill="#E20074"/>
+    <!-- Text -->
+    <text x="40" y="16" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#E20074">T-Mobile</text>
+    <text x="40" y="28" font-family="Arial, sans-serif" font-size="6" fill="#E20074">ONE NETWORK</text>
+  </g>
+</svg>

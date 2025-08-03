@@ -1,0 +1,100 @@
+---
+export interface Props {
+  title?: string;
+  subtitle?: string;
+  testimonials: Array<{
+    name: string;
+    role: string;
+    company?: string;
+    content: string;
+    rating?: number;
+    image?: string;
+  }>;
+  columns?: 1 | 2 | 3;
+  style?: 'default' | 'cards' | 'minimal';
+}
+
+const { 
+  title,
+  subtitle,
+  testimonials,
+  columns = 3,
+  style = 'cards'
+} = Astro.props;
+
+const gridClasses = {
+  1: 'grid-cols-1',
+  2: 'grid-cols-1 md:grid-cols-2',
+  3: 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
+};
+
+const cardClasses = {
+  default: 'bg-card border border-border rounded-lg p-6',
+  cards: 'bg-card/50 backdrop-blur-sm border border-border/50 rounded-2xl p-8 shadow-elegant hover:shadow-premium transition-all duration-300',
+  minimal: 'border-l-4 border-primary pl-6'
+};
+---
+
+<div class="space-y-12">
+  <!-- Header -->
+  {(title || subtitle) && (
+    <div class="text-center max-w-3xl mx-auto">
+      {title && (
+        <h2 class="text-4xl md:text-5xl font-black text-foreground mb-4">
+          {title}
+        </h2>
+      )}
+      {subtitle && (
+        <p class="text-xl text-muted-foreground">
+          {subtitle}
+        </p>
+      )}
+    </div>
+  )}
+
+  <!-- Testimonials Grid -->
+  <div class={`grid ${gridClasses[columns]} gap-8`}>
+    {testimonials.map((testimonial, index) => (
+      <div 
+        class={`${cardClasses[style]} animate-fade-in-up`}
+        style={`animation-delay: ${index * 0.15}s`}
+      >
+        <!-- Rating -->
+        {testimonial.rating && (
+          <div class="flex gap-1 mb-4">
+            {Array.from({ length: 5 }, (_, i) => (
+              <span class={`text-lg ${i < testimonial.rating ? 'text-yellow-400' : 'text-gray-300'}`}>
+                ⭐
+              </span>
+            ))}
+          </div>
+        )}
+
+        <!-- Content -->
+        <blockquote class="text-muted-foreground mb-6 leading-relaxed">
+          "{testimonial.content}"
+        </blockquote>
+
+        <!-- Author -->
+        <div class="flex items-center gap-4">
+          {testimonial.image && (
+            <img 
+              src={testimonial.image} 
+              alt={testimonial.name}
+              class="w-12 h-12 rounded-full object-cover"
+            />
+          )}
+          <div>
+            <div class="font-semibold text-foreground">
+              {testimonial.name}
+            </div>
+            <div class="text-sm text-muted-foreground">
+              {testimonial.role}
+              {testimonial.company && ` at ${testimonial.company}`}
+            </div>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>

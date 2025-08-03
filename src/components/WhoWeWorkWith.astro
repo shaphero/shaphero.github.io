@@ -3,22 +3,22 @@ const idealClients = [
   {
     title: "Growth-Stage SaaS Companies",
     description: "You've found product-market fit and need to scale organic acquisition",
-    icon: "🚀"
+    icon: "01"
   },
   {
     title: "E-commerce Brands",
     description: "You're competing in crowded markets and need to stand out",
-    icon: "🛍️"
+    icon: "02"
   },
   {
     title: "B2B Service Providers",
     description: "You need qualified leads, not just traffic",
-    icon: "💼"
+    icon: "03"
   },
   {
     title: "Ambitious Startups",
     description: "You're ready to invest in sustainable growth channels",
-    icon: "⚡"
+    icon: "04"
   }
 ];
 
@@ -45,7 +45,7 @@ const notForYou = [
       {idealClients.map((client, index) => (
         <div class="animate-fade-in" style={`animation-delay: ${index * 0.1}s`}>
           <div class="bg-gradient-to-br from-primary to-primary-darker text-white rounded-2xl p-6 h-full hover:scale-105 transition-transform duration-300">
-            <div class="text-4xl mb-4">{client.icon}</div>
+            <div class="text-2xl font-black mb-4 opacity-60">{client.icon}</div>
             <h3 class="text-xl font-bold mb-3">{client.title}</h3>
             <p class="text-white/80">{client.description}</p>
           </div>

@@ -1,0 +1,178 @@
+---
+export interface Props {
+  variant?: 'text' | 'logos' | 'mixed';
+  title?: string;
+  subtitle?: string;
+  showCTA?: boolean;
+  ctaText?: string;
+  ctaHref?: string;
+}
+
+const { 
+  variant = 'text',
+  title = "Trusted by Industry Leaders",
+  subtitle = "The same proven strategies that work for Fortune 500 companies",
+  showCTA = true,
+  ctaText = "See Our Results",
+  ctaHref = "/seo-success"
+} = Astro.props;
+
+// Brand-accurate colors and styling
+const clients = [
+  { 
+    name: "Toyota", 
+    logo: "/optimized/toyota-logo.svg",
+    brandColor: "#EB0A1E", // Toyota Red (official)
+    textClass: "font-black text-[#EB0A1E]"
+  },
+  { 
+    name: "SoFi", 
+    logo: "/optimized/sofi-logo.svg",
+    brandColor: "#00D4AA", // SoFi Teal (official)
+    textClass: "font-bold text-[#00D4AA]"
+  },
+  { 
+    name: "T-Mobile", 
+    logo: "/optimized/tmobile-logo.svg",
+    brandColor: "#E20074", // T-Mobile Magenta (official)
+    textClass: "font-black text-[#E20074]"
+  },
+  { 
+    name: "Holiday Inn", 
+    logo: "/optimized/holiday-inn-logo.svg",
+    brandColor: "#00A651", // Holiday Inn Green (official)
+    textClass: "font-bold text-[#00A651]"
+  },
+  { 
+    name: "Office Depot", 
+    logo: "/optimized/office-depot-logo.svg",
+    brandColor: "#D50000", // Office Depot Red (official)
+    textClass: "font-bold text-[#D50000]"
+  },
+  { 
+    name: "Bank of America", 
+    logo: "/optimized/boa-logo.svg",
+    brandColor: "#012169", // BofA Flag Blue (official)
+    textClass: "font-bold text-[#012169]"
+  },
+  { 
+    name: "Microsoft", 
+    logo: "/optimized/microsoft-logo.svg",
+    brandColor: "#737373", // Microsoft Gray (official wordmark)
+    textClass: "font-normal text-[#737373]"
+  },
+  { 
+    name: "Western Union", 
+    logo: "/optimized/western-union-logo.svg",
+    brandColor: "#FFCD00", // Western Union Yellow (official)
+    textClass: "font-black text-[#FFCD00] drop-shadow-sm"
+  }
+];
+---
+
+<section class="premium-section bg-background relative">
+  <div class="premium-container text-center">
+    
+    <!-- Animated Badge -->
+    <div class="mb-12 animate-fade-in">
+      <span class="inline-flex items-center gap-2 px-6 py-3 glass-card text-accent font-semibold text-sm border border-accent/20 shadow-glow">
+        <span class="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
+        🏆 Proven Track Record
+      </span>
+    </div>
+    
+    <!-- Main Headline -->
+    <h3 class="text-4xl md:text-5xl lg:text-6xl font-black text-foreground mb-8 leading-tight animate-fade-in-up">
+      {title}
+    </h3>
+    
+    <!-- Subheadline -->
+    <p class="text-xl text-muted-foreground mb-16 max-w-4xl mx-auto animate-fade-in" style="animation-delay: 0.2s">
+      {subtitle}
+    </p>
+    
+    <!-- Client Grid -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20 animate-fade-in" style="animation-delay: 0.4s">
+      {clients.map((client, index) => (
+        <div 
+          class="group relative glass-card h-24 flex items-center justify-center border border-white/10 hover:border-accent/30 transition-all duration-500 hover:scale-105 magnetic"
+          style={`animation-delay: ${index * 0.1}s`}
+        >
+          <!-- Glow effect on hover -->
+          <div class="absolute inset-0 bg-gradient-to-r from-primary/0 to-accent/0 group-hover:from-primary/5 group-hover:to-accent/5 rounded-2xl transition-all duration-500"></div>
+          
+          {variant === 'logos' ? (
+            <!-- SVG Logo Version -->
+            <img 
+              src={client.logo}
+              alt={`${client.name} logo`}
+              class="max-h-10 max-w-[120px] object-contain group-hover:scale-110 transition-transform duration-300 relative z-10 filter grayscale-0"
+              width="120"
+              height="40"
+              loading="lazy"
+            />
+          ) : variant === 'text' ? (
+            <!-- Brand-Colored Text Version -->
+            <span class={`text-lg ${client.textClass} group-hover:scale-110 transition-transform duration-300 relative z-10`}>
+              {client.name}
+            </span>
+          ) : (
+            <!-- Mixed Version - Use logo if available, fallback to text -->
+            <>
+              <img 
+                src={client.logo}
+                alt={`${client.name} logo`}
+                class="max-h-10 max-w-[120px] object-contain group-hover:scale-110 transition-transform duration-300 relative z-10 hidden group-hover:block"
+                width="120"
+                height="40"
+                loading="lazy"
+                onError="this.style.display='none'; this.nextElementSibling.style.display='block';"
+              />
+              <span class={`text-lg ${client.textClass} group-hover:scale-110 transition-transform duration-300 relative z-10`}>
+                {client.name}
+              </span>
+            </>
+          )}
+        </div>
+      ))}
+    </div>
+    
+    <!-- CTA Button -->
+    {showCTA && (
+      <div class="animate-fade-in" style="animation-delay: 0.6s">
+        <a 
+          href={ctaHref}
+          class="btn-accent btn-lg group h-14 px-8 text-lg font-bold bg-accent hover:bg-accent/90 hover:scale-105 transition-all duration-300 shadow-elegant hover:shadow-glow premium-glow magnetic text-white inline-flex items-center"
+        >
+          <span class="mr-3 text-xl">📈</span>
+          {ctaText}
+          <span class="ml-3 group-hover:translate-x-2 transition-transform text-xl">→</span>
+        </a>
+      </div>
+    )}
+  </div>
+  
+  <!-- Background Elements -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute top-20 right-20 w-64 h-64 bg-gradient-to-r from-accent/10 to-primary/10 rounded-full blur-3xl animate-float"></div>
+    <div class="absolute bottom-20 left-20 w-48 h-48 bg-gradient-to-r from-primary-glow/10 to-transparent rounded-full blur-3xl animate-float" style="animation-delay: 3s"></div>
+  </div>
+</section>
+
+<style>
+  /* Ensure consistent logo sizing and loading */
+  img[src*="logo"] {
+    transition: all 0.3s ease;
+    will-change: transform;
+  }
+  
+  /* Smooth brand color transitions */
+  .group:hover [class*="text-["] {
+    filter: brightness(1.1) contrast(1.05);
+  }
+  
+  /* Fast loading optimization */
+  img[loading="lazy"] {
+    content-visibility: auto;
+  }
+</style>

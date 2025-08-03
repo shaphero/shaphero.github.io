@@ -1,0 +1,131 @@
+---
+export interface Props {
+  title: string;
+  subtitle?: string;
+  badge?: string;
+  ctaPrimary?: {
+    text: string;
+    href: string;
+    subject?: string;
+  };
+  ctaSecondary?: {
+    text: string;
+    href: string;
+    subject?: string;
+  };
+  features?: string[];
+  background?: 'gradient' | 'white' | 'cream';
+}
+
+const { 
+  title,
+  subtitle,
+  badge,
+  ctaPrimary,
+  ctaSecondary,
+  features = [],
+  background = 'gradient'
+} = Astro.props;
+
+const bgClass = background === 'gradient' 
+  ? 'bg-gradient-hero noise-bg' 
+  : background === 'white' 
+    ? 'bg-white' 
+    : 'bg-background';
+---
+
+<section class={`hero-section relative w-full ${bgClass} overflow-x-hidden min-h-screen flex items-center`}>
+  <!-- Background Elements for gradient hero -->
+  {background === 'gradient' && (
+    <div class="absolute inset-0 w-full overflow-hidden">
+      <!-- Floating Orbs -->
+      <div class="absolute top-20 left-[5%] w-48 h-48 md:w-96 md:h-96 md:left-10 bg-gradient-to-r from-primary/20 to-accent/20 rounded-full blur-2xl md:blur-3xl animate-float"></div>
+      <div class="absolute bottom-40 right-[5%] w-40 h-40 md:w-80 md:h-80 md:right-20 bg-gradient-to-r from-accent/15 to-primary-glow/15 rounded-full blur-2xl md:blur-3xl animate-float" style="animation-delay: 2s"></div>
+      <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] md:w-[1000px] md:h-[1000px] bg-gradient-to-r from-primary-glow/5 to-transparent rounded-full blur-2xl md:blur-3xl"></div>
+      
+      <!-- Grid Pattern -->
+      <div class="hidden md:block absolute inset-0 grid-pattern opacity-30"></div>
+      
+      <!-- Animated Gradient Mesh -->
+      <div class="absolute inset-0 opacity-20 md:opacity-40">
+        <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary/10 via-transparent to-accent/10 animate-gradient-shift bg-[length:200%_200%]"></div>
+      </div>
+      
+      <!-- Bottom Wave -->
+      <svg 
+        viewBox="0 0 1440 800" 
+        class="absolute bottom-0 w-full h-full"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        <defs>
+          <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color: hsl(var(--primary)); stop-opacity: 0.1" />
+            <stop offset="50%" style="stop-color: hsl(var(--accent)); stop-opacity: 0.05" />
+            <stop offset="100%" style="stop-color: hsl(var(--primary-glow)); stop-opacity: 0.1" />
+          </linearGradient>
+        </defs>
+        <path 
+          d="M0,400 C480,200 960,600 1440,400 L1440,800 L0,800 Z" 
+          fill="url(#waveGradient)"
+          class="drop-shadow-2xl"
+        />
+      </svg>
+    </div>
+  )}
+  
+  <div class="relative z-10 max-w-7xl mx-auto text-center py-32 px-6">
+    <!-- Badge -->
+    {badge && (
+      <div class="mb-8 animate-fade-in">
+        <span class="glass-badge-accent inline-flex items-center gap-2 shadow-glow">
+          <span class="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
+          {badge}
+        </span>
+      </div>
+    )}
+    
+    <!-- Main Headline -->
+    <h1 class={`text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black mb-8 leading-none tracking-tight animate-fade-in-up ${background === 'gradient' ? 'text-white' : 'text-foreground'}`} set:html={title}>
+    </h1>
+    
+    <!-- Subheadline -->
+    {subtitle && (
+      <p class={`text-xl md:text-2xl lg:text-3xl mb-16 max-w-5xl mx-auto leading-relaxed font-medium animate-fade-in ${background === 'gradient' ? 'text-white/90' : 'text-muted-foreground'}`} style="animation-delay: 0.2s" set:html={subtitle}>
+      </p>
+    )}
+    
+    <!-- CTA Buttons -->
+    {(ctaPrimary || ctaSecondary) && (
+      <div class="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16 animate-fade-in" style="animation-delay: 0.4s">
+        {ctaPrimary && (
+          <a href={ctaPrimary.subject ? `mailto:dave@daveshap.com?subject=${encodeURIComponent(ctaPrimary.subject)}` : ctaPrimary.href} 
+             class="btn-primary btn-xl group min-w-[280px] magnetic inline-flex items-center">
+            <span class="mr-3 text-xl">🚀</span>
+            {ctaPrimary.text}
+            <span class="ml-3 group-hover:translate-x-2 transition-transform text-xl">→</span>
+          </a>
+        )}
+        
+        {ctaSecondary && (
+          <a href={ctaSecondary.subject ? `mailto:dave@daveshap.com?subject=${encodeURIComponent(ctaSecondary.subject)}` : ctaSecondary.href} 
+             class="btn-ghost btn-xl min-w-[280px] magnetic inline-flex items-center">
+            <span class="mr-3 text-xl">✉️</span>
+            {ctaSecondary.text}
+          </a>
+        )}
+      </div>
+    )}
+    
+    <!-- Features -->
+    {features.length > 0 && (
+      <div class="flex flex-wrap justify-center gap-8 text-sm text-white/80 animate-fade-in" style="animation-delay: 0.6s">
+        {features.map((feature, index) => (
+          <div class="flex items-center gap-2 glass px-4 py-2 rounded-full">
+            <span class="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
+            {feature}
+          </div>
+        ))}
+      </div>
+    )}
+  </div>
+</section>

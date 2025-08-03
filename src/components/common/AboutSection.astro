@@ -1,0 +1,109 @@
+---
+export interface Props {
+  name: string;
+  title: string;
+  bio: string;
+  image?: string;
+  stats?: Array<{
+    number: string;
+    label: string;
+  }>;
+  highlights?: string[];
+  layout?: 'side-by-side' | 'centered' | 'image-left';
+  background?: 'white' | 'cream' | 'transparent';
+}
+
+const { 
+  name,
+  title,
+  bio,
+  image,
+  stats = [],
+  highlights = [],
+  layout = 'side-by-side',
+  background = 'white'
+} = Astro.props;
+
+const bgClasses = {
+  white: 'bg-white',
+  cream: 'bg-background', 
+  transparent: 'bg-transparent'
+};
+
+const layoutClasses = {
+  'side-by-side': 'grid md:grid-cols-2 gap-12 items-center',
+  'centered': 'text-center max-w-4xl mx-auto',
+  'image-left': 'grid md:grid-cols-5 gap-12 items-center'
+};
+---
+
+<div class={bgClasses[background]}>
+  <div class={layoutClasses[layout]}>
+    <!-- Image -->
+    {image && (
+      <div class={`${layout === 'image-left' ? 'md:col-span-2' : ''} ${layout === 'centered' ? 'mb-8' : ''}`}>
+        <div class="relative">
+          <img 
+            src={image} 
+            alt={name}
+            class={`w-full rounded-2xl object-cover shadow-elegant ${
+              layout === 'centered' ? 'max-w-sm mx-auto' : 'aspect-square max-w-md'
+            }`}
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>
+        </div>
+      </div>
+    )}
+
+    <!-- Content -->
+    <div class={layout === 'image-left' ? 'md:col-span-3' : ''}>
+      <!-- Header -->
+      <div class={layout === 'centered' ? 'mb-8' : 'mb-6'}>
+        <h2 class="text-4xl md:text-5xl font-black text-foreground mb-2">
+          {name}
+        </h2>
+        <p class="text-xl text-primary font-semibold">
+          {title}
+        </p>
+      </div>
+
+      <!-- Bio -->
+      <div class="prose prose-lg max-w-none mb-8">
+        <p class="text-muted-foreground leading-relaxed">
+          {bio}
+        </p>
+      </div>
+
+      <!-- Highlights -->
+      {highlights.length > 0 && (
+        <div class="mb-8">
+          <h3 class="text-lg font-bold text-foreground mb-4">Key Highlights</h3>
+          <ul class="space-y-2">
+            {highlights.map(highlight => (
+              <li class="flex items-start gap-3">
+                <span class="text-accent font-bold text-lg">✓</span>
+                <span class="text-muted-foreground">{highlight}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      <!-- Stats -->
+      {stats.length > 0 && (
+        <div class={`grid grid-cols-2 gap-8 ${layout === 'centered' ? 'max-w-md mx-auto' : ''}`}>
+          {stats.map(stat => (
+            <div class="text-center">
+              <div class="text-3xl md:text-4xl font-black text-primary mb-1">
+                {stat.number}
+              </div>
+              <div class="text-sm text-muted-foreground font-medium">
+                {stat.label}
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  </div>
+</div>
