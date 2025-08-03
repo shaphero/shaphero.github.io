@@ -4,25 +4,26 @@ import Hero from '../components/common/Hero.astro';
 import Section from '../components/common/Section.astro';
 import ContentGrid from '../components/common/ContentGrid.astro';
 import CallToAction from '../components/common/CallToAction.astro';
+import Icon from '../components/Icon.astro';
 
 const aiProblems = [
   {
-    icon: "🤯",
+    icon: "warning",
     title: "Teams Overwhelmed by AI Tools",
     description: "Your team is drowning in ChatGPT, Claude, Copilot, and dozens of other tools with no clear strategy."
   },
   {
-    icon: "💸",
+    icon: "dollar-sign",
     title: "Wasting Money on AI Subscriptions",
     description: "Paying for multiple AI tools but only using 10% of their capabilities - if they're used at all."
   },
   {
-    icon: "🐌",
+    icon: "trending-down",
     title: "Stuck in Old Workflows",
     description: "Competitors are 10x faster because they've integrated AI while your team does things the old way."
   },
   {
-    icon: "🚨",
+    icon: "shield-x",
     title: "Creating Risk Without Realizing It",
     description: "Team members using AI incorrectly, sharing sensitive data, or producing unreliable outputs."
   }
@@ -32,17 +33,17 @@ const trainingBenefits = [
   {
     title: "Practical, Hands-On Training",
     description: "No theory overload. Your team learns by doing real work with AI during the session.",
-    icon: "💪"
+    icon: "wrench"
   },
   {
     title: "Custom Workflows for Your Agency",
     description: "Templates and processes designed specifically for your services, clients, and team structure.",
-    icon: "🎯"
+    icon: "target"
   },
   {
     title: "Immediate ROI",
     description: "Teams typically save 10-20 hours per week within 30 days of training implementation.",
-    icon: "📈"
+    icon: "chart-growth"
   }
 ];
 
@@ -227,19 +228,19 @@ const results = [
         <p class="text-accent font-semibold mb-4">Perfect for getting started</p>
         <ul class="space-y-3 mb-8">
           <li class="flex items-start gap-2">
-            <span class="text-accent">✓</span>
+            <Icon name="check" class="text-accent flex-shrink-0" size="sm" />
             <span class="text-muted-foreground">Core AI tools overview</span>
           </li>
           <li class="flex items-start gap-2">
-            <span class="text-accent">✓</span>
+            <Icon name="check" class="text-accent flex-shrink-0" size="sm" />
             <span class="text-muted-foreground">Basic prompt engineering</span>
           </li>
           <li class="flex items-start gap-2">
-            <span class="text-accent">✓</span>
+            <Icon name="check" class="text-accent flex-shrink-0" size="sm" />
             <span class="text-muted-foreground">3 key workflows</span>
           </li>
           <li class="flex items-start gap-2">
-            <span class="text-accent">✓</span>
+            <Icon name="check" class="text-accent flex-shrink-0" size="sm" />
             <span class="text-muted-foreground">Q&A and troubleshooting</span>
           </li>
         </ul>
@@ -258,23 +259,23 @@ const results = [
         <p class="text-white/90 font-semibold mb-4">Complete transformation</p>
         <ul class="space-y-3 mb-8">
           <li class="flex items-start gap-2">
-            <span class="text-accent">✓</span>
+            <Icon name="check" class="text-accent flex-shrink-0" size="sm" />
             <span class="text-white/90">Everything in half-day</span>
           </li>
           <li class="flex items-start gap-2">
-            <span class="text-accent">✓</span>
+            <Icon name="check" class="text-accent flex-shrink-0" size="sm" />
             <span class="text-white/90">Advanced techniques</span>
           </li>
           <li class="flex items-start gap-2">
-            <span class="text-accent">✓</span>
+            <Icon name="check" class="text-accent flex-shrink-0" size="sm" />
             <span class="text-white/90">Custom workflow design</span>
           </li>
           <li class="flex items-start gap-2">
-            <span class="text-accent">✓</span>
+            <Icon name="check" class="text-accent flex-shrink-0" size="sm" />
             <span class="text-white/90">Hands-on implementation</span>
           </li>
           <li class="flex items-start gap-2">
-            <span class="text-accent">✓</span>
+            <Icon name="check" class="text-accent flex-shrink-0" size="sm" />
             <span class="text-white/90">30-day follow-up support</span>
           </li>
         </ul>
@@ -290,19 +291,19 @@ const results = [
         <p class="text-accent font-semibold mb-4">Continuous improvement</p>
         <ul class="space-y-3 mb-8">
           <li class="flex items-start gap-2">
-            <span class="text-accent">✓</span>
+            <Icon name="check" class="text-accent flex-shrink-0" size="sm" />
             <span class="text-muted-foreground">Monthly training sessions</span>
           </li>
           <li class="flex items-start gap-2">
-            <span class="text-accent">✓</span>
+            <Icon name="check" class="text-accent flex-shrink-0" size="sm" />
             <span class="text-muted-foreground">Slack/Teams support</span>
           </li>
           <li class="flex items-start gap-2">
-            <span class="text-accent">✓</span>
+            <Icon name="check" class="text-accent flex-shrink-0" size="sm" />
             <span class="text-muted-foreground">New AI tool reviews</span>
           </li>
           <li class="flex items-start gap-2">
-            <span class="text-accent">✓</span>
+            <Icon name="check" class="text-accent flex-shrink-0" size="sm" />
             <span class="text-muted-foreground">Workflow optimization</span>
           </li>
         </ul>

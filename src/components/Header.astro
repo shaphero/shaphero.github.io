@@ -1,19 +1,24 @@
 ---
+import Icon from './Icon.astro';
+
 const services = [
   { 
     href: '/ai-training', 
     label: 'AI Training',
-    description: 'Transform your team into AI power users'
+    description: 'Transform your team into AI power users',
+    icon: 'cpu'
   },
   { 
     href: '/seo', 
     label: 'SEO & Growth',
-    description: 'Data-driven strategies that drive revenue'
+    description: 'Data-driven strategies that drive revenue',
+    icon: 'chart-growth'
   },
   { 
     href: '/marketing-strategy', 
     label: 'Marketing Strategy',
-    description: 'Evidence-based marketing that works'
+    description: 'Evidence-based marketing that works',
+    icon: 'analytics'
   },
 ];
 
@@ -38,9 +43,7 @@ const dropdownLabel = "How I Help";
       <div class="relative group">
         <button class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 flex items-center gap-2 py-2">
           {dropdownLabel}
-          <svg class="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-          </svg>
+          <Icon name="chevron-down" class="transition-transform duration-300 group-hover:rotate-180" size="sm" />
         </button>
         
         <!-- Dropdown Menu -->
@@ -54,19 +57,22 @@ const dropdownLabel = "How I Help";
                 }`}
               >
                 <div class="flex items-center justify-between">
-                  <div>
-                    <div class={`font-medium text-sm mb-1 ${
-                      currentPath === service.href ? 'text-primary' : 'text-foreground'
-                    } group-hover/item:text-primary transition-colors`}>
-                      {service.label}
-                    </div>
-                    <div class="text-xs text-muted-foreground">
-                      {service.description}
+                  <div class="flex items-start gap-3">
+                    <Icon name={service.icon} class={`flex-shrink-0 mt-0.5 ${
+                      currentPath === service.href ? 'text-primary' : 'text-muted-foreground'
+                    } group-hover/item:text-primary transition-colors`} size="sm" />
+                    <div>
+                      <div class={`font-medium text-sm mb-1 ${
+                        currentPath === service.href ? 'text-primary' : 'text-foreground'
+                      } group-hover/item:text-primary transition-colors`}>
+                        {service.label}
+                      </div>
+                      <div class="text-xs text-muted-foreground">
+                        {service.description}
+                      </div>
                     </div>
                   </div>
-                  <svg class="w-4 h-4 text-muted-foreground group-hover/item:text-primary transition-all duration-200 opacity-0 group-hover/item:opacity-100 -translate-x-2 group-hover/item:translate-x-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                  </svg>
+                  <Icon name="arrow-right" class="text-muted-foreground group-hover/item:text-primary transition-all duration-200 opacity-0 group-hover/item:opacity-100 -translate-x-2 group-hover/item:translate-x-0" size="sm" />
                 </div>
               </a>
             ))}
@@ -88,17 +94,15 @@ const dropdownLabel = "How I Help";
         class="md:hidden w-10 h-10 flex items-center justify-center rounded-lg hover:bg-muted/50 transition-colors"
         aria-label="Toggle menu"
       >
-        <svg class="w-6 h-6 text-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
+        <Icon name="menu" class="text-foreground" />
       </button>
       
       <a href="mailto:dave@daveshap.com?subject=Ready%20to%20get%20started" 
          class="btn-default btn-lg group text-white inline-flex items-center">
-        <span class="mr-2">✉️</span>
+        <Icon name="mail" class="mr-2" size="sm" />
         <span class="hidden sm:inline">GET STARTED</span>
         <span class="sm:hidden">START</span>
-        <span class="ml-2 group-hover:translate-x-1 transition-transform">→</span>
+        <Icon name="arrow-right" class="ml-2 group-hover:translate-x-1 transition-transform" size="sm" />
       </a>
     </div>
   </div>
@@ -116,15 +120,22 @@ const dropdownLabel = "How I Help";
               : ''
           }`}
         >
-          <div class={`text-sm font-medium ${
-            currentPath === service.href 
-              ? 'text-primary' 
-              : 'text-foreground'
-          }`}>
-            {service.label}
-          </div>
-          <div class="text-xs text-muted-foreground mt-1">
-            {service.description}
+          <div class="flex items-start gap-3">
+            <Icon name={service.icon} class={`flex-shrink-0 mt-0.5 ${
+              currentPath === service.href ? 'text-primary' : 'text-muted-foreground'
+            }`} size="sm" />
+            <div>
+              <div class={`text-sm font-medium ${
+                currentPath === service.href 
+                  ? 'text-primary' 
+                  : 'text-foreground'
+              }`}>
+                {service.label}
+              </div>
+              <div class="text-xs text-muted-foreground mt-1">
+                {service.description}
+              </div>
+            </div>
           </div>
         </a>
       ))}

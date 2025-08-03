@@ -4,20 +4,21 @@ import Hero from '../components/common/Hero.astro';
 import Section from '../components/common/Section.astro';
 import ContentGrid from '../components/common/ContentGrid.astro';
 import BrandLogos from '../components/common/BrandLogos.astro';
+import Icon from '../components/Icon.astro';
 
 const expertise = [
   {
-    icon: "🤖",
+    icon: "cpu",
     title: "AI Productivity Expert",
     description: "I figure out the practical ways to use AI tools like ChatGPT and Claude, then teach teams how to actually use them. No hype, just real workflows that save 10-20 hours per week."
   },
   {
-    icon: "📈",
+    icon: "chart-growth",
     title: "Growth Marketing Expert",
     description: "509% traffic growth at SoFi. 494% at Adobe. Building and scaling marketing engines that deliver measurable revenue, not just vanity metrics."
   },
   {
-    icon: "🎯",
+    icon: "target",
     title: "Strategic Leadership",
     description: "Former CMO in the sports betting tech space. SVP of Earned Media at Neil Patel Digital. Led digital transformation at Fortune 500 companies."
   }
@@ -115,12 +116,12 @@ const services = [
           
           <div class="flex flex-col sm:flex-row gap-4 animate-fade-in" style="animation-delay: 0.4s">
             <a href="#expertise" class="btn-primary btn-lg group min-w-[200px] magnetic inline-flex items-center justify-center">
-              <span class="mr-2">💬</span>
+              <Icon name="chat" class="mr-2" size="sm" />
               Let's Talk Growth
-              <span class="ml-2 group-hover:translate-x-1 transition-transform">→</span>
+              <Icon name="arrow-right" class="ml-2 group-hover:translate-x-1 transition-transform" size="sm" />
             </a>
             <a href="#philosophy" class="btn-ghost btn-lg min-w-[200px] magnetic inline-flex items-center justify-center">
-              <span class="mr-2">📖</span>
+              <Icon name="lightbulb" class="mr-2" size="sm" />
               My Approach
             </a>
           </div>
@@ -310,9 +311,9 @@ const services = [
       
       <a href="mailto:dave@daveshap.com?subject=Let's discuss growth opportunities" 
          class="btn-accent btn-xl group min-w-[300px] bg-accent hover:bg-accent/90 text-white shadow-glow hover:shadow-premium inline-flex items-center">
-        <span class="mr-3">💬</span>
+        <Icon name="chat" class="mr-3" size="sm" />
         Schedule a Conversation
-        <span class="ml-3 group-hover:translate-x-1 transition-transform">→</span>
+        <Icon name="arrow-right" class="ml-3 group-hover:translate-x-1 transition-transform" size="sm" />
       </a>
       
       <div class="mt-8 text-white/60">

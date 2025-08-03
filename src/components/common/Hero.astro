@@ -1,4 +1,6 @@
 ---
+import Icon from '../Icon.astro';
+
 export interface Props {
   title: string;
   subtitle?: string;
@@ -100,16 +102,16 @@ const bgClass = background === 'gradient'
         {ctaPrimary && (
           <a href={ctaPrimary.subject ? `mailto:dave@daveshap.com?subject=${encodeURIComponent(ctaPrimary.subject)}` : ctaPrimary.href} 
              class="btn-primary btn-xl group min-w-[280px] magnetic inline-flex items-center">
-            <span class="mr-3 text-xl">🚀</span>
+            <Icon name="rocket" class="mr-3" size="sm" />
             {ctaPrimary.text}
-            <span class="ml-3 group-hover:translate-x-2 transition-transform text-xl">→</span>
+            <Icon name="arrow-right" class="ml-3 group-hover:translate-x-2 transition-transform" size="sm" />
           </a>
         )}
         
         {ctaSecondary && (
           <a href={ctaSecondary.subject ? `mailto:dave@daveshap.com?subject=${encodeURIComponent(ctaSecondary.subject)}` : ctaSecondary.href} 
              class="btn-ghost btn-xl min-w-[280px] magnetic inline-flex items-center">
-            <span class="mr-3 text-xl">✉️</span>
+            <Icon name="mail" class="mr-3" size="sm" />
             {ctaSecondary.text}
           </a>
         )}

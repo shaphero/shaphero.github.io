@@ -4,25 +4,26 @@ import Hero from '../components/common/Hero.astro';
 import Section from '../components/common/Section.astro';
 import ContentGrid from '../components/common/ContentGrid.astro';
 import CallToAction from '../components/common/CallToAction.astro';
+import Icon from '../components/Icon.astro';
 
 const strategyServices = [
   {
-    icon: "🔬",
+    icon: "search",
     title: "Synthetic Market Research",
     description: "Cutting-edge AI-powered research that delivers insights nearly as accurate as traditional methods at 10% of the cost and time."
   },
   {
-    icon: "🎯",
+    icon: "target",
     title: "STP Framework Implementation",
     description: "Proper segmentation, targeting, and positioning based on Ritson's proven methodology - but enhanced with AI capabilities."
   },
   {
-    icon: "📊",
+    icon: "analytics",
     title: "Share of Voice Measurement",
     description: "Track your market presence using brand search as a proxy - a leading indicator of market share that costs nothing to measure."
   },
   {
-    icon: "🧠",
+    icon: "brain",
     title: "Evidence-Based Strategy",
     description: "Every recommendation backed by data, not opinions. Inspired by Sharp, Binet & Field, and Ritson's scientific approach."
   }
@@ -118,7 +119,7 @@ const methodologies = [
     <div class="max-w-4xl mx-auto">
       <div class="text-center mb-16">
         <span class="inline-block px-6 py-3 bg-accent/20 text-accent rounded-full text-lg font-bold mb-8 border border-accent/30">
-          🚀 The Future of Market Research
+          <Icon name="rocket" class="inline-block mr-2" size="sm" />The Future of Market Research
         </span>
         <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-8">
           Synthetic Market Research: <span class="text-accent">Fast, Accurate, Affordable</span>
@@ -178,15 +179,15 @@ const methodologies = [
               </p>
               <ul class="space-y-2">
                 <li class="flex items-start gap-3">
-                  <span class="text-accent">✓</span>
+                  <Icon name="check" class="text-accent flex-shrink-0" size="sm" />
                   <span class="text-muted-foreground">AI-powered cluster analysis across thousands of variables</span>
                 </li>
                 <li class="flex items-start gap-3">
-                  <span class="text-accent">✓</span>
+                  <Icon name="check" class="text-accent flex-shrink-0" size="sm" />
                   <span class="text-muted-foreground">Segments validated against actual purchase data</span>
                 </li>
                 <li class="flex items-start gap-3">
-                  <span class="text-accent">✓</span>
+                  <Icon name="check" class="text-accent flex-shrink-0" size="sm" />
                   <span class="text-muted-foreground">Dynamic segments that evolve with market changes</span>
                 </li>
               </ul>
@@ -207,15 +208,15 @@ const methodologies = [
               </p>
               <ul class="space-y-2">
                 <li class="flex items-start gap-3">
-                  <span class="text-accent">✓</span>
+                  <Icon name="check" class="text-accent flex-shrink-0" size="sm" />
                   <span class="text-muted-foreground">Segment value modeling using synthetic data</span>
                 </li>
                 <li class="flex items-start gap-3">
-                  <span class="text-accent">✓</span>
+                  <Icon name="check" class="text-accent flex-shrink-0" size="sm" />
                   <span class="text-muted-foreground">Competitive advantage assessment for each segment</span>
                 </li>
                 <li class="flex items-start gap-3">
-                  <span class="text-accent">✓</span>
+                  <Icon name="check" class="text-accent flex-shrink-0" size="sm" />
                   <span class="text-muted-foreground">Resource allocation optimization across targets</span>
                 </li>
               </ul>
@@ -236,15 +237,15 @@ const methodologies = [
               </p>
               <ul class="space-y-2">
                 <li class="flex items-start gap-3">
-                  <span class="text-accent">✓</span>
+                  <Icon name="check" class="text-accent flex-shrink-0" size="sm" />
                   <span class="text-muted-foreground">Perceptual mapping using real market data</span>
                 </li>
                 <li class="flex items-start gap-3">
-                  <span class="text-accent">✓</span>
+                  <Icon name="check" class="text-accent flex-shrink-0" size="sm" />
                   <span class="text-muted-foreground">Message testing at scale with synthetic audiences</span>
                 </li>
                 <li class="flex items-start gap-3">
-                  <span class="text-accent">✓</span>
+                  <Icon name="check" class="text-accent flex-shrink-0" size="sm" />
                   <span class="text-muted-foreground">Competitive differentiation analysis</span>
                 </li>
               </ul>
@@ -269,17 +270,17 @@ const methodologies = [
         <h3 class="text-2xl font-bold text-foreground mb-6">How Share of Search Works</h3>
         <div class="grid md:grid-cols-3 gap-6 text-left">
           <div>
-            <div class="text-4xl mb-4">1️⃣</div>
+            <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold mb-4">1</div>
             <h4 class="font-bold text-foreground mb-2">Measure Search Volume</h4>
             <p class="text-muted-foreground">Track branded search queries for you and competitors</p>
           </div>
           <div>
-            <div class="text-4xl mb-4">2️⃣</div>
+            <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold mb-4">2</div>
             <h4 class="font-bold text-foreground mb-2">Calculate Share</h4>
             <p class="text-muted-foreground">Your searches ÷ total category searches = share of search</p>
           </div>
           <div>
-            <div class="text-4xl mb-4">3️⃣</div>
+            <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold mb-4">3</div>
             <h4 class="font-bold text-foreground mb-2">Predict Market Share</h4>
             <p class="text-muted-foreground">Share of search correlates with future market share</p>
           </div>
