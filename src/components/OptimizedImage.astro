@@ -1,0 +1,55 @@
+---
+export interface Props {
+  src: string;
+  alt: string;
+  class?: string;
+  loading?: 'eager' | 'lazy';
+  sizes?: string;
+}
+
+const { src, alt, class: className = '', loading = 'lazy', sizes = '100vw' } = Astro.props;
+
+// Generate responsive image paths
+const basePath = src.replace(/\.(jpg|png|webp)$/, '');
+const ext = src.match(/\.(jpg|png|webp)$/)?.[1] || 'jpg';
+
+const srcset = `
+  ${basePath}-mobile.webp 768w,
+  ${basePath}.webp 1200w
+`;
+
+const fallbackSrcset = `
+  ${basePath}-mobile.${ext} 768w,
+  ${basePath}.${ext} 1200w
+`;
+---
+
+<picture>
+  <source 
+    type="image/webp" 
+    srcset={srcset}
+    sizes={sizes}
+  />
+  <source 
+    type={`image/${ext === 'jpg' ? 'jpeg' : ext}`}
+    srcset={fallbackSrcset}
+    sizes={sizes}
+  />
+  <img 
+    src={`${basePath}.${ext}`}
+    alt={alt}
+    class={`optimized-img ${className}`}
+    loading={loading}
+    decoding="async"
+    width="1200"
+    height="800"
+  />
+</picture>
+
+<style>
+  .optimized-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+</style>

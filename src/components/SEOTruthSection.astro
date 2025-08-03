@@ -1,0 +1,76 @@
+---
+const myths = [
+  {
+    myth: "More content = Better rankings",
+    truth: "Quality and relevance beat quantity every time. One great page outperforms 100 mediocre ones.",
+    icon: "📚"
+  },
+  {
+    myth: "Technical SEO is everything", 
+    truth: "Technical SEO is table stakes. Real growth comes from understanding user intent and delivering value.",
+    icon: "⚙️"
+  },
+  {
+    myth: "Links are all that matter",
+    truth: "Links help, but they're just one signal. User experience and content quality drive sustainable rankings.",
+    icon: "🔗"
+  },
+  {
+    myth: "SEO is a one-time project",
+    truth: "SEO is an ongoing process. Markets change, competitors evolve, and algorithms update constantly.",
+    icon: "📈"
+  }
+];
+---
+
+<section class="section py-32 bg-gradient-section relative overflow-hidden">
+  <div class="container relative z-10">
+    <div class="text-center mb-16">
+      <h2 class="text-5xl md:text-6xl font-bold mb-6 animate-fade-in">
+        The <span class="text-accent">Uncomfortable Truth</span> About SEO
+      </h2>
+      <p class="text-xl text-muted-foreground max-w-3xl mx-auto animate-fade-in" style="animation-delay: 0.1s">
+        Most of what you've been told about SEO is wrong. Here's what actually works.
+      </p>
+    </div>
+    
+    <div class="grid md:grid-cols-2 gap-8">
+      {myths.map((item, index) => (
+        <div class="animate-fade-in" style={`animation-delay: ${index * 0.1}s`}>
+          <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 group">
+            <div class="flex items-start gap-4 mb-4">
+              <span class="text-4xl">{item.icon}</span>
+              <div class="flex-1">
+                <h3 class="text-xl font-bold text-red-600 mb-2 flex items-center gap-2">
+                  <span class="text-2xl">❌</span> 
+                  Myth: {item.myth}
+                </h3>
+                <p class="text-lg text-primary font-semibold flex items-start gap-2">
+                  <span class="text-2xl text-green-600 flex-shrink-0">✓</span>
+                  <span>{item.truth}</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+    
+    <div class="mt-16 text-center">
+      <div class="bg-white rounded-2xl p-8 shadow-xl max-w-4xl mx-auto animate-fade-in" style="animation-delay: 0.5s">
+        <h3 class="text-3xl font-bold mb-4 text-primary">The Bottom Line</h3>
+        <p class="text-xl text-muted-foreground leading-relaxed mb-8">
+          SEO success isn't about tricks or hacks. It's about understanding your audience, 
+          delivering exceptional value, and executing a smart strategy consistently.
+        </p>
+        <a href="#contact" class="btn btn-primary btn-xl premium-glow">
+          Get a Strategy That Actually Works
+          <span class="ml-2">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Background Pattern -->
+  <div class="absolute inset-0 grid-pattern opacity-5"></div>
+</section>

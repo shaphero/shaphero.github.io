@@ -1,0 +1,80 @@
+---
+const idealClients = [
+  {
+    title: "Growth-Stage SaaS Companies",
+    description: "You've found product-market fit and need to scale organic acquisition",
+    icon: "🚀"
+  },
+  {
+    title: "E-commerce Brands",
+    description: "You're competing in crowded markets and need to stand out",
+    icon: "🛍️"
+  },
+  {
+    title: "B2B Service Providers",
+    description: "You need qualified leads, not just traffic",
+    icon: "💼"
+  },
+  {
+    title: "Ambitious Startups",
+    description: "You're ready to invest in sustainable growth channels",
+    icon: "⚡"
+  }
+];
+
+const notForYou = [
+  "Looking for overnight miracles",
+  "Want to rank for keywords that don't convert",
+  "Believe in 'set it and forget it' SEO",
+  "Not willing to invest in quality content"
+];
+---
+
+<section class="section py-32 bg-white relative overflow-hidden">
+  <div class="container relative z-10">
+    <div class="text-center mb-16">
+      <h2 class="text-5xl md:text-6xl font-bold mb-6 animate-fade-in">
+        Who We <span class="text-accent">Work Best With</span>
+      </h2>
+      <p class="text-xl text-muted-foreground max-w-3xl mx-auto animate-fade-in" style="animation-delay: 0.1s">
+        We're selective about our partnerships. Here's who gets the best results.
+      </p>
+    </div>
+    
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+      {idealClients.map((client, index) => (
+        <div class="animate-fade-in" style={`animation-delay: ${index * 0.1}s`}>
+          <div class="bg-gradient-to-br from-primary to-primary-darker text-white rounded-2xl p-6 h-full hover:scale-105 transition-transform duration-300">
+            <div class="text-4xl mb-4">{client.icon}</div>
+            <h3 class="text-xl font-bold mb-3">{client.title}</h3>
+            <p class="text-white/80">{client.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+    
+    <div class="max-w-4xl mx-auto">
+      <div class="bg-gray-50 rounded-2xl p-8 animate-fade-in" style="animation-delay: 0.5s">
+        <h3 class="text-2xl font-bold mb-6 text-primary text-center">We're NOT a Good Fit If You're...</h3>
+        <div class="grid md:grid-cols-2 gap-4">
+          {notForYou.map((item) => (
+            <div class="flex items-center gap-3">
+              <span class="text-red-500 text-xl">✗</span>
+              <span class="text-muted-foreground">{item}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+    
+    <div class="text-center mt-12 animate-fade-in" style="animation-delay: 0.6s">
+      <p class="text-xl font-semibold text-primary mb-6">
+        Sound like you? Let's talk.
+      </p>
+      <a href="#contact" class="btn btn-primary btn-xl premium-glow">
+        See If We're a Match
+        <span class="ml-2">→</span>
+      </a>
+    </div>
+  </div>
+</section>

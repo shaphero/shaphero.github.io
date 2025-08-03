@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import HeroSection from '../components/HeroSection-Complete.astro';
+import ProblemsSection from '../components/ProblemsSection.astro';
+import ApproachSection from '../components/ApproachSection.astro';
+import ClientLogos from '../components/ClientLogos.astro';
+import SEOTruthSection from '../components/SEOTruthSection.astro';
+import WhoWeWorkWith from '../components/WhoWeWorkWith.astro';
+import ResultsSection from '../components/ResultsSection.astro';
+import TestimonialsSection from '../components/TestimonialsSection.astro';
+import AboutSection from '../components/AboutSection.astro';
+import CTASection from '../components/CTASection.astro';
+
+const title = "Dave Shapiro SEO Expert | 509% Traffic Growth | Proven SEO Strategy";
+const description = "Get measurable SEO results fast. Dave Shapiro helped SoFi grow 509% traffic & 22K+ customers, Adobe 25K+ downloads. Stop wasting money on ineffective SEO. Book free strategy call.";
+---
+
+<BaseLayout title={title} description={description}>
+  <Header />
+  <main class="pt-20">
+    <HeroSection />
+    <ProblemsSection />
+    <ApproachSection />
+    <ClientLogos />
+    <SEOTruthSection />
+    <WhoWeWorkWith />
+    <ResultsSection />
+    <TestimonialsSection />
+    <AboutSection />
+    <CTASection />
+  </main>
+</BaseLayout>

@@ -1,0 +1,68 @@
+---
+const testimonials = [
+  {
+    rating: 5,
+    text: "You're the best SEO I've worked with and with the insights you taught me I've been able to leverage it countless times as I've moved beyond just SEO in my own career. Just wanted to thank you.",
+    author: "Sr. Director UX and SEO from B2B SaaS company"
+  },
+  {
+    rating: 5,
+    text: "The energy and strategic thinking you brought to the team, and your ability to \"see around corners\" stood out from anything I've seen during my tenure.",
+    author: "VP SEO from Fortune 10 Bank"
+  },
+  {
+    rating: 5,
+    text: "David is by far the most talented SEO I've ever worked with. You can't put a price on his worlds of experiences in everything SEO. He's always straight to business knowing what to say to lead a conversation and get things done.",
+    author: "B2C Founder"
+  }
+];
+---
+
+<section class="section py-32 bg-white relative overflow-hidden">
+  <div class="container relative z-10">
+    <div class="text-center mb-16">
+      <h2 class="text-5xl md:text-6xl font-bold mb-6 animate-fade-in">
+        Our clients <span class="text-accent">love</span> how we work
+      </h2>
+      <p class="text-xl text-muted-foreground max-w-3xl mx-auto animate-fade-in" style="animation-delay: 0.1s">
+        Our best source of new clients is referrals from all the satisfied clients who have experienced working with us.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      {testimonials.map((testimonial, index) => (
+        <div class="animate-fade-in" style={`animation-delay: ${index * 0.1}s`}>
+          <div class="bg-background rounded-2xl border border-border shadow-lg hover:shadow-xl transition-all duration-300 p-8 h-full flex flex-col">
+            <div class="flex mb-4">
+              {[...Array(testimonial.rating)].map((_, i) => (
+                <span class="text-yellow-400 text-2xl">★</span>
+              ))}
+            </div>
+            <p class="text-muted-foreground leading-relaxed mb-6 italic flex-1">
+              "{testimonial.text}"
+            </p>
+            <p class="text-primary font-semibold">
+              {testimonial.author}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="text-center mt-16 animate-fade-in" style="animation-delay: 0.5s">
+      <div class="bg-gradient-to-br from-primary to-primary-darker text-white rounded-2xl p-8 max-w-3xl mx-auto">
+        <h3 class="text-2xl font-bold mb-4">Ready to Join Our Success Stories?</h3>
+        <p class="text-white/90 mb-6">
+          Let's discuss how we can deliver the same results for your business.
+        </p>
+        <a href="#contact" class="btn bg-white text-primary hover:bg-gray-100 btn-xl premium-glow">
+          Get Your Free Strategy Call
+          <span class="ml-2">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Background Pattern -->
+  <div class="absolute inset-0 grid-pattern opacity-5"></div>
+</section>

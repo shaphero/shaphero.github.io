@@ -1,0 +1,19 @@
+{
+  "name": "daveshap-seo",
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^4.16.18"
+  },
+  "devDependencies": {
+    "@astrojs/sitemap": "^3.2.1",
+    "sharp": "^0.33.5"
+  }
+}

@@ -1,0 +1,83 @@
+---
+import { Image } from 'astro:assets';
+---
+
+<section class="section py-32 bg-background relative overflow-hidden">
+  <div class="container relative z-10">
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+      <div class="order-2 md:order-1">
+        <h3 class="text-xl text-accent font-medium mb-4 animate-fade-in">
+          Why trust me?
+        </h3>
+        <h2 class="text-5xl md:text-6xl font-bold text-foreground mb-8 animate-fade-in" style="animation-delay: 0.1s">
+          Hello, I'm Dave!
+        </h2>
+        <div class="space-y-6 text-xl text-foreground leading-relaxed">
+          <p class="animate-fade-in" style="animation-delay: 0.2s">
+            With 16 years of experience driving organic growth for brands like Bank of America, Toyota, Western Union, SoFi, and Adobe, I know what it takes to dominate search results. I've done it for global enterprises, I can do it for your business too … no matter the size.
+          </p>
+          <p class="animate-fade-in" style="animation-delay: 0.3s">
+            I built the SEO, Content, and Digital PR teams at Neil Patel Digital, helping it become one of the fastest growing agencies in the world.
+          </p>
+          <p class="animate-fade-in" style="animation-delay: 0.4s">
+            I've worked with the biggest brands in the world and know what it takes to scale SEO both in-house and agency.
+          </p>
+          <p class="font-semibold text-primary text-2xl animate-fade-in" style="animation-delay: 0.5s">
+            And I'd like to work with you too!
+          </p>
+          <p class="animate-fade-in" style="animation-delay: 0.6s">
+            Click the link below and let's chat!
+          </p>
+        </div>
+        <div class="mt-8 animate-fade-in" style="animation-delay: 0.7s">
+          <a href="mailto:dave@daveshap.com?subject=Let's%20work%20together%20on%20SEO" class="btn btn-primary btn-xl premium-glow">
+            Let's Work Together
+            <span class="ml-2">→</span>
+          </a>
+        </div>
+      </div>
+      <div class="order-1 md:order-2 flex justify-center animate-fade-in" style="animation-delay: 0.3s">
+        <div class="relative">
+          <div class="w-96 h-96 rounded-3xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-300">
+            <img
+              src="/images/dave-rooftop.webp"
+              alt="Dave Shapiro, SEO Expert - Professional photo on rooftop terrace"
+              class="w-full h-full object-cover"
+              loading="lazy"
+              width="384"
+              height="384"
+            />
+          </div>
+          <!-- Decorative Element -->
+          <div class="absolute -bottom-4 -right-4 w-64 h-64 bg-gradient-to-br from-accent/20 to-primary/20 rounded-3xl blur-2xl -z-10"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Additional Trust Indicators -->
+    <div class="mt-24 text-center">
+      <h3 class="text-3xl font-bold mb-12 animate-fade-in">Proven Track Record</h3>
+      <div class="grid md:grid-cols-4 gap-8">
+        <div class="animate-fade-in" style="animation-delay: 0.1s">
+          <div class="text-5xl font-bold text-primary mb-2">16+</div>
+          <p class="text-muted-foreground">Years of Experience</p>
+        </div>
+        <div class="animate-fade-in" style="animation-delay: 0.2s">
+          <div class="text-5xl font-bold text-primary mb-2">500+</div>
+          <p class="text-muted-foreground">Successful Projects</p>
+        </div>
+        <div class="animate-fade-in" style="animation-delay: 0.3s">
+          <div class="text-5xl font-bold text-primary mb-2">$100M+</div>
+          <p class="text-muted-foreground">Revenue Generated</p>
+        </div>
+        <div class="animate-fade-in" style="animation-delay: 0.4s">
+          <div class="text-5xl font-bold text-primary mb-2">50+</div>
+          <p class="text-muted-foreground">Enterprise Clients</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Background Pattern -->
+  <div class="absolute inset-0 grid-pattern opacity-5"></div>
+</section>

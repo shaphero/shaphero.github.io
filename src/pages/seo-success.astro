@@ -1,0 +1,312 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import OptimizedImage from '../components/OptimizedImage.astro';
+
+const title = "SEO Success Stories | Dave Shapiro - Proven Results & Case Studies";
+const description = "See how Dave Shapiro helped SoFi achieve 509% traffic growth and generated 25K+ downloads for Adobe. Real SEO results with proven strategies.";
+
+const successStories = [
+  {
+    company: "SoFi",
+    logo: "/assets/sofi-logo.svg",
+    results: [
+      { metric: "509%", label: "Organic Traffic Growth" },
+      { metric: "22K+", label: "New Customers" },
+      { metric: "$2.7M", label: "Revenue Generated" }
+    ],
+    challenge: "SoFi needed to break into competitive financial keywords dominated by established banks.",
+    solution: "Developed a content strategy targeting underserved long-tail keywords and built topical authority through comprehensive guides.",
+    testimonial: "Dave's strategic approach to SEO transformed our organic presence. The results speak for themselves.",
+    image: "/optimized/sofi-results.jpg"
+  },
+  {
+    company: "Adobe",
+    logo: null,
+    text: "Adobe",
+    results: [
+      { metric: "25K+", label: "Software Downloads" },
+      { metric: "156%", label: "Keyword Rankings Increase" },
+      { metric: "3.2x", label: "ROI on SEO Investment" }
+    ],
+    challenge: "Adobe's creative tools were losing visibility to newer, agile competitors in search results.",
+    solution: "Implemented a technical SEO overhaul and created targeted landing pages for each tool, optimizing for user intent.",
+    testimonial: "The SEO strategy Dave implemented continues to drive results years later. Exceptional work.",
+    image: "/optimized/adobe-results.jpg"
+  }
+];
+---
+
+<BaseLayout title={title} description={description}>
+  <Header />
+  
+  <main>
+    <!-- Hero Section -->
+    <section class="hero hero-alt">
+      <div class="container">
+        <div class="hero-content">
+          <h1 class="fade-in">Real Results. Real Revenue.</h1>
+          <p class="hero-subtitle fade-in">
+            Don't just take my word for it. See the transformative results 
+            I've delivered for industry-leading brands.
+          </p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Success Stories -->
+    <section class="section">
+      <div class="container">
+        {successStories.map((story, index) => (
+          <div class={`success-story ${index % 2 === 1 ? 'reverse' : ''}`}>
+            <div class="story-content fade-in">
+              <div class="company-header">
+                {story.logo ? (
+                  <img src={story.logo} alt={`${story.company} logo`} class="company-logo" />
+                ) : (
+                  <h2 class="company-text">{story.text}</h2>
+                )}
+              </div>
+              
+              <div class="results-grid">
+                {story.results.map(result => (
+                  <div class="result-item">
+                    <div class="result-metric">{result.metric}</div>
+                    <div class="result-label">{result.label}</div>
+                  </div>
+                ))}
+              </div>
+              
+              <div class="story-details">
+                <div class="detail-section">
+                  <h3>The Challenge</h3>
+                  <p>{story.challenge}</p>
+                </div>
+                
+                <div class="detail-section">
+                  <h3>The Solution</h3>
+                  <p>{story.solution}</p>
+                </div>
+                
+                <blockquote class="testimonial">
+                  <p>"{story.testimonial}"</p>
+                </blockquote>
+              </div>
+            </div>
+            
+            <div class="story-image fade-in">
+              <div class="image-wrapper">
+                <div class="image-placeholder">
+                  <div class="chart-visualization">
+                    <div class="chart-bars">
+                      <div class="bar bar-1"></div>
+                      <div class="bar bar-2"></div>
+                      <div class="bar bar-3"></div>
+                      <div class="bar bar-4"></div>
+                    </div>
+                    <div class="growth-arrow">↗</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="section cta-section">
+      <div class="container">
+        <div class="cta-content fade-in">
+          <h2>Ready to Be Our Next Success Story?</h2>
+          <p>Join the ranks of companies that have transformed their SEO performance</p>
+          <a href="mailto:dave@daveshap.com?subject=I%20want%20results%20like%20SoFi%20and%20Adobe" class="btn btn-primary btn-xl">
+            Start Your Success Story
+            <span class="arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .hero-alt {
+    min-height: 60vh;
+    padding-top: 120px;
+  }
+  
+  .success-story {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3xl);
+    margin-bottom: var(--space-3xl);
+    align-items: center;
+  }
+  
+  .success-story.reverse {
+    direction: rtl;
+  }
+  
+  .success-story.reverse > * {
+    direction: ltr;
+  }
+  
+  .company-header {
+    margin-bottom: var(--space-xl);
+  }
+  
+  .company-logo {
+    height: 60px;
+    width: auto;
+  }
+  
+  .company-text {
+    font-size: 3rem;
+    color: var(--blue);
+  }
+  
+  .results-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-md);
+    margin-bottom: var(--space-2xl);
+  }
+  
+  .result-item {
+    text-align: center;
+    padding: var(--space-md);
+    background: var(--gray-light);
+    border-radius: 8px;
+  }
+  
+  .result-metric {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--blue);
+    line-height: 1;
+  }
+  
+  .result-label {
+    font-size: 0.875rem;
+    color: var(--gray);
+    margin-top: var(--space-xs);
+  }
+  
+  .story-details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+  
+  .detail-section h3 {
+    font-size: 1.25rem;
+    color: var(--blue);
+    margin-bottom: var(--space-sm);
+  }
+  
+  .detail-section p {
+    color: var(--gray);
+    line-height: 1.6;
+  }
+  
+  .testimonial {
+    background: var(--gray-light);
+    border-left: 4px solid var(--blue-light);
+    padding: var(--space-md) var(--space-lg);
+    margin: var(--space-lg) 0;
+    font-style: italic;
+    color: var(--blue);
+  }
+  
+  .image-wrapper {
+    position: relative;
+    height: 100%;
+    min-height: 400px;
+  }
+  
+  .image-placeholder {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  
+  .chart-visualization {
+    position: relative;
+    width: 80%;
+    height: 60%;
+  }
+  
+  .chart-bars {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    height: 100%;
+  }
+  
+  .bar {
+    width: 20%;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 4px 4px 0 0;
+    animation: growBar 1s ease-out forwards;
+    animation-delay: calc(var(--i) * 0.1s);
+  }
+  
+  .bar-1 { height: 40%; --i: 0; }
+  .bar-2 { height: 60%; --i: 1; }
+  .bar-3 { height: 80%; --i: 2; }
+  .bar-4 { height: 100%; --i: 3; }
+  
+  .growth-arrow {
+    position: absolute;
+    top: 20%;
+    right: 20%;
+    font-size: 4rem;
+    color: var(--blue-light);
+    font-weight: 700;
+    animation: slideUpRight 0.6s ease-out forwards;
+    animation-delay: 0.5s;
+    opacity: 0;
+  }
+  
+  @keyframes growBar {
+    from { transform: scaleY(0); }
+    to { transform: scaleY(1); }
+  }
+  
+  @keyframes slideUpRight {
+    from { 
+      opacity: 0;
+      transform: translate(-20px, 20px);
+    }
+    to { 
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .success-story,
+    .success-story.reverse {
+      grid-template-columns: 1fr;
+      direction: ltr;
+    }
+    
+    .results-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .image-wrapper {
+      min-height: 300px;
+    }
+  }
+</style>
