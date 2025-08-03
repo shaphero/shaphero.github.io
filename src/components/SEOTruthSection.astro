@@ -1,24 +1,26 @@
 ---
+import Icon from './Icon.astro';
+
 const myths = [
   {
     myth: "More content = Better rankings",
     truth: "Quality and relevance beat quantity every time. One great page outperforms 100 mediocre ones.",
-    icon: "📚"
+    iconName: "clipboard"
   },
   {
     myth: "Technical SEO is everything", 
     truth: "Technical SEO is table stakes. Real growth comes from understanding user intent and delivering value.",
-    icon: "⚙️"
+    iconName: "cog"
   },
   {
     myth: "Links are all that matter",
     truth: "Links help, but they're just one signal. User experience and content quality drive sustainable rankings.",
-    icon: "🔗"
+    iconName: "puzzle"
   },
   {
     myth: "SEO is a one-time project",
     truth: "SEO is an ongoing process. Markets change, competitors evolve, and algorithms update constantly.",
-    icon: "📈"
+    iconName: "chart-growth"
   }
 ];
 ---
@@ -39,14 +41,20 @@ const myths = [
         <div class="animate-fade-in" style={`animation-delay: ${index * 0.1}s`}>
           <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 group">
             <div class="flex items-start gap-4 mb-4">
-              <span class="text-4xl">{item.icon}</span>
+              <div class="w-12 h-12 bg-gradient-to-br from-primary to-primary-darker rounded-full flex items-center justify-center flex-shrink-0">
+                <Icon name={item.iconName} class="text-white" size="md" />
+              </div>
               <div class="flex-1">
                 <h3 class="text-xl font-bold text-red-600 mb-2 flex items-center gap-2">
-                  <span class="text-2xl">❌</span> 
+                  <div class="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Icon name="shield-x" class="text-red-600" size="sm" />
+                  </div>
                   Myth: {item.myth}
                 </h3>
                 <p class="text-lg text-primary font-semibold flex items-start gap-2">
-                  <span class="text-2xl text-green-600 flex-shrink-0">✓</span>
+                  <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Icon name="check" class="text-green-600" size="sm" />
+                  </div>
                   <span>{item.truth}</span>
                 </p>
               </div>
