@@ -1,4 +1,6 @@
 ---
+import Icon from './Icon.astro';
+
 const benefits = [
   "Identify the top 3 areas where you can see immediate improvement.",
   "Provide a step-by-step approach tailored to your goals and resources.", 
@@ -16,7 +18,7 @@ const benefits = [
   <div class="max-w-6xl mx-auto text-center relative z-10">
     <div class="mb-12">
       <span class="inline-block px-6 py-3 bg-accent/20 text-accent rounded-full text-lg font-bold mb-8 border border-accent/30">
-        🎯 Ready to Transform Your SEO?
+        <Icon name="target" class="inline-block mr-2" size="sm" />Ready to Transform Your SEO?
       </span>
       
       <h2 class="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-8 leading-tight">
@@ -53,13 +55,13 @@ const benefits = [
     <div class="space-y-6">
       <a href="mailto:dave@daveshap.com?subject=I%20want%20to%20start%20my%20SEO%20strategy%20now" 
          class="btn-accent btn-xl group min-w-[300px] bg-accent hover:bg-accent/90 text-white shadow-glow hover:shadow-premium inline-flex items-center">
-        <span class="mr-3">🚀</span>
+        <Icon name="rocket" class="mr-3" size="sm" />
         START MY SEO STRATEGY NOW
-        <span class="ml-3 group-hover:translate-x-1 transition-transform">→</span>
+        <Icon name="arrow-right" class="ml-3 group-hover:translate-x-1 transition-transform" size="sm" />
       </a>
       
       <div class="text-white/60 text-sm">
-        ⚡ No commitment • 🎯 100% personalized • 📈 Instant value
+        <Icon name="sparkles" class="inline-block mr-1" size="sm" />No commitment • <Icon name="target" class="inline-block mr-1 ml-1" size="sm" />100% personalized • <Icon name="chart-growth" class="inline-block mr-1 ml-1" size="sm" />Instant value
       </div>
     </div>
   </div>
