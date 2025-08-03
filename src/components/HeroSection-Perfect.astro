@@ -1,4 +1,5 @@
 ---
+import Icon from './Icon.astro';
 ---
 
 <section class="hero-section relative w-full bg-gradient-hero overflow-x-hidden min-h-screen flex items-center noise-bg">
@@ -43,7 +44,8 @@
     <div class="mb-8 animate-fade-in">
       <span class="glass-badge-accent inline-flex items-center gap-2 shadow-glow">
         <span class="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
-        🚀 Trusted by Fortune 500 Companies
+        <Icon name="rocket" class="text-white" size="sm" />
+        Trusted by Fortune 500 Companies
       </span>
     </div>
     
@@ -67,14 +69,14 @@
     <div class="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16 animate-fade-in" style="animation-delay: 0.4s">
       <a href="mailto:dave@daveshap.com?subject=I%20want%20to%20start%20my%20SEO%20strategy%20with%20you" 
          class="btn-primary btn-xl group min-w-[280px] magnetic">
-        <span class="mr-3 text-xl">🚀</span>
+        <Icon name="rocket" class="mr-3" size="sm" />
         START MY SEO STRATEGY
-        <span class="ml-3 group-hover:translate-x-2 transition-transform text-xl">→</span>
+        <Icon name="arrow-right" class="ml-3 group-hover:translate-x-2 transition-transform" size="sm" />
       </a>
       
       <a href="mailto:dave@daveshap.com?subject=Free%20SEO%20consultation%20request" 
          class="btn-ghost btn-xl min-w-[280px] magnetic">
-        <span class="mr-3 text-xl">✉️</span>
+        <Icon name="mail" class="mr-3" size="sm" />
         EMAIL FOR FREE CONSULTATION
       </a>
     </div>
@@ -83,15 +85,15 @@
     <div class="flex flex-wrap justify-center gap-8 text-sm text-white/80 animate-fade-in" style="animation-delay: 0.6s">
       <div class="flex items-center gap-2 glass px-4 py-2 rounded-full">
         <span class="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
-        ⚡ Free 30-minute consultation
+        <Icon name="sparkles" class="inline-block mr-1" size="sm" />Free 30-minute consultation
       </div>
       <div class="flex items-center gap-2 glass px-4 py-2 rounded-full">
         <span class="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
-        🎯 Custom strategy
+        <Icon name="target" class="inline-block mr-1" size="sm" />Custom strategy
       </div>
       <div class="flex items-center gap-2 glass px-4 py-2 rounded-full">
         <span class="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
-        📈 Proven growth tactics
+        <Icon name="chart-growth" class="inline-block mr-1" size="sm" />Proven growth tactics
       </div>
     </div>
   </div>
