@@ -1,0 +1,375 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import Hero from '../components/common/Hero.astro';
+import Section from '../components/common/Section.astro';
+import ContentGrid from '../components/common/ContentGrid.astro';
+import CallToAction from '../components/common/CallToAction.astro';
+
+const strategyServices = [
+  {
+    icon: "🔬",
+    title: "Synthetic Market Research",
+    description: "Cutting-edge AI-powered research that delivers insights nearly as accurate as traditional methods at 10% of the cost and time."
+  },
+  {
+    icon: "🎯",
+    title: "STP Framework Implementation",
+    description: "Proper segmentation, targeting, and positioning based on Ritson's proven methodology - but enhanced with AI capabilities."
+  },
+  {
+    icon: "📊",
+    title: "Share of Voice Measurement",
+    description: "Track your market presence using brand search as a proxy - a leading indicator of market share that costs nothing to measure."
+  },
+  {
+    icon: "🧠",
+    title: "Evidence-Based Strategy",
+    description: "Every recommendation backed by data, not opinions. Inspired by Sharp, Binet & Field, and Ritson's scientific approach."
+  }
+];
+
+const syntheticResearchBenefits = [
+  {
+    title: "95% Accuracy",
+    description: "Studies show synthetic data can achieve near-parity with traditional research when properly implemented"
+  },
+  {
+    title: "10x Faster",
+    description: "Get insights in days, not months. Test multiple hypotheses simultaneously without budget constraints"
+  },
+  {
+    title: "Infinitely Scalable",
+    description: "Test across unlimited segments, markets, and scenarios without incremental costs"
+  }
+];
+
+const methodologies = [
+  {
+    title: "Market Segmentation Analysis",
+    description: "Identify distinct customer groups using behavioral, psychographic, and demographic data - enhanced with AI pattern recognition"
+  },
+  {
+    title: "Competitive Positioning Maps",
+    description: "Understand your competitive landscape and find white space opportunities using multi-dimensional analysis"
+  },
+  {
+    title: "Brand Health Tracking",
+    description: "Monitor brand awareness, consideration, and preference using search data as leading indicators"
+  },
+  {
+    title: "Customer Journey Mapping",
+    description: "Map the complete path to purchase with AI-assisted touchpoint analysis and attribution modeling"
+  },
+  {
+    title: "Pricing Strategy Optimization",
+    description: "Test price elasticity and willingness-to-pay across segments without risking real market tests"
+  },
+  {
+    title: "Message Testing at Scale",
+    description: "Test hundreds of positioning statements and creative concepts before investing in production"
+  }
+];
+---
+
+<PageLayout 
+  title="Marketing Strategy Services - Evidence-Based Growth Planning"
+  description="Modern marketing strategy combining Ritson's proven frameworks with cutting-edge synthetic research. Get better insights faster using AI-powered market research and Share of Voice tracking."
+  showHeader={true}
+  showCTA={false}
+>
+  <!-- Hero Section -->
+  <Hero 
+    title="Marketing strategy that's <span class='text-accent'>actually based on evidence</span>"
+    subtitle="Combining proven frameworks with cutting-edge synthetic research to deliver strategies that work"
+    badge="Strategy Consulting"
+    ctaPrimary={{
+      text: "Let's Build Your Strategy",
+      subject: "Marketing strategy consultation"
+    }}
+    ctaSecondary={{
+      text: "See How It Works",
+      href: "#synthetic-research"
+    }}
+    features={["Ritson-trained methodology", "AI-powered insights", "Evidence-based decisions"]}
+    background="gradient"
+  />
+
+  <!-- Core Services -->
+  <Section background="white" padding="xl">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-4">
+        Modern Strategy for the <span class="text-accent">AI Era</span>
+      </h2>
+      <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+        The same rigorous approach taught by Mark Ritson, enhanced with AI capabilities 
+        that make proper strategy accessible to every business
+      </p>
+    </div>
+    
+    <ContentGrid 
+      items={strategyServices}
+      columns={2}
+      cardStyle="glass"
+    />
+  </Section>
+
+  <!-- Synthetic Research Section -->
+  <Section id="synthetic-research" background="cream" padding="xl">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="inline-block px-6 py-3 bg-accent/20 text-accent rounded-full text-lg font-bold mb-8 border border-accent/30">
+          🚀 The Future of Market Research
+        </span>
+        <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-8">
+          Synthetic Market Research: <span class="text-accent">Fast, Accurate, Affordable</span>
+        </h2>
+        <p class="text-xl text-muted-foreground">
+          Recent studies show AI-generated synthetic data can match traditional research accuracy 
+          while delivering insights 10x faster at a fraction of the cost
+        </p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-8 shadow-xl mb-12">
+        <blockquote class="text-lg text-foreground italic mb-4">
+          "Synthetic data is reaching a tipping point where it's becoming indistinguishable from 
+          real consumer research for most strategic decisions. The speed and cost advantages 
+          make it a no-brainer for smart marketers."
+        </blockquote>
+        <p class="text-muted-foreground">
+          — Industry research on synthetic data accuracy (Marketing Week, 2024)
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        {syntheticResearchBenefits.map((benefit) => (
+          <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+            <h3 class="text-2xl font-bold text-primary mb-2">{benefit.title}</h3>
+            <p class="text-muted-foreground">{benefit.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </Section>
+
+  <!-- STP Framework Section -->
+  <Section background="white" padding="xl">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-4">
+          Proper <span class="text-accent">STP Implementation</span>
+        </h2>
+        <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+          Segmentation, Targeting, and Positioning done right - the way Ritson teaches it, 
+          but supercharged with modern data and AI tools
+        </p>
+      </div>
+
+      <div class="space-y-12">
+        <!-- Segmentation -->
+        <div class="bg-gradient-to-r from-primary/5 to-accent/5 rounded-2xl p-8 border border-primary/20">
+          <div class="flex items-start gap-6">
+            <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center text-white text-2xl font-bold flex-shrink-0">
+              S
+            </div>
+            <div>
+              <h3 class="text-2xl font-bold text-foreground mb-4">Segmentation That Actually Works</h3>
+              <p class="text-lg text-muted-foreground mb-4">
+                Move beyond basic demographics to behavioral and psychographic segments that predict purchase behavior
+              </p>
+              <ul class="space-y-2">
+                <li class="flex items-start gap-3">
+                  <span class="text-accent">✓</span>
+                  <span class="text-muted-foreground">AI-powered cluster analysis across thousands of variables</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-accent">✓</span>
+                  <span class="text-muted-foreground">Segments validated against actual purchase data</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-accent">✓</span>
+                  <span class="text-muted-foreground">Dynamic segments that evolve with market changes</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Targeting -->
+        <div class="bg-gradient-to-r from-primary/5 to-accent/5 rounded-2xl p-8 border border-primary/20">
+          <div class="flex items-start gap-6">
+            <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center text-white text-2xl font-bold flex-shrink-0">
+              T
+            </div>
+            <div>
+              <h3 class="text-2xl font-bold text-foreground mb-4">Targeting Based on Profit Potential</h3>
+              <p class="text-lg text-muted-foreground mb-4">
+                Select segments based on attractiveness and your ability to win - not just size
+              </p>
+              <ul class="space-y-2">
+                <li class="flex items-start gap-3">
+                  <span class="text-accent">✓</span>
+                  <span class="text-muted-foreground">Segment value modeling using synthetic data</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-accent">✓</span>
+                  <span class="text-muted-foreground">Competitive advantage assessment for each segment</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-accent">✓</span>
+                  <span class="text-muted-foreground">Resource allocation optimization across targets</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Positioning -->
+        <div class="bg-gradient-to-r from-primary/5 to-accent/5 rounded-2xl p-8 border border-primary/20">
+          <div class="flex items-start gap-6">
+            <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center text-white text-2xl font-bold flex-shrink-0">
+              P
+            </div>
+            <div>
+              <h3 class="text-2xl font-bold text-foreground mb-4">Positioning That Sticks</h3>
+              <p class="text-lg text-muted-foreground mb-4">
+                Find and own a distinct position in your customers' minds - tested before you invest
+              </p>
+              <ul class="space-y-2">
+                <li class="flex items-start gap-3">
+                  <span class="text-accent">✓</span>
+                  <span class="text-muted-foreground">Perceptual mapping using real market data</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-accent">✓</span>
+                  <span class="text-muted-foreground">Message testing at scale with synthetic audiences</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-accent">✓</span>
+                  <span class="text-muted-foreground">Competitive differentiation analysis</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Share of Voice Section -->
+  <Section background="cream" padding="xl">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-8">
+        Track Market Share with <span class="text-accent">Share of Search</span>
+      </h2>
+      <p class="text-xl text-muted-foreground mb-12">
+        Brand search volume is a leading indicator of market share - and it's free to measure
+      </p>
+
+      <div class="bg-white rounded-2xl p-8 shadow-xl mb-12">
+        <h3 class="text-2xl font-bold text-foreground mb-6">How Share of Search Works</h3>
+        <div class="grid md:grid-cols-3 gap-6 text-left">
+          <div>
+            <div class="text-4xl mb-4">1️⃣</div>
+            <h4 class="font-bold text-foreground mb-2">Measure Search Volume</h4>
+            <p class="text-muted-foreground">Track branded search queries for you and competitors</p>
+          </div>
+          <div>
+            <div class="text-4xl mb-4">2️⃣</div>
+            <h4 class="font-bold text-foreground mb-2">Calculate Share</h4>
+            <p class="text-muted-foreground">Your searches ÷ total category searches = share of search</p>
+          </div>
+          <div>
+            <div class="text-4xl mb-4">3️⃣</div>
+            <h4 class="font-bold text-foreground mb-2">Predict Market Share</h4>
+            <p class="text-muted-foreground">Share of search correlates with future market share</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl p-8 border border-primary/20">
+        <p class="text-lg text-foreground italic">
+          "Share of search is the best free leading indicator of market share changes. 
+          It typically predicts market movements 6-12 months in advance."
+        </p>
+        <p class="text-muted-foreground mt-4">
+          — Les Binet, Share of Search methodology
+        </p>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Methodologies Grid -->
+  <Section background="white" padding="xl">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-4">
+        Complete <span class="text-accent">Strategic Toolkit</span>
+      </h2>
+      <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+        Every tool and framework you need for modern marketing strategy
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+      {methodologies.map((method, index) => (
+        <div 
+          class="bg-card rounded-lg border border-border p-6 hover:shadow-lg transition-all duration-300"
+          style={`animation-delay: ${index * 0.1}s`}
+        >
+          <h3 class="text-xl font-bold text-foreground mb-3">{method.title}</h3>
+          <p class="text-muted-foreground">{method.description}</p>
+        </div>
+      ))}
+    </div>
+  </Section>
+
+  <!-- Results Section -->
+  <Section background="cream" padding="xl">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-12">
+        Strategy That <span class="text-accent">Delivers Results</span>
+      </h2>
+
+      <div class="grid md:grid-cols-2 gap-8 mb-12">
+        <div class="bg-white rounded-2xl p-8 shadow-lg">
+          <div class="text-5xl font-black text-primary mb-4">87%</div>
+          <p class="text-muted-foreground">Average improvement in targeting efficiency using proper segmentation</p>
+        </div>
+        <div class="bg-white rounded-2xl p-8 shadow-lg">
+          <div class="text-5xl font-black text-primary mb-4">3.2x</div>
+          <p class="text-muted-foreground">Average ROI improvement from evidence-based positioning</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl p-12 shadow-xl">
+        <div class="flex justify-center mb-6">
+          {[1,2,3,4,5].map(() => (
+            <span class="text-yellow-400 text-3xl">★</span>
+          ))}
+        </div>
+        <p class="text-xl text-foreground leading-relaxed mb-6 italic">
+          "Dave brought a level of strategic rigor we'd never seen. The synthetic research 
+          gave us insights we couldn't have afforded traditionally, and the STP framework 
+          transformed how we think about our market. Revenue up 40% in 6 months."
+        </p>
+        <p class="text-lg text-primary font-semibold">
+          CMO, B2B SaaS Company
+        </p>
+      </div>
+    </div>
+  </Section>
+
+  <!-- CTA Section -->
+  <CallToAction 
+    title="Ready for Strategy That Works?"
+    subtitle="Get a <span class='text-accent'>custom strategy</span> based on evidence, not opinions"
+    benefits={[
+      "Synthetic market research that delivers real insights at 10% of traditional cost",
+      "Proper STP implementation following Ritson's proven methodology",
+      "Share of Search tracking to measure your market impact in real-time"
+    ]}
+    buttonText="Let's Build Your Strategy"
+    buttonSubject="I need help with marketing strategy"
+    features={["Free consultation", "Evidence-based approach", "Proven frameworks"]}
+    style="gradient"
+  />
+</PageLayout>
