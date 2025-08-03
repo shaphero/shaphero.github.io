@@ -1,0 +1,276 @@
+/* Premium Effects System - Matching Original React Site */
+
+/* Advanced Animation System */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-10px) rotate(2deg); }
+  66% { transform: translateY(5px) rotate(-1deg); }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.2; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(1.05); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Premium Animation Classes */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-gradient-shift {
+  animation: gradient-shift 8s ease infinite;
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+/* Premium Button System */
+.btn-premium {
+  position: relative;
+  background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-light)) 100%);
+  border: 1px solid hsl(var(--primary-light) / 0.3);
+  color: white;
+  font-weight: 700;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.btn-premium::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.btn-premium:hover::before {
+  opacity: 1;
+}
+
+.btn-premium.premium-glow {
+  box-shadow: 
+    0 4px 20px hsl(var(--primary) / 0.25),
+    0 8px 40px hsl(var(--primary) / 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.btn-premium:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 8px 30px hsl(var(--primary) / 0.35),
+    0 16px 60px hsl(var(--primary) / 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.btn-premium.magnetic {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-premium.magnetic:hover {
+  transform: translateY(-4px) scale(1.02);
+}
+
+/* Glass Badge System */
+.glass-badge {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.02) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.shadow-glow {
+  box-shadow: 
+    0 0 20px hsl(var(--accent) / 0.3),
+    0 0 40px hsl(var(--accent) / 0.1);
+}
+
+/* Text Effects */
+.story-link {
+  position: relative;
+  color: inherit;
+  text-decoration: none;
+}
+
+.story-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, hsl(var(--accent)) 0%, hsl(var(--primary-light)) 100%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.story-link:hover::after {
+  transform: scaleX(1);
+}
+
+/* Grid Pattern */
+.grid-pattern {
+  background-image: 
+    linear-gradient(hsl(var(--primary) / 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(var(--primary) / 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Noise Background */
+.noise-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+/* Enhanced Shadow System */
+.shadow-elegant {
+  box-shadow: 
+    0 4px 6px hsl(var(--primary) / 0.05),
+    0 10px 20px hsl(var(--primary) / 0.1),
+    0 20px 40px hsl(var(--primary) / 0.05);
+}
+
+.shadow-premium {
+  box-shadow: 
+    0 8px 30px hsl(var(--primary) / 0.12),
+    0 20px 60px hsl(var(--primary) / 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Complex Gradient Backgrounds */
+.bg-gradient-hero {
+  background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-darker)) 100%);
+}
+
+.bg-gradient-section {
+  background: linear-gradient(135deg, hsl(var(--background)) 0%, #fdf8f0 100%);
+}
+
+.bg-gradient-cta {
+  background: linear-gradient(135deg, hsl(var(--background)) 0%, #fdf8f0 100%);
+}
+
+/* Responsive Typography Enhancement */
+.text-hero {
+  font-size: clamp(2.5rem, 8vw, 6rem);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.text-hero-xl {
+  font-size: clamp(3rem, 10vw, 8rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+/* Floating Orb Enhancements */
+.floating-orb {
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.6;
+  animation: float 6s ease-in-out infinite;
+}
+
+.floating-orb-1 {
+  background: linear-gradient(135deg, hsl(var(--primary) / 0.2) 0%, hsl(var(--accent) / 0.2) 100%);
+  animation-delay: 0s;
+}
+
+.floating-orb-2 {
+  background: linear-gradient(135deg, hsl(var(--accent) / 0.15) 0%, hsl(var(--primary-glow) / 0.15) 100%);
+  animation-delay: 2s;
+}
+
+.floating-orb-3 {
+  background: linear-gradient(135deg, hsl(var(--primary-glow) / 0.1) 0%, transparent 100%);
+  animation-delay: 4s;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  .floating-orb {
+    filter: blur(40px);
+    opacity: 0.4;
+  }
+  
+  .btn-premium {
+    padding: 0.875rem 1.75rem;
+    font-size: 0.95rem;
+  }
+  
+  .glass-badge {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* Button Size Variants */
+.btn-xl {
+  padding: 1.25rem 2.5rem;
+  font-size: 1.125rem;
+  min-height: 60px;
+}
+
+.btn-lg {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  min-height: 50px;
+}
+
+/* Utility Classes for Premium Effects */
+.backdrop-blur-glass {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.border-glass {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.bg-glass {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.02) 100%);
+}
