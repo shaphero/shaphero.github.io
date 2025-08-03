@@ -1,0 +1,331 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import Hero from '../components/common/Hero.astro';
+import Section from '../components/common/Section.astro';
+import ContentGrid from '../components/common/ContentGrid.astro';
+import CallToAction from '../components/common/CallToAction.astro';
+
+const aiProblems = [
+  {
+    icon: "🤯",
+    title: "Teams Overwhelmed by AI Tools",
+    description: "Your team is drowning in ChatGPT, Claude, Copilot, and dozens of other tools with no clear strategy."
+  },
+  {
+    icon: "💸",
+    title: "Wasting Money on AI Subscriptions",
+    description: "Paying for multiple AI tools but only using 10% of their capabilities - if they're used at all."
+  },
+  {
+    icon: "🐌",
+    title: "Stuck in Old Workflows",
+    description: "Competitors are 10x faster because they've integrated AI while your team does things the old way."
+  },
+  {
+    icon: "🚨",
+    title: "Creating Risk Without Realizing It",
+    description: "Team members using AI incorrectly, sharing sensitive data, or producing unreliable outputs."
+  }
+];
+
+const trainingBenefits = [
+  {
+    title: "Practical, Hands-On Training",
+    description: "No theory overload. Your team learns by doing real work with AI during the session.",
+    icon: "💪"
+  },
+  {
+    title: "Custom Workflows for Your Agency",
+    description: "Templates and processes designed specifically for your services, clients, and team structure.",
+    icon: "🎯"
+  },
+  {
+    title: "Immediate ROI",
+    description: "Teams typically save 10-20 hours per week within 30 days of training implementation.",
+    icon: "📈"
+  }
+];
+
+const trainingModules = [
+  {
+    title: "AI Foundations for Agencies",
+    description: "Master prompt engineering, tool selection, and workflow integration for agency work."
+  },
+  {
+    title: "Content Creation at Scale",
+    description: "Generate blog posts, social media, ad copy, and more - 10x faster with quality control."
+  },
+  {
+    title: "Client Strategy & Research",
+    description: "Use AI for market research, competitor analysis, and strategic recommendations."
+  },
+  {
+    title: "Process Automation",
+    description: "Automate repetitive tasks, reporting, and client communications with AI workflows."
+  },
+  {
+    title: "Quality Control & Governance",
+    description: "Ensure accuracy, maintain brand voice, and avoid AI pitfalls with proven systems."
+  },
+  {
+    title: "Advanced Integration",
+    description: "Connect AI tools with your existing tech stack for seamless operations."
+  }
+];
+
+const results = [
+  { number: "73%", label: "Average time saved on content creation" },
+  { number: "5x", label: "Faster client research & strategy" },
+  { number: "91%", label: "Team confidence in using AI tools" },
+  { number: "$47K", label: "Average annual savings per team member" }
+];
+---
+
+<PageLayout 
+  title="AI Training for Agency Teams | Transform Your Workflows with AI"
+  description="Expert AI training for marketing agencies and teams. Learn to use ChatGPT, Claude, and AI tools effectively. Save 10-20 hours per week. Book custom training."
+  showHeader={true}
+  showCTA={false}
+>
+  <!-- Hero Section -->
+  <Hero 
+    title="Stop watching your competition <span class='text-accent'>leave you behind</span> with AI"
+    subtitle="Transform your agency team from AI-curious to AI-powered in just one day"
+    badge="AI Training for Agencies"
+    ctaPrimary={{
+      text: "Book Team Training",
+      subject: "AI training for my agency team"
+    }}
+    ctaSecondary={{
+      text: "See Training Modules",
+      href: "#modules"
+    }}
+    features={["Custom training for your team", "Hands-on workshops", "Immediate implementation"]}
+    background="gradient"
+  />
+
+  <!-- Problems Section -->
+  <Section id="problems" background="white" padding="xl">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-foreground mb-8 leading-tight">
+        Your team is struggling with AI<br>
+        <span class="relative inline-block mt-2">
+          <span class="bg-gradient-to-r from-destructive to-orange-500 bg-clip-text text-transparent">and it's costing you</span>
+          <div class="absolute -inset-1 bg-gradient-to-r from-destructive/20 to-orange-500/20 blur-lg rounded-lg"></div>
+        </span>
+      </h2>
+      <p class="text-xl text-muted-foreground max-w-4xl mx-auto">
+        While you're reading "Top 10 AI Tools" articles, your competitors are already using them to win clients
+      </p>
+    </div>
+    
+    <ContentGrid 
+      items={aiProblems}
+      columns={2}
+      cardStyle="problems"
+    />
+  </Section>
+
+  <!-- Solution Section -->
+  <Section background="cream" padding="xl">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-8">
+        Transform your team into <span class="text-accent">AI power users</span>
+      </h2>
+      <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+        Based on 16+ years leading digital teams at Fortune 500 companies, 
+        I'll show your team exactly how to leverage AI for real agency work.
+      </p>
+    </div>
+
+    <ContentGrid 
+      items={trainingBenefits}
+      columns={3}
+      cardStyle="glass"
+    />
+  </Section>
+
+  <!-- Training Modules Section -->
+  <Section id="modules" background="white" padding="xl">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-8">
+        Comprehensive <span class="text-accent">Training Modules</span>
+      </h2>
+      <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+        Customized to your agency's specific needs and tech stack
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+      {trainingModules.map((module, index) => (
+        <div 
+          class="bg-card rounded-lg border border-border p-6 hover:shadow-lg transition-all duration-300 hover:scale-105"
+          style={`animation-delay: ${index * 0.1}s`}
+        >
+          <div class="w-12 h-12 bg-gradient-to-br from-primary to-primary-darker rounded-lg flex items-center justify-center mb-4">
+            <span class="text-white font-bold">{index + 1}</span>
+          </div>
+          <h3 class="text-xl font-bold text-foreground mb-3">{module.title}</h3>
+          <p class="text-muted-foreground">{module.description}</p>
+        </div>
+      ))}
+    </div>
+  </Section>
+
+  <!-- Results Section -->
+  <Section background="cream" padding="xl">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-8">
+        Proven Results from <span class="text-accent">Real Teams</span>
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto mb-16">
+      {results.map(stat => (
+        <div class="text-center">
+          <div class="text-4xl md:text-5xl font-black text-primary mb-2">
+            {stat.number}
+          </div>
+          <div class="text-sm text-muted-foreground font-medium">
+            {stat.label}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="max-w-3xl mx-auto">
+      <div class="bg-white rounded-2xl border border-border shadow-lg p-8">
+        <div class="flex mb-4">
+          {[1,2,3,4,5].map(() => (
+            <span class="text-yellow-400 text-2xl">★</span>
+          ))}
+        </div>
+        <p class="text-lg text-muted-foreground leading-relaxed mb-6 italic">
+          "Dave transformed how our entire agency works. We're producing 5x more content, 
+          our research is deeper, and our strategies are more innovative. The ROI was immediate - 
+          we saved 15 hours in the first week alone."
+        </p>
+        <p class="text-primary font-semibold">
+          Sarah Chen, Creative Director at Scale Digital Agency
+        </p>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Training Options -->
+  <Section background="white" padding="xl">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-8">
+        Training Options for <span class="text-accent">Every Team</span>
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+      <!-- Half Day Workshop -->
+      <div class="bg-card rounded-2xl border border-border p-8 hover:shadow-xl transition-all duration-300">
+        <h3 class="text-2xl font-bold text-foreground mb-2">Half-Day Workshop</h3>
+        <p class="text-accent font-semibold mb-4">Perfect for getting started</p>
+        <ul class="space-y-3 mb-8">
+          <li class="flex items-start gap-2">
+            <span class="text-accent">✓</span>
+            <span class="text-muted-foreground">Core AI tools overview</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-accent">✓</span>
+            <span class="text-muted-foreground">Basic prompt engineering</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-accent">✓</span>
+            <span class="text-muted-foreground">3 key workflows</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-accent">✓</span>
+            <span class="text-muted-foreground">Q&A and troubleshooting</span>
+          </li>
+        </ul>
+        <a href="mailto:dave@daveshap.com?subject=Half-day AI workshop for my team" 
+           class="btn btn-outline w-full text-center">
+          Get Started
+        </a>
+      </div>
+
+      <!-- Full Day Intensive -->
+      <div class="bg-gradient-to-br from-primary to-primary-darker text-white rounded-2xl p-8 shadow-xl transform scale-105">
+        <div class="bg-accent text-primary px-3 py-1 rounded-full text-sm font-bold inline-block mb-4">
+          MOST POPULAR
+        </div>
+        <h3 class="text-2xl font-bold mb-2">Full-Day Intensive</h3>
+        <p class="text-white/90 font-semibold mb-4">Complete transformation</p>
+        <ul class="space-y-3 mb-8">
+          <li class="flex items-start gap-2">
+            <span class="text-accent">✓</span>
+            <span class="text-white/90">Everything in half-day</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-accent">✓</span>
+            <span class="text-white/90">Advanced techniques</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-accent">✓</span>
+            <span class="text-white/90">Custom workflow design</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-accent">✓</span>
+            <span class="text-white/90">Hands-on implementation</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-accent">✓</span>
+            <span class="text-white/90">30-day follow-up support</span>
+          </li>
+        </ul>
+        <a href="mailto:dave@daveshap.com?subject=Full-day AI intensive for my team" 
+           class="btn bg-white text-primary hover:bg-gray-100 w-full text-center">
+          Book Intensive
+        </a>
+      </div>
+
+      <!-- Ongoing Coaching -->
+      <div class="bg-card rounded-2xl border border-border p-8 hover:shadow-xl transition-all duration-300">
+        <h3 class="text-2xl font-bold text-foreground mb-2">Ongoing Coaching</h3>
+        <p class="text-accent font-semibold mb-4">Continuous improvement</p>
+        <ul class="space-y-3 mb-8">
+          <li class="flex items-start gap-2">
+            <span class="text-accent">✓</span>
+            <span class="text-muted-foreground">Monthly training sessions</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-accent">✓</span>
+            <span class="text-muted-foreground">Slack/Teams support</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-accent">✓</span>
+            <span class="text-muted-foreground">New AI tool reviews</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-accent">✓</span>
+            <span class="text-muted-foreground">Workflow optimization</span>
+          </li>
+        </ul>
+        <a href="mailto:dave@daveshap.com?subject=Ongoing AI coaching for my team" 
+           class="btn btn-outline w-full text-center">
+          Learn More
+        </a>
+      </div>
+    </div>
+  </Section>
+
+  <!-- CTA Section -->
+  <CallToAction 
+    title="Ready to Transform Your Team?"
+    subtitle="Stop falling behind. Start <span class='text-accent'>leading with AI</span>."
+    benefits={[
+      "Get a custom training plan designed specifically for your agency's needs and goals.",
+      "See immediate productivity gains with practical, implementable AI workflows.",
+      "Join agencies saving 10-20 hours per week while delivering better results."
+    ]}
+    buttonText="Schedule Your Training"
+    buttonSubject="Ready to book AI training for my team"
+    features={["Free consultation", "Custom curriculum", "Hands-on training"]}
+    style="gradient"
+  />
+</PageLayout>
