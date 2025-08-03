@@ -1,38 +1,85 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
-import OptimizedImage from '../components/OptimizedImage.astro';
 
-const title = "SEO Success Stories | Dave Shapiro - Proven Results & Case Studies";
-const description = "See how Dave Shapiro helped SoFi achieve 509% traffic growth and generated 25K+ downloads for Adobe. Real SEO results with proven strategies.";
+const title = "SEO Strategy That Grew SoFi 509% Traffic | Dave Shapiro SEO Expert";
+const description = "See the exact SEO playbook that grew SoFi 509% traffic & 22K+ customers, Adobe 25K+ downloads. No fluff, just proven strategy. Book free consultation.";
 
-const successStories = [
+const results = [
+  "Increased organic traffic by 509% for SoFi—leading to 22,000+ new funded accounts.",
+  "Helped Adobe generate 25,200 product downloads in just 7 months.",
+  "Grew organic traffic by 561% for Lantern by SoFi, outranking giants like NerdWallet and Credit Karma."
+];
+
+const qualificationCriteria = {
+  works: [
+    "You're an established business already investing in SEO—but not getting the results you expected.",
+    "You have existing SEO traffic and want to turn it into real revenue growth.",
+    "You have an in-house team or contractor who can implement the recommendations we provide.",
+    "You're tired of vague SEO strategies and need a clear, data-driven roadmap that actually moves the needle.",
+    "You're ready to execute—we'll handle the strategy, but action is required to see results."
+  ],
+  doesnt: [
+    "You're just getting started and have no SEO traffic yet. If you're looking for beginner SEO, this isn't the right fit.",
+    "You want a set-it-and-forget-it solution. SEO requires execution, and while we make it simple, action is still needed.",
+    "You're not willing to invest resources into implementation. Our strategies work, but they require someone to execute them.",
+    "You expect overnight rankings. SEO works, but it's not magic—it takes strategic effort to drive meaningful results."
+  ]
+};
+
+const problems = [
   {
-    company: "SoFi",
-    logo: "/assets/sofi-logo.svg",
-    results: [
-      { metric: "509%", label: "Organic Traffic Growth" },
-      { metric: "22K+", label: "New Customers" },
-      { metric: "$2.7M", label: "Revenue Generated" }
-    ],
-    challenge: "SoFi needed to break into competitive financial keywords dominated by established banks.",
-    solution: "Developed a content strategy targeting underserved long-tail keywords and built topical authority through comprehensive guides.",
-    testimonial: "Dave's strategic approach to SEO transformed our organic presence. The results speak for themselves.",
-    image: "/optimized/sofi-results.jpg"
+    title: "\"We need more predictable revenue but SEO feels too slow and unreliable.\"",
+    description: "You've invested in SEO, but you're not seeing the impact on your bottom line. Rankings are moving, but traffic isn't converting. Maybe you're stuck waiting months for results while your competitors pull ahead.",
+    solution: "We take a revenue-first approach to SEO, prioritizing quick wins and high-impact pages that can drive measurable business growth—not just rankings. We focus on converting traffic into revenue, so your SEO efforts actually move the needle."
   },
   {
-    company: "Adobe",
-    logo: null,
-    text: "Adobe",
-    results: [
-      { metric: "25K+", label: "Software Downloads" },
-      { metric: "156%", label: "Keyword Rankings Increase" },
-      { metric: "3.2x", label: "ROI on SEO Investment" }
-    ],
-    challenge: "Adobe's creative tools were losing visibility to newer, agile competitors in search results.",
-    solution: "Implemented a technical SEO overhaul and created targeted landing pages for each tool, optimizing for user intent.",
-    testimonial: "The SEO strategy Dave implemented continues to drive results years later. Exceptional work.",
-    image: "/optimized/adobe-results.jpg"
+    title: "\"SEO is a black hole … too many tactics, no clear strategy, and no real results.\"",
+    description: "You've seen massive SEO audits filled with jargon, endless recommendations, and no clear action plan. You're overwhelmed by too many options … should you update old content, create new pages, or fix technical issues? No one is giving you a real strategy.",
+    solution: "We simplify SEO down to the key levers that actually matter: optimizing underperforming pages, creating high-value content, and building authority the right way. You get a clear, focused roadmap so you know exactly where to invest your time and budget."
+  },
+  {
+    title: "\"We Can't Afford to Waste Time or Money on SEO That Doesn't Move the Needle.\"",
+    description: "You don't have months to wait for vague promises or slow-moving campaigns. You need results, not excuses. Most agencies drag out SEO work without showing measurable progress, leaving you frustrated and wondering where your investment went.",
+    solution: "Our SEO Strategy Sprint delivers real insights and a clear execution plan within weeks—not months. We analyze what's working in your industry, audit your current SEO, and create a custom strategy tailored to your business goals. You get a clear action plan that fits your team's capabilities and starts delivering results fast."
+  }
+];
+
+const steps = [
+  {
+    number: 1,
+    title: "Understand the playing field",
+    emoji: "🕵️‍♂️",
+    subtitle: "Uncover what's working, who's winning, and why.",
+    description: "Before making recommendations, I analyze the competitive landscape to identify who's driving the most SEO success in your space, what content strategies are working for them, and where your biggest missed opportunities are. This ensures that every SEO move we make is informed by real-world data—not just best practices."
+  },
+  {
+    number: 2,
+    title: "The Technical Checkpoint",
+    emoji: "🔧",
+    subtitle: "Ensure your site's foundation isn't holding you back.",
+    description: "Most businesses waste time on unnecessary technical SEO fixes. I focus on identifying major roadblocks preventing growth, prioritizing fixes that will actually impact rankings, and ensuring your site is structured for long-term scalability. For sites over 5,000 pages, technical SEO is critical. For smaller sites, we focus only on high-impact changes."
+  },
+  {
+    number: 3,
+    title: "Optimize and Improve Existing Content",
+    emoji: "🚀",
+    subtitle: "Get more traffic from what you already have.",
+    description: "Instead of endlessly churning out new content, I help you maximize what's already working by identifying pages that need an update or refresh, finding pages that should be merged, redirected, or removed, and structuring content to rank better for the right keywords. Most brands leave easy SEO wins on the table. We make sure you don't."
+  },
+  {
+    number: 4,
+    title: "The Content Expansion Plan",
+    emoji: "📈",
+    subtitle: "Create high-impact content that attracts the right audience.",
+    description: "Once your existing assets are optimized, we build a focused content plan to create new, revenue-driving pages based on data, scale visibility with programmatic SEO and strategic plays, and capture untapped demand with content that builds long-term authority. No more publishing for the sake of it. Every content move will be backed by strategy."
+  },
+  {
+    number: 5,
+    title: "Implement a Link-Building and Authority Strategy",
+    emoji: "🔗",
+    subtitle: "Cut through the noise with a strategic off-page plan.",
+    description: "Even the best content needs visibility. I help you increase authority & backlinks by pinpointing pages that need external links to rank higher, developing high-impact digital PR and link-building plays, and getting your brand mentioned in the right places to build trust. SEO isn't just about content—it's about getting people to talk about you."
   }
 ];
 ---
@@ -40,93 +87,458 @@ const successStories = [
 <BaseLayout title={title} description={description}>
   <Header />
   
-  <main class="pt-20">
+  <main>
     <!-- Hero Section -->
-    <section class="hero hero-alt">
-      <div class="container">
-        <div class="hero-content">
-          <h1 class="fade-in">Real Results. Real Revenue.</h1>
-          <p class="hero-subtitle fade-in">
-            Don't just take my word for it. See the transformative results 
-            I've delivered for industry-leading brands.
+    <section class="hero bg-gradient-hero relative overflow-hidden">
+      <!-- Background Elements -->
+      <div class="absolute inset-0">
+        <div class="absolute top-20 left-10 w-96 h-96 bg-gradient-to-r from-primary/8 to-accent/8 rounded-full blur-3xl animate-float"></div>
+        <div class="absolute bottom-40 right-20 w-80 h-80 bg-gradient-to-r from-accent/5 to-primary/5 rounded-full blur-3xl animate-float" style="animation-delay: 2s"></div>
+        <div class="absolute inset-0 grid-pattern opacity-5"></div>
+        <div class="absolute inset-0 opacity-10">
+          <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary/3 via-transparent to-accent/3 animate-gradient-shift bg-[length:200%_200%]"></div>
+        </div>
+      </div>
+      
+      <div class="pt-32 pb-20 relative z-10">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+          <!-- Badge -->
+          <div class="mb-8">
+            <span class="inline-flex items-center gap-2 px-6 py-3 rounded-full backdrop-blur-lg bg-white/10 border border-white/20 text-white font-semibold text-sm shadow-glow">
+              <span class="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
+              📈 Proven Results from Fortune 500 Companies
+            </span>
+          </div>
+          
+          <!-- Main Heading -->
+          <h1 class="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white mb-6 leading-tight">
+            <span class="relative inline-block">
+              <span class="bg-gradient-to-r from-accent to-primary-light bg-clip-text text-transparent animate-gradient-shift bg-[length:200%_200%]">509%</span>
+              <div class="absolute -inset-2 bg-gradient-to-r from-accent/20 to-primary-light/20 opacity-30 blur-xl rounded-lg animate-glow-pulse"></div>
+            </span>{" "}
+            More Traffic.{" "}
+            <span class="bg-gradient-to-r from-accent to-primary-light bg-clip-text text-transparent animate-gradient-shift bg-[length:200%_200%]">22,000+</span>{" "}
+            New Customers.{" "}
+            <span class="bg-gradient-to-r from-accent to-primary-light bg-clip-text text-transparent animate-gradient-shift bg-[length:200%_200%]">25,000+</span>{" "}
+            Downloads.
+          </h1>
+          
+          <h2 class="text-2xl md:text-3xl font-bold text-white/90 mb-8">
+            Here's the SEO Playbook That Made It Happen.
+          </h2>
+          
+          <div class="w-24 h-1 bg-gradient-to-r from-accent to-primary-light mx-auto mb-8 shadow-glow"></div>
+          
+          <p class="text-lg md:text-xl text-white/80 leading-relaxed max-w-3xl mx-auto">
+            SEO shouldn't be a guessing game. We built a battle-tested system that takes search traffic and converts it into real revenue. No endless audits. No vague reports. Just a clear strategy that works. Here's how it's done.
           </p>
         </div>
       </div>
     </section>
-    
-    <!-- Success Stories -->
-    <section class="section">
-      <div class="container">
-        {successStories.map((story, index) => (
-          <div class={`success-story ${index % 2 === 1 ? 'reverse' : ''}`}>
-            <div class="story-content fade-in">
-              <div class="company-header">
-                {story.logo ? (
-                  <img src={story.logo} alt={`${story.company} logo`} class="company-logo" />
-                ) : (
-                  <h2 class="company-text">{story.text}</h2>
-                )}
-              </div>
-              
-              <div class="results-grid">
-                {story.results.map(result => (
-                  <div class="result-item">
-                    <div class="result-metric">{result.metric}</div>
-                    <div class="result-label">{result.label}</div>
-                  </div>
-                ))}
-              </div>
-              
-              <div class="story-details">
-                <div class="detail-section">
-                  <h3>The Challenge</h3>
-                  <p>{story.challenge}</p>
-                </div>
-                
-                <div class="detail-section">
-                  <h3>The Solution</h3>
-                  <p>{story.solution}</p>
-                </div>
-                
-                <blockquote class="testimonial">
-                  <p>"{story.testimonial}"</p>
-                </blockquote>
-              </div>
+
+    <!-- Main Content -->
+    <div class="bg-background">
+      <article class="py-16 relative">
+        <div class="max-w-4xl mx-auto px-6">
+          
+          <!-- Case Studies Section -->
+          <div class="mb-16 p-8 bg-white/80 backdrop-blur-sm rounded-2xl border border-border/50 shadow-xl">
+            <p class="text-lg leading-relaxed mb-6 text-foreground">
+              We helped SoFi increase organic traffic by <strong class="text-primary">509%</strong> and generate over <strong class="text-primary">22,000 new funded accounts</strong>:
+            </p>
+            
+            <div class="mb-8">
+              <img
+                src="/lovable-uploads/e7355d6e-542f-4c2b-8fa7-1604e1ce5b88.png"
+                alt="SoFi traffic growth chart showing 509% increase in organic keywords and traffic"
+                class="w-full max-w-4xl mx-auto rounded-lg shadow-xl border border-border/20"
+                loading="lazy"
+              />
             </div>
             
-            <div class="story-image fade-in">
-              <div class="image-wrapper">
-                <div class="image-placeholder">
-                  <div class="chart-visualization">
-                    <div class="chart-bars">
-                      <div class="bar bar-1"></div>
-                      <div class="bar bar-2"></div>
-                      <div class="bar bar-3"></div>
-                      <div class="bar bar-4"></div>
+            <p class="text-lg leading-relaxed mb-6 text-foreground">
+              We helped Adobe exceed traffic goals by <strong class="text-primary">73%</strong> and generate <strong class="text-primary">25,000 product downloads</strong>:
+            </p>
+            
+            <div class="mb-8">
+              <img
+                src="/lovable-uploads/cd9a7000-36bd-4196-9427-19d44f49a74b.png"
+                alt="Adobe XD traffic growth chart showing significant increase after our SEO work began"
+                class="w-full max-w-4xl mx-auto rounded-lg shadow-xl border border-border/20"
+                loading="lazy"
+              />
+            </div>
+            
+            <p class="text-lg font-semibold text-accent">
+              The kicker: It's the same straightforward strategy I've used to grow global brands, and it can work for you too.
+            </p>
+          </div>
+
+          <!-- Section Separator -->
+          <div class="w-full h-px bg-gradient-to-r from-transparent via-border to-transparent mb-16"></div>
+
+          <!-- Why This Matters Section -->
+          <div class="mb-16">
+            <h3 class="text-3xl font-bold text-foreground mb-8">Why This Matters to You</h3>
+            <div class="prose prose-lg max-w-none">
+              <p class="text-lg text-muted-foreground mb-6 leading-relaxed">
+                With a clear SEO roadmap, you'll feel in control instead of frustrated. No more chasing agencies for updates or wondering why rankings aren't turning into revenue. You'll know exactly what's working and why so you can scale with confidence.
+              </p>
+              <p class="text-lg text-muted-foreground leading-relaxed mb-8">
+                Our clients don't just see traffic growth … they see their careers accelerate. One marketing leader we worked with leveraged our strategy to prove massive ROI, secure a promotion, and increase their budget for future SEO wins.
+              </p>
+              
+              <div class="mb-8">
+                <img
+                  src="/lovable-uploads/ef56f7cd-731d-473d-96ad-4500896f5f9d.png"
+                  alt="Client testimonials from Bank of America, NetApp, and Toyota showing positive feedback"
+                  class="w-full max-w-4xl mx-auto rounded-lg shadow-xl border border-border/20"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Section Separator -->
+          <div class="w-full h-px bg-gradient-to-r from-transparent via-border to-transparent mb-16"></div>
+
+          <!-- Experience Section -->
+          <div class="mb-16">
+            <h3 class="text-3xl font-bold text-foreground mb-8">Let me explain how...</h3>
+            <div class="prose prose-lg max-w-none">
+              <p class="text-lg text-muted-foreground mb-6 leading-relaxed">
+                For the past 17 years, I've helped global brands like Bank of America, Toyota, SoFi, Microsoft, and Western Union turn SEO into a repeatable, scalable revenue driver.
+              </p>
+              <p class="text-lg text-muted-foreground mb-6 leading-relaxed">
+                These companies weren't looking for another agency to drown them in audits or vague strategies. They needed clear, actionable SEO that actually moved the needle … and that's exactly what we delivered.
+              </p>
+            </div>
+          </div>
+
+          <!-- Results Section -->
+          <div class="mb-16">
+            <h3 class="text-3xl font-bold text-foreground mb-8">With this approach, my team has:</h3>
+            <div class="space-y-4 mb-8">
+              {results.map((result, index) => (
+                <div class="flex items-start gap-3 p-4 bg-white/60 rounded-lg border border-border/20">
+                  <span class="text-primary font-bold text-lg mt-1 flex-shrink-0">✓</span>
+                  <p class="text-lg text-foreground leading-relaxed">{result}</p>
+                </div>
+              ))}
+            </div>
+            <div class="prose prose-lg max-w-none">
+              <p class="text-lg text-muted-foreground mb-6 leading-relaxed">
+                And we did it without bloated retainers, never-ending reports, or chasing rankings that don't convert.
+              </p>
+              <p class="text-lg text-foreground font-medium leading-relaxed mb-8">
+                This SAME framework has worked for billion-dollar enterprises, and it can work for you too—whether you're a high-growth startup or an established brand looking to break through plateaus.
+              </p>
+            </div>
+          </div>
+
+          <!-- First CTA -->
+          <div class="mb-16 text-center">
+            <a href="mailto:dave@daveshap.com?subject=I%20want%20my%20custom%20SEO%20strategy" class="btn btn-primary btn-xl premium-glow">
+              <span class="mr-2">✉️</span>
+              Get Your Custom SEO Strategy
+              <span class="ml-2">→</span>
+            </a>
+          </div>
+
+          <!-- Section Separator -->
+          <div class="w-full h-px bg-gradient-to-r from-transparent via-border to-transparent mb-16"></div>
+
+          <!-- Qualification Criteria -->
+          <div class="mb-16">
+            <h3 class="text-3xl font-bold text-foreground mb-8">This ONLY works if:</h3>
+            
+            <div class="grid lg:grid-cols-2 gap-8">
+              <div class="p-6 bg-primary/5 border border-primary/20 rounded-lg">
+                <h4 class="text-xl font-bold text-primary mb-6">✅ This IS for you if:</h4>
+                <div class="space-y-4">
+                  {qualificationCriteria.works.map((item, index) => (
+                    <div class="flex items-start gap-3">
+                      <span class="text-primary font-bold mt-1 flex-shrink-0">•</span>
+                      <p class="text-foreground leading-relaxed">{item}</p>
                     </div>
-                    <div class="growth-arrow">↗</div>
-                  </div>
+                  ))}
+                </div>
+              </div>
+              
+              <div class="p-6 bg-red-50 border border-red-200 rounded-lg">
+                <h4 class="text-xl font-bold text-red-600 mb-6">❌ This is NOT for you if:</h4>
+                <div class="space-y-4">
+                  {qualificationCriteria.doesnt.map((item, index) => (
+                    <div class="flex items-start gap-3">
+                      <span class="text-red-600 font-bold mt-1 flex-shrink-0">•</span>
+                      <p class="text-foreground leading-relaxed">{item}</p>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
           </div>
-        ))}
+
+          <!-- Section Separator -->
+          <div class="w-full h-px bg-gradient-to-r from-transparent via-border to-transparent mb-16"></div>
+
+          <!-- Problems Section -->
+          <div class="mb-16">
+            <h3 class="text-3xl font-bold text-foreground mb-8">
+              SEO Strategy Sprints Solve 3 Big Problems for Marketing Leaders
+            </h3>
+            
+            <div class="space-y-12">
+              {problems.map((problem, index) => (
+                <div class="border-l-4 border-primary/30 pl-8 py-4">
+                  <h4 class="text-xl font-bold text-foreground mb-4">{problem.title}</h4>
+                  <p class="text-muted-foreground mb-6 leading-relaxed">{problem.description}</p>
+                  <div class="bg-primary/5 border border-primary/20 rounded-lg p-6">
+                    <h5 class="text-primary font-bold mb-2">✅ The Solution:</h5>
+                    <p class="text-foreground leading-relaxed">{problem.solution}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- Section Separator -->
+          <div class="w-full h-px bg-gradient-to-r from-transparent via-border to-transparent mb-16"></div>
+
+          <!-- Benefits Section -->
+          <div class="mb-16">
+            <h3 class="text-3xl font-bold text-foreground mb-8">
+              All You Need is a Clear SEO Roadmap
+            </h3>
+            <p class="text-lg text-muted-foreground mb-8 leading-relaxed">
+              With this approach, SEO becomes simple and effective—no more wasted time, money, or effort on things that don't move the needle:
+            </p>
+            
+            <div class="grid lg:grid-cols-2 gap-8 mb-8">
+              <div class="p-6 bg-red-50 border border-red-200 rounded-lg">
+                <h4 class="text-lg font-bold text-red-600 mb-4">❌ No more:</h4>
+                <ul class="space-y-3 text-muted-foreground">
+                  <li class="flex items-start gap-2">
+                    <span class="text-red-600 mt-1">•</span>
+                    <span>Bloated audits with endless recommendations</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-red-600 mt-1">•</span>
+                    <span>Chasing high-volume keywords that never convert</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-red-600 mt-1">•</span>
+                    <span>Waiting months just to see minimal results</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-red-600 mt-1">•</span>
+                    <span>Confusing reports that don't tie to revenue</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-red-600 mt-1">•</span>
+                    <span>"Just trust the process" nonsense</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="p-6 bg-primary/5 border border-primary/20 rounded-lg">
+                <h4 class="text-lg font-bold text-primary mb-4">✅ Instead:</h4>
+                <p class="text-foreground font-medium text-lg leading-relaxed">
+                  Just a clear, data-backed SEO roadmap → Focused execution → More traffic, more conversions, and real business growth.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section Separator -->
+          <div class="w-full h-px bg-gradient-to-r from-transparent via-border to-transparent mb-16"></div>
+
+          <!-- Process Steps -->
+          <div class="mb-16">
+            <h3 class="text-3xl font-bold text-foreground mb-8">
+              Here's how we make the SEO Strategy Sprint a simple, fast path to measurable growth:
+            </h3>
+            
+            <div class="space-y-8">
+              {steps.map((step, index) => (
+                <div class="border border-border/20 rounded-lg p-6 bg-white/60 shadow-sm hover:shadow-md transition-shadow">
+                  <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
+                      <span class="text-white font-bold">{step.number}</span>
+                    </div>
+                    <div>
+                      <h4 class="text-xl font-bold text-foreground mb-2">
+                        Step {step.number}: {step.title} {step.emoji}
+                      </h4>
+                      <h5 class="text-lg font-semibold text-primary mb-3">{step.subtitle}</h5>
+                      <p class="text-muted-foreground leading-relaxed">{step.description}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- Section Separator -->
+          <div class="w-full h-px bg-gradient-to-r from-transparent via-border to-transparent mb-16"></div>
+
+          <!-- Benefits Recap -->
+          <div class="mb-16">
+            <h3 class="text-3xl font-bold text-foreground mb-6">The best part? It's simple.</h3>
+            <div class="prose prose-lg max-w-none">
+              <p class="text-lg text-muted-foreground mb-6 leading-relaxed">
+                You don't need to waste money on bloated retainers, chase vanity metrics, or sit through endless strategy calls that lead nowhere.
+              </p>
+              <p class="text-lg text-muted-foreground mb-8 leading-relaxed">
+                With this SEO Strategy Sprint, you get:
+              </p>
+              <div class="space-y-4 mb-8">
+                <div class="flex items-start gap-3 p-4 bg-white/60 rounded-lg border border-border/20">
+                  <span class="text-primary font-bold mt-1 flex-shrink-0">✓</span>
+                  <p class="text-lg text-foreground"><strong>Clarity</strong>—Know exactly what's working, what's not, and what to fix.</p>
+                </div>
+                <div class="flex items-start gap-3 p-4 bg-white/60 rounded-lg border border-border/20">
+                  <span class="text-primary font-bold mt-1 flex-shrink-0">✓</span>
+                  <p class="text-lg text-foreground"><strong>Focus</strong>—No more wasted effort on technical tweaks or content that doesn't drive revenue.</p>
+                </div>
+                <div class="flex items-start gap-3 p-4 bg-white/60 rounded-lg border border-border/20">
+                  <span class="text-primary font-bold mt-1 flex-shrink-0">✓</span>
+                  <p class="text-lg text-foreground"><strong>Results</strong>—More traffic, more conversions, and a clear roadmap to scale.</p>
+                </div>
+              </div>
+              <p class="text-lg text-foreground font-medium leading-relaxed">
+                Once your roadmap is in place, you'll have a clear, repeatable process to drive ongoing organic growth—without second-guessing every move.
+              </p>
+            </div>
+          </div>
+
+          <!-- Guarantee Section -->
+          <div class="mb-16 p-8 bg-white/80 backdrop-blur-sm rounded-2xl border border-border/50 shadow-xl">
+            <h3 class="text-3xl font-bold text-foreground mb-6">My Guarantee</h3>
+            <div class="prose prose-lg max-w-none">
+              <p class="text-lg text-foreground mb-6 leading-relaxed">
+                I'm confident in our process because I've seen it work for brands like Adobe, SoFi, and Western Union and I know it can work for you, too.
+              </p>
+              <p class="text-lg text-accent font-bold mb-6">
+                If you implement our SEO roadmap and don't see measurable improvements within 60 days, I'll personally work with you 1-on-1 every week until we get results.
+              </p>
+              <div class="space-y-4 mb-6">
+                <div class="flex items-start gap-3 p-3 bg-primary/5 rounded-lg">
+                  <span class="text-primary font-bold mt-1 flex-shrink-0">✓</span>
+                  <span class="text-foreground">No vague strategies—just clear, actionable steps.</span>
+                </div>
+                <div class="flex items-start gap-3 p-3 bg-primary/5 rounded-lg">
+                  <span class="text-primary font-bold mt-1 flex-shrink-0">✓</span>
+                  <span class="text-foreground">No guesswork—only proven methods tailored to your business.</span>
+                </div>
+                <div class="flex items-start gap-3 p-3 bg-primary/5 rounded-lg">
+                  <span class="text-primary font-bold mt-1 flex-shrink-0">✓</span>
+                  <span class="text-foreground">No fluff—if something isn't working, we pivot and refine until it does.</span>
+                </div>
+              </div>
+              <p class="text-lg text-foreground font-semibold">
+                The strategy works or I'll keep working with you until it does. That's how much I believe in what we deliver.
+              </p>
+            </div>
+          </div>
+
+          <!-- Section Separator -->
+          <div class="w-full h-px bg-gradient-to-r from-transparent via-border to-transparent mb-16"></div>
+
+          <!-- Two Options -->
+          <div class="mb-16">
+            <h3 class="text-3xl font-bold text-foreground mb-8">If you'd like to learn exactly what's holding your SEO back … and how to fix it … you have two choices:</h3>
+            
+            <div class="grid lg:grid-cols-2 gap-8 mb-12">
+              <div class="p-6 border border-border/20 rounded-lg bg-white/40">
+                <h4 class="text-xl font-bold text-foreground mb-4">Option 1</h4>
+                <p class="text-muted-foreground leading-relaxed">
+                  Take the step-by-step process I laid out here and give it a go on your own. This isn't brand new stuff and SEO is simple, but not easy. The internet is full of SEO advice, case studies, and step-by-step guides. If you have the time, patience, and willingness to experiment, you can absolutely figure it out.
+                </p>
+              </div>
+              <div class="p-6 border border-primary/20 rounded-lg bg-primary/5">
+                <h4 class="text-xl font-bold text-foreground mb-4">Option 2</h4>
+                <p class="text-muted-foreground leading-relaxed mb-4">
+                  You can work with me 1-on-1 to get an SEO roadmap designed to drive real business results fast and get rid of the guesswork on how to move forward.
+                </p>
+                <p class="text-foreground font-medium">
+                  🚀 In just 30 days, you'll have a step-by-step SEO plan designed to drive traffic, conversions, and revenue.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- Final CTA Section -->
+    <div class="relative bg-gradient-hero">
+      <!-- Background Elements -->
+      <div class="absolute inset-0">
+        <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary/10 via-transparent to-accent/10 animate-gradient-shift bg-[length:200%_200%]"></div>
       </div>
-    </section>
-    
-    <!-- CTA Section -->
-    <section class="section cta-section">
-      <div class="container">
-        <div class="cta-content fade-in">
-          <h2>Ready to Be Our Next Success Story?</h2>
-          <p>Join the ranks of companies that have transformed their SEO performance</p>
-          <a href="mailto:dave@daveshap.com?subject=I%20want%20results%20like%20SoFi%20and%20Adobe" class="btn btn-primary btn-xl">
-            Start Your Success Story
-            <span class="arrow">→</span>
-          </a>
+      
+      <div class="py-20 relative z-10">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+          <div class="p-12 rounded-2xl backdrop-blur-lg bg-white/5 border border-white/10 shadow-xl relative overflow-hidden">
+            <!-- Background gradient overlay -->
+            <div class="absolute inset-0 bg-gradient-to-r from-primary/10 via-accent/5 to-primary/10 opacity-80"></div>
+            <div class="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent animate-gradient-shift bg-[length:200%_200%]"></div>
+            
+            <div class="relative z-10">
+              <h3 class="text-3xl md:text-4xl font-bold text-white mb-8">
+                Ready to get started? Book a 15-minute demo below!
+              </h3>
+              
+              <div class="max-w-2xl mx-auto mb-8">
+                <h4 class="text-xl font-bold text-white mb-6">On the demo we will show you:</h4>
+                <div class="space-y-4 text-left">
+                  <div class="flex items-start gap-4 backdrop-blur-sm bg-white/10 px-4 py-3 rounded-lg border border-white/10">
+                    <span class="text-accent font-bold text-xl flex-shrink-0">🔍</span>
+                    <div>
+                      <span class="text-accent font-bold">A diagnosis of your SEO roadblocks</span>
+                      <span class="text-white/80"> – Chat through why your current SEO efforts aren't delivering the results you expect. No vague advice, just real insights.</span>
+                    </div>
+                  </div>
+                  <div class="flex items-start gap-4 backdrop-blur-sm bg-white/10 px-4 py-3 rounded-lg border border-white/10">
+                    <span class="text-accent font-bold text-xl flex-shrink-0">📊</span>
+                    <div>
+                      <span class="text-accent font-bold">Behind-the-scenes look at winning SEO strategies</span>
+                      <span class="text-white/80"> – See what top brands are doing to dominate search and how you can apply the same principles to your business.</span>
+                    </div>
+                  </div>
+                  <div class="flex items-start gap-4 backdrop-blur-sm bg-white/10 px-4 py-3 rounded-lg border border-white/10">
+                    <span class="text-accent font-bold text-xl flex-shrink-0">🚀</span>
+                    <div>
+                      <span class="text-accent font-bold">A potential roadmap for quick wins & long-term growth</span>
+                      <span class="text-white/80"> – Walk away with actionable recommendations tailored to your site and industry … whether you work with me or not.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <a href="mailto:dave@daveshap.com?subject=Start%20my%20SEO%20strategy%20-%20I'm%20ready%20to%20grow" class="btn bg-white text-primary hover:bg-gray-100 btn-xl premium-glow inline-flex items-center gap-3 mb-6 min-w-[280px]">
+                <span class="text-xl">🚀</span>
+                START MY SEO STRATEGY
+                <span class="text-xl">→</span>
+              </a>
+              
+              <p class="text-white/70">
+                If you have any questions, email dave@daveshap.com
+              </p>
+            </div>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
+
+    <!-- Footer disclaimer -->
+    <div class="bg-background py-16">
+      <div class="max-w-4xl mx-auto px-6 text-center">
+        <p class="text-sm text-muted-foreground italic leading-relaxed">
+          <strong>DISCLAIMER:</strong> I have to tell you… results like this aren't typical without the right strategy and execution. I've spent 16+ years leading SEO for major brands, building scalable SEO strategies that drive real revenue. The results I've shared are achievable with the right focus, resources, and execution. Most businesses start by seeing small but meaningful improvements, then scale as their SEO strategy compounds. This sprint is designed to get you on the right path fast, so you're no longer guessing what's working and what's not. SEO is simple, but it's not easy—let's make sure you're investing in what actually moves the needle.
+        </p>
+      </div>
+    </div>
   </main>
 </BaseLayout>
 
