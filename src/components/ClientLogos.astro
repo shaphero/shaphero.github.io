@@ -2,89 +2,88 @@
 import OptimizedImage from './OptimizedImage.astro';
 
 const clients = [
-  { 
-    name: "SoFi", 
-    logo: "/assets/sofi-logo.svg",
-    achievement: "509% traffic growth"
-  },
-  { 
-    name: "Adobe", 
-    logo: null,
-    text: "Adobe",
-    achievement: "25K+ downloads generated"
-  },
-  { 
-    name: "Microsoft", 
-    logo: "/assets/microsoft-logo.png",
-    achievement: "73% increase in qualified leads"
-  },
-  { 
-    name: "AT&T", 
-    logo: null,
-    text: "AT&T",
-    achievement: "Market dominance in key verticals"
-  }
+  { name: "Toyota", logo: null, colors: "text-primary font-black" },
+  { name: "SoFi", logo: "/optimized/sofi-logo.svg", colors: "text-primary font-bold" },
+  { name: "T-Mobile", logo: null, colors: "text-primary font-black" },
+  { name: "Holiday Inn", logo: null, colors: "text-accent font-bold" },
+  { name: "Office Depot", logo: null, colors: "text-primary font-bold" },
+  { name: "Bank of America", logo: null, colors: "text-accent font-bold" },
+  { name: "Microsoft", logo: "/optimized/microsoft-logo.png", colors: "text-primary font-bold" },
+  { name: "Western Union", logo: null, colors: "text-accent font-black" }
 ];
 ---
 
-<section class="section py-32 bg-gradient-section relative overflow-hidden">
-  <div class="container relative z-10">
-    <div class="text-center mb-16">
-      <h2 class="text-5xl md:text-6xl font-bold mb-6 animate-fade-in">
-        Trusted by <span class="text-accent">Industry Leaders</span>
-      </h2>
-      <p class="text-xl text-muted-foreground max-w-3xl mx-auto animate-fade-in" style="animation-delay: 0.1s">
-        Delivering measurable SEO results for the world's most demanding brands
-      </p>
+<section class="premium-section bg-background relative">
+  <div class="premium-container text-center">
+    
+    <!-- Animated Badge -->
+    <div class="mb-12 animate-fade-in">
+      <span class="inline-flex items-center gap-2 px-6 py-3 glass-card text-accent font-semibold text-sm border border-accent/20 shadow-glow">
+        <span class="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
+        🏆 Proven Track Record
+      </span>
     </div>
     
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+    <!-- Main Headline -->
+    <h3 class="text-4xl md:text-5xl lg:text-6xl font-black text-foreground mb-8 leading-tight animate-fade-in-up">
+      The same SEO process we used to drive success for 
+      <span class="relative inline-block mt-4">
+        <span class="bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">the world's biggest brands</span>
+        <div class="absolute -inset-1 bg-gradient-to-r from-primary/10 to-primary-glow/10 opacity-10 blur-xl rounded-lg"></div>
+      </span>
+    </h3>
+    
+    <!-- Subheadline -->
+    <p class="text-xl text-muted-foreground mb-16 max-w-4xl mx-auto animate-fade-in" style="animation-delay: 0.2s">
+      David Shapiro has led SEO strategy for Fortune 500 companies, delivering measurable results at scale.
+    </p>
+    
+    <!-- Client Grid -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20 animate-fade-in" style="animation-delay: 0.4s">
       {clients.map((client, index) => (
-        <div class="animate-fade-in" style={`animation-delay: ${(index + 2) * 0.1}s`}>
-          <div class="bg-white rounded-2xl p-8 h-full shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col items-center justify-center gap-4 group hover:scale-105">
-            {client.logo ? (
-              <img 
-                src={client.logo} 
-                alt={`${client.name} logo`}
-                class="h-12 md:h-16 w-auto object-contain filter grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
-                loading="lazy"
-                width="120"
-                height="60"
-              />
-            ) : (
-              <span class="text-3xl md:text-4xl font-bold text-primary opacity-70 group-hover:opacity-100 transition-opacity duration-300">{client.text}</span>
-            )}
-            <p class="text-sm text-muted-foreground text-center">{client.achievement}</p>
-          </div>
+        <div 
+          key={index}
+          class="group relative glass-card h-24 flex items-center justify-center border border-white/10 hover:border-accent/30 transition-all duration-500 hover:scale-105 magnetic"
+          style={`animation-delay: ${index * 0.1}s`}
+        >
+          <!-- Glow effect on hover -->
+          <div class="absolute inset-0 bg-gradient-to-r from-primary/0 to-accent/0 group-hover:from-primary/5 group-hover:to-accent/5 rounded-2xl transition-all duration-500"></div>
+          
+          {client.logo ? (
+            <img 
+              src={client.logo}
+              alt={`${client.name} logo`}
+              class="max-h-10 max-w-full object-contain group-hover:scale-110 transition-transform duration-300 relative z-10"
+              width="120"
+              height="40"
+            />
+          ) : (
+            <span class={`text-lg ${client.colors} group-hover:scale-110 transition-transform duration-300 relative z-10`}>
+              {client.name}
+            </span>
+          )}
         </div>
       ))}
     </div>
     
-    <div class="grid md:grid-cols-3 gap-8 mt-16">
-      <div class="text-center animate-fade-in" style="animation-delay: 0.6s">
-        <div class="text-5xl font-bold text-primary mb-2">350+</div>
-        <p class="text-muted-foreground">Successful Projects</p>
-      </div>
-      <div class="text-center animate-fade-in" style="animation-delay: 0.7s">
-        <div class="text-5xl font-bold text-primary mb-2">$2.3B+</div>
-        <p class="text-muted-foreground">Revenue Generated</p>
-      </div>
-      <div class="text-center animate-fade-in" style="animation-delay: 0.8s">
-        <div class="text-5xl font-bold text-primary mb-2">16+</div>
-        <p class="text-muted-foreground">Years of Excellence</p>
-      </div>
-    </div>
-    
-    <div class="text-center mt-12 animate-fade-in" style="animation-delay: 0.9s">
-      <a href="#contact" class="btn btn-primary btn-xl premium-glow">
-        Join These Success Stories
-        <span class="ml-2">→</span>
+    <!-- CTA Button -->
+    <div class="animate-fade-in" style="animation-delay: 0.6s">
+      <a 
+        href="/seo-success"
+        class="btn-accent btn-lg group h-14 px-8 text-lg font-bold bg-accent hover:bg-accent/90 hover:scale-105 transition-all duration-300 shadow-elegant hover:shadow-glow premium-glow magnetic text-white inline-flex items-center"
+      >
+        <span class="mr-3 text-xl">📈</span>
+        See Our Proven Results
+        <span class="ml-3 group-hover:translate-x-2 transition-transform text-xl">→</span>
       </a>
     </div>
   </div>
   
-  <!-- Background Pattern -->
-  <div class="absolute inset-0 grid-pattern opacity-5"></div>
+  <!-- Background Elements -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute top-20 right-20 w-64 h-64 bg-gradient-to-r from-accent/10 to-primary/10 rounded-full blur-3xl animate-float"></div>
+    <div class="absolute bottom-20 left-20 w-48 h-48 bg-gradient-to-r from-primary-glow/10 to-transparent rounded-full blur-3xl animate-float" style="animation-delay: 3s"></div>
+  </div>
 </section>
 
 <style>

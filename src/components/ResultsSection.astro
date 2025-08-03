@@ -1,240 +1,102 @@
 ---
 const timeline = [
   {
-    day: "Day 1-7",
-    title: "Deep Dive Discovery",
-    description: "Complete SEO audit, competitor analysis, and opportunity mapping",
-    deliverables: ["Current state analysis", "Competitor insights", "Quick win opportunities", "Priority roadmap"]
+    week: "Week 1",
+    days: "Days 1-7",
+    title: "Deep Dive & Strategy Blueprint",
+    description: "Complete technical audit, competitor analysis, and keyword research. You receive a personalized roadmap with prioritized action items.",
+    deliverables: ["Technical SEO audit report", "Competitor gap analysis", "Custom keyword strategy", "Priority action roadmap"]
   },
   {
-    day: "Day 8-15", 
-    title: "Strategic Foundation",
-    description: "Content strategy, keyword targeting, and technical optimization plan",
-    deliverables: ["Content calendar", "Keyword clusters", "Technical fixes", "Link building targets"]
+    week: "Week 2", 
+    days: "Days 8-14",
+    title: "Content & Optimization Framework",
+    description: "Content strategy development, on-page optimization guidelines, and conversion-focused recommendations tailored to your business goals.",
+    deliverables: ["Content calendar & themes", "On-page optimization guide", "Conversion optimization plan", "Link building strategy"]
   },
   {
-    day: "Day 16-23",
-    title: "Execution & Results",
-    description: "Implementation support and early performance tracking",
+    week: "Week 3",
+    days: "Days 15-23",
+    title: "Implementation & Results Tracking",
+    description: "Final strategy refinement, implementation support, and results measurement framework. You're equipped to see measurable growth.",
     deliverables: ["Implementation checklist", "Performance tracking setup", "Growth measurement tools", "Ongoing optimization plan"]
   }
 ];
 ---
 
-<section class="section py-32 bg-white relative overflow-hidden">
-  <div class="container relative z-10">
+<section class="py-20 px-6 bg-background">
+  <div class="max-w-6xl mx-auto">
     <div class="text-center mb-16">
-      <h2 class="text-5xl md:text-6xl font-bold mb-6 animate-fade-in">
-        Your <span class="text-accent">23-Day</span> SEO Transformation
+      <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-8">
+        Your 23-Day SEO Transformation
       </h2>
-      <p class="text-xl text-muted-foreground max-w-3xl mx-auto animate-fade-in" style="animation-delay: 0.1s">
-        A proven process that delivers real results, fast
+      <p class="text-lg text-muted-foreground max-w-3xl mx-auto">
+        SEO isn't magic, and we don't make empty promises. Here's exactly what happens in your first 23 days:
       </p>
     </div>
-    
-    <div class="max-w-4xl mx-auto relative">
+
+    <div class="relative">
       <!-- Timeline Line -->
-      <div class="absolute left-8 md:left-12 top-10 bottom-10 w-0.5 bg-gradient-to-b from-primary via-accent to-primary"></div>
+      <div class="absolute left-6 md:left-12 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-primary-light to-accent"></div>
       
-      {timeline.map((phase, index) => (
-        <div class="relative mb-12 animate-fade-in" style={`animation-delay: ${(index + 2) * 0.15}s`}>
-          <div class="flex items-start gap-8">
-            <!-- Timeline Marker -->
-            <div class="relative z-10 flex-shrink-0 w-16 h-16 md:w-24 md:h-24 bg-gradient-to-br from-primary to-primary-darker rounded-full flex items-center justify-center text-white font-bold text-2xl md:text-3xl shadow-xl">
-              {index + 1}
-              <div class="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+      <div class="space-y-16">
+        {timeline.map((phase, index) => (
+          <div class="relative flex flex-col md:flex-row items-start gap-8">
+            <!-- Timeline Dot -->
+            <div class="relative flex-shrink-0 z-10">
+              <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center shadow-lg border-4 border-background">
+                <span class="text-primary-foreground font-bold text-sm">
+                  {index + 1}
+                </span>
+              </div>
             </div>
-            
-            <!-- Content -->
-            <div class="flex-1 bg-background rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-border hover:border-accent group">
-              <div class="text-sm font-semibold text-accent mb-2">{phase.day}</div>
-              <h3 class="text-2xl md:text-3xl font-bold text-primary mb-3">{phase.title}</h3>
-              <p class="text-muted-foreground mb-6 text-lg">{phase.description}</p>
-              <div class="grid md:grid-cols-2 gap-3">
-                {phase.deliverables.map(item => (
-                  <div class="flex items-center gap-2">
-                    <span class="text-accent text-xl">✓</span>
-                    <span class="text-foreground">{item}</span>
+
+            <!-- Content Card -->
+            <div class="flex-1 glass-card bg-card/50 backdrop-blur-sm border border-border/50 hover:shadow-elegant transition-all duration-300">
+              <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                <div>
+                  <div class="flex items-center gap-3 mb-2">
+                    <h3 class="text-2xl font-bold text-foreground">
+                      {phase.week}
+                    </h3>
+                    <span class="text-sm text-muted-foreground bg-muted/30 px-3 py-1 rounded-full">
+                      {phase.days}
+                    </span>
+                  </div>
+                  <h4 class="text-xl font-semibold text-primary mb-3">
+                    {phase.title}
+                  </h4>
+                </div>
+              </div>
+              
+              <p class="text-muted-foreground mb-6 leading-relaxed">
+                {phase.description}
+              </p>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                {phase.deliverables.map((deliverable, idx) => (
+                  <div class="flex items-center gap-3 text-sm">
+                    <div class="w-2 h-2 bg-accent rounded-full flex-shrink-0"></div>
+                    <span class="text-foreground">{deliverable}</span>
                   </div>
                 ))}
               </div>
             </div>
           </div>
-        </div>
-      ))}
-    </div>
-    
-    <div class="mt-20 animate-fade-in" style="animation-delay: 0.8s">
-      <div class="max-w-3xl mx-auto bg-gradient-to-br from-primary to-primary-darker rounded-3xl p-12 text-center text-white shadow-2xl">
-        <h3 class="text-3xl md:text-4xl font-bold mb-4">Ready to start your transformation?</h3>
-        <p class="text-xl mb-8 text-white/90">Get the SEO strategy that actually delivers results</p>
-        <a href="mailto:dave@daveshap.com?subject=Start%20my%2023-day%20SEO%20transformation" class="btn bg-white text-primary hover:bg-gray-100 btn-xl premium-glow">
-          Start Your 23-Day Journey
-          <span class="ml-2">→</span>
-        </a>
+        ))}
       </div>
     </div>
-  </div>
-  
-  <!-- Background Elements -->
-  <div class="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-accent/5 to-transparent rounded-full blur-3xl"></div>
-  <div class="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-primary/5 to-transparent rounded-full blur-3xl"></div>
-</section>
 
-<style>
-  .results-section {
-    background: var(--white);
-  }
-  
-  .section-header {
-    text-align: center;
-    margin-bottom: var(--space-3xl);
-  }
-  
-  .section-header h2 {
-    font-size: clamp(2rem, 5vw, 3rem);
-    color: var(--blue);
-    margin-bottom: var(--space-sm);
-  }
-  
-  .section-header p {
-    color: var(--gray);
-    font-size: 1.25rem;
-  }
-  
-  .timeline {
-    max-width: 800px;
-    margin: 0 auto var(--space-3xl);
-    position: relative;
-    padding-left: 60px;
-  }
-  
-  .timeline::before {
-    content: '';
-    position: absolute;
-    left: 29px;
-    top: 40px;
-    bottom: 40px;
-    width: 2px;
-    background: linear-gradient(180deg, var(--blue-light), var(--blue));
-  }
-  
-  .timeline-item {
-    position: relative;
-    margin-bottom: var(--space-2xl);
-    opacity: 0;
-    animation: fadeIn 0.6s ease-out forwards;
-  }
-  
-  .timeline-marker {
-    position: absolute;
-    left: -60px;
-    top: 0;
-    width: 60px;
-    height: 60px;
-    background: var(--blue);
-    color: var(--white);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    font-weight: 700;
-    box-shadow: 0 0 0 4px var(--white), 0 0 0 6px var(--blue-light);
-  }
-  
-  .timeline-content {
-    background: var(--gray-light);
-    border-radius: 12px;
-    padding: var(--space-lg);
-    box-shadow: var(--shadow-sm);
-    transition: all 0.3s ease;
-  }
-  
-  .timeline-item:hover .timeline-content {
-    transform: translateX(8px);
-    box-shadow: var(--shadow-md);
-  }
-  
-  .timeline-day {
-    font-size: 0.875rem;
-    color: var(--blue-light);
-    font-weight: 600;
-    margin-bottom: var(--space-xs);
-  }
-  
-  .timeline-content h3 {
-    font-size: 1.5rem;
-    color: var(--blue);
-    margin-bottom: var(--space-sm);
-  }
-  
-  .timeline-content p {
-    color: var(--gray);
-    margin-bottom: var(--space-md);
-  }
-  
-  .deliverables {
-    list-style: none;
-    display: grid;
-    gap: var(--space-xs);
-  }
-  
-  .deliverables li {
-    position: relative;
-    padding-left: 1.5rem;
-    color: var(--gray);
-    font-size: 0.875rem;
-  }
-  
-  .deliverables li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    color: var(--blue-light);
-    font-weight: 700;
-  }
-  
-  .results-cta {
-    text-align: center;
-  }
-  
-  .cta-box {
-    background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
-    color: var(--white);
-    border-radius: 16px;
-    padding: var(--space-2xl);
-    max-width: 600px;
-    margin: 0 auto;
-    box-shadow: var(--shadow-xl);
-  }
-  
-  .cta-box h3 {
-    font-size: 2rem;
-    margin-bottom: var(--space-sm);
-    color: var(--white);
-  }
-  
-  .cta-box p {
-    font-size: 1.125rem;
-    margin-bottom: var(--space-lg);
-    opacity: 0.9;
-  }
-  
-  @media (max-width: 768px) {
-    .timeline {
-      padding-left: 40px;
-    }
-    
-    .timeline::before {
-      left: 19px;
-    }
-    
-    .timeline-marker {
-      left: -40px;
-      width: 40px;
-      height: 40px;
-      font-size: 1.25rem;
-    }
-  }
-</style>
+    <div class="text-center mt-16 pt-8 border-t border-border/30">
+      <div class="mb-6">
+        <p class="text-lg font-semibold text-foreground mb-2">Ready to start your transformation?</p>
+        <p class="text-muted-foreground">Get your custom 23-day SEO strategy today</p>
+      </div>
+      <a href="mailto:dave@daveshap.com?subject=I%20want%20my%20custom%20SEO%20strategy" 
+         class="btn-lg text-white group inline-flex items-center">
+        Get My SEO Strategy
+        <span class="ml-2 group-hover:translate-x-1 transition-transform">→</span>
+      </a>
+    </div>
+  </div>
+</section>

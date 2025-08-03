@@ -1,172 +1,81 @@
 ---
 const problems = [
   {
-    emoji: "😤",
-    title: "Tired of Empty Promises?",
-    description: "Agencies charge you thousands, then vanish with vague reports that don't move the needle.",
-    stat: "73%",
-    statLabel: "of businesses are unhappy with their SEO agency"
+    icon: "🎯",
+    title: "Wasted Budget on Wrong Keywords",
+    description: "Focusing on impossible-to-rank terms instead of uncovering strategic wins that drive ROI."
   },
   {
-    emoji: "📉",
-    title: "Traffic Declining or Flat?",
-    description: "Your competitors are stealing your rankings while you're stuck wondering what went wrong.",
-    stat: "89%",
-    statLabel: "of websites lose traffic after algorithm updates"
+    icon: "⏰",
+    title: "No Clear Timeline or Milestones",
+    description: "Waiting months for vague results while competitors pull ahead with strategic moves."
   },
   {
-    emoji: "💸",
-    title: "Burning Budget on Tactics That Don't Work?",
-    description: "Link building, content farms, technical audits that gather dust — sound familiar?",
-    stat: "$75B",
-    statLabel: "wasted on ineffective SEO annually"
+    icon: "📊",
+    title: "Failed to Communicate Results", 
+    description: "Leaving you frustrated and wondering where your money went."
   }
 ];
 ---
 
-<section class="section py-32 bg-white relative overflow-hidden">
-  <div class="container relative z-10">
-    <div class="text-center mb-16">
-      <h2 class="text-5xl md:text-6xl font-bold mb-6 animate-fade-in">
-        <span class="text-accent">Does this sound familiar?</span>
+<section class="premium-section bg-white relative">
+  <div class="premium-container">
+    
+    <!-- Section Header -->
+    <div class="text-center mb-20 animate-fade-in">
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-foreground mb-8 leading-tight">
+        Stop Getting Burned by<br />
+        <span class="relative inline-block mt-2">
+          <span class="bg-gradient-to-r from-destructive to-orange-500 bg-clip-text text-transparent">Bad SEO</span>
+          <div class="absolute -inset-1 bg-gradient-to-r from-destructive/20 to-orange-500/20 blur-lg rounded-lg"></div>
+        </span>
       </h2>
-      <p class="text-xl text-muted-foreground max-w-3xl mx-auto animate-fade-in" style="animation-delay: 0.1s">
-        You're not alone. Most SEO strategies fail because they focus on tactics, not results.
+      <p class="text-xl text-muted-foreground max-w-4xl mx-auto">
+        You've probably experienced these frustrating SEO failures before...
       </p>
     </div>
-    
-    <div class="grid md:grid-cols-3 gap-8">
+
+    <!-- Problems Grid -->
+    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
       {problems.map((problem, index) => (
-        <div class="animate-fade-in" style={`animation-delay: ${(index + 2) * 0.1}s`}>
-          <div class="bg-background rounded-2xl p-8 h-full border border-border hover:border-accent shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden group">
-            <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
-            <div class="text-6xl mb-6 filter grayscale-20 group-hover:grayscale-0 transition-all duration-300 group-hover:scale-110 transform">{problem.emoji}</div>
-            <h3 class="text-2xl font-bold mb-4 text-primary">{problem.title}</h3>
-            <p class="text-muted-foreground mb-6 leading-relaxed">{problem.description}</p>
-            <div class="pt-6 border-t border-border">
-              <div class="text-4xl font-bold text-primary mb-1">{problem.stat}</div>
-              <div class="text-sm text-muted-foreground">{problem.statLabel}</div>
-            </div>
+        <div 
+          class="group glass-card border border-destructive/20 hover:border-destructive/40 transition-all duration-500 p-8 text-center magnetic animate-fade-in-up relative"
+          style={`animation-delay: ${index * 0.2}s`}
+        >
+          <!-- Icon -->
+          <div class="mb-6">
+            <span class="text-6xl block mb-4 group-hover:scale-110 transition-transform duration-300">
+              {problem.icon}
+            </span>
+            <div class="w-16 h-1 bg-gradient-to-r from-destructive/60 to-orange-500/60 mx-auto rounded-full"></div>
           </div>
+          
+          <!-- Content -->
+          <h3 class="text-xl font-bold text-foreground mb-4 group-hover:text-destructive transition-colors duration-300">
+            {problem.title}
+          </h3>
+          <p class="text-muted-foreground leading-relaxed">
+            {problem.description}
+          </p>
+          
+          <!-- Hover Effect -->
+          <div class="absolute inset-0 bg-gradient-to-r from-destructive/0 to-orange-500/0 group-hover:from-destructive/5 group-hover:to-orange-500/5 rounded-2xl transition-all duration-500 -z-10"></div>
         </div>
       ))}
     </div>
-    
-    <div class="text-center mt-16 animate-fade-in" style="animation-delay: 0.6s">
-      <div class="inline-block bg-gradient-to-r from-primary to-primary-darker text-white rounded-full px-8 py-4">
-        <p class="text-lg font-semibold">
-          It's time to try something that actually works
-          <span class="ml-2">→</span>
-        </p>
-      </div>
+
+    <!-- Bottom CTA -->
+    <div class="text-center mt-20 animate-fade-in" style="animation-delay: 0.8s">
+      <p class="text-2xl font-bold text-foreground mb-6">
+        Sound familiar? <span class="text-primary">There's a better way.</span>
+      </p>
+      <div class="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full"></div>
     </div>
   </div>
-  
-  <!-- Background Elements -->
-  <div class="absolute top-1/2 left-0 w-64 h-64 bg-gradient-to-br from-accent/5 to-transparent rounded-full blur-3xl"></div>
-  <div class="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-primary/5 to-transparent rounded-full blur-3xl"></div>
-</section>
 
-<style>
-  .section {
-    background: var(--white);
-  }
-  
-  .section-header {
-    text-align: center;
-    margin-bottom: var(--space-3xl);
-  }
-  
-  .section-title {
-    font-size: clamp(2rem, 5vw, 3rem);
-    margin-bottom: var(--space-md);
-  }
-  
-  .section-subtitle {
-    font-size: 1.25rem;
-    color: var(--gray);
-    max-width: 60ch;
-    margin: 0 auto;
-  }
-  
-  .problem-card {
-    background: var(--gray-light);
-    border-radius: 16px;
-    padding: var(--space-xl);
-    text-align: center;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .problem-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--blue), var(--blue-light));
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s ease;
-  }
-  
-  .problem-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-xl);
-  }
-  
-  .problem-card:hover::before {
-    transform: scaleX(1);
-  }
-  
-  .problem-emoji {
-    font-size: 4rem;
-    margin-bottom: var(--space-md);
-    filter: grayscale(0.2);
-    transition: all 0.3s ease;
-  }
-  
-  .problem-card:hover .problem-emoji {
-    filter: grayscale(0);
-    transform: scale(1.1);
-  }
-  
-  .problem-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: var(--space-sm);
-    color: var(--blue);
-  }
-  
-  .problem-card p {
-    color: var(--gray);
-    margin-bottom: var(--space-lg);
-    line-height: 1.6;
-  }
-  
-  .problem-stat {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-    padding-top: var(--space-md);
-    border-top: 1px solid rgba(29, 78, 137, 0.1);
-  }
-  
-  .stat-number {
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--blue);
-  }
-  
-  .stat-label {
-    font-size: 0.875rem;
-    color: var(--gray);
-  }
-  
-  @media (max-width: 768px) {
-    .problem-emoji {
-      font-size: 3rem;
-    }
-  }
-</style>
+  <!-- Background Elements -->
+  <div class="absolute inset-0 pointer-events-none overflow-hidden">
+    <div class="absolute top-32 left-10 w-72 h-72 bg-gradient-to-r from-destructive/10 to-orange-500/10 rounded-full blur-3xl animate-float"></div>
+    <div class="absolute bottom-32 right-10 w-64 h-64 bg-gradient-to-r from-orange-500/10 to-destructive/10 rounded-full blur-3xl animate-float" style="animation-delay: 4s"></div>
+  </div>
+</section>

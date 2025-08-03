@@ -2,58 +2,48 @@
 const approaches = [
   {
     number: "01",
-    title: "Audit & Discovery",
-    description: "We dive deep into your current SEO performance, competitor landscape, and untapped opportunities to create a data-driven strategy.",
-    icon: "🔍"
+    title: "Prioritize What Works",
+    description: "With over 16 years experience leading SEO for brands like Adobe, Microsoft, and T-Mobile, we prioritize the 20% of efforts that deliver 80% of your growth. It's the same process we used to help Adobe grow organic search traffic by 494% for a new product."
   },
   {
     number: "02", 
-    title: "Strategic Roadmap",
-    description: "Get a clear, prioritized action plan that focuses on high-impact changes that will move the needle fastest.",
-    icon: "🗺️"
+    title: "Simplify the Process",
+    description: "You'll always know exactly what we're doing, why it matters, and how it impacts your bottom line. We use clear, KPI-driven reporting tailored to your goals, so you'll never be left guessing."
   },
   {
     number: "03",
-    title: "Execute & Optimize",
-    description: "We guide implementation and continuously refine based on real performance data, ensuring sustainable growth.",
-    icon: "🚀"
+    title: "Deliver Revenue-Driven Strategies", 
+    description: "Every recommendation we make ties directly to your revenue goals. This is the same process my team used to help Sofi generate 22,337 new funded accounts through organic search."
   }
 ];
 ---
 
-<section class="section py-32 bg-white relative overflow-hidden">
-  <div class="container relative z-10">
-    <div class="text-center mb-16">
-      <h2 class="text-5xl md:text-6xl font-bold mb-6 animate-fade-in">
-        Our <span class="text-accent">Proven Approach</span>
-      </h2>
-      <p class="text-xl text-muted-foreground max-w-3xl mx-auto animate-fade-in" style="animation-delay: 0.1s">
-        We don't guess. We analyze, strategize, and execute with precision.
-      </p>
-    </div>
+<section class="py-20 px-6 bg-white">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-4xl md:text-5xl font-bold text-foreground text-center mb-16">
+      But we do things differently. Our approach is…
+    </h2>
     
-    <div class="grid md:grid-cols-3 gap-8 relative">
-      <!-- Connection Line -->
-      <div class="hidden md:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-primary/20 via-accent/40 to-primary/20 transform -translate-y-1/2 z-0"></div>
-      
+    <div class="space-y-12">
       {approaches.map((approach, index) => (
-        <div class="relative animate-fade-in" style={`animation-delay: ${index * 0.15}s`}>
-          <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 relative z-10 border border-border hover:border-accent group">
-            <div class="flex items-start gap-6 mb-6">
-              <div class="text-6xl">{approach.icon}</div>
-              <div class="text-5xl font-bold text-primary/20 group-hover:text-accent/30 transition-colors">
+        <div class="flex flex-col md:flex-row items-start gap-8">
+          <div class="flex-shrink-0">
+            <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center">
+              <span class="text-primary-foreground font-bold text-xl">
                 {approach.number}
-              </div>
+              </span>
             </div>
-            <h3 class="text-2xl font-bold mb-4 text-primary">{approach.title}</h3>
-            <p class="text-muted-foreground leading-relaxed">{approach.description}</p>
+          </div>
+          <div class="flex-1">
+            <h3 class="text-2xl font-bold text-foreground mb-4">
+              {approach.title}
+            </h3>
+            <p class="text-lg text-muted-foreground leading-relaxed">
+              {approach.description}
+            </p>
           </div>
         </div>
       ))}
     </div>
   </div>
-  
-  <!-- Background Elements -->
-  <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-accent/5 to-transparent rounded-full blur-3xl"></div>
-  <div class="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-primary/5 to-transparent rounded-full blur-3xl"></div>
 </section>

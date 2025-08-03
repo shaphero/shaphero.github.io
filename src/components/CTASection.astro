@@ -1,144 +1,66 @@
 ---
 const benefits = [
-  "Clear, actionable SEO roadmap tailored to your business",
-  "Proven strategies that delivered 509% growth for SoFi",
-  "Direct access to an SEO expert who's done it for Fortune 500s",
-  "No BS, just results-focused recommendations"
+  "Identify the top 3 areas where you can see immediate improvement.",
+  "Provide a step-by-step approach tailored to your goals and resources.", 
+  "Share actionable insights you can implement right away to drive leads and revenue."
 ];
 ---
 
-<section class="section py-32 bg-gradient-cta relative overflow-hidden" id="contact">
-  <div class="container relative z-10">
-    <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-5xl md:text-6xl font-bold mb-6 animate-fade-in">
-        🎯 Ready to <span class="text-accent">Transform Your SEO?</span>
+<section class="py-32 px-6 bg-gradient-hero relative overflow-hidden">
+  <!-- Premium animated background -->
+  <div class="absolute inset-0">
+    <div class="absolute top-10 left-1/4 w-64 h-64 bg-primary/20 rounded-full blur-3xl animate-pulse"></div>
+    <div class="absolute bottom-20 right-1/4 w-80 h-80 bg-accent/20 rounded-full blur-3xl animate-pulse delay-700"></div>
+  </div>
+  
+  <div class="max-w-6xl mx-auto text-center relative z-10">
+    <div class="mb-12">
+      <span class="inline-block px-6 py-3 bg-accent/20 text-accent rounded-full text-lg font-bold mb-8 border border-accent/30">
+        🎯 Ready to Transform Your SEO?
+      </span>
+      
+      <h2 class="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-8 leading-tight">
+        Let's build your 
+        <span class="bg-gradient-to-r from-accent to-primary-glow bg-clip-text text-transparent"> custom strategy </span>
+        today.
       </h2>
       
-      <p class="text-2xl text-muted-foreground mb-8 animate-fade-in" style="animation-delay: 0.1s">
-        Stop wasting time and money on SEO that doesn't work.
+      <p class="text-xl md:text-2xl text-white/80 mb-12 max-w-4xl mx-auto">
+        In just <span class="text-accent font-bold">30 minutes</span>, we'll transform your SEO approach
       </p>
-      
-      <div class="inline-block bg-white/90 backdrop-blur rounded-2xl border-2 border-accent shadow-xl p-6 mb-12 animate-fade-in" style="animation-delay: 0.2s">
-        <p class="text-xl">
-          In just <strong class="text-3xl text-primary">30 minutes</strong>, we'll transform your SEO approach
-        </p>
-      </div>
-      
-      <div class="grid md:grid-cols-2 gap-4 mb-12 max-w-3xl mx-auto text-left">
+    </div>
+
+    <div class="max-w-4xl mx-auto mb-16">
+      <div class="grid md:grid-cols-3 gap-8">
         {benefits.map((benefit, index) => (
-          <div class="flex items-start gap-3 animate-fade-in" style={`animation-delay: ${(index + 3) * 0.1}s`}>
-            <span class="text-2xl text-accent flex-shrink-0">✓</span>
-            <span class="text-lg text-foreground">{benefit}</span>
+          <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8 text-left hover:scale-105 transition-all duration-300 shadow-elegant">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-12 h-12 bg-gradient-to-r from-accent to-primary-glow rounded-full flex items-center justify-center shadow-glow">
+                <span class="text-white font-black text-lg">
+                  {index + 1}
+                </span>
+              </div>
+              <div class="h-px bg-accent/30 flex-1"></div>
+            </div>
+            <p class="text-lg text-white/90 leading-relaxed">
+              {benefit}
+            </p>
           </div>
         ))}
       </div>
-      
-      <div class="animate-fade-in" style="animation-delay: 0.7s">
-        <a href="mailto:dave@daveshap.com?subject=Book%20my%20free%20SEO%20strategy%20call" 
-           class="btn btn-primary btn-xl premium-glow inline-flex items-center gap-3">
-          <span class="text-2xl">📅</span>
-          Book Your Free Strategy Call
-          <span class="text-xl">→</span>
-        </a>
-        
-        <p class="text-muted-foreground mt-6 text-lg">
-          No pitch. No pressure. Just expert advice to help you grow.
-        </p>
-      </div>
+    </div>
 
-      <!-- Alternative Contact Form -->
-      <div class="mt-16 p-8 bg-white rounded-2xl shadow-xl animate-fade-in" style="animation-delay: 0.8s">
-        <h3 class="text-2xl font-bold mb-6 text-primary">Or Send Me a Message</h3>
-        <form id="contact-form" class="max-w-2xl mx-auto">
-          <div class="grid md:grid-cols-2 gap-6 mb-6">
-            <div>
-              <label for="name" class="block text-sm font-medium text-foreground mb-2">Your Name</label>
-              <input 
-                type="text" 
-                id="name" 
-                name="name" 
-                required 
-                class="w-full px-4 py-3 rounded-lg border border-border focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 transition-all"
-                placeholder="John Doe"
-              />
-            </div>
-            <div>
-              <label for="email" class="block text-sm font-medium text-foreground mb-2">Email Address</label>
-              <input 
-                type="email" 
-                id="email" 
-                name="email" 
-                required 
-                class="w-full px-4 py-3 rounded-lg border border-border focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 transition-all"
-                placeholder="john@company.com"
-              />
-            </div>
-          </div>
-          <div class="mb-6">
-            <label for="website" class="block text-sm font-medium text-foreground mb-2">Website URL</label>
-            <input 
-              type="url" 
-              id="website" 
-              name="website" 
-              class="w-full px-4 py-3 rounded-lg border border-border focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 transition-all"
-              placeholder="https://yourwebsite.com"
-            />
-          </div>
-          <div class="mb-6">
-            <label for="message" class="block text-sm font-medium text-foreground mb-2">Tell me about your SEO goals</label>
-            <textarea 
-              id="message" 
-              name="message" 
-              rows="4" 
-              required
-              class="w-full px-4 py-3 rounded-lg border border-border focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 transition-all resize-none"
-              placeholder="I'm looking to improve our organic traffic and rankings..."
-            ></textarea>
-          </div>
-          <button 
-            type="submit" 
-            class="btn btn-primary btn-lg w-full md:w-auto"
-          >
-            Send Message
-            <span class="ml-2">→</span>
-          </button>
-        </form>
+    <div class="space-y-6">
+      <a href="mailto:dave@daveshap.com?subject=I%20want%20to%20start%20my%20SEO%20strategy%20now" 
+         class="btn-accent btn-xl group min-w-[300px] bg-accent hover:bg-accent/90 text-white shadow-glow hover:shadow-premium inline-flex items-center">
+        <span class="mr-3">🚀</span>
+        START MY SEO STRATEGY NOW
+        <span class="ml-3 group-hover:translate-x-1 transition-transform">→</span>
+      </a>
+      
+      <div class="text-white/60 text-sm">
+        ⚡ No commitment • 🎯 100% personalized • 📈 Instant value
       </div>
     </div>
   </div>
-
-  <!-- Background Elements -->
-  <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-accent/10 to-transparent rounded-full blur-3xl"></div>
-  <div class="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-primary/10 to-transparent rounded-full blur-3xl"></div>
-  <div class="absolute inset-0 grid-pattern opacity-5"></div>
 </section>
-
-<script>
-  // Contact form submission
-  const contactForm = document.getElementById('contact-form') as HTMLFormElement;
-  
-  contactForm?.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    
-    const formData = new FormData(contactForm);
-    const data = Object.fromEntries(formData.entries());
-    
-    // Create mailto link with form data
-    const subject = `SEO Strategy Request from ${data.name}`;
-    const body = `Name: ${data.name}%0D%0AEmail: ${data.email}%0D%0AWebsite: ${data.website || 'Not provided'}%0D%0A%0D%0AMessage:%0D%0A${data.message}`;
-    
-    window.location.href = `mailto:dave@daveshap.com?subject=${encodeURIComponent(subject)}&body=${body}`;
-    
-    // Show success message
-    const button = contactForm.querySelector('button[type="submit"]') as HTMLButtonElement;
-    const originalText = button.innerHTML;
-    button.innerHTML = '✓ Opening email client...';
-    button.disabled = true;
-    
-    setTimeout(() => {
-      button.innerHTML = originalText;
-      button.disabled = false;
-      contactForm.reset();
-    }, 3000);
-  });
-</script>
