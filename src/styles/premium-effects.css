@@ -51,69 +51,129 @@
   opacity: 0;
 }
 
-/* Premium Button System */
+/* Premium Button System - Exact React Component Styles */
+.btn-base {
+  @apply inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-semibold ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50;
+}
+
+/* Button Variants */
+.btn-primary {
+  @apply btn-base bg-primary text-white hover:bg-primary-darker shadow-premium;
+}
+
+.btn-primary:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-glow);
+}
+
+.btn-secondary {
+  @apply btn-base bg-secondary text-secondary-foreground shadow-elegant;
+}
+
+.btn-secondary:hover {
+  background: hsl(var(--secondary) / 0.8);
+}
+
+.btn-accent {
+  @apply btn-base bg-accent text-white shadow-premium;
+}
+
+.btn-accent:hover {
+  background: hsl(var(--accent) / 0.9);
+  transform: scale(1.05);
+  box-shadow: var(--shadow-glow);
+}
+
 .btn-premium {
-  position: relative;
-  background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-light)) 100%);
-  border: 1px solid hsl(var(--primary-light) / 0.3);
-  color: white;
-  font-weight: 700;
-  padding: 1rem 2rem;
-  border-radius: 12px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  overflow: hidden;
-}
-
-.btn-premium::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.btn-premium:hover::before {
-  opacity: 1;
-}
-
-.btn-premium.premium-glow {
-  box-shadow: 
-    0 4px 20px hsl(var(--primary) / 0.25),
-    0 8px 40px hsl(var(--primary) / 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  @apply btn-base text-white border border-white/20;
+  background: linear-gradient(to right, hsl(var(--primary)), hsl(var(--primary-darker)));
+  box-shadow: var(--shadow-glow);
 }
 
 .btn-premium:hover {
-  transform: translateY(-2px);
-  box-shadow: 
-    0 8px 30px hsl(var(--primary) / 0.35),
-    0 16px 60px hsl(var(--primary) / 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  background: linear-gradient(to right, hsl(var(--primary-darker)), hsl(var(--primary)));
+  transform: scale(1.05);
 }
 
-.btn-premium.magnetic {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+.btn-ghost {
+  @apply btn-base text-white border border-white/20 backdrop-blur-sm;
+  background: rgba(255, 255, 255, 0.1);
 }
 
-.btn-premium.magnetic:hover {
-  transform: translateY(-4px) scale(1.02);
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.2);
 }
 
-/* Glass Badge System */
-.glass-badge {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.02) 100%);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 0.75rem 1.5rem;
-  border-radius: 50px;
-  font-weight: 600;
-  font-size: 0.875rem;
+.btn-outline {
+  @apply btn-base border border-primary bg-background text-primary shadow-elegant;
+}
+
+.btn-outline:hover {
+  @apply bg-primary text-white;
+}
+
+/* Button Sizes */
+.btn-sm {
+  @apply h-9 rounded-md px-3;
+}
+
+.btn-default {
+  @apply h-12 px-6 py-3;
+}
+
+.btn-lg {
+  @apply h-14 rounded-lg px-10 text-lg;
+}
+
+.btn-xl {
+  @apply h-16 rounded-xl px-12 text-xl;
+}
+
+.btn-icon {
+  @apply h-10 w-10;
+}
+
+/* Glass Badge System - Exact React Component Styles */
+.glass-badge-base {
+  @apply inline-flex items-center rounded-full px-4 py-2 text-sm font-semibold backdrop-blur-sm border transition-all duration-300 animate-fade-in;
+}
+
+/* Glass Badge Variants */
+.glass-badge-default {
+  @apply glass-badge-base bg-white/10 text-white border-white/20 hover:bg-white/20;
+}
+
+.glass-badge-primary {
+  @apply glass-badge-base text-primary-foreground border-primary/30 hover:bg-primary/30;
+  background: hsl(var(--primary) / 0.2);
+}
+
+.glass-badge-accent {
+  @apply glass-badge-base text-white border-accent/30 hover:bg-accent/30;
+  background: hsl(var(--accent) / 0.2);
+}
+
+.glass-badge-success {
+  @apply glass-badge-base text-green-100 border-green-500/30 hover:bg-green-500/30;
+  background: rgba(34, 197, 94, 0.2);
+}
+
+.glass-badge-warning {
+  @apply glass-badge-base text-yellow-100 border-yellow-500/30 hover:bg-yellow-500/30;
+  background: rgba(234, 179, 8, 0.2);
+}
+
+/* Glass Badge Sizes */
+.glass-badge-sm {
+  @apply px-3 py-1 text-xs;
+}
+
+.glass-badge-default-size {
+  @apply px-4 py-2 text-sm;
+}
+
+.glass-badge-lg {
+  @apply px-6 py-3 text-base;
 }
 
 .shadow-glow {

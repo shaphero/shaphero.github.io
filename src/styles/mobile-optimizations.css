@@ -1,0 +1,169 @@
+/* Mobile-First Performance Optimizations */
+
+/* Reduce animations on mobile and slow connections */
+@media (max-width: 768px), (prefers-reduced-motion: reduce) {
+  /* Disable complex animations */
+  .animate-float,
+  .animate-gradient-shift,
+  .animate-glow-pulse {
+    animation: none !important;
+  }
+  
+  /* Simplify transitions */
+  * {
+    transition-duration: 0.15s !important;
+  }
+  
+  /* Reduce blur effects for performance */
+  .blur-3xl {
+    filter: blur(20px) !important;
+  }
+  
+  .blur-2xl {
+    filter: blur(15px) !important;
+  }
+  
+  /* Hide decorative elements */
+  .grid-pattern,
+  .noise-bg::before {
+    display: none !important;
+  }
+}
+
+/* Touch-friendly tap targets */
+@media (pointer: coarse) {
+  button,
+  a,
+  input,
+  select,
+  textarea {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Increase clickable area */
+  .nav-link {
+    padding: 12px 16px;
+  }
+}
+
+/* Optimize for small screens */
+@media (max-width: 640px) {
+  /* Reduce font sizes slightly */
+  html {
+    font-size: 15px;
+  }
+  
+  /* Stack elements vertically */
+  .grid {
+    grid-template-columns: 1fr !important;
+  }
+  
+  /* Full-width buttons on mobile */
+  .btn-mobile-full {
+    width: 100%;
+  }
+  
+  /* Reduce padding on mobile */
+  .section-padding {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  
+  /* Hide non-essential elements */
+  .desktop-only {
+    display: none !important;
+  }
+}
+
+/* Optimize images for different screen densities */
+@media (min-resolution: 2dppx) {
+  /* High DPI screens get higher quality images */
+  img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Landscape mobile optimizations */
+@media (max-height: 500px) and (orientation: landscape) {
+  /* Reduce vertical spacing */
+  .hero-section {
+    min-height: calc(100vh - 60px);
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  
+  /* Smaller headings in landscape */
+  h1 {
+    font-size: 2.5rem;
+  }
+}
+
+/* Network-aware optimizations */
+@media (prefers-reduced-data: reduce) {
+  /* Hide background images */
+  .bg-image {
+    background-image: none !important;
+  }
+  
+  /* Use system fonts */
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+}
+
+/* Improve scrolling performance */
+.scroll-container {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
+/* Optimize for foldable devices */
+@media (max-width: 280px) {
+  /* Galaxy Fold closed */
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  h1 {
+    font-size: 1.75rem;
+  }
+}
+
+/* Safe area insets for modern phones */
+.safe-padding {
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Performance hints */
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-opacity {
+  will-change: opacity;
+}
+
+/* Use GPU acceleration wisely */
+.gpu-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Contain layout for better performance */
+.contain-layout {
+  contain: layout;
+}
+
+.contain-paint {
+  contain: paint;
+}
+
+.contain-strict {
+  contain: strict;
+}

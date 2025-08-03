@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
   site: 'https://daveshap.com',
@@ -9,6 +10,9 @@ export default defineConfig({
     assets: '_assets'
   },
   integrations: [
+    tailwind({
+      applyBaseStyles: false,
+    }),
     sitemap()
   ],
   compressHTML: true,
