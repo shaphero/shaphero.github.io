@@ -1,4 +1,6 @@
 ---
+import Icon from '../Icon.astro';
+
 export interface Props {
   variant?: 'text' | 'logos' | 'mixed';
   title?: string;
@@ -77,7 +79,8 @@ const clients = [
     <div class="mb-12 animate-fade-in">
       <span class="inline-flex items-center gap-2 px-6 py-3 glass-card text-accent font-semibold text-sm border border-accent/20 shadow-glow">
         <span class="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
-        🏆 Proven Track Record
+        <Icon name="trophy" class="text-accent" size="sm" />
+        Proven Track Record
       </span>
     </div>
     
@@ -144,7 +147,7 @@ const clients = [
           href={ctaHref}
           class="btn-accent btn-lg group h-14 px-8 text-lg font-bold bg-accent hover:bg-accent/90 hover:scale-105 transition-all duration-300 shadow-elegant hover:shadow-glow premium-glow magnetic text-white inline-flex items-center"
         >
-          <span class="mr-3 text-xl">📈</span>
+          <Icon name="chart-growth" class="mr-3" size="sm" />
           {ctaText}
           <span class="ml-3 group-hover:translate-x-2 transition-transform text-xl">→</span>
         </a>
