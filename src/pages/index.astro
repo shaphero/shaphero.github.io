@@ -1,33 +1,323 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Header from '../components/Header.astro';
-import HeroSection from '../components/HeroSection-Perfect.astro';
-import ProblemsSection from '../components/ProblemsSection.astro';
-import ApproachSection from '../components/ApproachSection.astro';
+import PageLayout from '../layouts/PageLayout.astro';
+import Hero from '../components/common/Hero.astro';
+import Section from '../components/common/Section.astro';
+import ContentGrid from '../components/common/ContentGrid.astro';
 import BrandLogos from '../components/common/BrandLogos.astro';
-import SEOTruthSection from '../components/SEOTruthSection.astro';
-import WhoWeWorkWith from '../components/WhoWeWorkWith.astro';
-import ResultsSection from '../components/ResultsSection.astro';
-import TestimonialsSection from '../components/TestimonialsSection.astro';
-import AboutSection from '../components/AboutSection.astro';
-import CTASection from '../components/CTASection.astro';
 
-const title = "Dave Shapiro SEO Expert | 509% Traffic Growth | Proven SEO Strategy";
-const description = "Get measurable SEO results fast. Dave Shapiro helped SoFi grow 509% traffic & 22K+ customers, Adobe 25K+ downloads. Stop wasting money on ineffective SEO. Book free strategy call.";
+const expertise = [
+  {
+    icon: "🤖",
+    title: "AI & Automation Pioneer",
+    description: "Implementing cutting-edge AI solutions that transform how marketing teams work. From ChatGPT to Claude to custom workflows, I help teams save 10-20 hours per week."
+  },
+  {
+    icon: "📈",
+    title: "Growth Marketing Expert",
+    description: "509% traffic growth at SoFi. 494% at Adobe. Building and scaling marketing engines that deliver measurable revenue, not just vanity metrics."
+  },
+  {
+    icon: "🎯",
+    title: "Strategic Leadership",
+    description: "Former CMO of Unabated (sports betting SaaS). Built the SEO team at Neil Patel Digital. Led digital transformation at Fortune 500 companies."
+  }
+];
+
+const philosophyPoints = [
+  {
+    title: "Evidence-Based Marketing",
+    description: "Inspired by Byron Sharp's laws of growth, Binet & Field's long-term thinking, and Mark Ritson's strategic clarity. No gut feelings, just proven frameworks."
+  },
+  {
+    title: "AI-Enhanced, Human-Centered",
+    description: "Technology should amplify human creativity, not replace it. I teach teams to use AI as a force multiplier while maintaining quality and authenticity."
+  },
+  {
+    title: "Revenue, Not Rankings",
+    description: "Every strategy ties directly to business outcomes. Whether it's SEO, content, or AI implementation, the goal is always profitable growth."
+  }
+];
+
+const experience = [
+  {
+    title: "Chief Marketing Officer",
+    company: "Unabated",
+    description: "Led marketing for innovative sports betting SaaS platform, driving user acquisition and market expansion",
+    period: "Recent"
+  },
+  {
+    title: "VP of SEO",
+    company: "Neil Patel Digital",
+    description: "Built and scaled the SEO team at one of the world's fastest-growing digital agencies",
+    period: "2019-2021"
+  },
+  {
+    title: "SEO Leadership",
+    company: "Fortune 500 Companies",
+    description: "Led organic growth initiatives for Bank of America, Toyota, Western Union, SoFi, Adobe, and more",
+    period: "16+ Years"
+  }
+];
+
+const services = [
+  {
+    title: "AI Training & Implementation",
+    description: "Transform your team into AI power users with hands-on training and custom workflows",
+    link: "/ai-training"
+  },
+  {
+    title: "SEO & Organic Growth",
+    description: "Data-driven SEO strategies that actually move the revenue needle",
+    link: "/seo"
+  },
+  {
+    title: "Marketing Strategy",
+    description: "Evidence-based marketing strategies grounded in proven frameworks",
+    link: "mailto:dave@daveshap.com?subject=Marketing strategy consultation"
+  }
+];
 ---
 
-<BaseLayout title={title} description={description}>
-  <Header />
-  <main class="pt-20">
-    <HeroSection />
-    <ProblemsSection />
-    <ApproachSection />
-    <BrandLogos variant="text" />
-    <SEOTruthSection />
-    <WhoWeWorkWith />
-    <ResultsSection />
-    <TestimonialsSection />
-    <AboutSection />
-    <CTASection />
-  </main>
-</BaseLayout>
+<PageLayout 
+  title="Dave Shapiro - Marketing Leader, AI Pioneer, Growth Expert"
+  description="Former CMO of Unabated. Marketing strategist who's driven growth for Fortune 500 companies. Expert in AI, SEO, and evidence-based marketing. Let's talk growth."
+  showHeader={true}
+  showCTA={false}
+>
+  <!-- Hero Section -->
+  <section class="hero-section relative w-full bg-gradient-hero overflow-x-hidden min-h-screen flex items-center noise-bg">
+    <div class="absolute inset-0 w-full overflow-hidden">
+      <div class="absolute top-20 left-[5%] w-48 h-48 md:w-96 md:h-96 md:left-10 bg-gradient-to-r from-primary/20 to-accent/20 rounded-full blur-2xl md:blur-3xl animate-float"></div>
+      <div class="absolute bottom-40 right-[5%] w-40 h-40 md:w-80 md:h-80 md:right-20 bg-gradient-to-r from-accent/15 to-primary-glow/15 rounded-full blur-2xl md:blur-3xl animate-float" style="animation-delay: 2s"></div>
+    </div>
+    
+    <div class="relative z-10 max-w-7xl mx-auto py-32 px-6">
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+        <!-- Text Content -->
+        <div class="order-2 md:order-1">
+          <div class="mb-8 animate-fade-in">
+            <span class="glass-badge-accent inline-flex items-center gap-2 shadow-glow">
+              <span class="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
+              Marketing Leader & AI Pioneer
+            </span>
+          </div>
+          
+          <h1 class="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-8 leading-tight animate-fade-in-up">
+            I help companies
+            <span class="bg-gradient-to-r from-accent to-primary-glow bg-clip-text text-transparent"> grow profitably </span>
+            in the AI era
+          </h1>
+          
+          <p class="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed animate-fade-in" style="animation-delay: 0.2s">
+            Former CMO of Unabated. Built marketing teams that generated $100M+ in revenue. 
+            Now I teach companies how to win with AI-powered marketing.
+          </p>
+          
+          <div class="flex flex-col sm:flex-row gap-4 animate-fade-in" style="animation-delay: 0.4s">
+            <a href="#expertise" class="btn-primary btn-lg group min-w-[200px] magnetic inline-flex items-center justify-center">
+              <span class="mr-2">💬</span>
+              Let's Talk Growth
+              <span class="ml-2 group-hover:translate-x-1 transition-transform">→</span>
+            </a>
+            <a href="#philosophy" class="btn-ghost btn-lg min-w-[200px] magnetic inline-flex items-center justify-center">
+              <span class="mr-2">📖</span>
+              My Approach
+            </a>
+          </div>
+        </div>
+        
+        <!-- Image -->
+        <div class="order-1 md:order-2 flex justify-center animate-fade-in" style="animation-delay: 0.3s">
+          <div class="relative">
+            <div class="w-80 h-80 md:w-96 md:h-96 rounded-3xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-300">
+              <img 
+                src="/images/dave-rooftop.webp" 
+                alt="Dave Shapiro - Marketing Leader and AI Expert"
+                class="w-full h-full object-cover"
+                loading="eager"
+                width="384"
+                height="384"
+              />
+            </div>
+            <div class="absolute -bottom-4 -right-4 w-64 h-64 bg-gradient-to-br from-accent/20 to-primary/20 rounded-3xl blur-2xl -z-10"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Expertise Section -->
+  <Section id="expertise" background="white" padding="xl">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-4">
+        Three Ways I Drive <span class="text-accent">Exceptional Growth</span>
+      </h2>
+      <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+        Combining deep marketing expertise with cutting-edge AI implementation
+      </p>
+    </div>
+    
+    <ContentGrid 
+      items={expertise}
+      columns={3}
+      cardStyle="glass"
+    />
+    
+    <div class="text-center mt-12">
+      <a href="#services" class="text-primary font-semibold hover:text-accent transition-colors">
+        See how we can work together →
+      </a>
+    </div>
+  </Section>
+
+  <!-- Brand Logos -->
+  <Section background="cream" padding="lg">
+    <BrandLogos 
+      variant="text"
+      title="Trusted by the World's Best Brands"
+      subtitle="I've driven growth for Fortune 500 companies and fast-growing startups"
+      showCTA={false}
+    />
+  </Section>
+
+  <!-- Philosophy Section -->
+  <Section id="philosophy" background="white" padding="xl">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-4">
+          Marketing Philosophy: <span class="text-accent">Evidence Over Opinion</span>
+        </h2>
+        <p class="text-xl text-muted-foreground">
+          Inspired by the best minds in marketing science
+        </p>
+      </div>
+      
+      <div class="space-y-8">
+        {philosophyPoints.map((point, index) => (
+          <div class="flex gap-6 items-start animate-fade-in" style={`animation-delay: ${index * 0.1}s`}>
+            <div class="w-12 h-12 bg-gradient-to-br from-primary to-primary-darker rounded-full flex items-center justify-center flex-shrink-0">
+              <span class="text-white font-bold">{index + 1}</span>
+            </div>
+            <div>
+              <h3 class="text-2xl font-bold text-foreground mb-2">{point.title}</h3>
+              <p class="text-lg text-muted-foreground leading-relaxed">{point.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      
+      <div class="mt-12 p-8 bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl border border-primary/20">
+        <p class="text-lg text-foreground italic text-center">
+          "Marketing is about making money, not making noise. Every tactic should tie to revenue."
+        </p>
+        <p class="text-center mt-4 text-muted-foreground">— My guiding principle</p>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Experience Timeline -->
+  <Section background="cream" padding="xl">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-4">
+          A Track Record of <span class="text-accent">Delivering Results</span>
+        </h2>
+      </div>
+      
+      <div class="space-y-8">
+        {experience.map((role, index) => (
+          <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-in" style={`animation-delay: ${index * 0.1}s`}>
+            <div class="flex justify-between items-start mb-4">
+              <div>
+                <h3 class="text-2xl font-bold text-foreground">{role.title}</h3>
+                <p class="text-xl text-primary font-semibold">{role.company}</p>
+              </div>
+              <span class="text-sm text-muted-foreground bg-muted/30 px-3 py-1 rounded-full">{role.period}</span>
+            </div>
+            <p class="text-muted-foreground leading-relaxed">{role.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </Section>
+
+  <!-- Services Section -->
+  <Section id="services" background="white" padding="xl">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-4">
+        How We Can <span class="text-accent">Work Together</span>
+      </h2>
+      <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+        Whether you need AI implementation, SEO expertise, or strategic guidance
+      </p>
+    </div>
+    
+    <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+      {services.map((service, index) => (
+        <a 
+          href={service.link}
+          class="group bg-card rounded-2xl border border-border p-8 hover:shadow-xl hover:scale-105 transition-all duration-300 animate-fade-in"
+          style={`animation-delay: ${index * 0.1}s`}
+        >
+          <h3 class="text-2xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors">
+            {service.title}
+          </h3>
+          <p class="text-muted-foreground mb-6">{service.description}</p>
+          <span class="text-primary font-semibold group-hover:translate-x-2 transition-transform inline-block">
+            Learn more →
+          </span>
+        </a>
+      ))}
+    </div>
+  </Section>
+
+  <!-- Testimonial -->
+  <Section background="cream" padding="xl">
+    <div class="max-w-3xl mx-auto text-center">
+      <div class="bg-white rounded-2xl p-12 shadow-xl">
+        <div class="flex justify-center mb-6">
+          {[1,2,3,4,5].map(() => (
+            <span class="text-yellow-400 text-3xl">★</span>
+          ))}
+        </div>
+        <p class="text-2xl text-foreground leading-relaxed mb-8 italic">
+          "Dave is by far the most talented marketer I've ever worked with. 
+          His combination of strategic thinking, technical expertise, and ability to 
+          see around corners is unmatched. He doesn't just deliver results - he transforms 
+          how teams think about growth."
+        </p>
+        <p class="text-lg text-primary font-semibold">
+          VP of Marketing, Fortune 500 Financial Services
+        </p>
+      </div>
+    </div>
+  </Section>
+
+  <!-- CTA Section -->
+  <section class="py-32 px-6 bg-gradient-hero relative overflow-hidden">
+    <div class="absolute inset-0">
+      <div class="absolute top-10 left-1/4 w-64 h-64 bg-primary/20 rounded-full blur-3xl animate-pulse"></div>
+      <div class="absolute bottom-20 right-1/4 w-80 h-80 bg-accent/20 rounded-full blur-3xl animate-pulse delay-700"></div>
+    </div>
+    
+    <div class="max-w-4xl mx-auto text-center relative z-10">
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-8 leading-tight">
+        Ready to accelerate your growth?
+      </h2>
+      <p class="text-xl md:text-2xl text-white/80 mb-12 max-w-3xl mx-auto">
+        Let's discuss how AI and modern marketing can transform your business
+      </p>
+      
+      <a href="mailto:dave@daveshap.com?subject=Let's discuss growth opportunities" 
+         class="btn-accent btn-xl group min-w-[300px] bg-accent hover:bg-accent/90 text-white shadow-glow hover:shadow-premium inline-flex items-center">
+        <span class="mr-3">💬</span>
+        Schedule a Conversation
+        <span class="ml-3 group-hover:translate-x-1 transition-transform">→</span>
+      </a>
+      
+      <div class="mt-8 text-white/60">
+        <p>Or connect on <a href="https://www.linkedin.com/in/yourprofile" class="text-accent hover:text-white transition-colors">LinkedIn</a></p>
+      </div>
+    </div>
+  </section>
+</PageLayout>
