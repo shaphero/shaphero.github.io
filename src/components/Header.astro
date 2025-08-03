@@ -1,11 +1,27 @@
 ---
-const navItems = [
-  { href: '/ai-training', label: 'AI Training' },
-  { href: '/seo', label: 'SEO' },
-  { href: '/marketing-strategy', label: 'Strategy' },
+const services = [
+  { 
+    href: '/ai-training', 
+    label: 'AI Training',
+    description: 'Transform your team into AI power users'
+  },
+  { 
+    href: '/seo', 
+    label: 'SEO & Growth',
+    description: 'Data-driven strategies that drive revenue'
+  },
+  { 
+    href: '/marketing-strategy', 
+    label: 'Marketing Strategy',
+    description: 'Evidence-based marketing that works'
+  },
 ];
 
 const currentPath = Astro.url.pathname;
+
+// You can change this to any of these options:
+// "How I Help" / "Solutions" / "Services" / "Work With Me" / "Expertise"
+const dropdownLabel = "How I Help";
 ---
 
 <header class="fixed top-0 w-full py-4 px-6 bg-background/95 backdrop-blur-md border-b border-border z-50">
@@ -17,25 +33,51 @@ const currentPath = Astro.url.pathname;
       </div>
     </a>
     
-    <!-- Center Navigation -->
+    <!-- Center Navigation with Dropdown -->
     <nav class="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
-      {navItems.map((item) => (
-        <a 
-          href={item.href}
-          class={`text-sm font-medium transition-all duration-300 hover:text-primary ${
-            currentPath === item.href 
-              ? 'text-primary' 
-              : 'text-muted-foreground'
-          } relative group`}
-        >
-          {item.label}
-          <span class={`absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300 ${
-            currentPath === item.href 
-              ? 'w-full' 
-              : 'w-0 group-hover:w-full'
-          }`}></span>
-        </a>
-      ))}
+      <div class="relative group">
+        <button class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 flex items-center gap-2 py-2">
+          {dropdownLabel}
+          <svg class="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        
+        <!-- Dropdown Menu -->
+        <div class="absolute top-full left-1/2 -translate-x-1/2 mt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+          <div class="bg-white/95 backdrop-blur-md rounded-2xl shadow-xl border border-border/20 p-2 min-w-[320px]">
+            {services.map((service) => (
+              <a 
+                href={service.href}
+                class={`block px-4 py-3 rounded-lg hover:bg-muted/50 transition-all duration-200 group/item ${
+                  currentPath === service.href ? 'bg-muted/30' : ''
+                }`}
+              >
+                <div class="flex items-center justify-between">
+                  <div>
+                    <div class={`font-medium text-sm mb-1 ${
+                      currentPath === service.href ? 'text-primary' : 'text-foreground'
+                    } group-hover/item:text-primary transition-colors`}>
+                      {service.label}
+                    </div>
+                    <div class="text-xs text-muted-foreground">
+                      {service.description}
+                    </div>
+                  </div>
+                  <svg class="w-4 h-4 text-muted-foreground group-hover/item:text-primary transition-all duration-200 opacity-0 group-hover/item:opacity-100 -translate-x-2 group-hover/item:translate-x-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                  </svg>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+      
+      <!-- About Link -->
+      <a href="/#philosophy" class="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300">
+        About
+      </a>
     </nav>
     
     <!-- CTA Button -->
@@ -64,18 +106,35 @@ const currentPath = Astro.url.pathname;
   <!-- Mobile Navigation -->
   <div id="mobile-menu" class="md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-md border-b border-border opacity-0 invisible transition-all duration-300">
     <nav class="max-w-7xl mx-auto px-6 py-4 space-y-2">
-      {navItems.map((item) => (
+      <div class="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">{dropdownLabel}</div>
+      {services.map((service) => (
         <a 
-          href={item.href}
-          class={`block py-2 text-sm font-medium transition-all duration-300 hover:text-primary ${
-            currentPath === item.href 
-              ? 'text-primary' 
-              : 'text-muted-foreground'
+          href={service.href}
+          class={`block py-3 px-3 rounded-lg transition-all duration-300 hover:bg-muted/50 ${
+            currentPath === service.href 
+              ? 'bg-muted/30' 
+              : ''
           }`}
         >
-          {item.label}
+          <div class={`text-sm font-medium ${
+            currentPath === service.href 
+              ? 'text-primary' 
+              : 'text-foreground'
+          }`}>
+            {service.label}
+          </div>
+          <div class="text-xs text-muted-foreground mt-1">
+            {service.description}
+          </div>
         </a>
       ))}
+      <div class="border-t border-border/50 my-3"></div>
+      <a 
+        href="/#philosophy"
+        class="block py-2 text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300"
+      >
+        About
+      </a>
     </nav>
   </div>
 </header>

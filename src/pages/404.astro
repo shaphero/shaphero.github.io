@@ -1,14 +1,16 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Header from '../components/Header.astro';
+import PageLayout from '../layouts/PageLayout.astro';
 
 const title = "Page Not Found | Dave Shapiro SEO";
 const description = "The page you're looking for doesn't exist. Let's get you back on track.";
 ---
 
-<BaseLayout title={title} description={description}>
-  <Header />
-  
+<PageLayout 
+  title={title} 
+  description={description}
+  showHeader={true}
+  showCTA={false}
+>
   <main class="error-page">
     <div class="container">
       <div class="error-content">
@@ -29,7 +31,7 @@ const description = "The page you're looking for doesn't exist. Let's get you ba
       </div>
     </div>
   </main>
-</BaseLayout>
+</PageLayout>
 
 <style>
   .error-page {
