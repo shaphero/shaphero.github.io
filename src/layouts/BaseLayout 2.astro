@@ -1,6 +1,4 @@
 ---
-import '../styles/global-complete.css';
-
 export interface Props {
   title: string;
   description: string;
@@ -46,6 +44,19 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <meta name="twitter:description" content={description}>
   <meta name="twitter:image" content={new URL(image, Astro.site)}>
   
+  <!-- Critical CSS - Inline for instant render -->
+  <style>
+    /* Only above-the-fold critical styles */
+    :root{--cream:#f4e3c2;--blue:#1d4e89;--white:#fff}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Inter,-apple-system,sans-serif;color:var(--blue);background:var(--cream)}
+    .hero{min-height:100vh;display:flex;align-items:center;background:linear-gradient(135deg,var(--blue) 0%,#0f2e54 100%);color:var(--white)}
+    .container{max-width:1200px;margin:0 auto;padding:0 1.5rem}
+    h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.5rem);line-height:1.2;margin-bottom:1rem}
+  </style>
+  
+  <!-- Non-critical CSS -->
+  <link rel="stylesheet" href="/src/styles/global.css">
   
   <!-- Minimal JS for interactions -->
   <script>
