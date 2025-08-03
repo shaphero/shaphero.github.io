@@ -204,3 +204,194 @@
   }
 }
 
+/* Missing Tailwind Utilities for Proper Layout */
+@layer utilities {
+  /* Container utilities */
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      max-width: 640px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .container {
+      max-width: 768px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      max-width: 1024px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .container {
+      max-width: 1280px;
+    }
+  }
+
+  @media (min-width: 1536px) {
+    .container {
+      max-width: 1536px;
+    }
+  }
+
+  /* Premium container styles */
+  .premium-container {
+    @apply container mx-auto px-6;
+  }
+
+  .premium-section {
+    @apply py-20 px-6;
+  }
+
+  /* Section utilities */
+  .section {
+    @apply py-16;
+  }
+
+  /* Button utilities */
+  .btn {
+    @apply inline-flex items-center justify-center rounded-lg border text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90;
+  }
+
+  .btn-ghost {
+    @apply border-transparent hover:bg-accent hover:text-accent-foreground;
+  }
+
+  .btn-accent {
+    @apply bg-accent text-accent-foreground hover:bg-accent/90;
+  }
+
+  .btn-sm {
+    @apply h-9 px-3 text-xs;
+  }
+
+  .btn-lg {
+    @apply h-11 px-8;
+  }
+
+  .btn-xl {
+    @apply h-14 px-10 text-lg;
+  }
+
+  /* Glass badge styles */
+  .glass-badge-accent {
+    @apply glass px-4 py-2 rounded-full text-accent font-medium;
+  }
+
+  /* Magnetic effect */
+  .magnetic {
+    transition: transform 0.3s ease;
+  }
+
+  .magnetic:hover {
+    transform: translateY(-2px);
+  }
+
+  /* Shadow utilities */
+  .shadow-elegant {
+    box-shadow: var(--shadow-elegant);
+  }
+
+  .shadow-premium {
+    box-shadow: var(--shadow-premium);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  /* Animation utilities */
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out;
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+  }
+
+  .animate-gradient-shift {
+    animation: gradientShift 3s ease-in-out infinite;
+  }
+
+  .animate-glow-pulse {
+    animation: glowPulse 2s ease-in-out infinite;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  /* Story link effect */
+  .story-link {
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .story-link:hover {
+    transform: translateY(-1px);
+  }
+}
+
+/* Keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
