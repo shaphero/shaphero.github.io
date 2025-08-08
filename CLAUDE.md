@@ -148,6 +148,124 @@ When creating new pages or posts:
 7. **SEO**: Target specific long-tail keywords
 8. **Internal Links**: Connect to service pages and related content
 
+## 🎯 Killer Blog Post Principles
+
+Every blog post MUST follow these data storytelling principles:
+
+### 1. Start with Purpose
+- **Define the decision/action**: What specific action do you want the reader to take?
+- **Single focus**: Every element must serve this goal - delete everything else
+- **Clear outcome**: Reader should know exactly what to do after reading
+
+### 2. Know Your Audience Deeply
+- **Knowledge level**: Are they beginners, practitioners, or experts?
+- **Pain points**: What keeps them up at night?
+- **Emotional triggers**: What motivates them? Fear of falling behind? Desire for competitive advantage?
+- **Language**: Use their terminology, not yours
+
+### 3. Find the Narrative Thread
+- **Data without story is noise**: Don't just present facts - weave them into a compelling narrative
+- **Hero's journey**: Position reader as hero, their problem as villain, your solution as the weapon
+- **Progression**: Build from problem → discovery → transformation → triumph
+
+### 4. Simplify Ruthlessly
+- **One idea per paragraph**: Don't mix concepts
+- **Cut 50%, then cut 25% more**: If it doesn't directly support your message, delete it
+- **Tufte principle**: "Above all else, show the data" - let numbers speak
+
+### 5. Design for Cognitive Ease
+- **Visual hierarchy**: Headlines → Key points → Supporting details
+- **White space**: Give ideas room to breathe
+- **Consistent patterns**: Same structure for similar content
+- **Progressive disclosure**: Start simple, add complexity gradually
+
+### 6. Create Moments of Insight
+- **Build toward "aha!" moments**: Set up the problem, then reveal the surprising solution
+- **Before/after contrasts**: Show transformation clearly
+- **Unexpected connections**: Link seemingly unrelated concepts
+- **The reveal**: Save your best insight for maximum impact
+
+### 7. Test and Iterate
+- **Get feedback early**: Show drafts to target audience members
+- **Track engagement**: Which sections do people skip? Where do they stop reading?
+- **A/B test headlines**: Try different angles, measure clicks
+- **Refine based on data**: Let metrics guide revisions
+
+### 8. Balance Emotion and Logic
+- **Lead with emotion**: Hook them with a feeling
+- **Support with logic**: Back it up with hard data
+- **Humanize numbers**: "22,000 new customers" not just "509% growth"
+- **Stories + statistics**: Personal anecdotes make data memorable
+
+### 9. Make it Actionable
+- **Clear next steps**: End with 3-5 specific actions
+- **Templates/tools**: Give them something to use immediately
+- **Quick wins**: Start with easy victories to build momentum
+- **Success metrics**: How will they know it's working?
+
+### 10. Respect the Data
+- **Never distort**: Accurate representation > better story
+- **Show sources**: Link to primary data
+- **Acknowledge limitations**: Be honest about what data doesn't show
+- **Update when wrong**: Correct errors prominently
+
+## Blog Post Template Structure
+
+```markdown
+# [Number/Outcome] + [Surprising Angle] + [Timestamp]
+Example: "GPT-5 Just Crushed Every Coding Benchmark (August 2025 Data)"
+
+## Hook (Opening 2-3 sentences)
+- Start with surprising fact or contrarian take
+- Make them need to know more
+- Reference breaking news or recent event
+
+## The Stakes (Why This Matters Now)
+- What happens if they ignore this?
+- What opportunity are they missing?
+- Why is timing critical?
+
+## The Discovery (Your Unique Insight)
+- Present your data/findings
+- Use visuals to make complex simple
+- Build toward the "aha!" moment
+
+## The Proof (Evidence It Works)
+- Real examples with numbers
+- Before/after comparisons
+- Third-party validation
+
+## The Method (How To Apply This)
+- Step-by-step process
+- Common mistakes to avoid
+- Tools/resources needed
+
+## The Payoff (What Success Looks Like)
+- Specific outcomes they'll achieve
+- Timeline for results
+- Success metrics
+
+## The Call to Action
+- One primary action
+- Make it easy and specific
+- Create urgency without being pushy
+```
+
+## Content Quality Checklist
+
+Before publishing any post:
+
+- [ ] **Purpose Clear**: Can you state the reader's next action in one sentence?
+- [ ] **Audience Focused**: Is this solving their actual problem (not what you think their problem is)?
+- [ ] **Narrative Flow**: Does each section naturally lead to the next?
+- [ ] **Simplified**: Can you cut 25% more without losing meaning?
+- [ ] **Visual Relief**: Is there visual interest every 150-200 words?
+- [ ] **Insight Moment**: Is there at least one "I never thought of it that way" moment?
+- [ ] **Tested**: Did at least 2 target readers review it?
+- [ ] **Emotional Hook**: Do the first 3 sentences create urgency/curiosity?
+- [ ] **Actionable**: Can reader implement something within 24 hours?
+- [ ] **Data Integrity**: Are all statistics accurate and sourced?
+
 ## Important URLs
 
 - **Production**: https://daveshap.com
