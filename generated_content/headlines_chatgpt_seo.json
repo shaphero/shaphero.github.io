@@ -1,0 +1,83 @@
+{
+  "headlines": [
+    {
+      "type": "data-driven",
+      "text": "400M Users Switched: ChatGPT Search Kills Traditional SEO",
+      "score": 9,
+      "strengths": ["shocking number", "includes keyword", "creates urgency"],
+      "ctr_estimate": "8.5%"
+    },
+    {
+      "type": "data-driven",
+      "text": "From 509% Growth to Zero: Why SEO Dies in 2026",
+      "score": 8,
+      "strengths": ["references Dave's results", "specific date", "dramatic contrast"],
+      "ctr_estimate": "7.2%"
+    },
+    {
+      "type": "contrarian",
+      "text": "Google Is Already Dead (You Just Don't Know It Yet)",
+      "score": 9,
+      "strengths": ["provocative", "challenges beliefs", "creates curiosity"],
+      "ctr_estimate": "9.1%"
+    },
+    {
+      "type": "contrarian",
+      "text": "Why I'm Telling My Fortune 500 Clients to Stop SEO",
+      "score": 8,
+      "strengths": ["authority signal", "unexpected advice", "personal angle"],
+      "ctr_estimate": "7.8%"
+    },
+    {
+      "type": "how-to",
+      "text": "How to Pivot from SEO to GEO in 30 Days (Framework)",
+      "score": 8,
+      "strengths": ["specific timeframe", "actionable", "new concept (GEO)"],
+      "ctr_estimate": "6.9%"
+    },
+    {
+      "type": "how-to",
+      "text": "The 8-Step AI Search Strategy That Replaced Our SEO",
+      "score": 7,
+      "strengths": ["numbered steps", "proven method", "transformation story"],
+      "ctr_estimate": "6.5%"
+    },
+    {
+      "type": "curiosity-gap",
+      "text": "The $200B SEO Industry Has 18 Months Left",
+      "score": 10,
+      "strengths": ["massive number", "specific deadline", "industry-shaking"],
+      "ctr_estimate": "10.2%"
+    },
+    {
+      "type": "curiosity-gap",
+      "text": "What SoFi Knew About AI Search (Before Everyone Else)",
+      "score": 8,
+      "strengths": ["case study tease", "insider knowledge", "FOMO"],
+      "ctr_estimate": "7.5%"
+    },
+    {
+      "type": "urgency",
+      "text": "ChatGPT Search Launches: Your SEO Strategy Is Now Obsolete",
+      "score": 9,
+      "strengths": ["breaking news angle", "immediate threat", "clear message"],
+      "ctr_estimate": "8.8%"
+    },
+    {
+      "type": "urgency",
+      "text": "Emergency Playbook: Surviving the Death of Traditional SEO",
+      "score": 8,
+      "strengths": ["crisis framing", "solution promised", "dramatic language"],
+      "ctr_estimate": "7.9%"
+    }
+  ],
+  "winner": {
+    "primary": "The $200B SEO Industry Has 18 Months Left",
+    "alternate": "400M Users Switched: ChatGPT Search Kills Traditional SEO",
+    "rationale": "The primary creates maximum curiosity while including a massive, specific number. The alternate is more keyword-focused for SEO."
+  },
+  "meta_description": "Traditional SEO is dying. Dave Shapiro reveals why ChatGPT search will kill SEO by 2026 and shares the AI-first strategy that drove 509% growth at SoFi.",
+  "social_variant": "🚨 The $200B SEO industry has 18 months left. Here's the AI search playbook I'm giving my Fortune 500 clients (after 509% growth at SoFi)",
+  "email_subject": "Emergency: Your SEO strategy expires in 18 months",
+  "slug": "chatgpt-search-kills-traditional-seo-2026"
+}

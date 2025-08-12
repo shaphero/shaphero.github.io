@@ -31,11 +31,11 @@ This file contains specific, actionable tasks organized by priority and timeline
   - Create welcome email sequence (3 emails)
 
 ### Content Pipeline (4 hours)
-- [ ] Write next blog post: "How I Grew Adobe's Traffic 494%"
-  - Use similar structure to AI coding post
-  - Include actual screenshots/data
-  - Add sources and citations
-  - Target keyword: "adobe seo case study"
+- [ ] Write next blog post: "The Security Objection: 7 Scripts That Actually Work"
+  - Follow audience-first principles
+  - Start with their morning frustration
+  - Include copy-paste email templates
+  - Target keyword: "convince IT to approve AI"
 
 - [ ] Create content calendar in Notion/Google Sheets
   - Map out next 12 blog posts

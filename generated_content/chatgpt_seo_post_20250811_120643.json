@@ -1,0 +1,79 @@
+{
+  "brief": {
+    "topic": "Why ChatGPT Search Will Kill Traditional SEO (And What to Do About It)",
+    "target_audience": "SEO professionals and marketing executives at enterprises",
+    "primary_keyword": "chatgpt search seo impact",
+    "secondary_keywords": [
+      "ai search engines",
+      "seo strategy 2025",
+      "chatgpt vs google",
+      "future of seo",
+      "ai search optimization"
+    ],
+    "content_type": "thought-leadership",
+    "word_count": 3000,
+    "business_goal": "lead-generation",
+    "pain_points": [
+      "Traditional SEO strategies becoming obsolete",
+      "Uncertainty about AI's impact on search",
+      "Competitors adopting AI-first strategies",
+      "Google losing market share to AI tools"
+    ],
+    "desired_outcomes": [
+      "Understand the AI search revolution",
+      "Develop AI-resistant SEO strategy",
+      "Position for success in AI-dominated search",
+      "Get ahead of competitors"
+    ],
+    "competitors_to_beat": [
+      "searchengineland.com/chatgpt-search",
+      "moz.com/blog/ai-search-future",
+      "neilpatel.com/chatgpt-seo"
+    ],
+    "data_sources": null,
+    "internal_links": null,
+    "tone": "expert-guide",
+    "urgency_level": "high"
+  },
+  "seo_research": {
+    "role": "SEO Research Specialist",
+    "output": "[Requires Claude Task tool for SEO Research Specialist]",
+    "timestamp": "2025-08-11T12:06:43.777159"
+  },
+  "headlines": {
+    "role": "Headline & Hook Specialist",
+    "output": "[Requires Claude Task tool for Headline & Hook Specialist]",
+    "timestamp": "2025-08-11T12:06:43.777180"
+  },
+  "structure": {
+    "role": "Narrative Structure Designer",
+    "output": "[Requires Claude Task tool for Narrative Structure Designer]",
+    "timestamp": "2025-08-11T12:06:43.777195"
+  },
+  "data": {
+    "role": "Data Storytelling Expert",
+    "output": "[Requires Claude Task tool for Data Storytelling Expert]",
+    "timestamp": "2025-08-11T12:06:43.777206"
+  },
+  "final_content": {
+    "role": "Content Quality Auditor",
+    "output": "[Requires Claude Task tool for Content Quality Auditor]",
+    "timestamp": "2025-08-11T12:06:43.777273"
+  },
+  "metadata": {
+    "created": "2025-08-11T12:06:43.777303",
+    "agents_used": [
+      "seo_researcher",
+      "headline_optimizer",
+      "narrative_architect",
+      "data_storyteller",
+      "content_creator",
+      "seo_optimizer",
+      "readability_editor",
+      "fact_checker",
+      "cta_specialist",
+      "quality_auditor"
+    ],
+    "word_count": 3000
+  }
+}

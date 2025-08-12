@@ -8,20 +8,21 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 **URL**: https://daveshap.com  
 **Tech Stack**: Astro (Static Site Generator) + Tailwind CSS  
 **Purpose**: Lead generation for SEO/AI consulting services  
-**Target Audience**: Enterprise & mid-market companies needing SEO/AI expertise
+**Target Audience**: Enterprise & mid-market companies + Internal AI champions
 
 ## Key Business Context
 
 ### Success Metrics
-- 509% traffic growth achieved for SoFi (22,000+ new customers)
-- 494% traffic growth for Adobe (25,000+ downloads)
+- 500% growth for Fortune 500s (generalized from specific cases)
 - Former CMO, SVP at Neil Patel Digital
 - 16+ years working with Fortune 500 companies
+- Helping internal champions get AI adopted at their companies
 
 ### Current Focus
 1. **SEO Consulting**: Data-driven strategies for measurable revenue growth
-2. **AI Implementation**: Teaching teams practical AI workflows (10-20 hours/week savings)
-3. **Content Authority**: Publishing data-driven analysis posts to establish thought leadership
+2. **AI Implementation**: Helping companies and internal champions adopt AI tools
+3. **Content Authority**: Publishing audience-first content that solves real problems
+4. **Champion Support**: Giving internal innovators the playbook to drive change
 
 ## Code Style & Conventions
 
@@ -38,10 +39,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - Premium glass morphism effects for modern look
 
 ### Content Writing
-- **Headlines**: Lead with specific results (509%, 22,000 customers, etc.)
-- **Copy**: Direct, punchy, no fluff. Results > Features
+- **Headlines**: Start with reader's pain or desired outcome
+- **Copy**: Mirror their language, address their objections
 - **CTAs**: Email-based (dave@daveshap.com) with clear subject lines
-- **Tone**: Confident expert, not salesy. Evidence-based claims only.
+- **Tone**: Guide/ally, not guru. Help them be the hero.
 
 ### SEO Requirements
 - Every page needs unique title/description meta tags
@@ -91,14 +92,14 @@ git push origin main # Triggers deploy to GitHub Pages
 ## Content Strategy Rules
 
 ### Blog Posts Must Have
-1. **Data-driven insights** - Real benchmarks, pricing, statistics
-2. **Visual elements** - Charts, comparisons, tables
-3. **Clear takeaways** - Numbered lists, key points
-4. **Internal links** - Connect to service pages
-5. **CTA sections** - Drive email consultations
+1. **Audience pain upfront** - Start with their frustration
+2. **Practical solutions** - Scripts, templates, playbooks
+3. **Social proof** - Who else is doing this successfully
+4. **Objection handling** - Address fears and blockers
+5. **Clear next action** - One specific thing to do now
 
 ### Homepage Requirements
-- Hero: Lead with biggest win (509% SoFi growth)
+- Hero: Lead with transformation (500% growth for Fortune 500s)
 - Social proof: Fortune 500 logos
 - Problem/solution focus
 - Clear service offerings
@@ -336,9 +337,9 @@ Before publishing any post:
 - **GitHub Repo**: https://github.com/shaphero/shaphero.github.io
 - **Email**: dave@daveshap.com
 - **Key Pages**:
-  - `/` - Homepage (509% growth hero)
+  - `/` - Homepage (500% growth for Fortune 500s)
   - `/seo-success` - Main case study
-  - `/best-ai-coding` - AI coding analysis (new)
+  - `/best-ai-coding` - AI adoption champion's playbook
   - `/ai-training` - Service page
   - `/marketing-strategy` - Service page
 

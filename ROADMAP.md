@@ -19,14 +19,14 @@ This roadmap outlines the 12-month strategy to establish daveshap.com as the go-
 ## Phase 1: Foundation (Months 1-3) ✅ *IN PROGRESS*
 
 ### Content Authority Building
-- [x] Launch with hero case study (SoFi 509% growth)
-- [x] First data-driven analysis post (AI Coding Models)
-- [ ] SEO audit checklist lead magnet
-- [ ] AI implementation ROI calculator
-- [ ] 3 more authority posts:
-  - [ ] "How I Grew Adobe's Traffic 494% - Complete Playbook"
-  - [ ] "Enterprise SEO Mistakes That Cost Millions"
-  - [ ] "AI Tools That Actually Work: 2025 Enterprise Guide"
+- [x] Launch with hero case study (500% growth messaging)
+- [x] First audience-first post (AI adoption champion's playbook)
+- [ ] "Getting budget approved" template pack
+- [ ] AI adoption ROI calculator
+- [ ] 3 more champion-focused posts:
+  - [ ] "The Security Objection: 7 Scripts That Actually Work"
+  - [ ] "How I Turned 3 Skeptics Into AI Champions"
+  - [ ] "The Shadow AI Problem: Why Banning Makes It Worse"
 
 ### Technical Foundation
 - [x] Astro static site for optimal SEO
@@ -156,10 +156,10 @@ This roadmap outlines the 12-month strategy to establish daveshap.com as the go-
 - (Repeat with variations)
 
 ### Content Pillars (40/30/20/10 Rule)
-- **40%**: SEO strategies & tactics
-- **30%**: AI implementation & tools
-- **20%**: Case studies & results
-- **10%**: Industry news & takes
+- **40%**: AI adoption strategies for internal champions
+- **30%**: SEO & growth case studies
+- **20%**: Objection handling & scripts
+- **10%**: Industry trends & competitor moves
 
 ---
 
@@ -168,16 +168,16 @@ This roadmap outlines the 12-month strategy to establish daveshap.com as the go-
 ### Target Keywords (Priority Order)
 
 #### Transactional (Highest Value)
-1. "enterprise SEO consultant" (low competition, high intent)
-2. "SEO consultant for SaaS" (growing market)
-3. "AI SEO strategy" (emerging, low competition)
-4. "fractional CMO SEO" (high value)
+1. "AI adoption consultant" (emerging, high value)
+2. "enterprise SEO consultant" (established)
+3. "get company to adopt AI" (high intent)
+4. "fractional CMO AI strategy" (high value)
 
 #### Informational (Authority Building)
-1. "how to grow organic traffic 500%" (linkable)
-2. "enterprise SEO strategy" (thought leadership)
-3. "AI tools for SEO" (trending)
-4. "SEO ROI calculator" (lead gen)
+1. "how to get AI approved at work" (high search volume)
+2. "company banned ChatGPT what to do" (pain point)
+3. "AI adoption roadmap enterprise" (B2B focus)
+4. "convince boss to use AI" (specific need)
 
 #### Comparison (Capture Competitors)
 1. "Neil Patel Digital alternatives"
