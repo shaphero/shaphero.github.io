@@ -1,0 +1,293 @@
+---
+import PageLayout from './PageLayout.astro';
+import Hero from '../components/common/Hero.astro';
+import Section from '../components/common/Section.astro';
+import ContentGrid from '../components/common/ContentGrid.astro';
+import CallToAction from '../components/common/CallToAction.astro';
+import Icon from '../components/Icon.astro';
+
+export interface Props {
+  neighborhood: string;
+  title: string;
+  metaDescription: string;
+  population?: string;
+  businessTypes: string[];
+  painPoints: Array<{icon: string; title: string; description: string}>;
+  localBenefits: Array<{title: string; description: string}>;
+  successStory?: {
+    company: string;
+    industry: string;
+    result: string;
+  };
+  landmarks?: string[];
+  transportNotes?: string;
+}
+
+const { 
+  neighborhood, 
+  title, 
+  metaDescription,
+  population,
+  businessTypes,
+  painPoints,
+  localBenefits,
+  successStory,
+  landmarks,
+  transportNotes
+} = Astro.props;
+
+const trainingFormats = [
+  {
+    title: "On-Site Team Training",
+    description: `Bring AI expertise directly to your ${neighborhood} office. Half-day or full-day workshops tailored to your team.`,
+    icon: "users"
+  },
+  {
+    title: "Local Co-Working Sessions",
+    description: `Meet at popular ${neighborhood} co-working spaces for hands-on AI implementation sessions.`,
+    icon: "location"
+  },
+  {
+    title: "Virtual Training",
+    description: "Remote sessions perfect for distributed teams or quick lunch-and-learn formats.",
+    icon: "video"
+  }
+];
+
+const aiApplications = [
+  {
+    icon: "cpu",
+    title: "Automate Daily Operations",
+    description: "Cut 10+ hours per week on repetitive tasks using ChatGPT and Claude effectively"
+  },
+  {
+    icon: "chart-growth",
+    title: "Scale Content Creation",
+    description: "Generate marketing materials, proposals, and reports 10x faster with AI"
+  },
+  {
+    icon: "target",
+    title: "Enhance Customer Service",
+    description: "Use AI for instant responses, better support, and personalized experiences"
+  }
+];
+---
+
+<PageLayout 
+  title={title}
+  description={metaDescription}
+  showHeader={true}
+  showCTA={false}
+>
+  <!-- Hero Section -->
+  <Hero 
+    title={`AI Training for ${neighborhood} Businesses`}
+    subtitle={`Transform your ${neighborhood} team into AI power users. Save 10-20 hours per week with practical ChatGPT & Claude workflows.`}
+    badge={`Serving ${neighborhood}, San Diego`}
+    ctaPrimary={{
+      text: "Schedule Free Consultation",
+      subject: `AI training inquiry for ${neighborhood} business`
+    }}
+    ctaSecondary={{
+      text: "Download AI Toolkit",
+      href: "#toolkit"
+    }}
+    features={["Local on-site training", "Industry-specific workflows", "Immediate ROI"]}
+    background="gradient"
+  />
+
+  <!-- Local Context Section -->
+  <Section background="white" padding="xl">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-6">
+          Why <span class="text-accent">{neighborhood} Businesses</span> Need AI Now
+        </h2>
+        <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+          {neighborhood} is home to {businessTypes.join(', ')}. While your competitors adopt AI tools, 
+          don't let your team fall behind.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 mb-12">
+        <div class="bg-card rounded-lg p-6 border border-border">
+          <Icon name="location" class="text-primary mb-4" size="lg" />
+          <h3 class="text-xl font-bold mb-2">Local Presence</h3>
+          <p class="text-muted-foreground">
+            Based in San Diego, I understand the unique challenges facing {neighborhood} businesses 
+            and can provide on-site training at your location.
+          </p>
+        </div>
+        <div class="bg-card rounded-lg p-6 border border-border">
+          <Icon name="users" class="text-primary mb-4" size="lg" />
+          <h3 class="text-xl font-bold mb-2">Industry Expertise</h3>
+          <p class="text-muted-foreground">
+            Experience working with {businessTypes.slice(0, 2).join(' and ')} means training 
+            tailored to your specific industry needs.
+          </p>
+        </div>
+        <div class="bg-card rounded-lg p-6 border border-border">
+          <Icon name="chart-growth" class="text-primary mb-4" size="lg" />
+          <h3 class="text-xl font-bold mb-2">Proven Results</h3>
+          <p class="text-muted-foreground">
+            Local teams typically save 10-20 hours per week within 30 days of implementing 
+            our AI workflows.
+          </p>
+        </div>
+      </div>
+      
+      {landmarks && landmarks.length > 0 && (
+        <div class="bg-muted/30 rounded-lg p-6">
+          <p class="text-sm text-muted-foreground">
+            <strong>Conveniently located for {neighborhood} businesses</strong> near {landmarks.join(', ')}. 
+            {transportNotes || 'Easy access from major highways and public transit.'}
+          </p>
+        </div>
+      )}
+    </div>
+  </Section>
+
+  <!-- Pain Points Section -->
+  <Section background="cream" padding="xl">
+    <div class="text-center mb-12">
+      <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-6">
+        Common Challenges for <span class="text-accent">{neighborhood} Teams</span>
+      </h2>
+    </div>
+    <ContentGrid 
+      items={painPoints}
+      columns={3}
+      cardStyle="problems"
+    />
+  </Section>
+
+  <!-- AI Applications Section -->
+  <Section background="white" padding="xl">
+    <div class="text-center mb-12">
+      <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-6">
+        Practical AI Solutions for <span class="text-accent">Your Industry</span>
+      </h2>
+      <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+        Specific workflows designed for {businessTypes.slice(0, 2).join(' and ')} in {neighborhood}
+      </p>
+    </div>
+    <ContentGrid 
+      items={aiApplications}
+      columns={3}
+      cardStyle="glass"
+    />
+  </Section>
+
+  <!-- Local Benefits Section -->
+  <Section background="cream" padding="xl">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-6">
+          Benefits of Local <span class="text-accent">AI Training</span>
+        </h2>
+      </div>
+      
+      <div class="space-y-6">
+        {localBenefits.map((benefit, index) => (
+          <div class="flex gap-6 items-start bg-white rounded-lg p-6 shadow-md">
+            <div class="w-12 h-12 bg-gradient-to-br from-primary to-primary-darker rounded-full flex items-center justify-center flex-shrink-0">
+              <span class="text-white font-bold">{index + 1}</span>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-foreground mb-2">{benefit.title}</h3>
+              <p class="text-muted-foreground">{benefit.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </Section>
+
+  <!-- Success Story Section -->
+  {successStory && (
+    <Section background="white" padding="lg">
+      <div class="max-w-3xl mx-auto">
+        <div class="bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl p-8 border border-primary/20">
+          <h3 class="text-2xl font-bold text-foreground mb-4">
+            Success in {neighborhood}
+          </h3>
+          <p class="text-lg text-muted-foreground mb-4">
+            <strong>{successStory.company}</strong>, a {successStory.industry} company in {neighborhood}, 
+            {successStory.result} after implementing our AI training program.
+          </p>
+          <p class="text-primary font-semibold">
+            Your team could achieve similar results.
+          </p>
+        </div>
+      </div>
+    </Section>
+  )}
+
+  <!-- Training Formats Section -->
+  <Section background="cream" padding="xl">
+    <div class="text-center mb-12">
+      <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-6">
+        Flexible Training Options for <span class="text-accent">{neighborhood}</span>
+      </h2>
+    </div>
+    <ContentGrid 
+      items={trainingFormats}
+      columns={3}
+      cardStyle="glass"
+    />
+  </Section>
+
+  <!-- Toolkit Section -->
+  <Section id="toolkit" background="white" padding="xl">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-6">
+        Free AI Toolkit for <span class="text-accent">{neighborhood} Businesses</span>
+      </h2>
+      <p class="text-xl text-muted-foreground mb-8">
+        Get started immediately with our curated collection of AI prompts and workflows
+      </p>
+      
+      <div class="bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl p-8 border border-primary/20">
+        <h3 class="text-2xl font-bold mb-6">Download includes:</h3>
+        <div class="grid md:grid-cols-2 gap-4 text-left mb-8">
+          <div class="flex items-start gap-3">
+            <Icon name="check" class="text-accent mt-1" size="sm" />
+            <span>50+ ChatGPT prompts for {businessTypes[0]}</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <Icon name="check" class="text-accent mt-1" size="sm" />
+            <span>AI workflow templates</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <Icon name="check" class="text-accent mt-1" size="sm" />
+            <span>Tool comparison guide</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <Icon name="check" class="text-accent mt-1" size="sm" />
+            <span>ROI calculator</span>
+          </div>
+        </div>
+        
+        <a href={`mailto:dave@daveshap.com?subject=AI Toolkit for ${neighborhood} business`} 
+           class="btn btn-primary btn-lg">
+          Get Free AI Toolkit
+        </a>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Final CTA -->
+  <CallToAction 
+    title={`Ready to Transform Your ${neighborhood} Team?`}
+    subtitle="Join other local businesses already saving 10-20 hours per week with AI"
+    benefits={[
+      `On-site training available throughout ${neighborhood}`,
+      "Industry-specific workflows and use cases",
+      "Immediate implementation with ongoing support"
+    ]}
+    buttonText="Schedule Your Consultation"
+    buttonSubject={`AI training consultation for ${neighborhood} business`}
+    features={["Free consultation", "Custom training plan", "ROI guarantee"]}
+    style="gradient"
+  />
+</PageLayout>

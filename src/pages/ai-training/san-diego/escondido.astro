@@ -1,0 +1,81 @@
+---
+import NeighborhoodLayout from '../../../layouts/NeighborhoodLayout.astro';
+
+const neighborhood = "Escondido";
+const title = "AI Training for Escondido North County Businesses | Dave Shapiro";
+const metaDescription = "AI training for Escondido's North County businesses, manufacturing companies, and healthcare providers. Rural-friendly AI implementation for diverse industries.";
+
+const businessTypes = [
+  "manufacturing companies",
+  "healthcare providers", 
+  "agricultural businesses",
+  "retail chains",
+  "automotive services",
+  "construction firms"
+];
+
+const painPoints = [
+  {
+    icon: "clock",
+    title: "Rural Business Efficiency Gaps", 
+    description: "North County businesses often lack the technological resources of urban areas but face the same competitive pressures."
+  },
+  {
+    icon: "chart-down",
+    title: "Limited Technical Resources",
+    description: "Smaller businesses need enterprise-level productivity but don't have dedicated IT teams or technical staff."
+  },
+  {
+    icon: "users",
+    title: "Agricultural & Manufacturing Documentation",
+    description: "Traditional industries require extensive record-keeping and compliance reporting that consumes valuable time."
+  }
+];
+
+const localBenefits = [
+  {
+    title: "Modernize Agricultural Operations",
+    description: "Generate crop reports, compliance documentation, and agricultural planning materials that improve efficiency and meet regulatory requirements."
+  },
+  {
+    title: "Enhance Manufacturing Documentation", 
+    description: "Create production reports, quality control records, and safety documentation that streamline operations and ensure compliance."
+  },
+  {
+    title: "Strengthen Rural Healthcare Services",
+    description: "Improve patient communications, appointment scheduling, and health education materials to better serve North County communities."
+  },
+  {
+    title: "Optimize Small Business Marketing",
+    description: "Develop local marketing campaigns and community engagement content that builds strong relationships with Escondido-area customers."
+  }
+];
+
+const successStory = {
+  company: "Valley Vista Manufacturing",
+  industry: "precision manufacturing",
+  result: "reduced their quality documentation time by 45% and improved customer communication efficiency using AI-generated reports and correspondence"
+};
+
+const landmarks = [
+  "Safari Park",
+  "California Center for the Arts", 
+  "Lake Wohlford",
+  "Escondido Creek",
+  "Kit Carson Park"
+];
+
+const transportNotes = "North County inland location with access from I-15 and Highway 78. On-site training available at manufacturing facilities and business centers.";
+---
+
+<NeighborhoodLayout
+  neighborhood={neighborhood}
+  title={title}
+  metaDescription={metaDescription}
+  businessTypes={businessTypes}
+  painPoints={painPoints}
+  localBenefits={localBenefits}
+  successStory={successStory}
+  landmarks={landmarks}
+  transportNotes={transportNotes}
+/>

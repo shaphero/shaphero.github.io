@@ -1,0 +1,81 @@
+---
+import NeighborhoodLayout from '../../../layouts/NeighborhoodLayout.astro';
+
+const neighborhood = "Point Loma";
+const title = "AI Training for Point Loma Maritime & Defense Industries | Dave Shapiro";
+const metaDescription = "AI training for Point Loma's maritime businesses, defense contractors, and logistics companies. Secure AI implementation for defense and maritime industries.";
+
+const businessTypes = [
+  "maritime companies",
+  "defense contractors", 
+  "logistics firms",
+  "shipping companies",
+  "naval support services",
+  "port operations"
+];
+
+const painPoints = [
+  {
+    icon: "shield",
+    title: "Security & Compliance Requirements", 
+    description: "Defense and maritime contractors need AI solutions that meet strict security standards and regulatory compliance."
+  },
+  {
+    icon: "clock",
+    title: "Complex Logistics Coordination",
+    description: "Managing ships, cargo, and supply chains requires constant communication and real-time documentation."
+  },
+  {
+    icon: "chart-down",
+    title: "Contract & Proposal Complexity",
+    description: "Government and maritime contracts require detailed technical specifications and compliance documentation."
+  }
+];
+
+const localBenefits = [
+  {
+    title: "Streamline Maritime Operations",
+    description: "Generate shipping manifests, logistics reports, and vessel documentation that improve operational efficiency while maintaining regulatory compliance."
+  },
+  {
+    title: "Enhance Defense Contract Management", 
+    description: "Create comprehensive proposal responses, technical specifications, and compliance documentation that win contracts and maintain security standards."
+  },
+  {
+    title: "Optimize Supply Chain Communications",
+    description: "Automate vendor coordination, shipment tracking, and customs documentation to reduce delays and improve delivery accuracy."
+  },
+  {
+    title: "Improve Safety & Training Programs",
+    description: "Develop maritime safety protocols, crew training materials, and emergency procedures that ensure compliance and protect personnel."
+  }
+];
+
+const successStory = {
+  company: "Pacific Maritime Solutions",
+  industry: "maritime logistics",
+  result: "reduced their contract proposal preparation time by 55% while improving bid win rates and maintaining full security compliance"
+};
+
+const landmarks = [
+  "Point Loma Naval Base",
+  "Cabrillo National Monument", 
+  "Shelter Island",
+  "Liberty Station",
+  "Sunset Cliffs"
+];
+
+const transportNotes = "Peninsula location with access via Rosecrans Street and Harbor Drive. On-site training available at secure facilities and maritime operations centers.";
+---
+
+<NeighborhoodLayout
+  neighborhood={neighborhood}
+  title={title}
+  metaDescription={metaDescription}
+  businessTypes={businessTypes}
+  painPoints={painPoints}
+  localBenefits={localBenefits}
+  successStory={successStory}
+  landmarks={landmarks}
+  transportNotes={transportNotes}
+/>

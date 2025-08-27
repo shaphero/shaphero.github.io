@@ -1,0 +1,81 @@
+---
+import NeighborhoodLayout from '../../../layouts/NeighborhoodLayout.astro';
+
+const neighborhood = "Oceanside";
+const title = "AI Training for Oceanside Coastal Business Community | Dave Shapiro";
+const metaDescription = "AI training for Oceanside's North coastal businesses, hospitality companies, and biotech firms. Beachside AI implementation for diverse coastal industries.";
+
+const businessTypes = [
+  "hospitality & tourism",
+  "biotech companies", 
+  "surf & beach retail",
+  "restaurants & breweries",
+  "marine services",
+  "healthcare systems"
+];
+
+const painPoints = [
+  {
+    icon: "clock",
+    title: "Seasonal Tourism Fluctuations", 
+    description: "Coastal businesses need to maximize revenue during peak seasons while maintaining operations during quieter periods."
+  },
+  {
+    icon: "users",
+    title: "Diverse Industry Communication",
+    description: "Mix of traditional beach businesses and high-tech biotech requires different communication strategies and operational approaches."
+  },
+  {
+    icon: "chart-down",
+    title: "Competition from Larger Markets",
+    description: "Need to compete with San Diego proper and other coastal destinations for both tourists and business clients."
+  }
+];
+
+const localBenefits = [
+  {
+    title: "Optimize Tourism & Hospitality Operations",
+    description: "Generate seasonal marketing campaigns, guest communications, and local activity guides that attract visitors and create memorable coastal experiences."
+  },
+  {
+    title: "Enhance Biotech Research & Development", 
+    description: "Create comprehensive research documentation, regulatory filings, and technical communications that accelerate scientific innovation in Oceanside's growing life sciences sector."
+  },
+  {
+    title: "Strengthen Local Business Marketing",
+    description: "Develop authentic coastal marketing content that celebrates Oceanside's unique beach culture while attracting both locals and tourists."
+  },
+  {
+    title: "Improve Healthcare Service Delivery",
+    description: "Generate patient communications, wellness programs, and community health initiatives that serve Oceanside's diverse coastal population."
+  }
+];
+
+const successStory = {
+  company: "Oceanside Biotech Innovations",
+  industry: "biotechnology research",
+  result: "accelerated their research publication process by 65% and improved collaboration with academic partners using AI-generated technical documentation"
+};
+
+const landmarks = [
+  "Oceanside Pier",
+  "Camp Pendleton", 
+  "Mission San Luis Rey",
+  "Harbor Beach",
+  "California Surf Museum"
+];
+
+const transportNotes = "North coastal location with access from I-5 and Highway 76. On-site training available at beachfront businesses and biotech facilities.";
+---
+
+<NeighborhoodLayout
+  neighborhood={neighborhood}
+  title={title}
+  metaDescription={metaDescription}
+  businessTypes={businessTypes}
+  painPoints={painPoints}
+  localBenefits={localBenefits}
+  successStory={successStory}
+  landmarks={landmarks}
+  transportNotes={transportNotes}
+/>

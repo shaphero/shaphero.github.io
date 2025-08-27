@@ -1,0 +1,81 @@
+---
+import NeighborhoodLayout from '../../../layouts/NeighborhoodLayout.astro';
+
+const neighborhood = "La Jolla";
+const title = "AI Training for La Jolla Tech & Biotech Companies | Dave Shapiro Consulting";
+const metaDescription = "AI training for La Jolla's tech executives, biotech leaders, and research institutions. Transform your team with practical ChatGPT & Claude workflows. On-site training available.";
+
+const businessTypes = [
+  "biotechnology companies",
+  "tech startups", 
+  "research institutions",
+  "pharmaceutical companies",
+  "venture capital firms",
+  "medical device companies"
+];
+
+const painPoints = [
+  {
+    icon: "clock",
+    title: "Research Takes Forever", 
+    description: "Your team spends 60% of their time on literature reviews and competitive analysis instead of innovation."
+  },
+  {
+    icon: "chart-down",
+    title: "Proposal Writing Bottlenecks",
+    description: "Grant proposals and investor decks take weeks to create, delaying funding opportunities."
+  },
+  {
+    icon: "users",
+    title: "Technical Communication Gaps",
+    description: "Brilliant researchers struggle to communicate complex ideas to investors and stakeholders."
+  }
+];
+
+const localBenefits = [
+  {
+    title: "Accelerate Scientific Discovery",
+    description: "Use AI to analyze research papers, identify patterns, and generate hypotheses 10x faster than manual methods. Perfect for biotech and pharma teams in La Jolla's innovation corridor."
+  },
+  {
+    title: "Streamline Investor Communications", 
+    description: "Transform complex technical data into compelling investor presentations. AI helps translate scientific breakthroughs into business value propositions."
+  },
+  {
+    title: "Optimize Grant & Funding Applications",
+    description: "Generate high-quality grant proposals and funding applications in days, not weeks. AI assists with research summaries, methodology descriptions, and budget justifications."
+  },
+  {
+    title: "Enhance Competitive Intelligence",
+    description: "Stay ahead of competitors by using AI to monitor patent filings, research publications, and market trends. Critical for fast-moving biotech and tech sectors."
+  }
+];
+
+const successStory = {
+  company: "BioPharma Solutions",
+  industry: "biotechnology",
+  result: "reduced their literature review time by 70% and increased grant proposal success rate by 45%"
+};
+
+const landmarks = [
+  "UC San Diego",
+  "Torrey Pines Science Park", 
+  "Salk Institute",
+  "Scripps Research",
+  "La Jolla Village Square"
+];
+
+const transportNotes = "Easily accessible from I-5 and Torrey Pines Road. On-site training available at your research facility or corporate office.";
+---
+
+<NeighborhoodLayout
+  neighborhood={neighborhood}
+  title={title}
+  metaDescription={metaDescription}
+  businessTypes={businessTypes}
+  painPoints={painPoints}
+  localBenefits={localBenefits}
+  successStory={successStory}
+  landmarks={landmarks}
+  transportNotes={transportNotes}
+/>

@@ -1,0 +1,81 @@
+---
+import NeighborhoodLayout from '../../../layouts/NeighborhoodLayout.astro';
+
+const neighborhood = "Carmel Valley";
+const title = "AI Training for Carmel Valley Tech & Biotech Companies | Dave Shapiro";
+const metaDescription = "AI training for Carmel Valley's tech companies, biotech firms, and corporate offices. Advanced AI implementation for innovation-driven teams.";
+
+const businessTypes = [
+  "technology companies",
+  "biotechnology firms", 
+  "corporate headquarters",
+  "research & development",
+  "pharmaceutical companies",
+  "consulting firms"
+];
+
+const painPoints = [
+  {
+    icon: "clock",
+    title: "Innovation Speed Pressure", 
+    description: "Tech and biotech companies need to accelerate product development cycles while maintaining quality and regulatory compliance."
+  },
+  {
+    icon: "chart-down",
+    title: "Technical Documentation Overload",
+    description: "Complex products require extensive documentation, regulatory filings, and technical specifications that slow down time-to-market."
+  },
+  {
+    icon: "users",
+    title: "Cross-Functional Communication",
+    description: "Engineering, product, and business teams struggle to communicate effectively across different technical domains and priorities."
+  }
+];
+
+const localBenefits = [
+  {
+    title: "Accelerate Product Development",
+    description: "Use AI to generate technical specifications, user stories, and development documentation that speeds up engineering cycles without sacrificing quality."
+  },
+  {
+    title: "Streamline Regulatory Compliance", 
+    description: "Generate FDA submissions, clinical trial documentation, and regulatory reports more efficiently while ensuring accuracy and completeness."
+  },
+  {
+    title: "Enhance Technical Communication",
+    description: "Create clear technical documentation, API guides, and cross-team communications that improve collaboration between engineering, product, and business stakeholders."
+  },
+  {
+    title: "Optimize Investor & Partner Relations",
+    description: "Generate compelling pitch decks, partnership proposals, and investor updates that clearly communicate complex technical value propositions."
+  }
+];
+
+const successStory = {
+  company: "NeuralPath Therapeutics",
+  industry: "biotechnology",
+  result: "reduced their regulatory filing preparation time by 55% while improving submission quality and approval rates"
+};
+
+const landmarks = [
+  "One Paseo",
+  "Del Mar Heights Road", 
+  "Torrey Pines State Natural Reserve",
+  "Carmel Valley Recreation Center",
+  "Carmel Mountain Ranch"
+];
+
+const transportNotes = "Prime location with easy access from I-5, Highway 56, and I-15. On-site training available at corporate campuses and R&D facilities.";
+---
+
+<NeighborhoodLayout
+  neighborhood={neighborhood}
+  title={title}
+  metaDescription={metaDescription}
+  businessTypes={businessTypes}
+  painPoints={painPoints}
+  localBenefits={localBenefits}
+  successStory={successStory}
+  landmarks={landmarks}
+  transportNotes={transportNotes}
+/>

@@ -1,0 +1,81 @@
+---
+import NeighborhoodLayout from '../../../layouts/NeighborhoodLayout.astro';
+
+const neighborhood = "Chula Vista";
+const title = "AI Training for Chula Vista Diverse Business Community | Dave Shapiro";
+const metaDescription = "AI training for Chula Vista's diverse businesses, healthcare providers, and retail companies. Multilingual AI implementation for South Bay's growing economy.";
+
+const businessTypes = [
+  "healthcare clinics",
+  "retail businesses", 
+  "small manufacturing",
+  "professional services",
+  "family restaurants",
+  "educational services"
+];
+
+const painPoints = [
+  {
+    icon: "clock",
+    title: "Multilingual Customer Service", 
+    description: "Diverse customer base requires service in multiple languages, creating communication challenges for small business teams."
+  },
+  {
+    icon: "users",
+    title: "Growing Community Demands",
+    description: "Rapidly expanding population means businesses need to scale services without proportionally increasing staff."
+  },
+  {
+    icon: "chart-down",
+    title: "Competition from Larger Markets",
+    description: "Need to compete with downtown San Diego and larger chains while maintaining community-focused service."
+  }
+];
+
+const localBenefits = [
+  {
+    title: "Enable Multilingual Communications",
+    description: "Generate customer communications, service descriptions, and marketing materials in both English and Spanish to serve Chula Vista's diverse community."
+  },
+  {
+    title: "Enhance Healthcare Service Delivery", 
+    description: "Create patient communications, appointment reminders, and health education materials that improve care access and patient satisfaction."
+  },
+  {
+    title: "Strengthen Community Business Marketing",
+    description: "Develop local marketing campaigns, community event promotions, and neighborhood-focused content that builds strong local customer relationships."
+  },
+  {
+    title: "Optimize Small Business Operations",
+    description: "Streamline inventory management, customer service, and operational communications to compete effectively with larger businesses."
+  }
+];
+
+const successStory = {
+  company: "Vista Family Health Center",
+  industry: "healthcare services",
+  result: "improved their patient communication efficiency by 60% and expanded their bilingual service capabilities using AI-generated materials"
+};
+
+const landmarks = [
+  "Chula Vista Marina",
+  "Otay Lakes", 
+  "Chula Vista Center",
+  "Olympic Training Center",
+  "Eastlake"
+];
+
+const transportNotes = "South Bay location with access from I-805, I-5, and Highway 54. On-site training available at business centers and healthcare facilities.";
+---
+
+<NeighborhoodLayout
+  neighborhood={neighborhood}
+  title={title}
+  metaDescription={metaDescription}
+  businessTypes={businessTypes}
+  painPoints={painPoints}
+  localBenefits={localBenefits}
+  successStory={successStory}
+  landmarks={landmarks}
+  transportNotes={transportNotes}
+/>

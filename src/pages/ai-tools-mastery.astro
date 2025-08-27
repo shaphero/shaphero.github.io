@@ -1,0 +1,586 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import Hero from '../components/common/Hero.astro';
+import Section from '../components/common/Section.astro';
+import ContentGrid from '../components/common/ContentGrid.astro';
+import CallToAction from '../components/common/CallToAction.astro';
+import Icon from '../components/Icon.astro';
+
+const llmTechniques = [
+  {
+    icon: "cpu",
+    title: "Chain-of-Thought Prompting",
+    description: "Enable complex reasoning with step-by-step thinking. Research shows significant improvements in accuracy for complex tasks."
+  },
+  {
+    icon: "layers",
+    title: "Few-Shot Learning",
+    description: "Provide 2-4 examples of desired output for style transfer and complex tasks. Especially effective for math and data analysis."
+  },
+  {
+    icon: "link",
+    title: "Prompt Chaining",
+    description: "Break complex queries into smaller, sequential prompts. Leverage context windows effectively for better results."
+  },
+  {
+    icon: "brain",
+    title: "Meta-Prompting",
+    description: "Use AI to improve your prompts. Ask the LLM to optimize your prompt for better performance."
+  },
+  {
+    icon: "target",
+    title: "Output Priming",
+    description: "Start the AI's response with a template or structure to ensure consistent, high-quality outputs."
+  },
+  {
+    icon: "sparkles",
+    title: "Emotional Stimuli",
+    description: "Strategic phrasing and context-setting can improve AI response quality and relevance."
+  }
+];
+
+const googleSheetsTools = [
+  {
+    title: "GPT for Sheets™",
+    description: "Access GPT-4, Claude, and Gemini directly in Google Sheets. Run up to 360 prompts per minute.",
+    features: ["GPT_SUMMARIZE for condensing data", "GPT_CLASSIFY for categorization", "GPT_TRANSLATE for multilingual content", "GPT_WEB for real-time data"]
+  },
+  {
+    title: "Apps Script AI Integration",
+    description: "Create custom AI functions with Google Apps Script and OpenAI API for advanced automation.",
+    features: ["Webhook integration", "Process 300k+ rows", "Custom AI functions", "Template automation"]
+  },
+  {
+    title: "AI-Powered Formulas",
+    description: "Use AI to generate complex formulas, clean data, and create pivot tables without advanced Excel knowledge.",
+    features: ["Formula generation", "Data cleaning", "Automated reporting", "Pattern recognition"]
+  }
+];
+
+const n8nWorkflows = [
+  {
+    title: "LLM Chain Workflows",
+    description: "Build sophisticated AI chains connecting 422+ apps with visual workflow design.",
+    icon: "workflow"
+  },
+  {
+    title: "Multi-Agent Systems",
+    description: "Create teams of AI agents with specialized roles, gatekeepers, and coordination logic.",
+    icon: "users"
+  },
+  {
+    title: "RAG Implementation",
+    description: "Build retrieval-augmented generation workflows with vector databases and document processing.",
+    icon: "database"
+  },
+  {
+    title: "Event-Driven Automation",
+    description: "Trigger AI workflows based on webhooks, schedules, or data changes with error handling.",
+    icon: "zap"
+  }
+];
+
+const claudeCodeFeatures = [
+  {
+    title: "Full-Stack Development",
+    description: "Build complete applications with Claude handling both frontend and backend code.",
+    metrics: "Rapid code generation"
+  },
+  {
+    title: "Test-Driven Development",
+    description: "Write tests first, then let Claude implement the solution with quality assurance.",
+    metrics: "Faster development cycles"
+  },
+  {
+    title: "Visual Development",
+    description: "Paste screenshots and design mocks for Claude to implement matching UIs.",
+    metrics: "Quick prototyping"
+  },
+  {
+    title: "GitHub Integration",
+    description: "Automatic PR reviews, commits, and repository management with built-in safety controls.",
+    metrics: "Streamlined workflow"
+  }
+];
+
+const lovableCapabilities = [
+  {
+    title: "Rapid UI Prototyping",
+    description: "Create working prototypes in minutes with mobile-first, responsive designs using Tailwind CSS.",
+    highlight: "Minutes not days"
+  },
+  {
+    title: "Visual Element Selection",
+    description: "Click elements in preview to reference them directly in chat for instant modifications.",
+    highlight: "Point and edit"
+  },
+  {
+    title: "Full-Stack Integration",
+    description: "Simultaneous frontend and backend development with Supabase integration for auth and data.",
+    highlight: "Complete apps"
+  },
+  {
+    title: "Knowledge Base Context",
+    description: "Define project guidelines and design systems that AI remembers throughout development.",
+    highlight: "Consistent output"
+  }
+];
+
+const implementationPath = [
+  {
+    phase: "Foundation",
+    weeks: "Weeks 1-2",
+    focus: "Master prompt engineering with ChatGPT/Claude",
+    outcomes: ["Chain-of-thought mastery", "Few-shot techniques", "50% quality improvement"]
+  },
+  {
+    phase: "Automation",
+    weeks: "Weeks 3-4",
+    focus: "Implement Google Sheets AI and basic n8n workflows",
+    outcomes: ["Automated reporting", "Data processing at scale", "10+ hours saved weekly"]
+  },
+  {
+    phase: "Advanced Workflows",
+    weeks: "Weeks 5-6",
+    focus: "Build multi-step n8n automations with LLM chains",
+    outcomes: ["Complex automation", "Multi-agent systems", "RAG implementation"]
+  },
+  {
+    phase: "Application Development",
+    weeks: "Weeks 7-8",
+    focus: "Create custom apps with Claude Code and Lovable",
+    outcomes: ["Full-stack applications", "Custom tools", "Production deployments"]
+  }
+];
+---
+
+<PageLayout 
+  title="AI Tools Mastery: ChatGPT, Claude Code, n8n, Google Sheets & More"
+  description="Master cutting-edge AI tools and tactics. Learn advanced prompt engineering, Google Sheets AI automation, n8n workflows, Claude Code development, and Lovable frontend creation."
+  showHeader={true}
+  showCTA={false}
+>
+  <!-- Hero Section -->
+  <Hero 
+    title="Master the <span class='text-accent'>Complete AI Stack</span>"
+    subtitle="From prompt engineering to full-stack development - learn the bleeding-edge tactics that give you 10x productivity"
+    badge="Advanced AI Tools Training"
+    ctaPrimary={{
+      text: "Start Your AI Journey",
+      subject: "AI tools mastery training inquiry"
+    }}
+    ctaSecondary={{
+      text: "Download Tool Guide",
+      href: "#toolkit"
+    }}
+    features={["5 core AI platforms", "50+ advanced techniques", "Real implementation examples"]}
+    background="gradient"
+  />
+
+  <!-- Overview Section -->
+  <Section background="white" padding="xl">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-8">
+        The <span class="text-accent">AI Tool Stack</span> That Changes Everything
+      </h2>
+      <p class="text-xl text-muted-foreground mb-12">
+        Stop using AI like it's 2023. Learn the advanced techniques and tool combinations 
+        that leading teams use to achieve seemingly impossible productivity gains.
+      </p>
+      
+      <div class="grid md:grid-cols-5 gap-6">
+        <div class="bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl p-6 border border-primary/20">
+          <div class="text-3xl mb-3">🧠</div>
+          <h3 class="font-bold text-foreground">ChatGPT/Claude</h3>
+          <p class="text-sm text-muted-foreground mt-2">Advanced prompting</p>
+        </div>
+        <div class="bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl p-6 border border-primary/20">
+          <div class="text-3xl mb-3">📊</div>
+          <h3 class="font-bold text-foreground">Google Sheets AI</h3>
+          <p class="text-sm text-muted-foreground mt-2">Data automation</p>
+        </div>
+        <div class="bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl p-6 border border-primary/20">
+          <div class="text-3xl mb-3">⚡</div>
+          <h3 class="font-bold text-foreground">n8n Workflows</h3>
+          <p class="text-sm text-muted-foreground mt-2">Process automation</p>
+        </div>
+        <div class="bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl p-6 border border-primary/20">
+          <div class="text-3xl mb-3">💻</div>
+          <h3 class="font-bold text-foreground">Claude Code</h3>
+          <p class="text-sm text-muted-foreground mt-2">Full-stack apps</p>
+        </div>
+        <div class="bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl p-6 border border-primary/20">
+          <div class="text-3xl mb-3">🎨</div>
+          <h3 class="font-bold text-foreground">Lovable</h3>
+          <p class="text-sm text-muted-foreground mt-2">Frontend design</p>
+        </div>
+      </div>
+    </div>
+  </Section>
+
+  <!-- LLM Mastery Section -->
+  <Section background="cream" padding="xl">
+    <div class="text-center mb-12">
+      <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-6">
+        <span class="text-accent">Advanced LLM Techniques</span> That Actually Work
+      </h2>
+      <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+        2024's breakthrough prompt engineering methods that deliver 50% better outputs
+      </p>
+    </div>
+    
+    <ContentGrid 
+      items={llmTechniques}
+      columns={3}
+      cardStyle="glass"
+    />
+    
+    <div class="max-w-3xl mx-auto mt-12">
+      <div class="bg-white rounded-2xl p-8 shadow-lg">
+        <h3 class="text-2xl font-bold mb-4">Real Performance Gains</h3>
+        <div class="grid md:grid-cols-3 gap-6 text-center">
+          <div>
+            <div class="text-3xl font-black text-primary">50%</div>
+            <div class="text-sm text-muted-foreground">Better response quality</div>
+          </div>
+          <div>
+            <div class="text-3xl font-black text-primary">20-50%</div>
+            <div class="text-sm text-muted-foreground">Improved accuracy</div>
+          </div>
+          <div>
+            <div class="text-3xl font-black text-primary">3x</div>
+            <div class="text-sm text-muted-foreground">Faster iteration</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Google Sheets AI Section -->
+  <Section background="white" padding="xl">
+    <div class="text-center mb-12">
+      <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-6">
+        Transform <span class="text-accent">Google Sheets</span> Into an AI Powerhouse
+      </h2>
+      <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+        Process 300,000+ rows with AI, automate complex analyses, and build intelligent spreadsheets
+      </p>
+    </div>
+    
+    <div class="space-y-8 max-w-5xl mx-auto">
+      {googleSheetsTools.map((tool, index) => (
+        <div class="bg-card rounded-2xl border border-border p-8 hover:shadow-xl transition-all">
+          <div class="flex flex-col md:flex-row gap-8">
+            <div class="flex-1">
+              <h3 class="text-2xl font-bold text-foreground mb-3">{tool.title}</h3>
+              <p class="text-muted-foreground mb-6">{tool.description}</p>
+              <div class="grid grid-cols-2 gap-3">
+                {tool.features.map(feature => (
+                  <div class="flex items-start gap-2">
+                    <Icon name="check" class="text-accent mt-1 flex-shrink-0" size="sm" />
+                    <span class="text-sm">{feature}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </Section>
+
+  <!-- n8n Workflows Section -->
+  <Section background="cream" padding="xl">
+    <div class="text-center mb-12">
+      <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-6">
+        Build <span class="text-accent">Enterprise Automations</span> with n8n
+      </h2>
+      <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+        Visual workflow automation connecting 422+ apps with advanced AI capabilities
+      </p>
+    </div>
+    
+    <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+      {n8nWorkflows.map(workflow => (
+        <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all">
+          <Icon name={workflow.icon} class="text-primary mb-4" size="lg" />
+          <h3 class="text-xl font-bold text-foreground mb-3">{workflow.title}</h3>
+          <p class="text-muted-foreground">{workflow.description}</p>
+        </div>
+      ))}
+    </div>
+    
+    <div class="mt-12 text-center">
+      <div class="inline-flex items-center gap-8 bg-gradient-to-r from-primary/5 to-accent/5 rounded-xl p-6">
+        <div>
+          <div class="text-2xl font-black text-primary">422+</div>
+          <div class="text-sm text-muted-foreground">Integrations</div>
+        </div>
+        <div>
+          <div class="text-2xl font-black text-primary">Visual</div>
+          <div class="text-sm text-muted-foreground">No-code design</div>
+        </div>
+        <div>
+          <div class="text-2xl font-black text-primary">Scalable</div>
+          <div class="text-sm text-muted-foreground">Enterprise ready</div>
+        </div>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Claude Code Section -->
+  <Section background="white" padding="xl">
+    <div class="text-center mb-12">
+      <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-6">
+        Ship <span class="text-accent">Production Apps</span> with Claude Code
+      </h2>
+      <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+        The agentic coding tool that writes, tests, and deploys complete applications
+      </p>
+    </div>
+    
+    <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-12">
+      {claudeCodeFeatures.map(feature => (
+        <div class="bg-gradient-to-br from-primary/5 to-accent/5 rounded-xl p-6 border border-primary/20">
+          <h3 class="text-xl font-bold text-foreground mb-3">{feature.title}</h3>
+          <p class="text-muted-foreground mb-4">{feature.description}</p>
+          <div class="inline-flex items-center gap-2 bg-white rounded-full px-4 py-2">
+            <Icon name="trending-up" class="text-accent" size="sm" />
+            <span class="text-sm font-semibold text-primary">{feature.metrics}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+    
+    <div class="max-w-3xl mx-auto">
+      <div class="bg-foreground text-white rounded-2xl p-8">
+        <h3 class="text-2xl font-bold mb-4">Industry Recognition</h3>
+        <p class="text-white/90 mb-6">
+          "Claude is once again best-in-class for real-world coding tasks" - Cursor
+        </p>
+        <p class="text-white/90">
+          "Far better than any other model at planning code changes and handling full-stack updates" - Cognition
+        </p>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Lovable Section -->
+  <Section background="cream" padding="xl">
+    <div class="text-center mb-12">
+      <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-6">
+        Design <span class="text-accent">Beautiful Frontends</span> with Lovable
+      </h2>
+      <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+        From concept to deployed UI in minutes, not days
+      </p>
+    </div>
+    
+    <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+      {lovableCapabilities.map(capability => (
+        <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all group">
+          <div class="flex justify-between items-start mb-3">
+            <h3 class="text-xl font-bold text-foreground">{capability.title}</h3>
+            <span class="text-xs bg-accent text-white px-3 py-1 rounded-full">
+              {capability.highlight}
+            </span>
+          </div>
+          <p class="text-muted-foreground">{capability.description}</p>
+        </div>
+      ))}
+    </div>
+  </Section>
+
+  <!-- Implementation Path Section -->
+  <Section background="white" padding="xl">
+    <div class="text-center mb-12">
+      <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-6">
+        Your <span class="text-accent">8-Week Journey</span> to AI Mastery
+      </h2>
+      <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+        A proven pathway from AI beginner to power user
+      </p>
+    </div>
+    
+    <div class="max-w-4xl mx-auto">
+      <div class="space-y-6">
+        {implementationPath.map((phase, index) => (
+          <div class="flex gap-6 items-start">
+            <div class="w-20 flex-shrink-0">
+              <div class="w-12 h-12 bg-gradient-to-br from-primary to-primary-darker rounded-full flex items-center justify-center text-white font-bold">
+                {index + 1}
+              </div>
+            </div>
+            <div class="flex-1 bg-card rounded-xl p-6 border border-border">
+              <div class="flex justify-between items-start mb-3">
+                <h3 class="text-xl font-bold text-foreground">{phase.phase}</h3>
+                <span class="text-sm text-muted-foreground bg-muted/30 px-3 py-1 rounded-full">
+                  {phase.weeks}
+                </span>
+              </div>
+              <p class="text-primary font-semibold mb-4">{phase.focus}</p>
+              <div class="flex flex-wrap gap-2">
+                {phase.outcomes.map(outcome => (
+                  <span class="text-sm bg-gradient-to-r from-primary/10 to-accent/10 px-3 py-1 rounded-full">
+                    {outcome}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </Section>
+
+  <!-- Results Section -->
+  <Section background="cream" padding="xl">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-12">
+        What You'll <span class="text-accent">Actually Achieve</span>
+      </h2>
+      
+      <div class="grid md:grid-cols-3 gap-8 mb-12">
+        <div class="bg-white rounded-xl p-6 shadow-lg">
+          <div class="text-4xl mb-4">⏰</div>
+          <h3 class="text-xl font-bold mb-2">Time Savings</h3>
+          <p class="text-3xl font-black text-primary mb-2">10-20 hrs</p>
+          <p class="text-sm text-muted-foreground">Saved per week</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 shadow-lg">
+          <div class="text-4xl mb-4">🚀</div>
+          <h3 class="text-xl font-bold mb-2">Productivity</h3>
+          <p class="text-3xl font-black text-primary mb-2">10x</p>
+          <p class="text-sm text-muted-foreground">Output increase</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 shadow-lg">
+          <div class="text-4xl mb-4">💡</div>
+          <h3 class="text-xl font-bold mb-2">Capability</h3>
+          <p class="text-3xl font-black text-primary mb-2">5+</p>
+          <p class="text-sm text-muted-foreground">AI platforms mastered</p>
+        </div>
+      </div>
+      
+      <div class="bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl p-8 border border-primary/20">
+        <p class="text-lg text-foreground mb-4">
+          <strong>"Dave transformed our entire workflow.</strong> We went from manually processing data 
+          to having AI handle everything from analysis to report generation. The ROI was immediate - 
+          we're saving $200k+ annually in labor costs."
+        </p>
+        <p class="text-primary font-semibold">
+          - Tech Director, San Diego Biotech Company
+        </p>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Toolkit Section -->
+  <Section id="toolkit" background="white" padding="xl">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-6">
+        Free <span class="text-accent">AI Implementation Toolkit</span>
+      </h2>
+      <p class="text-xl text-muted-foreground mb-8">
+        Everything you need to start implementing these advanced AI techniques today
+      </p>
+      
+      <div class="bg-gradient-to-br from-primary to-primary-darker text-white rounded-2xl p-8 shadow-xl">
+        <h3 class="text-2xl font-bold mb-6">Your Complete Toolkit Includes:</h3>
+        
+        <div class="grid md:grid-cols-2 gap-6 text-left mb-8">
+          <div>
+            <h4 class="font-bold mb-3">Prompt Engineering</h4>
+            <ul class="space-y-2 text-white/90">
+              <li class="flex items-start gap-2">
+                <Icon name="check" class="text-accent mt-0.5" size="sm" />
+                <span>50+ tested prompts for business use</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <Icon name="check" class="text-accent mt-0.5" size="sm" />
+                <span>Chain-of-thought templates</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <Icon name="check" class="text-accent mt-0.5" size="sm" />
+                <span>Few-shot learning examples</span>
+              </li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 class="font-bold mb-3">Automation Templates</h4>
+            <ul class="space-y-2 text-white/90">
+              <li class="flex items-start gap-2">
+                <Icon name="check" class="text-accent mt-0.5" size="sm" />
+                <span>Google Sheets AI formulas</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <Icon name="check" class="text-accent mt-0.5" size="sm" />
+                <span>n8n workflow blueprints</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <Icon name="check" class="text-accent mt-0.5" size="sm" />
+                <span>Apps Script templates</span>
+              </li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 class="font-bold mb-3">Development Resources</h4>
+            <ul class="space-y-2 text-white/90">
+              <li class="flex items-start gap-2">
+                <Icon name="check" class="text-accent mt-0.5" size="sm" />
+                <span>Claude Code best practices</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <Icon name="check" class="text-accent mt-0.5" size="sm" />
+                <span>Lovable design patterns</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <Icon name="check" class="text-accent mt-0.5" size="sm" />
+                <span>Full-stack app templates</span>
+              </li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 class="font-bold mb-3">Implementation Guides</h4>
+            <ul class="space-y-2 text-white/90">
+              <li class="flex items-start gap-2">
+                <Icon name="check" class="text-accent mt-0.5" size="sm" />
+                <span>Step-by-step tutorials</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <Icon name="check" class="text-accent mt-0.5" size="sm" />
+                <span>ROI calculation spreadsheet</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <Icon name="check" class="text-accent mt-0.5" size="sm" />
+                <span>Tool comparison matrix</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <a href="mailto:dave@daveshap.com?subject=AI Implementation Toolkit request" 
+           class="btn bg-white text-primary hover:bg-gray-100 btn-xl shadow-glow">
+          Get Your Free Toolkit
+        </a>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Final CTA -->
+  <CallToAction 
+    title="Ready to Master the Complete AI Stack?"
+    subtitle="Join teams saving <span class='text-accent'>10-20 hours per week</span> with advanced AI implementation"
+    benefits={[
+      "Learn all 5 core AI platforms in one comprehensive training program",
+      "Get hands-on practice with real business scenarios and use cases",
+      "Receive ongoing support and updates as new AI capabilities emerge"
+    ]}
+    buttonText="Start Your AI Transformation"
+    buttonSubject="Ready to master advanced AI tools"
+    features={["Custom curriculum", "Hands-on training", "Ongoing support"]}
+    style="gradient"
+  />
+</PageLayout>

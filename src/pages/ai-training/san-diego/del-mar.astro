@@ -1,0 +1,81 @@
+---
+import NeighborhoodLayout from '../../../layouts/NeighborhoodLayout.astro';
+
+const neighborhood = "Del Mar";
+const title = "AI Training for Del Mar Executive Teams | Dave Shapiro Consulting";
+const metaDescription = "AI training for Del Mar's executive teams, luxury hospitality, and finance professionals. Elevate leadership efficiency with practical ChatGPT & Claude workflows.";
+
+const businessTypes = [
+  "wealth management firms",
+  "luxury hospitality", 
+  "executive consulting",
+  "private equity firms",
+  "high-end real estate",
+  "boutique advisory services"
+];
+
+const painPoints = [
+  {
+    icon: "clock",
+    title: "Executive Time Scarcity", 
+    description: "C-suite leaders spend too much time on routine communications and analysis instead of high-value strategic decisions."
+  },
+  {
+    icon: "chart-down",
+    title: "Client Expectations Rising",
+    description: "High-net-worth clients demand faster, more personalized service and deeper insights than your current processes allow."
+  },
+  {
+    icon: "users",
+    title: "Scaling Premium Service",
+    description: "Maintaining white-glove service quality becomes impossible as your client base grows without proportional staff increases."
+  }
+];
+
+const localBenefits = [
+  {
+    title: "Elevate Client Communications",
+    description: "Generate personalized investment summaries, market analyses, and client reports that maintain the premium touch Del Mar clients expect."
+  },
+  {
+    title: "Accelerate Strategic Analysis", 
+    description: "Use AI to synthesize market data, competitive intelligence, and financial reports into executive-ready insights in minutes, not days."
+  },
+  {
+    title: "Enhance Wealth Management Services",
+    description: "Create sophisticated investment proposals, risk assessments, and portfolio reviews that demonstrate deep market understanding and personalized attention."
+  },
+  {
+    title: "Streamline Luxury Service Delivery",
+    description: "Maintain the high-touch, personalized service Del Mar's affluent market demands while improving efficiency and response times."
+  }
+];
+
+const successStory = {
+  company: "Coastal Wealth Partners",
+  industry: "wealth management",
+  result: "increased their client portfolio analysis speed by 80% while improving client satisfaction scores by 25%"
+};
+
+const landmarks = [
+  "Del Mar Racetrack",
+  "Del Mar Fairgrounds", 
+  "Torrey Pines State Beach",
+  "Del Mar Plaza",
+  "Seagrove Park"
+];
+
+const transportNotes = "Prime location with easy access from I-5 and Highway 56. On-site training available at your executive office or client meeting facilities.";
+---
+
+<NeighborhoodLayout
+  neighborhood={neighborhood}
+  title={title}
+  metaDescription={metaDescription}
+  businessTypes={businessTypes}
+  painPoints={painPoints}
+  localBenefits={localBenefits}
+  successStory={successStory}
+  landmarks={landmarks}
+  transportNotes={transportNotes}
+/>

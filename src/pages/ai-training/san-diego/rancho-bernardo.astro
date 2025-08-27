@@ -1,0 +1,81 @@
+---
+import NeighborhoodLayout from '../../../layouts/NeighborhoodLayout.astro';
+
+const neighborhood = "Rancho Bernardo";
+const title = "AI Training for Rancho Bernardo Corporate Offices | Dave Shapiro";
+const metaDescription = "AI training for Rancho Bernardo's corporate offices, manufacturing companies, and tech firms. Boost operational efficiency with practical AI workflows.";
+
+const businessTypes = [
+  "corporate offices",
+  "manufacturing companies", 
+  "technology firms",
+  "distribution centers",
+  "professional services",
+  "automotive companies"
+];
+
+const painPoints = [
+  {
+    icon: "clock",
+    title: "Operational Efficiency Gaps", 
+    description: "Manufacturing and corporate operations have productivity bottlenecks that limit growth and profitability."
+  },
+  {
+    icon: "chart-down",
+    title: "Supply Chain Complexity",
+    description: "Managing vendors, inventory, and logistics requires constant communication and documentation that consumes valuable time."
+  },
+  {
+    icon: "users",
+    title: "Workforce Training Challenges",
+    description: "Large teams need consistent training and communication across multiple shifts and departments."
+  }
+];
+
+const localBenefits = [
+  {
+    title: "Optimize Manufacturing Operations",
+    description: "Generate production reports, quality control documentation, and operational procedures that improve efficiency and reduce downtime."
+  },
+  {
+    title: "Streamline Supply Chain Management", 
+    description: "Automate vendor communications, inventory reports, and logistics coordination to reduce costs and improve delivery times."
+  },
+  {
+    title: "Enhance Corporate Training Programs",
+    description: "Create comprehensive training materials, safety protocols, and employee communications that ensure consistent operations across all shifts."
+  },
+  {
+    title: "Improve Customer Service Operations",
+    description: "Generate customer communications, service reports, and technical documentation that enhance client satisfaction and retention."
+  }
+];
+
+const successStory = {
+  company: "Precision Manufacturing Solutions",
+  industry: "automotive manufacturing",
+  result: "reduced their operational reporting time by 40% and improved on-time delivery rates by 30% through AI-optimized processes"
+};
+
+const landmarks = [
+  "Rancho Bernardo Town Center",
+  "Bernardo Winery", 
+  "Lake Hodges",
+  "Webb Park",
+  "Rancho Bernardo Community Park"
+];
+
+const transportNotes = "North County location with access from I-15 and Rancho Bernardo Road. On-site training available at corporate facilities and manufacturing centers.";
+---
+
+<NeighborhoodLayout
+  neighborhood={neighborhood}
+  title={title}
+  metaDescription={metaDescription}
+  businessTypes={businessTypes}
+  painPoints={painPoints}
+  localBenefits={localBenefits}
+  successStory={successStory}
+  landmarks={landmarks}
+  transportNotes={transportNotes}
+/>

@@ -1,0 +1,81 @@
+---
+import NeighborhoodLayout from '../../../layouts/NeighborhoodLayout.astro';
+
+const neighborhood = "Pacific Beach";
+const title = "AI Training for Pacific Beach Tourism & Real Estate | Dave Shapiro";
+const metaDescription = "AI training for Pacific Beach's tourism, real estate, and hospitality businesses. Boost bookings and sales with practical ChatGPT & Claude workflows.";
+
+const businessTypes = [
+  "vacation rental management",
+  "real estate agencies", 
+  "surf shops",
+  "restaurants & bars",
+  "fitness studios",
+  "tour companies"
+];
+
+const painPoints = [
+  {
+    icon: "clock",
+    title: "Seasonal Revenue Pressure", 
+    description: "Tourism businesses need to maximize revenue during peak seasons while maintaining operations during slower periods."
+  },
+  {
+    icon: "users",
+    title: "Guest Experience Competition",
+    description: "Vacation rentals and hospitality businesses compete fiercely for positive reviews and repeat bookings."
+  },
+  {
+    icon: "chart-down",
+    title: "Property Marketing Overload",
+    description: "Real estate and rental managers struggle to create compelling listings and marketing content for multiple properties."
+  }
+];
+
+const localBenefits = [
+  {
+    title: "Optimize Vacation Rental Operations",
+    description: "Generate personalized guest communications, property descriptions, and local recommendations that increase bookings and 5-star reviews."
+  },
+  {
+    title: "Accelerate Real Estate Marketing", 
+    description: "Create compelling property listings, market analyses, and client communications that sell homes faster in PB's competitive market."
+  },
+  {
+    title: "Enhance Tourist Experience",
+    description: "Develop personalized activity recommendations, restaurant guides, and local insights that create memorable experiences for visitors."
+  },
+  {
+    title: "Streamline Hospitality Communications",
+    description: "Automate booking confirmations, guest inquiries, and review responses while maintaining the personal touch that drives repeat business."
+  }
+];
+
+const successStory = {
+  company: "Beachfront Properties PB",
+  industry: "vacation rental management",
+  result: "increased their booking rates by 35% and guest satisfaction scores by 28% using AI-generated property descriptions and guest communications"
+};
+
+const landmarks = [
+  "Mission Beach Boardwalk",
+  "Crystal Pier", 
+  "Garnet Avenue",
+  "Pacific Beach Park",
+  "Tourmaline Surfing Park"
+];
+
+const transportNotes = "Beach community accessible via I-5 and Grand Avenue. On-site training available at beachfront offices and hospitality venues.";
+---
+
+<NeighborhoodLayout
+  neighborhood={neighborhood}
+  title={title}
+  metaDescription={metaDescription}
+  businessTypes={businessTypes}
+  painPoints={painPoints}
+  localBenefits={localBenefits}
+  successStory={successStory}
+  landmarks={landmarks}
+  transportNotes={transportNotes}
+/>

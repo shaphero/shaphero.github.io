@@ -1,0 +1,82 @@
+---
+import NeighborhoodLayout from '../../../layouts/NeighborhoodLayout.astro';
+
+const neighborhood = "Downtown San Diego";
+const title = "AI Training for Downtown San Diego Businesses | Dave Shapiro Consulting";
+const metaDescription = "AI training for Downtown San Diego's urban professionals, startups, and creative agencies. Boost productivity with practical ChatGPT & Claude workflows. On-site training available.";
+
+const businessTypes = [
+  "creative agencies",
+  "tech startups", 
+  "legal firms",
+  "marketing companies",
+  "financial services",
+  "consulting firms"
+];
+
+const painPoints = [
+  {
+    icon: "clock",
+    title: "Client Demands Outpace Capacity", 
+    description: "Your team is overwhelmed with client work but can't hire fast enough to keep up with downtown's competitive pace."
+  },
+  {
+    icon: "chart-down",
+    title: "Content Creation Bottlenecks",
+    description: "Marketing campaigns, proposals, and client deliverables take weeks to produce, causing delays and missed opportunities."
+  },
+  {
+    icon: "users",
+    title: "Scaling Creative Work",
+    description: "You need to produce more high-quality creative output without burning out your talented team."
+  }
+];
+
+const localBenefits = [
+  {
+    title: "10x Content Production Speed",
+    description: "Generate marketing copy, social media content, and client proposals in minutes instead of hours. Perfect for fast-paced downtown agencies and startups."
+  },
+  {
+    title: "Streamline Client Communications", 
+    description: "Use AI to craft compelling client emails, meeting summaries, and status reports that keep projects moving and clients happy."
+  },
+  {
+    title: "Accelerate Creative Ideation",
+    description: "Break through creative blocks with AI brainstorming sessions. Generate dozens of campaign concepts, taglines, and creative directions instantly."
+  },
+  {
+    title: "Automate Administrative Tasks",
+    description: "Free your creative minds from routine tasks like scheduling, invoicing, and project management. AI handles the busy work so you can focus on billable creative work."
+  }
+];
+
+const successStory = {
+  company: "Velocity Creative",
+  industry: "digital marketing agency",
+  result: "increased their client output by 200% while reducing overtime hours by 40%"
+};
+
+const landmarks = [
+  "Gaslamp Quarter",
+  "Horton Plaza", 
+  "Petco Park",
+  "USS Midway Museum",
+  "Seaport Village",
+  "Balboa Park"
+];
+
+const transportNotes = "Central location with easy access from trolley stations, I-5, and I-163. Walking distance from many downtown businesses and co-working spaces.";
+---
+
+<NeighborhoodLayout
+  neighborhood={neighborhood}
+  title={title}
+  metaDescription={metaDescription}
+  businessTypes={businessTypes}
+  painPoints={painPoints}
+  localBenefits={localBenefits}
+  successStory={successStory}
+  landmarks={landmarks}
+  transportNotes={transportNotes}
+/>

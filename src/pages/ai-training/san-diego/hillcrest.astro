@@ -1,0 +1,81 @@
+---
+import NeighborhoodLayout from '../../../layouts/NeighborhoodLayout.astro';
+
+const neighborhood = "Hillcrest";
+const title = "AI Training for Hillcrest Healthcare & Professional Services | Dave Shapiro";
+const metaDescription = "AI training for Hillcrest's healthcare providers, professional services, and retail businesses. Enhance patient care and service delivery with AI workflows.";
+
+const businessTypes = [
+  "medical practices",
+  "healthcare clinics", 
+  "professional services",
+  "legal firms",
+  "retail businesses",
+  "wellness centers"
+];
+
+const painPoints = [
+  {
+    icon: "clock",
+    title: "Administrative Overload", 
+    description: "Healthcare providers spend more time on documentation and billing than actual patient care."
+  },
+  {
+    icon: "users",
+    title: "Patient Communication Gaps",
+    description: "Busy practices struggle to provide timely, personalized communication that patients expect in today's healthcare environment."
+  },
+  {
+    icon: "chart-down",
+    title: "Compliance Documentation Burden",
+    description: "Meeting regulatory requirements for patient records, billing, and reporting consumes valuable staff time."
+  }
+];
+
+const localBenefits = [
+  {
+    title: "Streamline Healthcare Administration",
+    description: "Automate patient intake forms, appointment reminders, and follow-up communications while maintaining HIPAA compliance."
+  },
+  {
+    title: "Enhance Patient Care Documentation", 
+    description: "Generate comprehensive patient summaries, treatment plans, and progress notes that improve care continuity and compliance."
+  },
+  {
+    title: "Optimize Practice Management",
+    description: "Create efficient scheduling systems, billing summaries, and staff communications that reduce administrative burden on medical professionals."
+  },
+  {
+    title: "Improve Professional Service Delivery",
+    description: "Generate client reports, case summaries, and professional correspondence that enhance service quality while reducing preparation time."
+  }
+];
+
+const successStory = {
+  company: "Hillcrest Family Medicine",
+  industry: "healthcare practice",
+  result: "reduced their administrative time by 45% while improving patient satisfaction scores and maintaining full compliance"
+};
+
+const landmarks = [
+  "UC San Diego Medical Center",
+  "Balboa Park", 
+  "Hillcrest Farmers Market",
+  "University Avenue",
+  "Mercy Hospital"
+];
+
+const transportNotes = "Central location with easy access from multiple bus lines and highways. On-site training available at medical offices and professional buildings.";
+---
+
+<NeighborhoodLayout
+  neighborhood={neighborhood}
+  title={title}
+  metaDescription={metaDescription}
+  businessTypes={businessTypes}
+  painPoints={painPoints}
+  localBenefits={localBenefits}
+  successStory={successStory}
+  landmarks={landmarks}
+  transportNotes={transportNotes}
+/>

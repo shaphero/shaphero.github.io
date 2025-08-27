@@ -1,0 +1,437 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Hero from '../../components/common/Hero.astro';
+import Section from '../../components/common/Section.astro';
+import Icon from '../../components/Icon.astro';
+import CallToAction from '../../components/common/CallToAction.astro';
+
+const neighborhoods = [
+  {
+    name: "La Jolla",
+    url: "/ai-training/san-diego/la-jolla",
+    description: "Tech executives, biotech companies, research institutions",
+    industries: ["Biotech", "Research", "Healthcare"],
+    highlight: "Home to UCSD and Scripps"
+  },
+  {
+    name: "Downtown",
+    url: "/ai-training/san-diego/downtown",
+    description: "Urban professionals, startups, creative agencies",
+    industries: ["Startups", "Tech", "Creative"],
+    highlight: "Gaslamp & Little Italy hub"
+  },
+  {
+    name: "Sorrento Valley",
+    url: "/ai-training/san-diego/sorrento-valley",
+    description: "Tech corridor, biotech hub, R&D centers",
+    industries: ["Tech", "Biotech", "R&D"],
+    highlight: "San Diego's tech capital"
+  },
+  {
+    name: "Carlsbad",
+    url: "/ai-training/san-diego/carlsbad",
+    description: "North County businesses, corporate offices",
+    industries: ["Corporate", "Golf", "Tourism"],
+    highlight: "North County business center"
+  },
+  {
+    name: "Del Mar",
+    url: "/ai-training/san-diego/del-mar",
+    description: "Executive teams, luxury hospitality, finance",
+    industries: ["Finance", "Hospitality", "Real Estate"],
+    highlight: "Executive & luxury market"
+  },
+  {
+    name: "UTC / La Jolla Village",
+    url: "/ai-training/san-diego/utc",
+    description: "Corporate headquarters, finance, professional services",
+    industries: ["Corporate", "Finance", "Tech"],
+    highlight: "Major corporate center"
+  },
+  {
+    name: "Carmel Valley",
+    url: "/ai-training/san-diego/carmel-valley",
+    description: "Tech companies, biotech, corporate offices",
+    industries: ["Tech", "Biotech", "Professional"],
+    highlight: "Family-friendly tech hub"
+  },
+  {
+    name: "Rancho Bernardo",
+    url: "/ai-training/san-diego/rancho-bernardo",
+    description: "Corporate offices, manufacturing, tech",
+    industries: ["Manufacturing", "Tech", "Corporate"],
+    highlight: "North inland business district"
+  },
+  {
+    name: "Mission Valley",
+    url: "/ai-training/san-diego/mission-valley",
+    description: "Retail, hospitality, corporate centers",
+    industries: ["Retail", "Hospitality", "Healthcare"],
+    highlight: "Central business corridor"
+  },
+  {
+    name: "Coronado",
+    url: "/ai-training/san-diego/coronado",
+    description: "Military contractors, hospitality, tourism",
+    industries: ["Defense", "Hospitality", "Tourism"],
+    highlight: "Military & resort community"
+  },
+  {
+    name: "Point Loma",
+    url: "/ai-training/san-diego/point-loma",
+    description: "Maritime, defense contractors, logistics",
+    industries: ["Maritime", "Defense", "Logistics"],
+    highlight: "Naval & maritime hub"
+  },
+  {
+    name: "Little Italy",
+    url: "/ai-training/san-diego/little-italy",
+    description: "Creative agencies, restaurants, small businesses",
+    industries: ["Creative", "Hospitality", "Startups"],
+    highlight: "Creative & culinary center"
+  },
+  {
+    name: "North Park",
+    url: "/ai-training/san-diego/north-park",
+    description: "Small businesses, craft breweries, creative firms",
+    industries: ["Creative", "Craft Beer", "Retail"],
+    highlight: "Arts & craft beer district"
+  },
+  {
+    name: "Hillcrest",
+    url: "/ai-training/san-diego/hillcrest",
+    description: "Healthcare, professional services, retail",
+    industries: ["Healthcare", "Professional", "Retail"],
+    highlight: "Medical & business district"
+  },
+  {
+    name: "Mission Hills",
+    url: "/ai-training/san-diego/mission-hills",
+    description: "Established businesses, professional services",
+    industries: ["Professional", "Legal", "Finance"],
+    highlight: "Historic business district"
+  },
+  {
+    name: "Pacific Beach",
+    url: "/ai-training/san-diego/pacific-beach",
+    description: "Tourism, real estate, hospitality",
+    industries: ["Tourism", "Real Estate", "Hospitality"],
+    highlight: "Beach & tourism economy"
+  },
+  {
+    name: "Encinitas",
+    url: "/ai-training/san-diego/encinitas",
+    description: "Wellness businesses, surf industry, retail",
+    industries: ["Wellness", "Surf", "Retail"],
+    highlight: "Surf & wellness capital"
+  },
+  {
+    name: "Chula Vista",
+    url: "/ai-training/san-diego/chula-vista",
+    description: "Diverse businesses, healthcare, retail",
+    industries: ["Healthcare", "Retail", "Services"],
+    highlight: "South Bay business hub"
+  },
+  {
+    name: "Escondido",
+    url: "/ai-training/san-diego/escondido",
+    description: "North County businesses, manufacturing, healthcare",
+    industries: ["Manufacturing", "Healthcare", "Agriculture"],
+    highlight: "North County inland center"
+  },
+  {
+    name: "Oceanside",
+    url: "/ai-training/san-diego/oceanside",
+    description: "North coastal businesses, hospitality, biotech",
+    industries: ["Hospitality", "Biotech", "Tourism"],
+    highlight: "North Coast business center"
+  }
+];
+
+const regions = {
+  "Central & Downtown": ["Downtown", "Little Italy", "Hillcrest", "Mission Hills", "Mission Valley"],
+  "Coastal North": ["La Jolla", "Del Mar", "Carlsbad", "Encinitas", "Oceanside", "Pacific Beach"],
+  "Coastal South": ["Coronado", "Point Loma"],
+  "Tech Corridor": ["Sorrento Valley", "UTC / La Jolla Village", "Carmel Valley", "Rancho Bernardo"],
+  "South Bay": ["Chula Vista"],
+  "North County Inland": ["Escondido"],
+  "Urban Core": ["North Park"]
+};
+
+const stats = [
+  { number: "500K+", label: "Businesses in San Diego County" },
+  { number: "73%", label: "Not using AI effectively yet" },
+  { number: "10-20hrs", label: "Weekly savings with AI" },
+  { number: "$3.4B", label: "San Diego tech economy" }
+];
+---
+
+<PageLayout 
+  title="AI Training for San Diego Businesses | All Neighborhoods"
+  description="On-site AI training for businesses across San Diego County. ChatGPT & Claude training in La Jolla, Downtown, Carlsbad, and 20+ neighborhoods. Save 10-20 hours per week."
+  showHeader={true}
+  showCTA={false}
+>
+  <!-- Hero Section -->
+  <Hero 
+    title="AI Training for <span class='text-accent'>San Diego Businesses</span>"
+    subtitle="On-site ChatGPT & Claude training across all San Diego neighborhoods. Transform your team into AI power users."
+    badge="Serving All of San Diego County"
+    ctaPrimary={{
+      text: "Get Started Today",
+      subject: "AI training inquiry for San Diego business"
+    }}
+    ctaSecondary={{
+      text: "Find Your Neighborhood",
+      href: "#neighborhoods"
+    }}
+    features={["20+ neighborhoods served", "On-site or virtual training", "Industry-specific workflows"]}
+    background="gradient"
+  />
+
+  <!-- Stats Section -->
+  <Section background="white" padding="lg">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+      {stats.map(stat => (
+        <div class="text-center">
+          <div class="text-3xl md:text-4xl font-black text-primary mb-2">
+            {stat.number}
+          </div>
+          <div class="text-sm text-muted-foreground">
+            {stat.label}
+          </div>
+        </div>
+      ))}
+    </div>
+  </Section>
+
+  <!-- Why Local Matters Section -->
+  <Section background="cream" padding="xl">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-8">
+        Why Choose <span class="text-accent">Local AI Training</span>?
+      </h2>
+      
+      <div class="grid md:grid-cols-3 gap-8 mb-12">
+        <div class="bg-white rounded-lg p-6 shadow-md">
+          <Icon name="location" class="text-primary mb-4" size="lg" />
+          <h3 class="text-xl font-bold mb-3">On-Site Available</h3>
+          <p class="text-muted-foreground">
+            We come to your office anywhere in San Diego County for hands-on team training.
+          </p>
+        </div>
+        
+        <div class="bg-white rounded-lg p-6 shadow-md">
+          <Icon name="users" class="text-primary mb-4" size="lg" />
+          <h3 class="text-xl font-bold mb-3">Industry Expertise</h3>
+          <p class="text-muted-foreground">
+            From biotech in Sorrento Valley to hospitality in Coronado, we speak your language.
+          </p>
+        </div>
+        
+        <div class="bg-white rounded-lg p-6 shadow-md">
+          <Icon name="chart-growth" class="text-primary mb-4" size="lg" />
+          <h3 class="text-xl font-bold mb-3">Local Success Stories</h3>
+          <p class="text-muted-foreground">
+            Join hundreds of San Diego businesses already saving 10-20 hours per week with AI.
+          </p>
+        </div>
+      </div>
+      
+      <div class="bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl p-8 border border-primary/20">
+        <p class="text-lg text-foreground">
+          <strong>Based in San Diego since 2008.</strong> Former CMO and SVP at Neil Patel Digital. 
+          16+ years helping Fortune 500s and local businesses leverage technology for growth.
+        </p>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Neighborhoods Grid Section -->
+  <Section id="neighborhoods" background="white" padding="xl">
+    <div class="text-center mb-12">
+      <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-6">
+        AI Training Across <span class="text-accent">San Diego County</span>
+      </h2>
+      <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+        Select your neighborhood for location-specific training options and industry-relevant AI workflows
+      </p>
+    </div>
+
+    {Object.entries(regions).map(([region, regionNeighborhoods]) => (
+      <div class="mb-12">
+        <h3 class="text-2xl font-bold text-foreground mb-6 text-center">
+          {region}
+        </h3>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          {neighborhoods.filter(n => regionNeighborhoods.includes(n.name)).map(neighborhood => (
+            <a 
+              href={neighborhood.url}
+              class="group bg-card rounded-lg border border-border p-6 hover:shadow-xl hover:scale-105 transition-all duration-300 block"
+            >
+              <div class="flex justify-between items-start mb-3">
+                <h4 class="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
+                  {neighborhood.name}
+                </h4>
+                <Icon name="arrow-right" class="text-primary opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" size="sm" />
+              </div>
+              
+              <p class="text-muted-foreground mb-3">
+                {neighborhood.description}
+              </p>
+              
+              <div class="flex flex-wrap gap-2 mb-3">
+                {neighborhood.industries.map(industry => (
+                  <span class="text-xs bg-muted/30 text-muted-foreground px-2 py-1 rounded-full">
+                    {industry}
+                  </span>
+                ))}
+              </div>
+              
+              <p class="text-sm text-primary font-semibold">
+                {neighborhood.highlight}
+              </p>
+            </a>
+          ))}
+        </div>
+      </div>
+    ))}
+  </Section>
+
+  <!-- Services Overview Section -->
+  <Section background="cream" padding="xl">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-6">
+          Comprehensive <span class="text-accent">AI Training Programs</span>
+        </h2>
+        <p class="text-xl text-muted-foreground">
+          Tailored to your industry, delivered at your location
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-white rounded-xl p-8 shadow-lg">
+          <h3 class="text-2xl font-bold mb-4">What We Train</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3">
+              <Icon name="check" class="text-accent flex-shrink-0 mt-1" size="sm" />
+              <span>ChatGPT, Claude, and Copilot mastery</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <Icon name="check" class="text-accent flex-shrink-0 mt-1" size="sm" />
+              <span>Industry-specific prompt engineering</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <Icon name="check" class="text-accent flex-shrink-0 mt-1" size="sm" />
+              <span>Workflow automation and integration</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <Icon name="check" class="text-accent flex-shrink-0 mt-1" size="sm" />
+              <span>Content creation at scale</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <Icon name="check" class="text-accent flex-shrink-0 mt-1" size="sm" />
+              <span>Data analysis and reporting</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <Icon name="check" class="text-accent flex-shrink-0 mt-1" size="sm" />
+              <span>Quality control and governance</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bg-white rounded-xl p-8 shadow-lg">
+          <h3 class="text-2xl font-bold mb-4">Industries We Serve</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3">
+              <Icon name="check" class="text-accent flex-shrink-0 mt-1" size="sm" />
+              <span><strong>Biotech & Healthcare:</strong> La Jolla, Sorrento Valley</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <Icon name="check" class="text-accent flex-shrink-0 mt-1" size="sm" />
+              <span><strong>Tech & Software:</strong> UTC, Carmel Valley</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <Icon name="check" class="text-accent flex-shrink-0 mt-1" size="sm" />
+              <span><strong>Defense & Maritime:</strong> Coronado, Point Loma</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <Icon name="check" class="text-accent flex-shrink-0 mt-1" size="sm" />
+              <span><strong>Hospitality & Tourism:</strong> Downtown, Pacific Beach</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <Icon name="check" class="text-accent flex-shrink-0 mt-1" size="sm" />
+              <span><strong>Creative & Marketing:</strong> North Park, Little Italy</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <Icon name="check" class="text-accent flex-shrink-0 mt-1" size="sm" />
+              <span><strong>Professional Services:</strong> Mission Hills, Hillcrest</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Map Section (Visual Representation) -->
+  <Section background="white" padding="xl">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-foreground mb-8">
+        Coverage Across <span class="text-accent">Greater San Diego</span>
+      </h2>
+      
+      <div class="bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl p-8 border border-primary/20">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-left">
+          <div>
+            <h4 class="font-bold text-primary mb-2">North Coast</h4>
+            <ul class="text-sm text-muted-foreground space-y-1">
+              <li>Carlsbad</li>
+              <li>Encinitas</li>
+              <li>Oceanside</li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold text-primary mb-2">Central Coast</h4>
+            <ul class="text-sm text-muted-foreground space-y-1">
+              <li>La Jolla</li>
+              <li>Pacific Beach</li>
+              <li>Del Mar</li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold text-primary mb-2">Urban Core</h4>
+            <ul class="text-sm text-muted-foreground space-y-1">
+              <li>Downtown</li>
+              <li>North Park</li>
+              <li>Hillcrest</li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold text-primary mb-2">Tech Centers</h4>
+            <ul class="text-sm text-muted-foreground space-y-1">
+              <li>Sorrento Valley</li>
+              <li>UTC</li>
+              <li>Carmel Valley</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Final CTA -->
+  <CallToAction 
+    title="Transform Your San Diego Team with AI"
+    subtitle="Join hundreds of local businesses already saving <span class='text-accent'>10-20 hours per week</span>"
+    benefits={[
+      "On-site training available throughout San Diego County",
+      "Industry-specific workflows for your business sector",
+      "Ongoing support from a local expert who understands San Diego business"
+    ]}
+    buttonText="Schedule Your Consultation"
+    buttonSubject="AI training consultation for San Diego business"
+    features={["Free consultation", "Custom training plan", "ROI guarantee"]}
+    style="gradient"
+  />
+</PageLayout>

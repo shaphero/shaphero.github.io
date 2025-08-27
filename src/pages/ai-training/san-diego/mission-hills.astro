@@ -1,0 +1,81 @@
+---
+import NeighborhoodLayout from '../../../layouts/NeighborhoodLayout.astro';
+
+const neighborhood = "Mission Hills";
+const title = "AI Training for Mission Hills Professional Services | Dave Shapiro Consulting";
+const metaDescription = "AI training for Mission Hills' established businesses and professional services. Enhance client service and operational efficiency with proven AI workflows.";
+
+const businessTypes = [
+  "established law firms",
+  "accounting practices", 
+  "consulting firms",
+  "architectural firms",
+  "financial advisors",
+  "boutique agencies"
+];
+
+const painPoints = [
+  {
+    icon: "clock",
+    title: "Client Service Bottlenecks", 
+    description: "Established practices have high client expectations but limited time to provide the personalized attention that built their reputation."
+  },
+  {
+    icon: "chart-down",
+    title: "Knowledge Management Challenges",
+    description: "Years of institutional knowledge sits in files and senior partners' heads, making it hard for team members to access and apply."
+  },
+  {
+    icon: "users",
+    title: "Scaling Without Losing Quality",
+    description: "Growing practices need to serve more clients while maintaining the boutique service quality that differentiates them from larger firms."
+  }
+];
+
+const localBenefits = [
+  {
+    title: "Preserve Institutional Knowledge",
+    description: "Transform decades of case histories, precedents, and best practices into accessible AI-powered knowledge systems that benefit all team members."
+  },
+  {
+    title: "Enhance Client Communications", 
+    description: "Generate sophisticated client reports, legal briefs, and professional correspondence that maintains your firm's reputation for excellence."
+  },
+  {
+    title: "Accelerate Research & Analysis",
+    description: "Use AI to quickly analyze case law, market data, and regulatory changes, giving clients the thorough analysis they expect in less time."
+  },
+  {
+    title: "Maintain Boutique Service at Scale",
+    description: "Deliver the personalized attention and detailed work that Mission Hills clients value while serving more clients efficiently."
+  }
+];
+
+const successStory = {
+  company: "Heritage Legal Partners",
+  industry: "law firm",
+  result: "increased their case research efficiency by 60% while maintaining their reputation for thorough, personalized legal counsel"
+};
+
+const landmarks = [
+  "Presidio Park",
+  "Mission Hills Pioneer Cemetery", 
+  "Fort Stockton",
+  "Washington Street",
+  "Balboa Park"
+];
+
+const transportNotes = "Historic neighborhood with easy access from I-8 and surface streets. On-site training available at professional offices throughout the area.";
+---
+
+<NeighborhoodLayout
+  neighborhood={neighborhood}
+  title={title}
+  metaDescription={metaDescription}
+  businessTypes={businessTypes}
+  painPoints={painPoints}
+  localBenefits={localBenefits}
+  successStory={successStory}
+  landmarks={landmarks}
+  transportNotes={transportNotes}
+/>

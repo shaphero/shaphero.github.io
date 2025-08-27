@@ -1,0 +1,81 @@
+---
+import NeighborhoodLayout from '../../../layouts/NeighborhoodLayout.astro';
+
+const neighborhood = "North Park";
+const title = "AI Training for North Park Small Businesses & Breweries | Dave Shapiro";
+const metaDescription = "AI training for North Park's small businesses, craft breweries, and creative firms. Boost local business efficiency with practical ChatGPT & Claude workflows.";
+
+const businessTypes = [
+  "craft breweries",
+  "independent restaurants", 
+  "creative firms",
+  "boutique shops",
+  "music venues",
+  "wellness studios"
+];
+
+const painPoints = [
+  {
+    icon: "clock",
+    title: "Wearing Too Many Hats", 
+    description: "Small business owners handle everything from brewing to social media to bookkeeping, leaving little time for growth."
+  },
+  {
+    icon: "chart-down",
+    title: "Limited Marketing Budget",
+    description: "Need to compete with bigger businesses for customer attention but lack resources for professional marketing campaigns."
+  },
+  {
+    icon: "users",
+    title: "Building Community Connection",
+    description: "Want to create authentic local connections but struggle with consistent, engaging community outreach."
+  }
+];
+
+const localBenefits = [
+  {
+    title: "Amplify Brewery & Restaurant Marketing",
+    description: "Generate compelling beer descriptions, food specials, and social media content that captures North Park's vibrant culture and draws locals and visitors."
+  },
+  {
+    title: "Streamline Small Business Operations", 
+    description: "Automate customer emails, inventory descriptions, and event promotions so you can focus on what you do best - creating great experiences."
+  },
+  {
+    title: "Enhance Community Engagement",
+    description: "Create authentic local content that celebrates North Park's arts scene, builds customer loyalty, and drives word-of-mouth marketing."
+  },
+  {
+    title: "Competitive Content Creation",
+    description: "Produce professional-quality marketing materials, websites, and promotional content that compete with larger businesses on a small business budget."
+  }
+];
+
+const successStory = {
+  company: "Hoppy Trails Brewing",
+  industry: "craft brewery",
+  result: "doubled their social media engagement and increased taproom visits by 40% using AI-generated content and promotions"
+};
+
+const landmarks = [
+  "30th Street",
+  "North Park Observatory", 
+  "Balboa Park",
+  "North Park Theatre",
+  "Ray Street Arts District"
+];
+
+const transportNotes = "Easy access via University Avenue and 30th Street. Close to multiple bus lines and bike-friendly streets.";
+---
+
+<NeighborhoodLayout
+  neighborhood={neighborhood}
+  title={title}
+  metaDescription={metaDescription}
+  businessTypes={businessTypes}
+  painPoints={painPoints}
+  localBenefits={localBenefits}
+  successStory={successStory}
+  landmarks={landmarks}
+  transportNotes={transportNotes}
+/>

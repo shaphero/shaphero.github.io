@@ -1,0 +1,81 @@
+---
+import NeighborhoodLayout from '../../../layouts/NeighborhoodLayout.astro';
+
+const neighborhood = "Encinitas";
+const title = "AI Training for Encinitas Wellness & Surf Businesses | Dave Shapiro";
+const metaDescription = "AI training for Encinitas wellness businesses, surf industry, and retail shops. Grow your conscious business with ethical AI implementation.";
+
+const businessTypes = [
+  "wellness centers",
+  "yoga studios", 
+  "surf shops",
+  "organic cafes",
+  "alternative health practices",
+  "eco-friendly retailers"
+];
+
+const painPoints = [
+  {
+    icon: "clock",
+    title: "Authentic Brand Voice Challenges", 
+    description: "Wellness businesses struggle to scale their personal, authentic communication style across all client touchpoints."
+  },
+  {
+    icon: "users",
+    title: "Community Building at Scale",
+    description: "Need to maintain the intimate, personal connection that defines Encinitas culture while reaching more people."
+  },
+  {
+    icon: "chart-down",
+    title: "Seasonal Business Fluctuations",
+    description: "Tourism-dependent businesses need strategies to maintain revenue during off-peak seasons."
+  }
+];
+
+const localBenefits = [
+  {
+    title: "Maintain Authentic Wellness Voice",
+    description: "Create personalized wellness content, class descriptions, and client communications that preserve your authentic, healing-focused brand voice."
+  },
+  {
+    title: "Scale Community Engagement", 
+    description: "Generate meaningful social media content, newsletter updates, and community event promotions that build deeper connections with the Encinitas wellness community."
+  },
+  {
+    title: "Enhance Retail & Service Descriptions",
+    description: "Craft compelling product descriptions, service explanations, and wellness program details that educate and inspire potential clients."
+  },
+  {
+    title: "Optimize Seasonal Marketing",
+    description: "Develop year-round content strategies that attract both locals and seasonal visitors while staying true to Encinitas' laid-back, conscious culture."
+  }
+];
+
+const successStory = {
+  company: "Moonlight Wellness Collective",
+  industry: "wellness center",
+  result: "increased their class attendance by 50% and built a waitlist for workshops using AI-generated authentic marketing content"
+};
+
+const landmarks = [
+  "Swami's Beach",
+  "San Diego Botanic Garden", 
+  "Moonlight Beach",
+  "Self-Realization Fellowship",
+  "Leucadia Farmers Market"
+];
+
+const transportNotes = "Coastal location accessible via I-5 and Highway 101. On-site training available at wellness centers and beachside locations.";
+---
+
+<NeighborhoodLayout
+  neighborhood={neighborhood}
+  title={title}
+  metaDescription={metaDescription}
+  businessTypes={businessTypes}
+  painPoints={painPoints}
+  localBenefits={localBenefits}
+  successStory={successStory}
+  landmarks={landmarks}
+  transportNotes={transportNotes}
+/>

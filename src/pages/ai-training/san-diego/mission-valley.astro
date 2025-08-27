@@ -1,0 +1,81 @@
+---
+import NeighborhoodLayout from '../../../layouts/NeighborhoodLayout.astro';
+
+const neighborhood = "Mission Valley";
+const title = "AI Training for Mission Valley Retail & Corporate Centers | Dave Shapiro";
+const metaDescription = "AI training for Mission Valley's retail businesses, hospitality companies, and corporate centers. Transform customer service with practical AI workflows.";
+
+const businessTypes = [
+  "retail chains",
+  "hospitality companies", 
+  "corporate centers",
+  "restaurants & dining",
+  "fitness centers",
+  "entertainment venues"
+];
+
+const painPoints = [
+  {
+    icon: "clock",
+    title: "Customer Service Volume", 
+    description: "High-traffic retail and hospitality businesses struggle to provide consistent, personalized service during peak periods."
+  },
+  {
+    icon: "users",
+    title: "Staff Training & Consistency",
+    description: "Large teams with high turnover need constant training to maintain service standards and brand consistency."
+  },
+  {
+    icon: "chart-down",
+    title: "Marketing Content Demands",
+    description: "Retail businesses need constant fresh content for promotions, social media, and customer communications."
+  }
+];
+
+const localBenefits = [
+  {
+    title: "Enhance Customer Experience",
+    description: "Generate personalized customer communications, product recommendations, and service follow-ups that increase satisfaction and repeat business."
+  },
+  {
+    title: "Streamline Retail Operations", 
+    description: "Create promotional content, product descriptions, and staff communications that maintain consistency across multiple locations and channels."
+  },
+  {
+    title: "Optimize Marketing & Promotions",
+    description: "Generate compelling social media content, email campaigns, and promotional materials that drive foot traffic and online engagement."
+  },
+  {
+    title: "Improve Staff Training & Support",
+    description: "Develop comprehensive training materials, operational procedures, and customer service scripts that ensure consistent quality across all team members."
+  }
+];
+
+const successStory = {
+  company: "Valley Plaza Retail Group",
+  industry: "retail management",
+  result: "increased their customer satisfaction scores by 35% and reduced staff training time by 50% using AI-generated service protocols"
+};
+
+const landmarks = [
+  "Mission Valley Mall",
+  "Fashion Valley", 
+  "Qualcomm Stadium site",
+  "Trolley stations",
+  "San Diego River"
+];
+
+const transportNotes = "Central San Diego location with trolley access and major highway connections. On-site training available at retail centers and corporate offices.";
+---
+
+<NeighborhoodLayout
+  neighborhood={neighborhood}
+  title={title}
+  metaDescription={metaDescription}
+  businessTypes={businessTypes}
+  painPoints={painPoints}
+  localBenefits={localBenefits}
+  successStory={successStory}
+  landmarks={landmarks}
+  transportNotes={transportNotes}
+/>

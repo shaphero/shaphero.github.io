@@ -1,0 +1,81 @@
+---
+import NeighborhoodLayout from '../../../layouts/NeighborhoodLayout.astro';
+
+const neighborhood = "Little Italy";
+const title = "AI Training for Little Italy Creative Agencies & Restaurants | Dave Shapiro";
+const metaDescription = "AI training for Little Italy's creative agencies, restaurants, and small businesses. Transform operations with practical ChatGPT & Claude workflows for creative industries.";
+
+const businessTypes = [
+  "creative agencies",
+  "restaurants & cafes", 
+  "marketing boutiques",
+  "design studios",
+  "small retail businesses",
+  "event companies"
+];
+
+const painPoints = [
+  {
+    icon: "clock",
+    title: "Creative Block & Deadlines", 
+    description: "Agencies struggle to generate fresh creative concepts under tight client deadlines while maintaining quality standards."
+  },
+  {
+    icon: "users",
+    title: "Small Team, Big Workload",
+    description: "Limited staff means everyone wears multiple hats, from creative work to client management to administrative tasks."
+  },
+  {
+    icon: "chart-down",
+    title: "Marketing Budget Constraints",
+    description: "Small businesses need professional marketing materials but lack the budget for full-service agencies or dedicated marketing staff."
+  }
+];
+
+const localBenefits = [
+  {
+    title: "Supercharge Creative Brainstorming",
+    description: "Break through creative blocks with AI-powered ideation sessions. Generate campaign concepts, menu descriptions, and marketing angles in minutes."
+  },
+  {
+    title: "Automate Restaurant Operations", 
+    description: "Create engaging menu descriptions, social media content, and customer communications that drive foot traffic and online orders."
+  },
+  {
+    title: "Scale Small Agency Services",
+    description: "Deliver big-agency quality work with small-team efficiency. AI helps with copywriting, client proposals, and campaign development."
+  },
+  {
+    title: "Enhance Local Marketing",
+    description: "Create neighborhood-specific marketing content that resonates with Little Italy's unique community character and attracts both locals and tourists."
+  }
+];
+
+const successStory = {
+  company: "Piazza Creative Collective",
+  industry: "creative agency",
+  result: "increased their project capacity by 150% while reducing creative development time by 50%"
+};
+
+const landmarks = [
+  "Waterfront Park",
+  "Little Italy Farmers Market", 
+  "Kettner Boulevard",
+  "Amici Park",
+  "Little Italy Food Hall"
+];
+
+const transportNotes = "Central downtown location with trolley access and street parking. Walking distance from many creative spaces and restaurants.";
+---
+
+<NeighborhoodLayout
+  neighborhood={neighborhood}
+  title={title}
+  metaDescription={metaDescription}
+  businessTypes={businessTypes}
+  painPoints={painPoints}
+  localBenefits={localBenefits}
+  successStory={successStory}
+  landmarks={landmarks}
+  transportNotes={transportNotes}
+/>

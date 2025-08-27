@@ -1,0 +1,81 @@
+---
+import NeighborhoodLayout from '../../../layouts/NeighborhoodLayout.astro';
+
+const neighborhood = "UTC (University City)";
+const title = "AI Training for UTC Corporate Headquarters | Dave Shapiro Consulting";
+const metaDescription = "AI training for UTC's corporate headquarters, finance firms, and professional services. Executive-level AI implementation for San Diego's business center.";
+
+const businessTypes = [
+  "corporate headquarters",
+  "financial services", 
+  "professional consulting",
+  "real estate development",
+  "healthcare systems",
+  "technology centers"
+];
+
+const painPoints = [
+  {
+    icon: "clock",
+    title: "Executive Decision Speed", 
+    description: "C-suite leaders need faster access to market insights, competitive analysis, and business intelligence for strategic decisions."
+  },
+  {
+    icon: "chart-down",
+    title: "Enterprise Communication Complexity",
+    description: "Large organizations struggle with consistent messaging across departments, locations, and stakeholder groups."
+  },
+  {
+    icon: "users",
+    title: "Scaling Professional Services",
+    description: "Growing firms need to deliver high-quality client work without proportionally increasing headcount."
+  }
+];
+
+const localBenefits = [
+  {
+    title: "Accelerate Executive Reporting",
+    description: "Generate comprehensive board reports, market analyses, and strategic summaries that give leadership teams the insights they need for critical decisions."
+  },
+  {
+    title: "Streamline Enterprise Communications", 
+    description: "Create consistent internal communications, policy documents, and stakeholder updates that align messaging across your entire organization."
+  },
+  {
+    title: "Enhance Client Service Delivery",
+    description: "Produce high-quality client deliverables, proposals, and reports more efficiently while maintaining the professional standards UTC clients expect."
+  },
+  {
+    title: "Optimize Financial Operations",
+    description: "Generate financial summaries, investment analyses, and risk assessments that support better financial decision-making and regulatory compliance."
+  }
+];
+
+const successStory = {
+  company: "Pacific Capital Management",
+  industry: "financial services",
+  result: "reduced their client reporting time by 50% while improving the depth and quality of their investment analysis reports"
+};
+
+const landmarks = [
+  "Westfield UTC",
+  "UC San Diego", 
+  "Torrey Pines Golf Course",
+  "Golden Triangle",
+  "Nobel Drive"
+];
+
+const transportNotes = "Central business district with access from I-5, I-805, and Highway 52. On-site training available at corporate headquarters and business centers.";
+---
+
+<NeighborhoodLayout
+  neighborhood={neighborhood}
+  title={title}
+  metaDescription={metaDescription}
+  businessTypes={businessTypes}
+  painPoints={painPoints}
+  localBenefits={localBenefits}
+  successStory={successStory}
+  landmarks={landmarks}
+  transportNotes={transportNotes}
+/>

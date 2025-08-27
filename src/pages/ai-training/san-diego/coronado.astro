@@ -1,0 +1,81 @@
+---
+import NeighborhoodLayout from '../../../layouts/NeighborhoodLayout.astro';
+
+const neighborhood = "Coronado";
+const title = "AI Training for Coronado Defense & Hospitality | Dave Shapiro Consulting";
+const metaDescription = "AI training for Coronado's military contractors, hospitality, and tourism businesses. Secure AI implementation for defense and luxury service industries.";
+
+const businessTypes = [
+  "defense contractors",
+  "military support services", 
+  "luxury hotels",
+  "tourism companies",
+  "event planning",
+  "government consulting"
+];
+
+const painPoints = [
+  {
+    icon: "shield",
+    title: "Security Compliance Complexity", 
+    description: "Defense contractors need AI solutions that meet strict security requirements while boosting productivity."
+  },
+  {
+    icon: "clock",
+    title: "Guest Service Response Times",
+    description: "Luxury hospitality requires instant, personalized responses but staff can't be available 24/7 for every guest need."
+  },
+  {
+    icon: "chart-down",
+    title: "Proposal & Contract Bottlenecks",
+    description: "Government contracts and RFP responses take months to prepare, often missing critical deadlines."
+  }
+];
+
+const localBenefits = [
+  {
+    title: "Secure AI Implementation for Defense",
+    description: "Deploy AI tools that meet DoD security requirements while accelerating proposal writing, technical documentation, and compliance reporting."
+  },
+  {
+    title: "Elevate Luxury Guest Experiences", 
+    description: "Create personalized guest communications, instant concierge responses, and memorable service touchpoints that exceed expectations."
+  },
+  {
+    title: "Accelerate Government Contracting",
+    description: "Generate comprehensive RFP responses, technical specifications, and compliance documentation in days instead of months."
+  },
+  {
+    title: "Optimize Event & Tourism Operations",
+    description: "Streamline event planning, guest communications, and destination marketing to attract more visitors to Coronado's unique attractions."
+  }
+];
+
+const successStory = {
+  company: "Harbor Defense Solutions",
+  industry: "defense contracting",
+  result: "reduced their proposal preparation time by 65% while maintaining full security compliance standards"
+};
+
+const landmarks = [
+  "Naval Base Coronado",
+  "Hotel del Coronado", 
+  "Coronado Beach",
+  "Coronado Bridge",
+  "Glorietta Bay"
+];
+
+const transportNotes = "Accessible via Highway 75 and Coronado Bridge. On-site training available at secure facilities and hospitality venues.";
+---
+
+<NeighborhoodLayout
+  neighborhood={neighborhood}
+  title={title}
+  metaDescription={metaDescription}
+  businessTypes={businessTypes}
+  painPoints={painPoints}
+  localBenefits={localBenefits}
+  successStory={successStory}
+  landmarks={landmarks}
+  transportNotes={transportNotes}
+/>

@@ -1,0 +1,81 @@
+---
+import NeighborhoodLayout from '../../../layouts/NeighborhoodLayout.astro';
+
+const neighborhood = "Carlsbad";
+const title = "AI Training for Carlsbad Corporate Teams | Dave Shapiro Consulting";
+const metaDescription = "AI training for Carlsbad's North County businesses and corporate offices. Transform your team with practical ChatGPT & Claude workflows. On-site training available.";
+
+const businessTypes = [
+  "corporate headquarters",
+  "manufacturing companies", 
+  "technology firms",
+  "life sciences companies",
+  "professional services",
+  "engineering firms"
+];
+
+const painPoints = [
+  {
+    icon: "clock",
+    title: "Process Documentation Nightmare", 
+    description: "Your team spends countless hours creating SOPs, training materials, and compliance documentation that never gets updated."
+  },
+  {
+    icon: "chart-down",
+    title: "Data Analysis Backlog",
+    description: "Mountains of operational data sit unused while teams manually create reports that take weeks to complete."
+  },
+  {
+    icon: "users",
+    title: "Cross-Department Communication",
+    description: "Information silos between engineering, operations, and management slow down decision-making and project execution."
+  }
+];
+
+const localBenefits = [
+  {
+    title: "Streamline Manufacturing Operations",
+    description: "Use AI to analyze production data, identify bottlenecks, and generate operational reports. Perfect for Carlsbad's manufacturing and life sciences companies."
+  },
+  {
+    title: "Accelerate Process Documentation", 
+    description: "Transform scattered tribal knowledge into comprehensive SOPs and training materials. AI helps standardize processes across teams and locations."
+  },
+  {
+    title: "Enhance Quality Control",
+    description: "Implement AI-powered quality monitoring and automated reporting systems. Reduce defects and improve compliance documentation for regulated industries."
+  },
+  {
+    title: "Optimize Supply Chain Management",
+    description: "Use AI to forecast demand, optimize inventory levels, and automate vendor communications. Critical for North County's manufacturing ecosystem."
+  }
+];
+
+const successStory = {
+  company: "Pacific Manufacturing Group",
+  industry: "aerospace manufacturing",
+  result: "reduced their quality documentation time by 60% and improved on-time delivery rates by 35%"
+};
+
+const landmarks = [
+  "McClellan-Palomar Airport",
+  "Carlsbad Village", 
+  "Legoland California",
+  "Flower Fields",
+  "Carlsbad Premium Outlets"
+];
+
+const transportNotes = "Convenient access via I-5 and Highway 78. On-site training available at your corporate facility or manufacturing location.";
+---
+
+<NeighborhoodLayout
+  neighborhood={neighborhood}
+  title={title}
+  metaDescription={metaDescription}
+  businessTypes={businessTypes}
+  painPoints={painPoints}
+  localBenefits={localBenefits}
+  successStory={successStory}
+  landmarks={landmarks}
+  transportNotes={transportNotes}
+/>

@@ -1,0 +1,81 @@
+---
+import NeighborhoodLayout from '../../../layouts/NeighborhoodLayout.astro';
+
+const neighborhood = "Sorrento Valley";
+const title = "AI Training for Sorrento Valley Tech Corridor | Dave Shapiro Consulting";
+const metaDescription = "AI training for Sorrento Valley's tech corridor, biotech hub, and R&D centers. Advanced AI implementation for San Diego's innovation epicenter.";
+
+const businessTypes = [
+  "software companies",
+  "biotech R&D centers", 
+  "telecommunications firms",
+  "semiconductor companies",
+  "medical device manufacturers",
+  "venture capital firms"
+];
+
+const painPoints = [
+  {
+    icon: "clock",
+    title: "Competitive Development Cycles", 
+    description: "Tech companies face pressure to ship features faster while maintaining code quality and system reliability."
+  },
+  {
+    icon: "chart-down",
+    title: "Technical Talent Shortage",
+    description: "High demand for skilled engineers means existing teams need to be more productive with current resources."
+  },
+  {
+    icon: "users",
+    title: "Complex System Integration",
+    description: "Multiple teams working on interconnected systems need better coordination and knowledge sharing."
+  }
+];
+
+const localBenefits = [
+  {
+    title: "Accelerate Software Development",
+    description: "Generate code documentation, API specs, and technical requirements that speed up development cycles while improving code quality."
+  },
+  {
+    title: "Enhance R&D Productivity", 
+    description: "Use AI to analyze research papers, generate experiment protocols, and create comprehensive research summaries for faster scientific discovery."
+  },
+  {
+    title: "Optimize Engineering Operations",
+    description: "Automate code reviews, generate testing scenarios, and create deployment documentation that reduces engineering overhead."
+  },
+  {
+    title: "Streamline Investor Communications",
+    description: "Create compelling technical presentations, progress reports, and funding proposals that clearly communicate complex innovations to stakeholders."
+  }
+];
+
+const successStory = {
+  company: "Quantum Labs San Diego",
+  industry: "quantum computing",
+  result: "accelerated their research documentation process by 70% and improved cross-team collaboration through AI-generated technical summaries"
+};
+
+const landmarks = [
+  "Sorrento Mesa",
+  "Qualcomm Corporate Campus", 
+  "Scripps Poway Parkway",
+  "Mira Mesa Boulevard",
+  "Los Peñasquitos Canyon Preserve"
+];
+
+const transportNotes = "Tech corridor with excellent highway access via I-5, I-805, and SR-52. On-site training available at corporate campuses and innovation centers.";
+---
+
+<NeighborhoodLayout
+  neighborhood={neighborhood}
+  title={title}
+  metaDescription={metaDescription}
+  businessTypes={businessTypes}
+  painPoints={painPoints}
+  localBenefits={localBenefits}
+  successStory={successStory}
+  landmarks={landmarks}
+  transportNotes={transportNotes}
+/>
