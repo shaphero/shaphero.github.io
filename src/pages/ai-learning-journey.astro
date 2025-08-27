@@ -1,0 +1,438 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import Hero from '../components/common/Hero.astro';
+import Section from '../components/common/Section.astro';
+import Icon from '../components/Icon.astro';
+
+const learningMilestones = [
+  {
+    date: "Week 1-2",
+    focus: "ChatGPT vs Claude Deep Dive",
+    discovery: "Claude excels at code and long documents, ChatGPT better for creative tasks",
+    mistake: "Tried to use one tool for everything"
+  },
+  {
+    date: "Week 3-4",
+    focus: "Google Sheets AI Integration",
+    discovery: "GPT functions can process 300k+ rows but need careful prompt design",
+    mistake: "Didn't set up error handling initially"
+  },
+  {
+    date: "Week 5-6",
+    focus: "n8n Workflow Automation",
+    discovery: "Visual workflow design accelerates development by 10x",
+    mistake: "Started with complex workflows instead of simple ones"
+  },
+  {
+    date: "Week 7-8",
+    focus: "Claude Code for Development",
+    discovery: "Test-driven development with AI is a game-changer",
+    mistake: "Didn't clear context between projects"
+  }
+];
+
+const toolComparison = [
+  {
+    tool: "ChatGPT",
+    bestFor: ["Creative writing", "Brainstorming", "General assistance"],
+    limitations: ["Can hallucinate details", "Context window limitations"],
+    realWorldUse: "Daily content ideation and email drafts"
+  },
+  {
+    tool: "Claude",
+    bestFor: ["Code development", "Document analysis", "Technical writing"],
+    limitations: ["More expensive", "Fewer integrations"],
+    realWorldUse: "Building this website and technical documentation"
+  },
+  {
+    tool: "Google Sheets + AI",
+    bestFor: ["Data processing", "Bulk operations", "Reporting"],
+    limitations: ["Learning curve for Apps Script", "API limits"],
+    realWorldUse: "Client reporting automation"
+  },
+  {
+    tool: "n8n",
+    bestFor: ["Multi-step workflows", "API integration", "Scheduled tasks"],
+    limitations: ["Requires technical setup", "Self-hosting complexity"],
+    realWorldUse: "Connecting AI tools to business systems"
+  }
+];
+
+const lessonsLearned = [
+  {
+    icon: "lightbulb",
+    title: "Start Simple",
+    lesson: "Begin with email drafts and meeting notes before attempting complex automation"
+  },
+  {
+    icon: "dollar-sign",
+    title: "Measure Everything",
+    lesson: "Track time saved from day 1 - you need baseline metrics to prove ROI"
+  },
+  {
+    icon: "users",
+    title: "Training Matters",
+    lesson: "The tool is only 20% of success - proper training is the other 80%"
+  },
+  {
+    icon: "shield",
+    title: "Security First",
+    lesson: "Set up data governance before team adoption to avoid costly mistakes"
+  }
+];
+
+const resourcesUsed = [
+  {
+    category: "Documentation",
+    resources: [
+      "OpenAI API Documentation",
+      "Anthropic Claude Docs",
+      "n8n Community Forums",
+      "Google Apps Script Guides"
+    ]
+  },
+  {
+    category: "Communities",
+    resources: [
+      "r/ChatGPT Reddit",
+      "AI Discord Servers",
+      "LinkedIn AI Groups",
+      "Local San Diego Tech Meetups"
+    ]
+  },
+  {
+    category: "Courses & Tutorials",
+    resources: [
+      "Prompt Engineering Guide",
+      "n8n Academy",
+      "Google Workspace Training",
+      "YouTube Tutorials"
+    ]
+  }
+];
+---
+
+<PageLayout 
+  title="My AI Learning Journey: 8 Weeks from Novice to Implementation | Dave Shapiro"
+  description="Transparent documentation of my AI tool learning process. Real experiments, actual mistakes, and practical insights from testing ChatGPT, Claude, n8n, and more."
+  showHeader={true}
+  showCTA={false}
+>
+  <!-- Hero Section -->
+  <Hero 
+    title="My AI Learning Journey: <span class='text-accent'>The Real Story</span>"
+    subtitle="8 weeks of experiments, mistakes, and discoveries as I tested every major AI tool for business"
+    badge="Transparency & Learning"
+    ctaPrimary={{
+      text: "Get My Testing Notes",
+      subject: "AI learning journey notes request"
+    }}
+    ctaSecondary={{
+      text: "Skip to Lessons",
+      href: "#lessons"
+    }}
+    features={["Actual experiments documented", "Real mistakes shared", "Honest tool comparisons"]}
+    background="gradient"
+  />
+
+  <!-- Introduction Section -->
+  <Section background="white" padding="xl">
+    <div class="max-w-4xl mx-auto">
+      <div class="bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl p-8 border border-primary/20">
+        <h2 class="text-2xl font-bold mb-4">Why I'm Sharing This</h2>
+        <p class="text-lg text-muted-foreground mb-4">
+          After 16+ years in digital marketing at Fortune 500 companies and Neil Patel Digital, 
+          I realized AI was changing everything. But most "experts" were just regurgitating vendor promises.
+        </p>
+        <p class="text-muted-foreground">
+          So I spent 8 weeks testing every tool, documenting what actually works (and what doesn't). 
+          This isn't about being an expert—it's about sharing real learning to help you avoid my mistakes.
+        </p>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Learning Timeline Section -->
+  <Section background="cream" padding="xl">
+    <div class="text-center mb-12">
+      <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-6">
+        8-Week <span class="text-accent">Learning Timeline</span>
+      </h2>
+      <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+        What I focused on, what I discovered, and what went wrong
+      </p>
+    </div>
+
+    <div class="max-w-5xl mx-auto">
+      <div class="space-y-6">
+        {learningMilestones.map((milestone, index) => (
+          <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all">
+            <div class="grid md:grid-cols-4 gap-6">
+              <div>
+                <div class="text-sm text-muted-foreground mb-1">Timeline</div>
+                <div class="font-bold text-primary">{milestone.date}</div>
+              </div>
+              <div>
+                <div class="text-sm text-muted-foreground mb-1">Focus Area</div>
+                <div class="font-semibold">{milestone.focus}</div>
+              </div>
+              <div>
+                <div class="text-sm text-muted-foreground mb-1">Key Discovery</div>
+                <div class="text-sm">{milestone.discovery}</div>
+              </div>
+              <div>
+                <div class="text-sm text-muted-foreground mb-1">Mistake Made</div>
+                <div class="text-sm text-destructive">{milestone.mistake}</div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </Section>
+
+  <!-- Tool Comparison Section -->
+  <Section background="white" padding="xl">
+    <div class="text-center mb-12">
+      <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-6">
+        Honest <span class="text-accent">Tool Comparisons</span>
+      </h2>
+      <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+        After testing each tool extensively, here's my unbiased assessment
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+      {toolComparison.map(tool => (
+        <div class="bg-card rounded-xl border border-border p-6">
+          <h3 class="text-2xl font-bold text-foreground mb-4">{tool.tool}</h3>
+          
+          <div class="space-y-4">
+            <div>
+              <h4 class="text-sm font-semibold text-primary mb-2">Best For:</h4>
+              <ul class="space-y-1">
+                {tool.bestFor.map(item => (
+                  <li class="flex items-start gap-2">
+                    <Icon name="check" class="text-accent mt-0.5 flex-shrink-0" size="sm" />
+                    <span class="text-sm">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            
+            <div>
+              <h4 class="text-sm font-semibold text-destructive mb-2">Limitations:</h4>
+              <ul class="space-y-1">
+                {tool.limitations.map(item => (
+                  <li class="flex items-start gap-2">
+                    <span class="text-destructive">×</span>
+                    <span class="text-sm text-muted-foreground">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            
+            <div class="pt-4 border-t border-border">
+              <h4 class="text-sm font-semibold mb-1">My Real-World Use:</h4>
+              <p class="text-sm text-muted-foreground italic">{tool.realWorldUse}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </Section>
+
+  <!-- Key Lessons Section -->
+  <Section id="lessons" background="cream" padding="xl">
+    <div class="text-center mb-12">
+      <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-6">
+        Key Lessons <span class="text-accent">After 8 Weeks</span>
+      </h2>
+      <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+        What I wish I knew when I started
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      {lessonsLearned.map(lesson => (
+        <div class="bg-white rounded-xl p-6 shadow-md">
+          <Icon name={lesson.icon} class="text-primary mb-4" size="lg" />
+          <h3 class="text-xl font-bold mb-3">{lesson.title}</h3>
+          <p class="text-muted-foreground">{lesson.lesson}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-12 max-w-3xl mx-auto">
+      <div class="bg-white rounded-2xl p-8 shadow-lg">
+        <h3 class="text-2xl font-bold mb-4">The Biggest Surprise</h3>
+        <p class="text-lg text-muted-foreground">
+          The most successful AI implementations I studied weren't using cutting-edge features. 
+          They were using basic features <strong>consistently and systematically</strong>. 
+          It's not about the tool—it's about the discipline of implementation.
+        </p>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Experiments Section -->
+  <Section background="white" padding="xl">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-6">
+          Specific Experiments <span class="text-accent">& Results</span>
+        </h2>
+      </div>
+
+      <div class="space-y-8">
+        <div class="bg-gradient-to-r from-primary/5 to-transparent rounded-xl p-6 border-l-4 border-primary">
+          <h3 class="text-xl font-bold mb-3">Experiment 1: Email Automation</h3>
+          <p class="text-muted-foreground mb-3">
+            <strong>Setup:</strong> Used ChatGPT to draft 50 client emails over 1 week
+          </p>
+          <p class="text-muted-foreground mb-3">
+            <strong>Result:</strong> Saved 4 hours, but 20% needed significant editing
+          </p>
+          <p class="text-sm text-muted-foreground">
+            <strong>Learning:</strong> Templates + AI is better than AI alone
+          </p>
+        </div>
+
+        <div class="bg-gradient-to-r from-accent/5 to-transparent rounded-xl p-6 border-l-4 border-accent">
+          <h3 class="text-xl font-bold mb-3">Experiment 2: Content Analysis</h3>
+          <p class="text-muted-foreground mb-3">
+            <strong>Setup:</strong> Fed Claude 100 competitor blog posts for analysis
+          </p>
+          <p class="text-muted-foreground mb-3">
+            <strong>Result:</strong> Identified 12 content gaps in 30 minutes (vs. 2 days manually)
+          </p>
+          <p class="text-sm text-muted-foreground">
+            <strong>Learning:</strong> Claude's context window is perfect for competitive analysis
+          </p>
+        </div>
+
+        <div class="bg-gradient-to-r from-primary/5 to-transparent rounded-xl p-6 border-l-4 border-primary">
+          <h3 class="text-xl font-bold mb-3">Experiment 3: Workflow Automation</h3>
+          <p class="text-muted-foreground mb-3">
+            <strong>Setup:</strong> Built n8n workflow for social media posting
+          </p>
+          <p class="text-muted-foreground mb-3">
+            <strong>Result:</strong> 2-day setup, now saves 5 hours/week ongoing
+          </p>
+          <p class="text-sm text-muted-foreground">
+            <strong>Learning:</strong> Upfront investment pays off for repetitive tasks
+          </p>
+        </div>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Resources Section -->
+  <Section background="cream" padding="xl">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-6">
+          Resources That <span class="text-accent">Actually Helped</span>
+        </h2>
+        <p class="text-xl text-muted-foreground">
+          Where I learned (so you don't have to search)
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        {resourcesUsed.map(category => (
+          <div class="bg-white rounded-xl p-6 shadow-md">
+            <h3 class="text-lg font-bold mb-4">{category.category}</h3>
+            <ul class="space-y-2">
+              {category.resources.map(resource => (
+                <li class="flex items-start gap-2">
+                  <Icon name="arrow-right" class="text-primary mt-0.5" size="sm" />
+                  <span class="text-sm">{resource}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-12 text-center">
+        <div class="inline-block bg-muted/30 rounded-lg p-6">
+          <p class="text-muted-foreground mb-4">
+            <strong>Pro tip:</strong> Join communities early. The real value isn't in courses—it's 
+            in seeing how others solve real problems.
+          </p>
+        </div>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Current Focus Section -->
+  <Section background="white" padding="xl">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-6">
+        What I'm <span class="text-accent">Testing Now</span>
+      </h2>
+      <p class="text-xl text-muted-foreground mb-8">
+        My current experiments (updated monthly)
+      </p>
+
+      <div class="bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl p-8 border border-primary/20">
+        <h3 class="text-2xl font-bold mb-6">December 2025 Focus</h3>
+        <div class="grid md:grid-cols-3 gap-6 text-left">
+          <div>
+            <h4 class="font-bold mb-2">Lovable for UI</h4>
+            <p class="text-sm text-muted-foreground">
+              Testing rapid prototyping for client projects
+            </p>
+          </div>
+          <div>
+            <h4 class="font-bold mb-2">Voice AI Integration</h4>
+            <p class="text-sm text-muted-foreground">
+              Exploring meeting transcription workflows
+            </p>
+          </div>
+          <div>
+            <h4 class="font-bold mb-2">Multi-Agent Systems</h4>
+            <p class="text-sm text-muted-foreground">
+              Building n8n chains with multiple AI models
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Section>
+
+  <!-- CTA Section -->
+  <section class="py-24 px-6 bg-gradient-hero relative overflow-hidden">
+    <div class="absolute inset-0">
+      <div class="absolute top-10 left-1/4 w-64 h-64 bg-primary/20 rounded-full blur-3xl animate-pulse"></div>
+      <div class="absolute bottom-20 right-1/4 w-80 h-80 bg-accent/20 rounded-full blur-3xl animate-pulse delay-700"></div>
+    </div>
+    
+    <div class="max-w-4xl mx-auto text-center relative z-10">
+      <h2 class="text-4xl md:text-5xl font-black text-white mb-6">
+        Learn from my experiments
+      </h2>
+      <p class="text-xl text-white/80 mb-8">
+        Skip the mistakes I made and get straight to what works
+      </p>
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="mailto:dave@daveshap.com?subject=AI learning resources request" 
+           class="btn-accent btn-lg shadow-glow">
+          <Icon name="download" class="mr-2" size="sm" />
+          Get My Testing Templates
+        </a>
+        <a href="/ai-training" 
+           class="btn bg-white/20 backdrop-blur text-white hover:bg-white/30 btn-lg">
+          <Icon name="users" class="mr-2" size="sm" />
+          Train Your Team
+        </a>
+      </div>
+      
+      <p class="text-sm text-white/60 mt-8">
+        Updated monthly with new experiments and findings
+      </p>
+    </div>
+  </section>
+</PageLayout>
