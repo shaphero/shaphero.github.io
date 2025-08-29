@@ -1,8 +1,22 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
+import Icon from '../components/Icon.astro';
 
-const title = "Page Not Found | Dave Shapiro SEO";
-const description = "The page you're looking for doesn't exist. Let's get you back on track.";
+const title = "Page Not Found | Dave Shapiro";
+const description = "The page you're looking for doesn't exist. Let's get you back on track with resources to help grow your business.";
+
+const popularPages = [
+  { title: "SEO Strategy & Consulting", href: "/seo", icon: "search" },
+  { title: "AI Training for Teams", href: "/ai-training", icon: "cpu" },
+  { title: "Marketing Strategy", href: "/marketing-strategy", icon: "target" },
+  { title: "The AI Coding Revolution", href: "/best-ai-coding", icon: "code" }
+];
+
+const resources = [
+  { title: "509% Traffic Growth Case Study", href: "/seo-success", description: "See how I helped SoFi achieve massive organic growth" },
+  { title: "AI Tools Mastery Guide", href: "/ai-tools-mastery", description: "Learn to leverage AI for 10x productivity" },
+  { title: "My AI Learning Journey", href: "/ai-learning-journey", description: "From skeptic to power user in 90 days" }
+];
 ---
 
 <PageLayout 
@@ -11,80 +25,161 @@ const description = "The page you're looking for doesn't exist. Let's get you ba
   showHeader={true}
   showCTA={false}
 >
-  <main class="error-page">
-    <div class="container">
-      <div class="error-content">
-        <h1 class="error-code">404</h1>
-        <h2>Oops! Page Not Found</h2>
-        <p>The page you're looking for seems to have wandered off. 
-           Even the best SEO can't find pages that don't exist!</p>
+  <main class="min-h-screen bg-gradient-to-b from-white to-gray-50">
+    <div class="max-w-6xl mx-auto px-6 py-20">
+      <!-- Error Message Section -->
+      <div class="text-center mb-16">
+        <div class="mb-8">
+          <span class="text-9xl font-black bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">404</span>
+        </div>
         
-        <div class="error-actions">
-          <a href="/" class="btn btn-primary">
+        <h1 class="text-4xl md:text-5xl font-bold text-foreground mb-4">
+          Well, this is awkward...
+        </h1>
+        
+        <p class="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
+          Even with 16+ years of SEO experience, I couldn't find that page. 
+          But while you're here, let me help you find what you're actually looking for.
+        </p>
+
+        <!-- Search Bar (visual only, redirects to homepage) -->
+        <div class="max-w-md mx-auto mb-12">
+          <form action="/" method="get" class="relative">
+            <input 
+              type="text" 
+              placeholder="What are you looking for?"
+              class="w-full px-6 py-4 pr-12 rounded-full border-2 border-gray-200 focus:border-primary focus:outline-none text-lg"
+            />
+            <button type="submit" class="absolute right-2 top-1/2 -translate-y-1/2 p-3 bg-primary text-white rounded-full hover:bg-primary-darker transition-colors">
+              <Icon name="search" size="sm" />
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Popular Pages Grid -->
+      <div class="mb-16">
+        <h2 class="text-2xl font-bold text-center mb-8 text-foreground">
+          Popular Pages You Might Be Looking For
+        </h2>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+          {popularPages.map((page) => (
+            <a 
+              href={page.href}
+              class="group p-6 bg-white rounded-xl border border-gray-200 hover:border-primary hover:shadow-lg transition-all duration-300"
+            >
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                  <Icon name={page.icon} class="text-primary" size="sm" />
+                </div>
+                <div>
+                  <h3 class="font-semibold text-foreground group-hover:text-primary transition-colors">
+                    {page.title}
+                  </h3>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- Resources Section -->
+      <div class="mb-16">
+        <h2 class="text-2xl font-bold text-center mb-8 text-foreground">
+          While You're Here, Check Out These Resources
+        </h2>
+        
+        <div class="grid md:grid-cols-3 gap-6">
+          {resources.map((resource) => (
+            <a 
+              href={resource.href}
+              class="group bg-white p-8 rounded-xl border border-gray-200 hover:shadow-xl transition-all duration-300"
+            >
+              <h3 class="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
+                {resource.title}
+              </h3>
+              <p class="text-muted-foreground mb-4">
+                {resource.description}
+              </p>
+              <span class="text-primary font-semibold inline-flex items-center gap-2 group-hover:gap-3 transition-all">
+                Read more 
+                <Icon name="arrow-right" size="xs" />
+              </span>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- Stats Section -->
+      <div class="bg-gradient-to-r from-primary/5 to-accent/5 rounded-2xl p-12 mb-16">
+        <div class="text-center mb-8">
+          <h2 class="text-2xl font-bold text-foreground mb-4">
+            Lost? Let's Turn This Into an Opportunity
+          </h2>
+          <p class="text-lg text-muted-foreground">
+            Join companies that have seen real growth with my strategies
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="text-center">
+            <div class="text-4xl font-black text-primary mb-2">509%</div>
+            <div class="text-muted-foreground">Traffic Growth for SoFi</div>
+          </div>
+          <div class="text-center">
+            <div class="text-4xl font-black text-primary mb-2">22K+</div>
+            <div class="text-muted-foreground">New Customers Generated</div>
+          </div>
+          <div class="text-center">
+            <div class="text-4xl font-black text-primary mb-2">16+</div>
+            <div class="text-muted-foreground">Years Experience</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA Section -->
+      <div class="text-center bg-white rounded-2xl shadow-xl p-12">
+        <h2 class="text-3xl font-bold text-foreground mb-4">
+          Still Can't Find What You Need?
+        </h2>
+        <p class="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+          I'm here to help. Whether it's SEO, AI implementation, or marketing strategy, 
+          let's discuss how I can help grow your business.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a 
+            href="/" 
+            class="btn-primary btn-lg inline-flex items-center justify-center gap-2"
+          >
+            <Icon name="home" size="sm" />
             Back to Homepage
-            <span class="arrow">→</span>
           </a>
-          <a href="mailto:dave@daveshap.com" class="btn btn-secondary">
-            Contact Dave
+          <a 
+            href="mailto:dave@daveshap.com?subject=Got lost on your site but interested in working together" 
+            class="btn-outline btn-lg inline-flex items-center justify-center gap-2"
+          >
+            <Icon name="chat" size="sm" />
+            Let's Talk
           </a>
+        </div>
+      </div>
+
+      <!-- Quick Links Footer -->
+      <div class="mt-16 pt-8 border-t border-gray-200">
+        <div class="flex flex-wrap gap-4 justify-center text-sm">
+          <a href="/seo" class="text-muted-foreground hover:text-primary transition-colors">SEO Services</a>
+          <span class="text-gray-300">•</span>
+          <a href="/ai-training" class="text-muted-foreground hover:text-primary transition-colors">AI Training</a>
+          <span class="text-gray-300">•</span>
+          <a href="/marketing-strategy" class="text-muted-foreground hover:text-primary transition-colors">Marketing Strategy</a>
+          <span class="text-gray-300">•</span>
+          <a href="/seo-success" class="text-muted-foreground hover:text-primary transition-colors">Case Studies</a>
+          <span class="text-gray-300">•</span>
+          <a href="/blog/chatgpt-search-kills-seo" class="text-muted-foreground hover:text-primary transition-colors">Blog</a>
         </div>
       </div>
     </div>
   </main>
 </PageLayout>
-
-<style>
-  .error-page {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: var(--space-3xl) 0;
-  }
-  
-  .error-content {
-    text-align: center;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-  
-  .error-code {
-    font-size: clamp(4rem, 15vw, 8rem);
-    font-weight: 700;
-    background: linear-gradient(135deg, var(--blue), var(--blue-light));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: var(--space-md);
-  }
-  
-  .error-content h2 {
-    font-size: 2rem;
-    color: var(--blue);
-    margin-bottom: var(--space-md);
-  }
-  
-  .error-content p {
-    font-size: 1.125rem;
-    color: var(--gray);
-    margin-bottom: var(--space-2xl);
-  }
-  
-  .error-actions {
-    display: flex;
-    gap: var(--space-md);
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  
-  @media (max-width: 768px) {
-    .error-actions {
-      flex-direction: column;
-      align-items: center;
-    }
-    
-    .error-actions .btn {
-      width: 100%;
-      max-width: 300px;
-    }
-  }
-</style>

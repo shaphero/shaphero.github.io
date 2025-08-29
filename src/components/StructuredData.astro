@@ -1,0 +1,175 @@
+---
+export interface Props {
+  type?: 'website' | 'article' | 'service' | 'person';
+  title: string;
+  description: string;
+  url: string;
+  image?: string;
+  author?: string;
+  datePublished?: string;
+  dateModified?: string;
+  serviceName?: string;
+  priceRange?: string;
+}
+
+const {
+  type = 'website',
+  title,
+  description,
+  url,
+  image,
+  author = 'Dave Shapiro',
+  datePublished,
+  dateModified,
+  serviceName,
+  priceRange
+} = Astro.props;
+
+// Organization schema (always present)
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Dave Shapiro Consulting",
+  "url": "https://daveshap.com",
+  "logo": "https://daveshap.com/images/dave-rooftop.webp",
+  "sameAs": [
+    "https://www.linkedin.com/in/daveshapiro",
+    "https://twitter.com/daveshapiro"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "dave@daveshap.com",
+    "contactType": "sales",
+    "availableLanguage": "English"
+  }
+};
+
+// Person schema for author
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Dave Shapiro",
+  "url": "https://daveshap.com",
+  "image": "https://daveshap.com/images/dave-rooftop.webp",
+  "jobTitle": "SEO & AI Marketing Consultant",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Dave Shapiro Consulting"
+  },
+  "description": "Former CMO and SVP at Neil Patel Digital. Marketing strategist who's driven 500% growth for Fortune 500 companies.",
+  "knowsAbout": ["SEO", "AI", "Marketing Strategy", "Content Marketing", "Digital Marketing"],
+  "alumniOf": {
+    "@type": "Organization",
+    "name": "Neil Patel Digital"
+  }
+};
+
+// Generate schema based on page type
+let pageSchema;
+
+switch(type) {
+  case 'article':
+    pageSchema = {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": title,
+      "description": description,
+      "url": url,
+      "author": {
+        "@type": "Person",
+        "name": author,
+        "url": "https://daveshap.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Dave Shapiro Consulting",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://daveshap.com/images/dave-rooftop.webp"
+        }
+      },
+      "image": image || "https://daveshap.com/images/dave-rooftop.webp",
+      "datePublished": datePublished || new Date().toISOString(),
+      "dateModified": dateModified || new Date().toISOString()
+    };
+    break;
+    
+  case 'service':
+    pageSchema = {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": serviceName || title,
+      "description": description,
+      "provider": {
+        "@type": "Organization",
+        "name": "Dave Shapiro Consulting",
+        "url": "https://daveshap.com"
+      },
+      "url": url,
+      "priceRange": priceRange || "Contact for pricing",
+      "areaServed": {
+        "@type": "Country",
+        "name": "United States"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Consulting Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": serviceName || title
+            }
+          }
+        ]
+      }
+    };
+    break;
+    
+  case 'person':
+    pageSchema = personSchema;
+    break;
+    
+  default:
+    pageSchema = {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Dave Shapiro - SEO & AI Consulting",
+      "url": "https://daveshap.com",
+      "description": description,
+      "publisher": organizationSchema
+    };
+}
+
+// Breadcrumb schema for all pages except homepage
+const breadcrumbSchema = url !== 'https://daveshap.com/' ? {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://daveshap.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": title,
+      "item": url
+    }
+  ]
+} : null;
+
+// Combine all schemas
+const schemas = [
+  organizationSchema,
+  pageSchema,
+  breadcrumbSchema
+].filter(Boolean);
+---
+
+{schemas.map(schema => (
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+))}

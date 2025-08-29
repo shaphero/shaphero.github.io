@@ -1,8 +1,26 @@
+# robots.txt for https://daveshap.com
+# Allow all crawlers by default
+
+User-agent: *
+Allow: /
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://daveshap.com/sitemap-index.xml
+
+# Block sensitive or build paths
+Disallow: /api/
+Disallow: /admin/
+Disallow: /_assets/
+
+# Specific crawler optimizations
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 0
 
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Twitterbot
 Allow: /
@@ -10,5 +28,15 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
-User-agent: *
-Allow: /
+# Block aggressive SEO bots to save bandwidth
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /

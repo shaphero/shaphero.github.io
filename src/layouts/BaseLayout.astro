@@ -2,14 +2,29 @@
 import '../styles/mobile-optimizations.css';
 import '../styles/global-complete.css';
 import '../styles/premium-effects.css';
+import StructuredData from '../components/StructuredData.astro';
 
 export interface Props {
   title: string;
   description: string;
   image?: string;
+  schemaType?: 'website' | 'article' | 'service' | 'person';
+  datePublished?: string;
+  dateModified?: string;
+  serviceName?: string;
+  priceRange?: string;
 }
 
-const { title, description, image = '/optimized/ecd9fbaa-bfef-4db6-82c4-9041166d934a.jpg' } = Astro.props;
+const { 
+  title, 
+  description, 
+  image = '/images/dave-rooftop.webp',
+  schemaType = 'website',
+  datePublished,
+  dateModified,
+  serviceName,
+  priceRange
+} = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
@@ -49,6 +64,18 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <meta name="twitter:description" content={description}>
   <meta name="twitter:image" content={new URL(image, Astro.site)}>
   
+  <!-- Structured Data / Schema.org -->
+  <StructuredData
+    type={schemaType}
+    title={title}
+    description={description}
+    url={canonicalURL.toString()}
+    image={new URL(image, Astro.site).toString()}
+    datePublished={datePublished}
+    dateModified={dateModified}
+    serviceName={serviceName}
+    priceRange={priceRange}
+  />
   
   <!-- Minimal JS for interactions -->
   <script>

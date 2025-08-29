@@ -2,54 +2,150 @@
 export interface Props {
   src: string;
   alt: string;
-  class?: string;
-  loading?: 'eager' | 'lazy';
+  width?: number;
+  height?: number;
+  loading?: 'lazy' | 'eager';
   sizes?: string;
+  class?: string;
+  fetchpriority?: 'high' | 'low' | 'auto';
 }
 
-const { src, alt, class: className = '', loading = 'lazy', sizes = '100vw' } = Astro.props;
+const {
+  src,
+  alt,
+  width,
+  height,
+  loading = 'lazy',
+  sizes,
+  class: className = '',
+  fetchpriority = 'auto'
+} = Astro.props;
 
-// Generate responsive image paths
-const basePath = src.replace(/\.(jpg|png|webp)$/, '');
-const ext = src.match(/\.(jpg|png|webp)$/)?.[1] || 'jpg';
+// Check if image already has WebP version
+const hasWebP = src.endsWith('.webp');
+const webpSrc = hasWebP ? src : src.replace(/\.(jpg|jpeg|png)$/i, '.webp');
 
-const srcset = `
-  ${basePath}-mobile.webp 768w,
-  ${basePath}.webp 1200w
-`;
+// Generate srcset for responsive images
+const generateSrcSet = (imageSrc: string) => {
+  // For simplicity, assume we have different sizes available
+  // In production, you'd generate these during build
+  const basePath = imageSrc.replace(/\.(jpg|jpeg|png|webp)$/i, '');
+  const ext = imageSrc.match(/\.(jpg|jpeg|png|webp)$/i)?.[0] || '.jpg';
+  
+  // Only generate srcset if width is provided
+  if (!width) return imageSrc;
+  
+  return `
+    ${basePath}-400w${ext} 400w,
+    ${basePath}-800w${ext} 800w,
+    ${imageSrc} ${width}w
+  `.trim();
+};
 
-const fallbackSrcset = `
-  ${basePath}-mobile.${ext} 768w,
-  ${basePath}.${ext} 1200w
-`;
+// Default sizes for responsive images
+const defaultSizes = sizes || "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 800px";
 ---
 
-<picture>
-  <source 
-    type="image/webp" 
-    srcset={srcset}
-    sizes={sizes}
-  />
-  <source 
-    type={`image/${ext === 'jpg' ? 'jpeg' : ext}`}
-    srcset={fallbackSrcset}
-    sizes={sizes}
-  />
-  <img 
-    src={`${basePath}.${ext}`}
+<picture class="image-container">
+  {/* WebP source for modern browsers */}
+  {!hasWebP && (
+    <source
+      type="image/webp"
+      srcset={webpSrc}
+      sizes={defaultSizes}
+    />
+  )}
+  
+  {/* Original format fallback */}
+  <img
+    src={src}
     alt={alt}
-    class={`optimized-img ${className}`}
+    width={width}
+    height={height}
     loading={loading}
+    class={`optimized-image ${className} ${loading === 'lazy' ? 'lazy-load' : ''}`}
     decoding="async"
-    width="1200"
-    height="800"
+    fetchpriority={fetchpriority}
+    sizes={width ? defaultSizes : undefined}
   />
 </picture>
 
 <style>
-  .optimized-img {
+  .image-container {
+    display: block;
+    position: relative;
+  }
+  
+  .optimized-image {
     max-width: 100%;
     height: auto;
     display: block;
   }
+  
+  /* Lazy loading with fade-in effect */
+  .lazy-load {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .lazy-load.loaded {
+    opacity: 1;
+  }
+  
+  /* Blur placeholder effect */
+  .lazy-load:not(.loaded) {
+    filter: blur(8px);
+    transform: scale(1.05);
+  }
+  
+  /* Aspect ratio preservation */
+  img[width][height] {
+    aspect-ratio: attr(width) / attr(height);
+  }
 </style>
+
+<script>
+  // Intersection Observer for lazy loading with fade-in effect
+  document.addEventListener('DOMContentLoaded', () => {
+    if ('IntersectionObserver' in window) {
+      const lazyImages = document.querySelectorAll('.lazy-load');
+      
+      const imageObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const img = entry.target as HTMLImageElement;
+            
+            // Add loaded class when image is fully loaded
+            if (img.complete) {
+              img.classList.add('loaded');
+            } else {
+              img.addEventListener('load', () => {
+                img.classList.add('loaded');
+              }, { once: true });
+              
+              // Also handle error case
+              img.addEventListener('error', () => {
+                img.classList.add('loaded'); // Remove blur even on error
+              }, { once: true });
+            }
+            
+            imageObserver.unobserve(img);
+          }
+        });
+      }, {
+        // Start loading images 100px before they enter viewport
+        rootMargin: '100px',
+        threshold: 0.01
+      });
+      
+      lazyImages.forEach(img => {
+        imageObserver.observe(img);
+      });
+    } else {
+      // Fallback for older browsers
+      document.querySelectorAll('.lazy-load').forEach(img => {
+        img.classList.add('loaded');
+      });
+    }
+  });
+</script>

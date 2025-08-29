@@ -10,6 +10,11 @@ export interface Props {
   showHeader?: boolean;
   showCTA?: boolean;
   headerOffset?: boolean;
+  schemaType?: 'website' | 'article' | 'service' | 'person';
+  datePublished?: string;
+  dateModified?: string;
+  serviceName?: string;
+  priceRange?: string;
 }
 
 const { 
@@ -18,11 +23,25 @@ const {
   image,
   showHeader = true,
   showCTA = true,
-  headerOffset = true
+  headerOffset = true,
+  schemaType,
+  datePublished,
+  dateModified,
+  serviceName,
+  priceRange
 } = Astro.props;
 ---
 
-<BaseLayout title={title} description={description} image={image}>
+<BaseLayout 
+  title={title} 
+  description={description} 
+  image={image}
+  schemaType={schemaType}
+  datePublished={datePublished}
+  dateModified={dateModified}
+  serviceName={serviceName}
+  priceRange={priceRange}
+>
   {showHeader && <Header />}
   
   <main class={headerOffset ? "pt-20" : ""}>
