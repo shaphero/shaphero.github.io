@@ -1,0 +1,200 @@
+---
+// MIT Report and fresh research on AI failure rates (December 2025)
+const mitReportFindings = [
+  {
+    icon: "🚨",
+    type: "critical",
+    title: "95% Failure Rate Confirmed",
+    description: "MIT/BCG report shows 95% of AI pilots fail to deliver financial savings or profit uplift. This finding spooked investors and triggered tech stock selloff.",
+    source: "MIT Sloan Management Review, August 2025"
+  },
+  {
+    icon: "📉",
+    type: "risk",
+    title: "88% Never Reach Production",
+    description: "Nearly 9 out of 10 AI pilots fail to make it past testing phase. Companies stuck in perpetual experimentation without deployment.",
+    source: "MIT Enterprise AI Study 2025"
+  },
+  {
+    icon: "⚠️",
+    type: "risk",
+    title: "42% Abandonment Rate",
+    description: "GenAI pilot abandonment jumped from 17% to 42% year-over-year. Companies cutting losses after seeing no returns.",
+    source: "MIT/BCG Analysis 2025"
+  },
+  {
+    icon: "💰",
+    type: "insight",
+    title: "$5-20M Real Implementation Cost",
+    description: "Gartner confirms enterprise AI transformation costs millions, not the $10-50K vendors promise. Budget overruns are the norm.",
+    source: "Gartner 2025 AI Cost Analysis"
+  },
+  {
+    icon: "🎯",
+    type: "opportunity",
+    title: "5% Success Pattern Identified",
+    description: "Successful companies avoid organizational friction, start with simple tasks, and build internal expertise instead of outsourcing.",
+    source: "MIT Success Factor Analysis"
+  },
+  {
+    icon: "⏱️",
+    type: "data",
+    title: "0% Achieve 6-Month ROI",
+    description: "KPMG survey: Despite vendor promises, exactly 0% of enterprises report achieving ROI within 6 months. Most take 18-24 months.",
+    source: "KPMG AI Quarterly Pulse 2025"
+  }
+];
+
+const whyTheyFail = [
+  {
+    reason: "Avoiding Organizational Friction",
+    stat: "73%",
+    description: "Companies that sidestep difficult organizational changes guarantee failure",
+    example: "Adding AI without changing workflows"
+  },
+  {
+    reason: "Starting Too Complex",
+    stat: "68%",
+    description: "Beginning with transformation instead of simple automation",
+    example: "AI-powered analytics before basic task automation"
+  },
+  {
+    reason: "No Success Metrics",
+    stat: "61%",
+    description: "Can't prove ROI without measuring specific outcomes",
+    example: "Tracking 'innovation' instead of hours saved"
+  },
+  {
+    reason: "Vendor Over-Dependency",
+    stat: "57%",
+    description: "Outsourcing understanding along with implementation",
+    example: "$5M consulting contracts with no internal capability"
+  }
+];
+
+const costReality = [
+  { category: "Initial Platform/License", vendor: "$10K-50K", reality: "$100K-500K", multiplier: "10x" },
+  { category: "Implementation", vendor: "$50K-100K", reality: "$500K-5M", multiplier: "50x" },
+  { category: "Change Management", vendor: "Not mentioned", reality: "$200K-2M", multiplier: "∞" },
+  { category: "Ongoing Operations", vendor: "$5K/month", reality: "$50K-500K/year", multiplier: "8x" },
+  { category: "Technical Debt", vendor: "Never discussed", reality: "$1M-10M", multiplier: "Hidden" }
+];
+---
+
+<div class="bg-gradient-to-br from-red-50 to-orange-50 rounded-2xl p-8 mb-12 border-2 border-red-200">
+  <!-- Alert Header -->
+  <div class="flex items-center gap-3 mb-6 bg-red-600 text-white px-6 py-3 rounded-lg">
+    <svg class="w-6 h-6 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+    </svg>
+    <div>
+      <p class="font-bold">Breaking: MIT Report Confirms 95% AI Failure Rate</p>
+      <p class="text-sm text-white/90">Analysis of Fortune 500 implementations reveals systemic issues</p>
+    </div>
+  </div>
+
+  <!-- Main Title -->
+  <h2 class="text-3xl font-bold text-gray-900 mb-8">
+    The MIT Study That Shocked Silicon Valley
+  </h2>
+
+  <!-- Key Findings Grid -->
+  <div class="grid md:grid-cols-2 gap-6 mb-8">
+    {mitReportFindings.map(finding => (
+      <div class="bg-white rounded-lg p-5 shadow-sm border border-gray-200">
+        <div class="flex items-start gap-3">
+          <span class="text-2xl">{finding.icon}</span>
+          <div class="flex-1">
+            <h3 class="font-bold text-lg mb-2 text-gray-900">{finding.title}</h3>
+            <p class="text-gray-700 text-sm mb-2">{finding.description}</p>
+            <p class="text-xs text-gray-500 italic">{finding.source}</p>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <!-- Why They Fail Section -->
+  <div class="bg-white rounded-xl p-6 mb-6 border border-gray-200">
+    <h3 class="text-xl font-bold text-gray-900 mb-4">
+      Why Companies Fail: MIT's Root Cause Analysis
+    </h3>
+    <div class="space-y-4">
+      {whyTheyFail.map((item, index) => (
+        <div class="flex gap-4">
+          <div class="flex-shrink-0">
+            <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
+              <span class="text-lg font-bold text-red-600">{item.stat}</span>
+            </div>
+          </div>
+          <div class="flex-1">
+            <h4 class="font-semibold text-gray-900 mb-1">{item.reason}</h4>
+            <p class="text-sm text-gray-600 mb-1">{item.description}</p>
+            <p class="text-xs text-gray-500 italic">
+              Example: {item.example}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- Cost Reality Table -->
+  <div class="bg-gradient-to-r from-gray-900 to-gray-800 text-white rounded-xl p-6">
+    <h3 class="text-xl font-bold mb-4">💰 Vendor Claims vs Reality</h3>
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b border-gray-600">
+            <th class="text-left py-2">Cost Category</th>
+            <th class="text-left py-2">Vendor Claims</th>
+            <th class="text-left py-2">Actual Cost</th>
+            <th class="text-center py-2">Reality Check</th>
+          </tr>
+        </thead>
+        <tbody>
+          {costReality.map(item => (
+            <tr class="border-b border-gray-700">
+              <td class="py-3">{item.category}</td>
+              <td class="text-green-400">{item.vendor}</td>
+              <td class="text-red-400 font-bold">{item.reality}</td>
+              <td class="text-center">
+                <span class="bg-red-600 text-white px-2 py-1 rounded text-xs font-bold">
+                  {item.multiplier}
+                </span>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+        <tfoot>
+          <tr>
+            <td class="pt-4 font-bold">Total Investment</td>
+            <td class="pt-4 text-green-400">$65K-$200K</td>
+            <td class="pt-4 text-red-400 font-bold text-lg">$5M-$20M+</td>
+            <td class="pt-4 text-center">
+              <span class="bg-red-600 text-white px-3 py-1 rounded font-bold">
+                100x
+              </span>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+    <p class="text-xs text-gray-400 mt-4">
+      Sources: MIT Sloan Management Review, Gartner 2025, Fortune/Forbes Analysis
+    </p>
+  </div>
+
+  <!-- Key Quote -->
+  <div class="mt-6 p-4 bg-amber-50 border-l-4 border-amber-500 rounded-r-lg">
+    <p class="font-semibold text-gray-900 mb-2">The MIT Report's Key Finding:</p>
+    <p class="text-gray-700 italic">
+      "Companies avoiding organizational friction in their AI implementations are essentially
+      guaranteeing failure. The successful 5% embrace the friction and use AI to fundamentally
+      change how work gets done, not just layer it on top of existing processes."
+    </p>
+    <p class="text-xs text-gray-500 mt-2">
+      - MIT Sloan Management Review, August 2025
+    </p>
+  </div>
+</div>

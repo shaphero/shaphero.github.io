@@ -53,11 +53,11 @@ const currentPath = Astro.url.pathname;
 const dropdownLabel = "How I Help";
 ---
 
-<header class="fixed top-0 w-full py-4 px-6 bg-background/95 backdrop-blur-md border-b border-border z-50">
+<header class="fixed top-0 w-full py-4 px-6 bg-white/95 backdrop-blur-md border-b border-gray-200 z-50">
   <div class="max-w-7xl mx-auto flex items-center justify-between">
     <!-- Logo - Now Clickable -->
     <a href="/" class="flex items-center group">
-      <div class="w-14 h-14 bg-gradient-to-br from-primary to-primary-darker rounded-xl flex items-center justify-center shadow-premium group-hover:shadow-glow transition-all duration-300 group-hover:scale-105">
+      <div class="w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
         <span class="text-white font-black text-xl">DS</span>
       </div>
     </a>
@@ -121,8 +121,8 @@ const dropdownLabel = "How I Help";
         <Icon name="menu" class="text-foreground" />
       </button>
       
-      <a href="mailto:dave@daveshap.com?subject=Ready%20to%20get%20started" 
-         class="btn-default btn-lg group text-white inline-flex items-center">
+      <a href="mailto:dave@daveshap.com?subject=Ready%20to%20get%20started"
+         class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold inline-flex items-center transition-all">
         <Icon name="mail" class="mr-2" size="sm" />
         <span class="hidden sm:inline">GET STARTED</span>
         <span class="sm:hidden">START</span>
