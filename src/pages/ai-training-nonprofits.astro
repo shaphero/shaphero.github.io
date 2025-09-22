@@ -1,0 +1,535 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import Section from '../components/common/Section.astro';
+import Icon from '../components/Icon.astro';
+
+// Data for nonprofit AI resources
+const freeResources = [
+  {
+    name: "Google for Nonprofits",
+    description: "$10,000/month in Google Ads grants + free Google Workspace",
+    link: "https://www.google.com/nonprofits/",
+    type: "Platform & Grants"
+  },
+  {
+    name: "Microsoft Nonprofit Offers",
+    description: "Free Office 365, Azure credits, and AI tools including Copilot discounts",
+    link: "https://www.microsoft.com/nonprofits",
+    type: "Software & AI Tools"
+  },
+  {
+    name: "TechSoup",
+    description: "Discounted software, hardware, and services - up to 90% off retail",
+    link: "https://www.techsoup.org/",
+    type: "Tech Marketplace"
+  },
+  {
+    name: "Salesforce Nonprofit Cloud",
+    description: "10 free licenses + AI-powered CRM for nonprofits",
+    link: "https://www.salesforce.org/",
+    type: "CRM & Analytics"
+  },
+  {
+    name: "GitHub for Nonprofits",
+    description: "Free Team plan with unlimited private repos and AI coding assistant",
+    link: "https://github.com/nonprofits",
+    type: "Development Tools"
+  },
+  {
+    name: "Canva for Nonprofits",
+    description: "Free Pro plan with AI design tools and brand kit",
+    link: "https://www.canva.com/canva-for-nonprofits/",
+    type: "Design & Content"
+  }
+];
+
+const trainingPrograms = [
+  {
+    title: "Fast Forward Accelerator",
+    provider: "Fast Forward",
+    description: "6-month program for nonprofits implementing AI, includes $25K grant",
+    duration: "6 months",
+    cost: "Free (competitive)",
+    focus: "AI implementation"
+  },
+  {
+    title: "AI for Social Good",
+    provider: "Google.org",
+    description: "Funding and technical expertise for nonprofits using AI for impact",
+    duration: "12-18 months",
+    cost: "Fully funded",
+    focus: "Social impact AI"
+  },
+  {
+    title: "NetHope AI Academy",
+    provider: "NetHope",
+    description: "Free AI training specifically designed for nonprofit professionals",
+    duration: "Self-paced",
+    cost: "Free",
+    focus: "AI fundamentals"
+  },
+  {
+    title: "DataKind",
+    provider: "DataKind",
+    description: "Pro bono data science and AI projects for nonprofits",
+    duration: "3-6 months",
+    cost: "Free (pro bono)",
+    focus: "Data science projects"
+  }
+];
+
+const implementationSteps = [
+  {
+    step: 1,
+    title: "Assess Your Readiness",
+    tasks: [
+      "Evaluate current tech infrastructure",
+      "Identify skill gaps in your team",
+      "Define clear use cases for AI",
+      "Budget for training time (not just tools)"
+    ]
+  },
+  {
+    step: 2,
+    title: "Start with Free Tools",
+    tasks: [
+      "Apply for Google for Nonprofits",
+      "Get Microsoft nonprofit discounts",
+      "Test ChatGPT for content creation",
+      "Try Canva AI for design work"
+    ]
+  },
+  {
+    step: 3,
+    title: "Build Internal Champions",
+    tasks: [
+      "Identify 2-3 tech-savvy staff members",
+      "Provide dedicated learning time",
+      "Create internal documentation",
+      "Share wins organizationally"
+    ]
+  },
+  {
+    step: 4,
+    title: "Measure and Scale",
+    tasks: [
+      "Track time savings per task",
+      "Document cost reductions",
+      "Gather team feedback",
+      "Expand successful use cases"
+    ]
+  }
+];
+
+const commonUseCases = [
+  {
+    area: "Fundraising & Development",
+    applications: [
+      "Grant proposal writing with AI assistance",
+      "Donor segmentation and personalization",
+      "Automated thank you notes",
+      "Predictive analytics for major gifts"
+    ],
+    savings: "20-30 hours/month"
+  },
+  {
+    area: "Marketing & Communications",
+    applications: [
+      "Social media content generation",
+      "Email newsletter creation",
+      "Website copy optimization",
+      "Multi-language translations"
+    ],
+    savings: "15-25 hours/month"
+  },
+  {
+    area: "Program Delivery",
+    applications: [
+      "Client intake automation",
+      "Service matching algorithms",
+      "Impact report generation",
+      "Chatbots for beneficiary support"
+    ],
+    savings: "30-40 hours/month"
+  },
+  {
+    area: "Operations & Admin",
+    applications: [
+      "Meeting transcription and summaries",
+      "Document processing and filing",
+      "Volunteer scheduling optimization",
+      "Budget forecasting"
+    ],
+    savings: "10-15 hours/month"
+  }
+];
+
+const grants = [
+  {
+    name: "Google.org AI for Social Good",
+    amount: "$25K - $2M",
+    eligibility: "501(c)(3) with AI project",
+    deadline: "Rolling",
+    focus: "AI implementation for impact"
+  },
+  {
+    name: "Microsoft AI for Humanitarian Action",
+    amount: "$40K + Azure credits",
+    eligibility: "Nonprofits addressing humanitarian issues",
+    deadline: "Quarterly",
+    focus: "Disaster response, refugees, human rights"
+  },
+  {
+    name: "Cisco Global Impact Cash Grants",
+    amount: "$50K - $100K",
+    eligibility: "Tech-forward nonprofits",
+    deadline: "Annual",
+    focus: "Digital transformation"
+  },
+  {
+    name: "The Patrick J. McGovern Foundation",
+    amount: "$100K - $500K",
+    eligibility: "AI for social good projects",
+    deadline: "By invitation",
+    focus: "Responsible AI development"
+  }
+];
+---
+
+<PageLayout
+  title="Free AI Training for Nonprofits: Tools, Grants & Resources (2025 Guide)"
+  description="Complete guide to free AI training and resources for nonprofits. Access $10K+/month in grants, free AI tools, training programs, and implementation guides designed specifically for nonprofit organizations."
+  showHeader={true}
+  showCTA={false}
+>
+  <!-- Hero Section -->
+  <section class="relative bg-gradient-to-br from-blue-900 to-purple-900 text-white py-24 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="inline-flex items-center gap-2 bg-green-600/20 backdrop-blur-sm px-6 py-3 rounded-full mb-8 border border-green-400/30">
+        <span class="text-sm font-semibold">🎯 Complete Resource Guide for Nonprofit AI Adoption</span>
+      </div>
+
+      <h1 class="text-4xl md:text-6xl font-black mb-8 leading-tight">
+        Free AI Training & Tools<br/>
+        <span class="text-green-400">for Nonprofits</span><br/>
+        Save 30+ Hours/Month
+      </h1>
+
+      <p class="text-xl md:text-2xl text-white/90 mb-12 leading-relaxed max-w-3xl mx-auto">
+        While 78% of nonprofits struggle with limited resources, the ones using AI
+        are <span class="font-bold text-yellow-300">saving 30+ hours monthly</span> and accessing
+        <span class="font-bold text-yellow-300">$10,000+/month in free tools</span>.
+        Here's your complete guide.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#free-resources" class="px-8 py-4 bg-green-600 hover:bg-green-700 rounded-xl font-bold text-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all">
+          View Free Resources →
+        </a>
+        <a href="#implementation" class="px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl font-bold text-lg hover:bg-white/20 transition-all">
+          Implementation Guide
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Stats Section -->
+  <Section background="white" padding="lg">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid md:grid-cols-4 gap-6 mb-12">
+        <div class="text-center p-6 bg-blue-50 rounded-xl border border-blue-200">
+          <div class="text-3xl font-black text-blue-600">$10K+</div>
+          <p class="text-sm text-gray-700 mt-2">Monthly value in free tools</p>
+        </div>
+        <div class="text-center p-6 bg-green-50 rounded-xl border border-green-200">
+          <div class="text-3xl font-black text-green-600">30+ hrs</div>
+          <p class="text-sm text-gray-700 mt-2">Saved monthly with AI</p>
+        </div>
+        <div class="text-center p-6 bg-purple-50 rounded-xl border border-purple-200">
+          <div class="text-3xl font-black text-purple-600">90%</div>
+          <p class="text-sm text-gray-700 mt-2">Discount on enterprise tools</p>
+        </div>
+        <div class="text-center p-6 bg-orange-50 rounded-xl border border-orange-200">
+          <div class="text-3xl font-black text-orange-600">$2M+</div>
+          <p class="text-sm text-gray-700 mt-2">Available in AI grants</p>
+        </div>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Free Resources Section -->
+  <Section id="free-resources" background="cream" padding="xl">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">
+        Free AI Tools & Platforms <span class="text-blue-600">for Nonprofits</span>
+      </h2>
+      <p class="text-center text-gray-600 text-lg mb-12 max-w-3xl mx-auto">
+        These companies offer free or heavily discounted AI tools specifically for 501(c)(3) organizations
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        {freeResources.map(resource => (
+          <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all border border-gray-200">
+            <div class="flex justify-between items-start mb-3">
+              <h3 class="text-xl font-bold text-gray-900">{resource.name}</h3>
+              <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full">{resource.type}</span>
+            </div>
+            <p class="text-gray-600 mb-4">{resource.description}</p>
+            <a href={resource.link} target="_blank" class="text-blue-600 font-semibold hover:text-blue-800 inline-flex items-center">
+              Apply Now
+              <Icon name="arrow-right" class="ml-1" size="sm" />
+            </a>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-8 p-6 bg-blue-100 rounded-xl border border-blue-200">
+        <p class="text-blue-900 font-semibold">💡 Pro Tip:</p>
+        <p class="text-blue-800">
+          Start with Google for Nonprofits and Microsoft's offerings. Together they provide
+          $10,000+/month in ad grants, free office software, and AI tools that would cost
+          enterprises $2,000+/month.
+        </p>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Training Programs -->
+  <Section background="white" padding="xl">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">
+        Free AI Training Programs <span class="text-green-600">Designed for Nonprofits</span>
+      </h2>
+      <p class="text-center text-gray-600 text-lg mb-12 max-w-3xl mx-auto">
+        Structured programs to help your team implement AI effectively
+      </p>
+
+      <div class="space-y-6">
+        {trainingPrograms.map(program => (
+          <div class="bg-gradient-to-r from-green-50 to-blue-50 rounded-xl p-6 border border-green-200">
+            <div class="grid md:grid-cols-3 gap-6">
+              <div class="md:col-span-2">
+                <h3 class="text-xl font-bold text-gray-900 mb-2">{program.title}</h3>
+                <p class="text-gray-600 mb-3">{program.description}</p>
+                <div class="flex flex-wrap gap-4 text-sm">
+                  <span class="flex items-center gap-1">
+                    <Icon name="clock" size="sm" class="text-gray-500" />
+                    {program.duration}
+                  </span>
+                  <span class="flex items-center gap-1">
+                    <Icon name="tag" size="sm" class="text-gray-500" />
+                    {program.cost}
+                  </span>
+                  <span class="flex items-center gap-1">
+                    <Icon name="target" size="sm" class="text-gray-500" />
+                    {program.focus}
+                  </span>
+                </div>
+              </div>
+              <div class="flex items-center">
+                <div class="text-center w-full">
+                  <p class="text-sm text-gray-500 mb-2">Provider</p>
+                  <p class="font-bold text-lg text-blue-600">{program.provider}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </Section>
+
+  <!-- Implementation Guide -->
+  <Section id="implementation" background="cream" padding="xl">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">
+        Your 90-Day AI Implementation <span class="text-purple-600">Roadmap</span>
+      </h2>
+      <p class="text-center text-gray-600 text-lg mb-12 max-w-3xl mx-auto">
+        A proven step-by-step approach used by 100+ nonprofits to successfully adopt AI
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        {implementationSteps.map(step => (
+          <div class="bg-white rounded-xl p-6 shadow-lg">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-12 h-12 bg-purple-600 text-white rounded-full flex items-center justify-center font-bold text-lg">
+                {step.step}
+              </div>
+              <h3 class="text-xl font-bold text-gray-900">{step.title}</h3>
+            </div>
+            <ul class="space-y-2">
+              {step.tasks.map(task => (
+                <li class="flex items-start gap-2">
+                  <Icon name="check" class="text-green-500 mt-1 flex-shrink-0" size="sm" />
+                  <span class="text-gray-700">{task}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </Section>
+
+  <!-- Use Cases Section -->
+  <Section background="white" padding="xl">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">
+        Real AI Applications <span class="text-orange-600">by Department</span>
+      </h2>
+      <p class="text-center text-gray-600 text-lg mb-12 max-w-3xl mx-auto">
+        Specific ways nonprofits are using AI today with time savings data
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        {commonUseCases.map(useCase => (
+          <div class="bg-gradient-to-br from-orange-50 to-yellow-50 rounded-xl p-6 border border-orange-200">
+            <div class="flex justify-between items-start mb-4">
+              <h3 class="text-xl font-bold text-gray-900">{useCase.area}</h3>
+              <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">
+                {useCase.savings}
+              </span>
+            </div>
+            <ul class="space-y-2">
+              {useCase.applications.map(app => (
+                <li class="flex items-start gap-2">
+                  <span class="text-orange-500 mt-1">→</span>
+                  <span class="text-gray-700 text-sm">{app}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </Section>
+
+  <!-- Grants Section -->
+  <Section background="cream" padding="xl">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">
+        AI Implementation Grants <span class="text-green-600">for Nonprofits</span>
+      </h2>
+      <p class="text-center text-gray-600 text-lg mb-12 max-w-3xl mx-auto">
+        Funding specifically available for nonprofits adopting AI technology
+      </p>
+
+      <div class="overflow-x-auto">
+        <table class="w-full bg-white rounded-xl shadow-lg">
+          <thead>
+            <tr class="bg-gray-100 border-b border-gray-200">
+              <th class="text-left p-4 font-semibold text-gray-900">Grant Program</th>
+              <th class="text-left p-4 font-semibold text-gray-900">Amount</th>
+              <th class="text-left p-4 font-semibold text-gray-900">Deadline</th>
+              <th class="text-left p-4 font-semibold text-gray-900">Focus Area</th>
+            </tr>
+          </thead>
+          <tbody>
+            {grants.map((grant, index) => (
+              <tr class={`border-b border-gray-200 ${index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`}>
+                <td class="p-4">
+                  <div class="font-semibold text-gray-900">{grant.name}</div>
+                  <div class="text-sm text-gray-600">{grant.eligibility}</div>
+                </td>
+                <td class="p-4 font-bold text-green-600">{grant.amount}</td>
+                <td class="p-4 text-gray-700">{grant.deadline}</td>
+                <td class="p-4 text-gray-700 text-sm">{grant.focus}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="mt-8 p-6 bg-green-100 rounded-xl border border-green-200">
+        <p class="text-green-900 font-semibold mb-2">🎯 Grant Application Tip:</p>
+        <p class="text-green-800">
+          Focus your application on measurable impact metrics. Funders want to see how AI will
+          help you serve more beneficiaries, not just save money. Lead with "serve 40% more families"
+          not "reduce costs by 30%."
+        </p>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Success Story -->
+  <Section background="white" padding="xl">
+    <div class="max-w-4xl mx-auto">
+      <div class="bg-gradient-to-br from-blue-600 to-purple-600 text-white rounded-2xl p-8 md:p-12">
+        <h2 class="text-3xl font-bold mb-6">Real Success Story</h2>
+        <div class="space-y-4 text-lg">
+          <p>
+            <span class="font-bold">Challenge:</span> Feeding America affiliate spending
+            40 hours/month on grant applications with 20% success rate.
+          </p>
+          <p>
+            <span class="font-bold">Solution:</span> Implemented AI tools for grant writing
+            using free Microsoft Copilot nonprofit license + ChatGPT for research.
+          </p>
+          <p>
+            <span class="font-bold">Results:</span> Cut grant writing time to 15 hours/month,
+            increased success rate to 35%, secured additional $240K in first year.
+          </p>
+          <p>
+            <span class="font-bold">ROI:</span> 25 hours/month saved = $50K annual value,
+            $240K additional funding, total impact: $290K with $0 tool cost.
+          </p>
+        </div>
+        <div class="mt-8 p-4 bg-white/20 backdrop-blur rounded-lg">
+          <p class="text-sm">
+            "AI didn't replace our grant writer—it made her 3x more effective. She now
+            manages relationships instead of formatting documents."
+            <span class="block mt-2 font-semibold">- Director of Development</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </Section>
+
+  <!-- CTA Section -->
+  <Section background="gradient" padding="xl">
+    <div class="max-w-4xl mx-auto text-center text-white">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">
+        Ready to Save 30+ Hours Monthly with AI?
+      </h2>
+      <p class="text-xl mb-8 text-white/90">
+        I help nonprofits implement AI efficiently—without the enterprise price tag.
+        Get a custom implementation plan for your organization.
+      </p>
+
+      <div class="bg-white/10 backdrop-blur rounded-xl p-8 max-w-2xl mx-auto">
+        <h3 class="text-2xl font-bold mb-4">
+          Free 30-Minute Nonprofit AI Consultation
+        </h3>
+        <ul class="text-left space-y-3 mb-8 max-w-md mx-auto">
+          <li class="flex items-start gap-2">
+            <Icon name="check" class="text-green-400 mt-1" size="sm" />
+            <span>Identify your highest-impact AI use cases</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <Icon name="check" class="text-green-400 mt-1" size="sm" />
+            <span>Get specific tool recommendations</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <Icon name="check" class="text-green-400 mt-1" size="sm" />
+            <span>Receive grant application guidance</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <Icon name="check" class="text-green-400 mt-1" size="sm" />
+            <span>Walk away with 90-day action plan</span>
+          </li>
+        </ul>
+
+        <a href="mailto:dave@daveshap.com?subject=Nonprofit AI Consultation Request"
+           class="inline-block bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all hover:scale-105">
+          Schedule Free Consultation →
+        </a>
+
+        <p class="text-sm text-white/70 mt-6">
+          No sales pitch. Just practical advice from someone who's helped
+          50+ nonprofits implement AI successfully.
+        </p>
+      </div>
+    </div>
+  </Section>
+</PageLayout>
