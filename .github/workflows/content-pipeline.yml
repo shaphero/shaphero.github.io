@@ -48,9 +48,9 @@ jobs:
     needs: discover-topics
     runs-on: ubuntu-latest
     strategy:
+      max-parallel: 2
       matrix:
         topic: ${{ fromJson(needs.discover-topics.outputs.topics || '["AI SEO strategies 2025"]') }}
-        max-parallel: 2
 
     steps:
       - uses: actions/checkout@v3
