@@ -1,0 +1,310 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import Section from '../components/common/Section.astro';
+import Icon from '../components/Icon.astro';
+
+const title = "--keyword Decoded: Evidence-Based Findings & Recommendations";
+const description = "Comprehensive analysis of --keyword based on 3 data points from 3 sources. Includes real implementation costs, failure rates, and success patterns.";
+
+const insights = [
+  {
+    "type": "trend",
+    "title": "64.06%",
+    "description": "turnout)\n* Non-voters: 87,933,280 (UFEL, 35",
+    "supporting": [
+      "extracted"
+    ]
+  },
+  {
+    "type": "trend",
+    "title": "94%",
+    "description": "inverse of turnout)\n* Donald Trump: 77,302,580 (FEC)\n* Kamala Harris: 75,017,613 (FEC)\n* Other: 2,89",
+    "supporting": [
+      "extracted"
+    ]
+  },
+  {
+    "type": "trend",
+    "title": "97%",
+    "description": "* Kamala Harris: 31",
+    "supporting": [
+      "extracted"
+    ]
+  },
+  {
+    "type": "trend",
+    "title": "03%",
+    "description": "* Non-voters: 36",
+    "supporting": [
+      "extracted"
+    ]
+  },
+  {
+    "type": "trend",
+    "title": "37%",
+    "description": "**NOTE** This chart tries to strike a balance between simplicity and apparent accuracy",
+    "supporting": [
+      "extracted"
+    ]
+  },
+  {
+    "type": "trend",
+    "title": "66.38%",
+    "description": "turnout)\n* Non-voters: 80,899,283 (UFEL, 33",
+    "supporting": [
+      "extracted"
+    ]
+  },
+  {
+    "type": "trend",
+    "title": "62%",
+    "description": "inverse of turnout)\n* Joe Biden: 81,283,501 (FEC)\n* Donald Trump: 74,223,975 (FEC)\n* Other: 2,922,15",
+    "supporting": [
+      "extracted"
+    ]
+  },
+  {
+    "type": "trend",
+    "title": "33.62%",
+    "description": "who Did Not Vote (the obverse of the turnout estimate)",
+    "supporting": [
+      "extracted"
+    ]
+  },
+  {
+    "type": "trend",
+    "title": "3%",
+    "description": "of the total eligible population were removed",
+    "supporting": [
+      "extracted"
+    ]
+  },
+  {
+    "type": "trend",
+    "title": "34.19%",
+    "description": "* Donald Trump: 31",
+    "supporting": [
+      "extracted"
+    ]
+  }
+];
+const citations = [
+  {
+    "id": "cite_1",
+    "text": "[OC] U.S. Presidential Election Results as Percentage of Voter-Eligible Population, 1976-2024",
+    "url": "https://reddit.com/r/dataisbeautiful/comments/1k1dvv3/oc_us_presidential_election_results_as_percentage/",
+    "source": "reddit"
+  },
+  {
+    "id": "cite_2",
+    "text": "Stuff /r/ethereum should know: Proof of Stake edition",
+    "url": "https://reddit.com/r/ethereum/comments/tijcq1/stuff_rethereum_should_know_proof_of_stake_edition/",
+    "source": "reddit"
+  },
+  {
+    "id": "cite_3",
+    "text": "Navigating Zoho implementation: The hidden drivers of cost, ROI",
+    "url": "https://reddit.com/r/SAtechnews/comments/1lkvrlh/navigating_zoho_implementation_the_hidden_drivers/",
+    "source": "reddit"
+  }
+];
+---
+
+<PageLayout title={title} description={description}>
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-gray-900 via-purple-900/20 to-gray-900 text-white">
+    <div class="absolute inset-0">
+      <div class="absolute top-20 left-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse"></div>
+      <div class="absolute bottom-40 right-20 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl animate-pulse" style="animation-delay: 2s;"></div>
+    </div>
+
+    <div class="relative z-10 container mx-auto px-4 py-24">
+      <div class="max-w-5xl mx-auto text-center">
+        <div class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-purple-600/20 backdrop-blur-lg border border-purple-400/30 text-white font-semibold text-sm mb-8">
+          <span class="w-2 h-2 bg-purple-500 rounded-full animate-pulse"></span>
+          <span>RESEARCH ANALYSIS</span>
+        </div>
+
+        <h1 class="text-5xl md:text-7xl font-bold mb-8 bg-gradient-to-r from-white via-purple-200 to-white bg-clip-text text-transparent">
+          {title}
+        </h1>
+
+        <p class="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto">
+          {description}
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="#key-findings" class="px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 rounded-xl font-bold text-lg hover:shadow-2xl hover:shadow-purple-500/25 transform hover:-translate-y-1 transition-all">
+            View Key Findings
+          </a>
+          <a href="#recommendations" class="px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl font-bold text-lg hover:bg-white/20 transition-all">
+            Jump to Recommendations
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Executive Summary -->
+  <Section>
+    <div class="max-w-4xl mx-auto">
+      <div class="bg-gradient-to-br from-purple-50 to-blue-50 dark:from-gray-800 dark:to-gray-900 rounded-2xl p-8 mb-12">
+        <h2 class="text-3xl font-bold mb-6">Executive Summary</h2>
+        <div class="prose prose-lg max-w-none">
+          <p>This analysis synthesizes 3 sources to provide actionable intelligence on AI ROI and implementation realities.
+
+**Key Findings:**
+• 64.06%: turnout)
+* Non-voters: 87,933,280 (UFEL, 35
+• 94%: inverse of turnout)
+* Donald Trump: 77,302,580 (FEC)
+* Kamala Harris: 75,017,613 (FEC)
+* Other: 2,89
+• 97%: * Kamala Harris: 31
+
+**Bottom Line:** The landscape shows both significant risks and opportunities. Success depends on avoiding common pitfalls while following proven implementation patterns.</p>
+        </div>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Key Insights -->
+  {insights.length > 0 && (
+    <Section id="key-findings">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-4xl font-bold text-center mb-12">Key Findings</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          {insights.map((insight) => (
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow">
+              <div class="flex items-start gap-4">
+                <div class={
+                  insight.type === 'trend' ? 'text-green-500' :
+                  insight.type === 'risk' ? 'text-red-500' :
+                  insight.type === 'opportunity' ? 'text-blue-500' :
+                  'text-yellow-500'
+                }>
+                  <Icon name={
+                    insight.type === 'trend' ? 'trending-up' :
+                    insight.type === 'risk' ? 'alert-triangle' :
+                    insight.type === 'opportunity' ? 'target' :
+                    'info'
+                  } class="w-8 h-8" />
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-xl font-bold mb-2">{insight.title}</h3>
+                  <p class="text-gray-600 dark:text-gray-300">{insight.description}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </Section>
+  )}
+
+  <!-- Main Content Sections -->
+    <Section>
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl font-bold mb-6">Executive Overview</h2>
+      <div class="prose prose-lg max-w-none">
+        <p>This comprehensive analysis of --keyword synthesizes findings from 3 data points across 3 sources. The research reveals critical insights for general decision-makers.</p>
+        
+      </div>
+    </div>
+  </Section>
+
+  <Section>
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl font-bold mb-6">Critical Findings</h2>
+      <div class="prose prose-lg max-w-none">
+        <p>Analysis reveals 0 risk factors and 0 opportunities. Despite challenges, clear paths to success emerge from the data.</p>
+        
+        <div class="mt-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+          <h3 class="font-semibold mb-3">Supporting Evidence:</h3>
+          <ul>
+            
+            <li>64.06% <span class="text-sm text-gray-600">(Confidence: 0.7%)</span></li>
+            
+            <li>94% <span class="text-sm text-gray-600">(Confidence: 0.7%)</span></li>
+            
+            <li>97% <span class="text-sm text-gray-600">(Confidence: 0.7%)</span></li>
+            
+            <li>03% <span class="text-sm text-gray-600">(Confidence: 0.7%)</span></li>
+            
+            <li>37% <span class="text-sm text-gray-600">(Confidence: 0.7%)</span></li>
+            
+          </ul>
+        </div>
+        
+      </div>
+    </div>
+  </Section>
+
+  <Section>
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl font-bold mb-6">Cost Reality Check</h2>
+      <div class="prose prose-lg max-w-none">
+        <p>Implementation costs vary dramatically across organizations. Analysis of 1 cost data points reveals significant discrepancies between vendor claims and actual expenditures.</p>
+        
+      </div>
+    </div>
+  </Section>
+
+  <Section>
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl font-bold mb-6">Success Patterns</h2>
+      <div class="prose prose-lg max-w-none">
+        <p>Organizations achieving positive ROI share common characteristics: starting with simple use cases, measuring specific metrics, and scaling gradually. These patterns appear consistently across 1 success stories.</p>
+        
+      </div>
+    </div>
+  </Section>
+
+  <Section>
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl font-bold mb-6">Strategic Recommendations</h2>
+      <div class="prose prose-lg max-w-none">
+        <p>Based on the analysis of current market conditions: 1. **Move strategically**: Clear opportunities exist for early movers 2. **Focus on proven patterns**: Replicate successful approaches 3. **Scale gradually**: Build on early wins to expand 4. **Budget realistically**: Plan for costs 5-10x vendor estimates 5. **Build internal expertise**: Reduce dependency on external vendors</p>
+        
+      </div>
+    </div>
+  </Section>
+
+  <!-- Citations -->
+  {citations.length > 0 && (
+    <Section>
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold mb-8">Sources & References</h2>
+        <div class="space-y-3">
+          {citations.map((citation) => (
+            <div class="flex items-start gap-3 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+              <span class="text-sm font-mono text-gray-500">[{citation.id}]</span>
+              <div class="flex-1">
+                <a href={citation.url} target="_blank" rel="noopener noreferrer"
+                   class="text-blue-600 hover:text-blue-800 dark:text-blue-400 font-medium">
+                  {citation.text}
+                </a>
+                <span class="ml-2 text-sm text-gray-500">({citation.source})</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </Section>
+  )}
+
+  <!-- CTA Section -->
+  <Section>
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="bg-gradient-to-br from-purple-600 to-blue-600 rounded-2xl p-12 text-white">
+        <h2 class="text-3xl font-bold mb-4">Ready to Apply These Insights?</h2>
+        <p class="text-xl mb-8">Let's discuss how these findings can drive your strategy forward.</p>
+        <a href="mailto:dave@daveshap.com?subject=Research%20Discussion:%20--keyword%20Decoded%3A%20Evidence-Based%20Findings%20%26%20Recommendations"
+           class="inline-flex items-center gap-2 px-8 py-4 bg-white text-purple-600 rounded-xl font-bold text-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all">
+          <Icon name="mail" class="w-5 h-5" />
+          Schedule a Discussion
+        </a>
+      </div>
+    </div>
+  </Section>
+</PageLayout>

@@ -5,8 +5,8 @@
 
 @layer base {
   :root {
-    /* Blue & Cream Color System - Exact HSL values from React */
-    --background: 35 56% 86%; /* Cream #f4e3c2 */
+    /* Blue & White Color System */
+    --background: 0 0% 100%; /* White #ffffff */
     --foreground: 215 65% 33%; /* Dark Blue for text */
     --card: 0 0% 100%; /* White cards */
     --card-foreground: 215 65% 33%;
@@ -17,7 +17,7 @@
     --primary-light: 213 94% 68%; /* Lighter blue for accents */
     --primary-darker: 215 66% 23%; /* Darker blue for hover states */
     --primary-glow: 225 73% 66%; /* Light blue for glow effects */
-    --secondary: 35 56% 86%; /* Cream */
+    --secondary: 210 14% 96%; /* Light Gray */
     --secondary-foreground: 215 65% 33%;
     --muted: 0 0% 94%; /* Light gray for muted areas */
     --muted-foreground: 215 13% 45%;
@@ -32,8 +32,8 @@
 
     /* Blue & Cream Gradient System */
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-light)) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-darker)) 100%);
-    --gradient-section: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(35 60% 90%) 100%);
+    --gradient-hero: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+    --gradient-section: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(210 14% 96%) 100%);
     --gradient-glass: linear-gradient(135deg, rgba(29, 78, 137, 0.1) 0%, rgba(29, 78, 137, 0.05) 100%);
     --gradient-border: linear-gradient(135deg, hsl(var(--primary) / 0.3) 0%, hsl(var(--accent) / 0.2) 100%);
 

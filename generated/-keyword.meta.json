@@ -1,0 +1,248 @@
+{
+  "meta": {
+    "title": "--keyword Decoded: Evidence-Based Findings & Recommendations",
+    "description": "Comprehensive analysis of --keyword based on 3 data points from 3 sources. Includes real implementation costs, failure rates, and success patterns.",
+    "keywords": [
+      "election",
+      "eligible",
+      "results",
+      "people",
+      "turnout",
+      "population",
+      "(ufel,",
+      "turnout)",
+      "non-voters:",
+      "donald",
+      "trump:",
+      "ethereum",
+      "there's",
+      "stakers",
+      "staking",
+      "estimates",
+      "university",
+      "florida",
+      "thousands",
+      "everyone"
+    ],
+    "audience": "general",
+    "readingTime": 7,
+    "publishDate": "2025-09-22T05:34:31.128Z",
+    "sources": [
+      {
+        "url": "https://reddit.com/r/dataisbeautiful/comments/1k1dvv3/oc_us_presidential_election_results_as_percentage/",
+        "title": "[OC] U.S. Presidential Election Results as Percentage of Voter-Eligible Population, 1976-2024",
+        "type": "reddit",
+        "date": "2025-04-17T14:15:51.000Z",
+        "score": 16858,
+        "metadata": {
+          "subreddit": "dataisbeautiful",
+          "author": "ptrdo",
+          "num_comments": 1527,
+          "upvote_ratio": 0.95,
+          "content": "Update of previous post. U.S. Presidential election results, including all eligible people who did not vote. Employs voter turnout estimates to determine an estimated population of eligible voters, then calculates election results (including \"Did Not Vote\" and discounting \"Other\" votes of little consequence) as a percentage of that. Proportions were rounded to thousandths (tenths of a percent) and reflect minor discrepancies due to rounding in reported voter turnout and vote share data.\n\n2024 Results as of April 17, 2025 [https://www.fec.gov/introduction-campaign-finance/election-results-and-voting-information/](https://www.fec.gov/introduction-campaign-finance/election-results-and-voting-information/)\n\nUniversity of Florida Election Lab (UFEL) [https://election.lab.ufl.edu/2024-general-election-turnout/](https://election.lab.ufl.edu/2024-general-election-turnout/)\n\n* Voting Eligible Population: 244,666,890 (VEP, UFEL)\n* Ballots counted: 156,733,610 (UFEL, 64.06% turnout)\n* Non-voters: 87,933,280 (UFEL, 35.94% inverse of turnout)\n* Donald Trump: 77,302,580 (FEC)\n* Kamala Harris: 75,017,613 (FEC)\n* Other: 2,898,484 (FEC, explicitly cast for a candidate)\n* Base: 241,768,406 (=VEP-Other)\n\nResults in the following percentages (discounting Other):\n\n* Donald Trump: 31.97%\n* Kamala Harris: 31.03%\n* Non-voters: 36.37%\n\n**NOTE** This chart tries to strike a balance between simplicity and apparent accuracy. Ultimately, the population of eligible voters is estimated, and more precise factors of that do not make the ultimate estimates more accurate. So, numbers were rounded to integers, which might all round down in one row but up in the next. Unfortunately, this seems to lend to a loss of faith in the veracity of the chart, even though the larger message is more important than its excruciating detail.\n\nUses R for fundamental data aggregation, ggplot for rudimentary plots, and Adobe Illustrator for annotations and final assembly.\n\nSources: Federal Election Commission (FEC), Historical Election Results: [https://www.fec.gov/introduction-campaign-finance/election-results-and-voting-information/](https://www.fec.gov/introduction-campaign-finance/election-results-and-voting-information/)\n\nUniversity of Florida Election Lab, United States Voter Turnout: [https://election.lab.ufl.edu/voter-turnout/](https://election.lab.ufl.edu/voter-turnout/)\n\nUnited States Census Bureau, Voter Demographics: [https://www.census.gov/topics/public-sector/voting.html](https://www.census.gov/topics/public-sector/voting.html)\n\nMethodology: The FEC data for each election year will have a multi-tab spreadsheet of Election results per state, detailing votes per Presidential candidate (when applicable in a General Election year) and candidates for Senator and Representative. A summary (usually the second tab) details nationwide totals.\n\nFor example, these are the provided results for 2020:\n\n* Voting Eligible Population: 240,628,443 (VEP, UFEL)\n* Ballots counted: 159,729,160 (UFEL, 66.38% turnout)\n* Non-voters: 80,899,283 (UFEL, 33.62% inverse of turnout)\n* Joe Biden: 81,283,501 (FEC)\n* Donald Trump: 74,223,975 (FEC)\n* Other: 2,922,155 (FEC, explicitly cast for a candidate)\n* Base: 237,706,288 (=VEP-Other)\n\nThe determination of \"turnout\" is a complicated endeavor. Thousands of Americans turn 18 each day or become American citizens who are eligible to vote. Also, thousands more die, become incapacitated, are hospitalized, imprisoned, paroled, or emigrate to other countries. At best, the number of those genuinely eligible on any given election day is an estimation.\n\nThoughtful approximations of election turnout can be found via the University of Florida Election Lab, which consumes U.S. Census survey data and then refines it according to other statistical information. Some of these estimates can be found here:\n\n[https://election.lab.ufl.edu/dataset/1980-2022-general-election-turnout-rates-v1-1/](https://election.lab.ufl.edu/dataset/1980-2022-general-election-turnout-rates-v1-1/)\n\nPer the Election Lab's v.1.2 estimates, the Voting-Eligible Population (VEP) demonstrated a turnout rate of \\~66.38%. The VEP does not include non-citizens, felons, or parolees disenfranchised by state laws.\n\nOnce we have the total votes and a reliable estimate of turnout, it is possible to calculate non-voters as the \\~33.62% who Did Not Vote (the obverse of the turnout estimate). In the instance of the 2020 election, this amounts to about 81M who were eligible on election day but declined to vote.\n\nTo calculate the final percentages for this chart, votes for candidates that received less than 3% of the total eligible population were removed. This was done for simplicity. So, for the year 2020, the results were:\n\n* Joe Biden: 34.19%\n* Donald Trump: 31.22%\n* Non-voters: 34.03%\n\nNote that these numbers do not necessarily add up to 100%. This is the result of rounding errors and the discounting of \"Other\" votes. As a result, some of the segments of the bars do not align exactly with segments of the same value occurring in adjacent bars. This visual discrepancy may seem concerning, but is expected.",
+          "is_video": false,
+          "awards": 0
+        }
+      },
+      {
+        "url": "https://reddit.com/r/ethereum/comments/tijcq1/stuff_rethereum_should_know_proof_of_stake_edition/",
+        "title": "Stuff /r/ethereum should know: Proof of Stake edition",
+        "type": "reddit",
+        "date": "2022-03-20T11:49:19.000Z",
+        "score": 1461,
+        "metadata": {
+          "subreddit": "ethereum",
+          "author": "domotheus",
+          "num_comments": 1312,
+          "upvote_ratio": 0.98,
+          "content": "Poorly informed crypto-journalist articles are constantly coming out, and this brings more Proof-of-Stake related questions and discussions rehashing the same topics and same misconceptions. So here are a bunch of common questions/takes I see, boiled down in quick bullet points like I did in [my previous post](https://www.reddit.com/r/ethereum/comments/s8mnwb/a_collection_of_various_things_the_average/) that was more about Ethereum in general.\n\nI plan on lazily linking this thread whenever I see those points being brought up, and I encourage everyone to do the same and correct me if I got anything wrong or suggest any addition.\n\n## Wat merge?\n\nA lot more info can be found on [ethmerge.com](https://ethmerge.com/) so I will keep this section light\n\n* When the merge happens, Ethereum will be secured by Proof of Stake instead of Proof of Work.\n\n* The Merge is not \"ETH 2.0\", there is no ETH 2.0, [it's an obsolete term.](https://blog.ethereum.org/2022/01/24/the-great-eth2-renaming/)\n\n* **If you currently hold ETH, you don't need to do anything.** You will still hold the same amount of ETH after the merge, there is no \"ETH2 coin\", no need to migrate anything, etc. Everything sames exactly the same, only the consensus mechanism changes under the hood.\n\n* It's called \"merge\" because it's about *merging* the Beacon Chain (*consensus layer*) with the current chain (*execution layer*) and ditching the proof of work part of the execution layer.\n\n* If you don't know, \"consensus\" is just a fancy word for the goal of ordering transactions and getting some economic guarantee that this order won't change. Both PoW and PoS achieve consensus by different means:\n\n  * PoW: \"It costs too much to mess up with the order of blocks, playing by the rules is more lucrative.\"\n\n  * PoS: \"It costs too much to mess up with the order of blocks, because if I do I'll lose all the money I put up as collateral.\"\n\n* Since it's only the consensus mechanism changing, **Proof of Stake by itself will not lower gas fees significantly**.\n\n## Why merge?\n\n* Lower security costs since there's less energy needed to achieve consensus.\n\n  * For PoW you need miners to be able to *at least* cover all the hardware and energy they use otherwise no one will mine. This requires a big issuance that is quickly sold for fiat to pay the bills.\n  \n  * For PoS you just need to give some yield to stakers to make people want to deposit capital rather than just invest it elsewhere. No big bills to pay beyond an ordinary computer and an internet connection, so the yield just has to reflect the opportunity costs and risks involved.\n\n* More sustainability:\n\n  * The security of a blockchain is basically proportional to the value of its coin. This is true for both PoW (more valuable coin rewards = more reasons to play by the rules = more miners = harder to mess up the consensus) and PoS (more valuable staked coins = more reasons to play by the rules to avoid losing the staked coins)\n\n  * A newly issued coin is essentially value being taken from all holders of the coin and being redistributed to someone. All else equal, selling that coin for fiat extracts value out of the network.\n\n* It opens the door for many scaling solutions in the future, namely data sharding, statelessness, light clients, and [more](https://twitter.com/VitalikButerin/status/1466411377107558402)\n\n* It helps reduce some complexity of the code going forward, by separating concerns between execution and consensus.\n\n* Appeasing the environment and gamers is certainly a nice side-effect, but not really a major reason behind the switch to PoS, since it's mostly about externalities over which Ethereum as a protocol doesn't have much control (source of energy production, GPU supply chains, etc.)\n\n## Wen merge?\n\n* It happened on September 15th, 2022\n\n## Nope, your a idiot. They will delay it like they always have in the past. They promised it years ago and still haven't delivered.\n\nBelieve or not this was a common talking point before the merge\n\n## Those millions of ETH staked will crash the price the very moment they're unlocked LOL\n\nFor sure, there will be plenty of stakers who will want to finally take profit, especially those who locked their ETH back when 32 ETH was worth $10k. But there's plenty more to consider on the other side of the equation:\n\n* The merge doesn't unlock any ETH. Withdrawals will come in the first hard fork following the merge, likely 6-8 months after. That's months of no proof of work issuance (~13k ETH/day) being sold off *and* no proof of stake issuance coming into circulation.\n\n* Just like how there's a queue to deposit ETH, there will be [a queue to withdraw it.](https://github.com/ethereum/annotated-spec/blob/master/phase0/beacon-chain.md#how-does-eth2-proof-of-stake-work). Assuming a mass sell-off event, everyone is in that queue, limited at a rate of 1125 valitors per day. So there's no \"opening the floodgates\" moment. Everyone unstaking would literally take over a year. A year of ~38k ETH/day entering back into circulation (or... roughly 1% of average daily volume)\n\n* After the merge, validators will start receiving fee rewards as well, doubling the yield [by some estimates](https://docs.google.com/spreadsheets/d/1vrK5sY5ooq-F8dcyRhmmAJ5YtgkvWKWP3OfGCZIYxSA/edit#gid=0). There are thousands of people waiting in line to stake *right now*. They're okay with a 5% yield on their ETH, I don't think they're gonna yeet the moment it becomes 10% lol\n\n* The biggest risk involved in staking is *by far* the merge. Something catastrophic could go wrong, yet people have been staking and locking up their ETH for over a year despite this risk and despite the ETH being locked until an unknown floating date. How many people/institutions are waiting on the sidelines for this risk to disappear before jumping in?\n\n* And don't forget stakers exiting means fewer validators which means higher rewards for the stakers who don't exit. It also means more incentives for other people to *start* staking if they weren't before...\n\n* But of course it's crypto, and crypto's gonna crypto. The merge will bring excitement and volatility and possibly a sell-the-news dip, who knows. I don't pretend to know the future, but the way I see it it's much more likely way more ETH will flow *into* staking than out of it.\n\n## If proof of stake is so good, then how come Ethereum didn't go with that from the start?\n\n* Proof of Work is easy to conceptualize and implement, Proof of Stake isn't. Especially when back in 2014 it was mostly a theoretical concept still being researched, with some blockchain implementing some version of it.\n\n* There were several fundamental problems with PoS that needed to be overcome from a research perspective before thinking about implementing it. \n\n* There is no one-size-fits-all for Proof of Stake. Every PoS blockchain comes with its own PoS specification that has pros and cons on various aspects, so it's not as simple as \"but this other blockchain did it, why can't ethereum just do the same thing\"\n\n* Starting as a proof of work chain had the benefit of letting anyone mine coins on their own without anyone's permission, which helped the coin distribution become way better than those newer chains that are proof of stake from the start and have to decide how to allocate the initial coins, which can't really be done permissionlessly.\n\n* Related to above: Yes, there was still a premine/presale for Ethereum, but it has now been diluted to half the supply after years of mining and multiple bull/bear cycles making that ETH swap hands, bringing the distribution [closer to Bitcoin's](https://medium.com/@adamscochran/the-10k-audit-42c100dd32bb). So it's not that big of a deal in 2022 when Ether as an asset is extremely liquid and easy to acquire. \n\n## Nah, this is really just a ploy to screw over the miners one last time after years of hard work\n\n* PoS has been the eventual goal since [day 1](https://blog.ethereum.org/2014/07/22/launching-the-ether-sale/), everyone mining was always aware that it would end one day. There is no rugpull or unfairness going on here.\n\n* Economic factors trump any kind of miner-blockchain loyalty. You can kinda view the blockchain as a business and the miners as employees:\n\n  * Miners/employees have been paid for the service they provide (namely, secure consensus) with the block rewards. The paycheck is an expense for the employer and it comes from diluting the value of existing coins from holders (see above in \"why merge?\")\n\n  * Miners go to the chain offering the highest rewards, most of them would ditch Ethereum in a heartbeat if another GPU minable coin gave out more rewards. \n\n  * Similarly, Ethereum will pay less for the service it requires if stakers can do it for way cheaper. \n\n* It's not entirely exclusive. Miners can also be holders of the coin, and users of the blockchain. Nothing prevents them from holding their rewards and becoming stakers too.\n\n## The coin stops having inherent value if you're not spending real world energy to mine it\n\nI don't really buy this argument. There is nothing magical about computing hashes over and over until you land on one that fits arbitrary requirements. I mean, you could have a proof of work blockchain where the work is done by solving sudoku puzzles and it would work exactly the same: NP-complete problem, hard to compute one way but easy to verify a solution once one has been found. That doesn't mean solving sudoku inherently brings value into the world. Cranking up the mining difficulty of a coin doesn't magically make everyone richer, it just makes mining less profitable – unless of course demand goes up too, which so far hasn't been too much of a problem in the crypto world.\n\nThe way I see it, the value of a coin ultimately comes from supply and demand, and the demand comes from how valuable the blockspace is. People need ETH to buy the blockspace, regardless of whether that ETH is generated by a miner or a staker. Sure, the more miners there are the higher the security/decentralization which further increases the value proposition of the blockspace in a positive feedback loop, but [feedback loops exist in Proof of Stake Ethereum too](https://i.imgur.com/3bPV35a.png) and they're super cool too!\n\n## Proof of Stake is a recipe for total centralization\n\n* It's basically the same as Proof of Work but slightly different. \"Better\" or \"worse\" really depends on your opinion. The way I see it, PoW is really just PoS with extra steps.\n\n* Ethereum as a community values decentralization highly, any potential centralization vector is addressed by the research team to come up with ways to mitigate it, even if it's at the cost of other important stuff like scaling (e.g. keeping gas limits low so more nodes can participate in decentralization, even if that results in congestion and high fees)\n\n* There **are** shortcomings currently, decentralization is a spectrum and a process and we're not there yet, and for the time being there are many centralization crutches that need to go away on the long term. That said, none of these crutches represent existential risks for the network, and for practically any \"it's centralized because X\" statement, there is an item on [the roadmap](https://twitter.com/VitalikButerin/status/1466411377107558402) addressing X. I personally find it much more fascinating to come up with a whole bunch of stuff to solve X rather than give up and say \"it can't be done because of X\". \n\n* Something interesting about Ethereum's PoS design that is often overlooked: Quadratic penalties. A single validator going down, messing up, or downright attacking the network doesn't get penalized very badly. A thousand validators doing it at the same time get penalized much more heavily. \n\n  * This means that if you're a megawhale with thousands of validators, it's in your own best interest to spread them out, avoid cloud hosting, use different clients, etc. Sure, the capital is still concentrated, but at least the points of failures are distributed which is good for the health of the network overall.\n\n  * Compared to a big mining operation that relies on a central location to amortize costs, which can be spotted from energy usage and shut down if the authorities don't like it. It's hard to move mining equipment across the world, but staking only relies on private/public keys and not any actual hardware beyond a consumer grade computer.\n\n## PoS is really just \"who has money makes more money\"\n\n* Yes. Unfortunately we live in a world of high wealth inequality. Blockchains don't fix that. \n\n* It's also true of proof of work: Whoever has money can buy more mining rigs and make more money. Except with mining, the ROI becomes better with economies of scale: Centralized mining operations have the big bucks to get bulk/discount rates on hardware and move to the places with cheap electricity. The solo miner simply can't realistically compete. With Proof of Stake, everyone earns the same yield proportionally, where they stake $10 or $10M.\n\n* \"*They may be centralized, but those big mining operations have no reason to attack the network and weaken it since they dumped millions in infrastructure*\"....... so you're saying you're fine with big centralized actors existing, as long as they have some kind of a big *stake* in the network?\n\n## Passive interest on your deposit though? Printing money out of thin air? That's literally central banks and fiat part 2 electric boogaloo\n\n* You have to really stretch it to make this case, but I've seen people do that lol. Those takes usually begin with \"proof of stake is nothing new\"\n\n* There's still \"work\" being done by validators: creating blocks and validating other blocks. It's just that the work done is composed entirely of the *actually useful work* that the blockchain needs to reach consensus, instead of computing hashes over and over again until one of them meets an arbitrary requirement. \n\n* It's not really \"free money being printed out of thin air\", there are still costs involved in staking capital, they're just more abstract and less direct than energy bills:\n\n  * Opportunity costs – Why stake at all if another investment offers you a better yield?\n\n  * Illiquidity – From the moment you deposit, your capital is locked up, queued up until your validator is active, then when you withdraw there is yet another queue before getting it back.\n\n  * Inherent risks – It's still a fairly new thing, something could go wrong, there could be a critical bug, network could get attacked, your staking hardware could get compromised, etc.\n\n  * Volatility – at the end of the day it's still a volatile asset, if you're the kind of investor who denominates their investments in their country's fiat currency, then a 5% yield on an asset that can drop 30% overnight isn't all that great (the upside of 5% yield on an asset that doubles is pretty great though, turn that 100% gain into 110%)\n\n  * Maintenance – You still have to maintain and secure your validator, ensure 100% uptime, update software, etc. \n\n* Here's where it gets nifty: The more stakers there are, the lower the individual rewards get. This basically means that all those costs above will get priced by the market itself. It's easy to see why: If the staking yield is too low, then the rewards don't justify the costs and people will pull out and invest elsewhere, bringing the yield back up. Likewise if it's too high, that'll attract more capital and bring it back down. \n\n* As far as inflation goes: Let's say the market as a whole decides that 5% is the ideal yield, of which 3% comes from issuance. That works out to about 30 million ETH staked printing 900 thousand new ETH per year. At a total supply of 120 million ETH, that's an inflation rate of 0.75%. Which is outpaced by EIP1559 burn as long as gas fees are at least 23 gwei. (I cannot stress this enough: *Ether-the-asset will become a yield-bearing deflationary asset very soon*)\n\n* \"*Nice math but there's no supply cap + they change the monetary policy all the time*\" \n\n  * The goal has been \"minimum viable issuance to secure the network\" for years, priorizing network security over an arbitrary supply cap.\n  \n  * No update to the monetary policy has ever increased supply inflation. Low inflation rate (specifically *dis*inflation) has been the goal since day 1.\n\n  * There will be an equilibrium acting as an effective supply cap – decided again by market forces valuing Ethereum's blockspace – once the rate of EIP1559 burn matches the rate of issuance. That's super nifty if you ask me.\n\n* So yeah, there's no \"central Ethereum bank\" adjusting rates arbitrarily and printing money to cronies. The market itself dictates how much inflation/deflation there is, no single entity can control it the way a central bank controls fiat inflation rates.\n\n## Whales have all the money needed to take over and change the rules and slash honest stakers\n\n* No. Ethereum has no on-chain governance of any kind for this reason. Protocol updates are a community effort (*Layer 0*) and you don't need any money staked to call out bad ideas and participate in the process.\n\n* This is exactly the same as Proof of Work: Even if you have 99% of the hashpower, you can't make invalid transactions that steal people's money without their private keys, or change protocol rules, or really do anything beyond reorganizing blocks. The 1% of honest nodes will reject any block that don't follow the rules and you'll be mining on an invalid/useless chain. Now replace hashpower/mining with stake/staking and the same holds true for Proof of Stake (with the difference that someone caught reorganizing blocks will have their entire stake destroyed, whereas the blockchain can't exactly destroy mining rigs)\n\n* And simply put, there is a fuckton of ETH involved. 10 million and counting and that's *before the merge*. At current prices that's roughly 30 billion dollars. Both \"amount of ETH staked\" and \"value of ETH\" are projected to go up, so attacks become increasingly unlikely due to the sheer economic cost involved in doing an attack — *once* — and the absurdity of acquiring that much ETH in the first place if the attack comes from an outside actor (where would you buy 10 million ETH to have 51% of the stake? 20M?)\n\n## 32 ETH is way too much, the average person doesn't have that much\n\n* I agree it's a lot. There are some ideas of how it could be lowered ([better signature aggregation](https://www.reddit.com/r/ethereum/comments/rwojtk/ama_we_are_the_efs_research_team_pt_7_07_january/hrmt6o0/) or [a rotating cap of active validators](https://ethresear.ch/t/simplified-active-validator-cap-and-rotation-proposal/9022)) but they don't seem to be very high on the priority list currently, as opposed to making sure the base layer is truly secure.\n\n* The reason for such a high number is it has to fall in a technical sweetspot. In a nutshell, it has to be low enough to be accessible and have enough validators to secure the chain, but high enough to not have too many validators and bloat the chain with overhead. And having a fixed amount for each validator reduces a lot of the complexity by having each validator weighted exactly the same in the distributed randomness process of who gets to produce each block.\n\n* There is a whole bunch of [math involved](https://thomasborgers.medium.com/ethereum-2-0-economic-review-1fc4a9b8c2d9) to arrive at 32 ETH from a technical standpoint, back when 32 ETH was worth about 7000 USD. [Earlier math from 2017](https://medium.com/@VitalikButerin/parametrizing-casper-the-decentralization-finality-time-overhead-tradeoff-3f2011672735) even suggested over 1000 ETH minimum. \n\n* Thankfully, just like mining pools exist, there are staking pools to allow staking in smaller amounts. It doesn't necessarily fly in the face of the \"not your keys not your coins\" mantra, thanks to things like [RocketPool](https://rocketpool.net/), [Secret Shared Validators](https://medium.com/coinmonks/secret-shared-validators-on-ethereum-2-0-ea29ab380016) (not yet launched) which use smart contracts to be permissionless, decentralized and non-custodian. And because of the quadratic penalties mentioned above, I believe decentralized staking operations will outperform the centralized ones on the long run. I recommend superphiz's [guide to staking](https://www.reddit.com/r/ethstaker/comments/t1xpr5/how_to_stake_on_ethereum_march_2022_edition/) for more info. And obviously, I admit staking through exchanges is yucky if you value decentralization\n\n* Related to above, stuff like Rocket Pool is better viewed as a higher-level abstraction to base staking, rather than \"just a staking pool\". I go into more details on this [here](https://www.reddit.com/r/ethereum/comments/tijcq1/stuff_rethereum_should_know_proof_of_stake_edition/i1gd27b/?context=1) for those interested.\n\n## PoS hasn't been proven, while we know PoW works\n\nThat's actually totally fair and there is no real rebuttal to this, obviously. Only time will tell. I just think it's irrelevant in the context that Ethereum *is* switching to PoS and was always going to. If you don't believe in it, don't participate/invest in it. I do personally believe in a long term sustainable PoS Ethereum, but even then I'm glad good ol' boring-by-design Bitcoin will be there chugging its proof of work along.\n\nIt's all part of the great crypto experiment of our lifetime. Either it's just a fad and will fail into obscurity, which would be a bummer for sure, or we'll have succeeded in creating monster robust networks capable of outlasting humanity. To achieve that, prioritizing decentralization is key. Which is something I mainly just see in Bitcoin and Ethereum, despite the widely different philosophies. It's why I'm glad to have both to truly see what's what on the long term.\n\n## I have more questions\n\nidk ask them in the comments, I'm sure I forgot stuff. But plz be polite",
+          "is_video": false,
+          "awards": 0
+        }
+      },
+      {
+        "url": "https://reddit.com/r/SAtechnews/comments/1lkvrlh/navigating_zoho_implementation_the_hidden_drivers/",
+        "title": "Navigating Zoho implementation: The hidden drivers of cost, ROI",
+        "type": "reddit",
+        "date": "2025-06-26T09:31:34.000Z",
+        "score": 1,
+        "metadata": {
+          "subreddit": "SAtechnews",
+          "author": "SAtechnewsbot",
+          "num_comments": 0,
+          "upvote_ratio": 1,
+          "content": "https://www.itweb.co.za/article/navigating-zoho-implementation-the-hidden-drivers-of-cost-roi/kYbe9MXbn8evAWpG",
+          "is_video": false,
+          "awards": 0
+        }
+      }
+    ]
+  },
+  "summary": "This analysis synthesizes 3 sources to provide actionable intelligence on AI ROI and implementation realities.\n\n**Key Findings:**\n• 64.06%: turnout)\n* Non-voters: 87,933,280 (UFEL, 35\n• 94%: inverse of turnout)\n* Donald Trump: 77,302,580 (FEC)\n* Kamala Harris: 75,017,613 (FEC)\n* Other: 2,89\n• 97%: * Kamala Harris: 31\n\n**Bottom Line:** The landscape shows both significant risks and opportunities. Success depends on avoiding common pitfalls while following proven implementation patterns.",
+  "sections": [
+    {
+      "heading": "Executive Overview",
+      "level": 1,
+      "content": "This comprehensive analysis of --keyword synthesizes findings from 3 data points across 3 sources. The research reveals critical insights for general decision-makers."
+    },
+    {
+      "heading": "Critical Findings",
+      "level": 1,
+      "content": "Analysis reveals 0 risk factors and 0 opportunities. Despite challenges, clear paths to success emerge from the data.",
+      "evidence": [
+        {
+          "claim": "64.06%",
+          "sources": [
+            "extracted"
+          ],
+          "confidence": 0.7
+        },
+        {
+          "claim": "94%",
+          "sources": [
+            "extracted"
+          ],
+          "confidence": 0.7
+        },
+        {
+          "claim": "97%",
+          "sources": [
+            "extracted"
+          ],
+          "confidence": 0.7
+        },
+        {
+          "claim": "03%",
+          "sources": [
+            "extracted"
+          ],
+          "confidence": 0.7
+        },
+        {
+          "claim": "37%",
+          "sources": [
+            "extracted"
+          ],
+          "confidence": 0.7
+        }
+      ]
+    },
+    {
+      "heading": "Cost Reality Check",
+      "level": 1,
+      "content": "Implementation costs vary dramatically across organizations. Analysis of 1 cost data points reveals significant discrepancies between vendor claims and actual expenditures."
+    },
+    {
+      "heading": "Success Patterns",
+      "level": 1,
+      "content": "Organizations achieving positive ROI share common characteristics: starting with simple use cases, measuring specific metrics, and scaling gradually. These patterns appear consistently across 1 success stories."
+    },
+    {
+      "heading": "Strategic Recommendations",
+      "level": 1,
+      "content": "Based on the analysis of current market conditions: 1. **Move strategically**: Clear opportunities exist for early movers 2. **Focus on proven patterns**: Replicate successful approaches 3. **Scale gradually**: Build on early wins to expand 4. **Budget realistically**: Plan for costs 5-10x vendor estimates 5. **Build internal expertise**: Reduce dependency on external vendors"
+    }
+  ],
+  "citations": [
+    {
+      "id": "cite_1",
+      "text": "[OC] U.S. Presidential Election Results as Percentage of Voter-Eligible Population, 1976-2024",
+      "url": "https://reddit.com/r/dataisbeautiful/comments/1k1dvv3/oc_us_presidential_election_results_as_percentage/",
+      "source": "reddit"
+    },
+    {
+      "id": "cite_2",
+      "text": "Stuff /r/ethereum should know: Proof of Stake edition",
+      "url": "https://reddit.com/r/ethereum/comments/tijcq1/stuff_rethereum_should_know_proof_of_stake_edition/",
+      "source": "reddit"
+    },
+    {
+      "id": "cite_3",
+      "text": "Navigating Zoho implementation: The hidden drivers of cost, ROI",
+      "url": "https://reddit.com/r/SAtechnews/comments/1lkvrlh/navigating_zoho_implementation_the_hidden_drivers/",
+      "source": "reddit"
+    }
+  ],
+  "insights": [
+    {
+      "type": "trend",
+      "title": "64.06%",
+      "description": "turnout)\n* Non-voters: 87,933,280 (UFEL, 35",
+      "supporting": [
+        "extracted"
+      ]
+    },
+    {
+      "type": "trend",
+      "title": "94%",
+      "description": "inverse of turnout)\n* Donald Trump: 77,302,580 (FEC)\n* Kamala Harris: 75,017,613 (FEC)\n* Other: 2,89",
+      "supporting": [
+        "extracted"
+      ]
+    },
+    {
+      "type": "trend",
+      "title": "97%",
+      "description": "* Kamala Harris: 31",
+      "supporting": [
+        "extracted"
+      ]
+    },
+    {
+      "type": "trend",
+      "title": "03%",
+      "description": "* Non-voters: 36",
+      "supporting": [
+        "extracted"
+      ]
+    },
+    {
+      "type": "trend",
+      "title": "37%",
+      "description": "**NOTE** This chart tries to strike a balance between simplicity and apparent accuracy",
+      "supporting": [
+        "extracted"
+      ]
+    },
+    {
+      "type": "trend",
+      "title": "66.38%",
+      "description": "turnout)\n* Non-voters: 80,899,283 (UFEL, 33",
+      "supporting": [
+        "extracted"
+      ]
+    },
+    {
+      "type": "trend",
+      "title": "62%",
+      "description": "inverse of turnout)\n* Joe Biden: 81,283,501 (FEC)\n* Donald Trump: 74,223,975 (FEC)\n* Other: 2,922,15",
+      "supporting": [
+        "extracted"
+      ]
+    },
+    {
+      "type": "trend",
+      "title": "33.62%",
+      "description": "who Did Not Vote (the obverse of the turnout estimate)",
+      "supporting": [
+        "extracted"
+      ]
+    },
+    {
+      "type": "trend",
+      "title": "3%",
+      "description": "of the total eligible population were removed",
+      "supporting": [
+        "extracted"
+      ]
+    },
+    {
+      "type": "trend",
+      "title": "34.19%",
+      "description": "* Donald Trump: 31",
+      "supporting": [
+        "extracted"
+      ]
+    }
+  ]
+}

@@ -241,15 +241,15 @@
 
 /* Complex Gradient Backgrounds */
 .bg-gradient-hero {
-  background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-darker)) 100%);
+  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
 }
 
 .bg-gradient-section {
-  background: linear-gradient(135deg, hsl(var(--background)) 0%, #fdf8f0 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
 }
 
 .bg-gradient-cta {
-  background: linear-gradient(135deg, hsl(var(--background)) 0%, #fdf8f0 100%);
+  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
 }
 
 /* Responsive Typography Enhancement */
