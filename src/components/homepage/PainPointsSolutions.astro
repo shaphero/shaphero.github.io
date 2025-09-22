@@ -1,0 +1,103 @@
+---
+// Pain points extracted from Reddit discussions
+const painPoints = [
+  {
+    pain: "Struggling with AI implementation that doesn't deliver ROI",
+    solution: "My 30-60-90 day framework ensures measurable wins from week one. No endless pilots—just rapid value delivery.",
+    icon: "chart-growth",
+    stat: "333% ROI"
+  },
+  {
+    pain: "Having trouble finding the right AI tools and approaches",
+    solution: "I've tested 50+ AI tools with Fortune 500s. I know what works, what doesn't, and exactly which tools fit your use case.",
+    icon: "tools",
+    stat: "50+ Tools Tested"
+  },
+  {
+    pain: "Worried about AI replacing your team",
+    solution: "AI amplifies human capability, not replaces it. I train teams to become 10x more productive with AI as their co-pilot.",
+    icon: "users",
+    stat: "20+ Hours/Week Saved"
+  },
+  {
+    pain: "Struggling with time-consuming manual processes",
+    solution: "Automate repetitive tasks with AI workflows that save 20+ hours per week. Focus on strategy, not spreadsheets.",
+    icon: "clock",
+    stat: "70% Time Reduction"
+  }
+];
+---
+
+<section class="py-20 px-6 bg-gray-950">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+        I Solve Your Biggest AI Challenges
+      </h2>
+      <p class="text-gray-400 text-lg max-w-3xl mx-auto">
+        Based on working with 100+ Fortune 500 teams, these are the challenges I help overcome daily
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      {painPoints.map((item) => (
+        <div class="group relative bg-gray-900/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-800 hover:border-primary/50 transition-all duration-300 hover:scale-[1.02]">
+          <!-- Problem -->
+          <div class="flex items-start gap-4 mb-6">
+            <div class="p-3 bg-red-500/10 rounded-lg">
+              <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-white mb-1">The Problem</h3>
+              <p class="text-gray-400">{item.pain}</p>
+            </div>
+          </div>
+
+          <!-- Solution -->
+          <div class="flex items-start gap-4 mb-6">
+            <div class="p-3 bg-green-500/10 rounded-lg">
+              <svg class="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-white mb-1">My Solution</h3>
+              <p class="text-gray-300">{item.solution}</p>
+            </div>
+          </div>
+
+          <!-- Result Stat -->
+          <div class="flex items-center justify-between pt-6 border-t border-gray-800">
+            <span class="text-sm text-gray-500">Typical Result</span>
+            <span class="text-2xl font-bold text-primary">{item.stat}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- CTA -->
+    <div class="mt-12 text-center">
+      <p class="text-gray-400 mb-6">
+        Ready to solve your AI implementation challenges?
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/ai-training"
+           class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary hover:bg-primary-dark text-white rounded-lg transition-all duration-300 hover:scale-105 font-semibold">
+          See AI Training Options
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+          </svg>
+        </a>
+        <a href="mailto:dave@daveshap.com?subject=Help with AI Implementation"
+           class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gray-800 hover:bg-gray-700 text-white rounded-lg transition-all duration-300 hover:scale-105 font-semibold">
+          Let's Talk Solutions
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

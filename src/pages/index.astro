@@ -6,22 +6,24 @@ import ContentGrid from '../components/common/ContentGrid.astro';
 import BrandLogos from '../components/common/BrandLogos.astro';
 import Icon from '../components/Icon.astro';
 import OptimizedImage from '../components/OptimizedImage.astro';
+import FAQSection from '../components/homepage/FAQSection.astro';
+import PainPointsSolutions from '../components/homepage/PainPointsSolutions.astro';
 
 const expertise = [
   {
     icon: "cpu",
-    title: "AI Productivity Expert",
-    description: "I figure out the practical ways to use AI tools like ChatGPT and Claude, then teach teams how to actually use them. No hype, just real workflows that save 10-20 hours per week."
+    title: "AI Implementation Expert",
+    description: "While 95% of Fortune 500 AI pilots fail to deliver ROI, I help teams beat the odds. Real workflows that deliver 333% ROI and save 20+ hours per week. No pilots that stall—just implementations that scale."
   },
   {
     icon: "chart-growth",
     title: "Growth Marketing Expert",
-    description: "509% traffic growth at SoFi. 494% at Adobe. Building and scaling marketing engines that deliver measurable revenue, not just vanity metrics."
+    description: "509% traffic growth at SoFi. 494% at Adobe. While competitors chase ChatGPT's 0.25% search share, I build SEO engines that capture the 99.75% still on Google—plus prepare for AI search."
   },
   {
     icon: "target",
     title: "Strategic Leadership",
-    description: "Former CMO in the sports betting tech space. SVP of Earned Media at Neil Patel Digital. Led digital transformation at Fortune 500 companies."
+    description: "Former CMO in the sports betting tech space. SVP of Earned Media at Neil Patel Digital. I've navigated 3 Google algorithm shifts and the AI revolution—your growth strategy needs someone who's been there."
   }
 ];
 
@@ -80,11 +82,27 @@ const services = [
 ];
 ---
 
-<PageLayout 
-  title="Dave Shapiro - Marketing Leader, AI Productivity Expert"
-  description="Former SaaS CMO and SVP at Neil Patel Digital. Marketing strategist who's driven growth for Fortune 500 companies. Expert in AI, SEO, and evidence-based marketing. Let's talk growth."
+<PageLayout
+  title="Dave Shapiro - AI Consulting for Fortune 500 | 333% ROI in 90 Days"
+  description="Former CMO helping Fortune 500s achieve 333% ROI with AI implementation. Turn the 95% failure rate into guaranteed wins with my 30-60-90 day framework. Real results: 20+ hours/week saved, $2.4M annual savings."
   showHeader={true}
   showCTA={false}
+  schema={{
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Dave Shapiro",
+    "jobTitle": "AI Implementation Consultant & Marketing Leader",
+    "description": "Former CMO and SVP at Neil Patel Digital, helping Fortune 500 companies achieve 333% ROI with AI implementation",
+    "knowsAbout": ["AI Implementation", "SEO", "Marketing Strategy", "Fortune 500 Consulting"],
+    "alumniOf": {
+      "@type": "Organization",
+      "name": "Neil Patel Digital"
+    },
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Dave Shapiro Consulting"
+    }
+  }}
 >
   <!-- Hero Section -->
   <section class="hero-section relative w-full bg-gradient-hero overflow-x-hidden min-h-screen flex items-center noise-bg">
@@ -109,10 +127,10 @@ const services = [
             <span class="bg-gradient-to-r from-accent to-primary-glow bg-clip-text text-transparent"> 500% growth </span>
             for Fortune 500s.
           </h1>
-          
+
           <p class="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed animate-fade-in" style="animation-delay: 0.2s">
-            <span class="font-bold">Real revenue. Real results.</span> 
-            The exact playbook I've used at Microsoft, Adobe, Bank of America & more.
+            <span class="font-bold">99% of Fortune 500s use AI. Only 5% see ROI.</span>
+            I help you join the 5% with proven playbooks from Microsoft, Adobe, Bank of America & more.
           </p>
           
           <div class="flex flex-col sm:flex-row gap-4 animate-fade-in" style="animation-delay: 0.4s">
@@ -156,7 +174,7 @@ const services = [
         Three Ways I Drive <span class="text-accent">Exceptional Growth</span>
       </h2>
       <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
-        Combining deep marketing expertise with cutting-edge AI implementation
+        While 78% of employees secretly use AI at work, I help companies harness that energy officially—with 333% ROI
       </p>
     </div>
     
@@ -181,6 +199,61 @@ const services = [
       subtitle="I've driven growth for Fortune 500 companies and fast-growing startups"
       showCTA={false}
     />
+  </Section>
+
+  <!-- AI Reality Check Section -->
+  <Section background="white" padding="xl">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-4">
+          The <span class="text-accent">$40 Billion Problem</span> Nobody's Talking About
+        </h2>
+        <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+          Fortune 500s invested $40B in AI this year. 95% report zero impact on P&L. Here's what's really happening:
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        <div class="bg-gradient-to-br from-red-50 to-red-100 p-8 rounded-2xl border border-red-200">
+          <div class="text-5xl font-black text-red-600 mb-2">78%</div>
+          <p class="text-lg font-semibold text-red-900 mb-2">Shadow AI Users</p>
+          <p class="text-red-700">of employees use unapproved AI tools daily, creating massive security risks</p>
+        </div>
+
+        <div class="bg-gradient-to-br from-yellow-50 to-yellow-100 p-8 rounded-2xl border border-yellow-200">
+          <div class="text-5xl font-black text-yellow-600 mb-2">95%</div>
+          <p class="text-lg font-semibold text-yellow-900 mb-2">Pilot Failure Rate</p>
+          <p class="text-yellow-700">of enterprise AI initiatives stall in pilot phase, never scaling to production</p>
+        </div>
+
+        <div class="bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-2xl border border-green-200">
+          <div class="text-5xl font-black text-green-600 mb-2">333%</div>
+          <p class="text-lg font-semibold text-green-900 mb-2">Proven ROI</p>
+          <p class="text-green-700">Companies that break through see massive returns—I'll show you how</p>
+        </div>
+      </div>
+
+      <div class="bg-gradient-to-r from-primary/5 to-accent/5 p-8 rounded-2xl border border-primary/20">
+        <h3 class="text-2xl font-bold mb-4">The Real Problem: Implementation, Not Technology</h3>
+        <ul class="space-y-3 text-lg">
+          <li class="flex items-start gap-3">
+            <span class="text-primary mt-1">→</span>
+            <span><strong>62% of leaders</strong> cite data integration as their #1 AI blocker (not the AI itself)</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-primary mt-1">→</span>
+            <span><strong>46% lack the skills</strong> to implement AI, while only 7.5% have received proper training</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-primary mt-1">→</span>
+            <span><strong>68% of executives</strong> report AI is creating friction between IT and other departments</span>
+          </li>
+        </ul>
+        <div class="mt-6 p-4 bg-white/80 rounded-xl">
+          <p class="font-semibold text-primary">My approach: Start with workflows, not technology. Train people, not pilots.</p>
+        </div>
+      </div>
+    </div>
   </Section>
 
   <!-- Philosophy Section -->
@@ -211,9 +284,9 @@ const services = [
       
       <div class="mt-12 p-8 bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl border border-primary/20">
         <p class="text-lg text-foreground italic text-center">
-          "Marketing is about making money, not making noise. Every tactic should tie to revenue."
+          "While companies invest $40 billion in AI with 95% seeing zero ROI, the winners focus on one thing: practical implementation over perfect strategy."
         </p>
-        <p class="text-center mt-4 text-muted-foreground">— My guiding principle</p>
+        <p class="text-center mt-4 text-muted-foreground">— What separates the 5% from the 95%</p>
       </div>
       
       <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
@@ -260,7 +333,7 @@ const services = [
         How We Can <span class="text-accent">Work Together</span>
       </h2>
       <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
-        Whether you need AI implementation, SEO expertise, or strategic guidance
+        Join the 25% of companies actually seeing AI ROI—hourly consulting from $200-350 or monthly retainers from $10K
       </p>
     </div>
     
@@ -282,6 +355,12 @@ const services = [
       ))}
     </div>
   </Section>
+
+  <!-- Pain Points & Solutions -->
+  <PainPointsSolutions />
+
+  <!-- FAQ Section -->
+  <FAQSection />
 
   <!-- Testimonial -->
   <Section background="cream" padding="xl">

@@ -28,3 +28,8 @@ pnpm-debug.log*
 .backup-*/
 .image-backup-*/
 image-usage-report.txt
+
+# Content generator
+content-generator/node_modules/
+content-generator/generated-content/
+content-generator/.env

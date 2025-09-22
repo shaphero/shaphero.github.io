@@ -1,0 +1,393 @@
+{
+  "topic": "AI training for enterprise teams Fortune 500",
+  "timestamp": "2025-09-21T23:31:46.041Z",
+  "reddit": {
+    "questions": [
+      {
+        "question": "Has anybody lost their job in marketing because of AI?",
+        "score": 280,
+        "num_comments": 105,
+        "url": "https://reddit.com/r/marketing/comments/1klojxh/has_anybody_lost_their_job_in_marketing_because/"
+      },
+      {
+        "question": "Any marketers out there NOT using generative AI?",
+        "score": 112,
+        "num_comments": 175,
+        "url": "https://reddit.com/r/marketing/comments/1kqj72h/any_marketers_out_there_not_using_generative_ai/"
+      },
+      {
+        "question": "Ex-Marketers: What did you pivot to?",
+        "score": 63,
+        "num_comments": 72,
+        "url": "https://reddit.com/r/marketing/comments/1hsvg5m/exmarketers_what_did_you_pivot_to/"
+      },
+      {
+        "question": "If you had 1000$ to spend on an online course, which one would you choose?",
+        "score": 16,
+        "num_comments": 36,
+        "url": "https://reddit.com/r/marketing/comments/1gdy64p/if_you_had_1000_to_spend_on_an_online_course/"
+      },
+      {
+        "question": "Can’t decide between two startup ideas or if to build at all- I will not promote",
+        "score": 14,
+        "num_comments": 35,
+        "url": "https://reddit.com/r/startups/comments/1kvn1xn/cant_decide_between_two_startup_ideas_or_if_to/"
+      },
+      {
+        "question": "What in the AI SLOP is this?",
+        "score": 4,
+        "num_comments": 11,
+        "url": "https://reddit.com/r/marketing/comments/1ll59sq/what_in_the_ai_slop_is_this/"
+      },
+      {
+        "question": "Im looking for different invoices for AI program training",
+        "score": 3,
+        "num_comments": 2,
+        "url": "https://reddit.com/r/smallbusiness/comments/1j3b0bg/im_looking_for_different_invoices_for_ai_program/"
+      },
+      {
+        "question": "Crawling bots which to allow/block in robots.txt??",
+        "score": 3,
+        "num_comments": 7,
+        "url": "https://reddit.com/r/SEO/comments/1nb1a31/crawling_bots_which_to_allowblock_in_robotstxt/"
+      },
+      {
+        "question": "My local advanced auto parts was part of a huge regional liquidation, no more car parts stores in my neighborhood, and I have the time and assets on hand to open a new one, should I do it?",
+        "score": 2,
+        "num_comments": 23,
+        "url": "https://reddit.com/r/smallbusiness/comments/1l68fmp/my_local_advanced_auto_parts_was_part_of_a_huge/"
+      },
+      {
+        "question": "Stuck on domain name: Should I go with .ai or invent a random brand name?",
+        "score": 2,
+        "num_comments": 4,
+        "url": "https://reddit.com/r/SEO/comments/1mx2h0k/stuck_on_domain_name_should_i_go_with_ai_or/"
+      },
+      {
+        "question": "John Thornhill Online Success Coaching - Complete Review: Can AI Really Fast-Track Your Digital Product Empire?",
+        "score": 1,
+        "num_comments": 0,
+        "url": "https://reddit.com/r/u_softtechhubus/comments/1ni1eac/john_thornhill_online_success_coaching_complete/"
+      },
+      {
+        "question": "How can you snag a special promo on Databricks to try its data intelligence platform for free?",
+        "score": 1,
+        "num_comments": 0,
+        "url": "https://reddit.com/r/bestsoftwarediscounts/comments/1nh2on1/how_can_you_snag_a_special_promo_on_databricks_to/"
+      },
+      {
+        "question": "Looking for Fliki promos to convert text to AI videos for free?",
+        "score": 1,
+        "num_comments": 0,
+        "url": "https://reddit.com/r/bestsoftwarediscounts/comments/1ngo19x/looking_for_fliki_promos_to_convert_text_to_ai/"
+      },
+      {
+        "question": "Why GPT5 sucks so bad, pt.1",
+        "score": 0,
+        "num_comments": 6,
+        "url": "https://reddit.com/r/ChatGPT/comments/1mkwc5e/why_gpt5_sucks_so_bad_pt1/"
+      },
+      {
+        "question": "What kind of business could my mom start after being replaced by AI?",
+        "score": 0,
+        "num_comments": 34,
+        "url": "https://reddit.com/r/smallbusiness/comments/1mx9bui/what_kind_of_business_could_my_mom_start_after/"
+      },
+      {
+        "question": "Athena VAs: worth the $$$ or just expensive training wheels?",
+        "score": 0,
+        "num_comments": 16,
+        "url": "https://reddit.com/r/smallbusiness/comments/1nf1kqb/athena_vas_worth_the_or_just_expensive_training/"
+      },
+      {
+        "question": "Would small businesses benefit from having their own “AI assistant” for routine tasks?",
+        "score": 0,
+        "num_comments": 5,
+        "url": "https://reddit.com/r/smallbusiness/comments/1nldpeh/would_small_businesses_benefit_from_having_their/"
+      },
+      {
+        "question": "Would you use an AI marketing tool?",
+        "score": 0,
+        "num_comments": 13,
+        "url": "https://reddit.com/r/smallbusiness/comments/1m7a84c/would_you_use_an_ai_marketing_tool/"
+      },
+      {
+        "question": "Best AI for Writing Copy?",
+        "score": 0,
+        "num_comments": 12,
+        "url": "https://reddit.com/r/marketing/comments/1l8ub3g/best_ai_for_writing_copy/"
+      },
+      {
+        "question": "Would you use a tool that did your marketing for you using AI?",
+        "score": 0,
+        "num_comments": 47,
+        "url": "https://reddit.com/r/Entrepreneur/comments/1m79q0k/would_you_use_a_tool_that_did_your_marketing_for/"
+      },
+      {
+        "question": "I use AI to spit out startup ideas while I sleep and people literally pay me for it. Entrepreneurs or fools?",
+        "score": 0,
+        "num_comments": 43,
+        "url": "https://reddit.com/r/Entrepreneur/comments/1lhkodt/i_use_ai_to_spit_out_startup_ideas_while_i_sleep/"
+      }
+    ],
+    "painPoints": [
+      {
+        "text": "Most entrepreneurs are still struggling with basic AI prompts. Meanwhile, this AI news reveals tools that can run entire companie",
+        "trigger": "struggling with"
+      },
+      {
+        "text": "es\n\nEnterprises face a unique challenge with AI presentation tools: they want the efficiency of automation without losing the bran",
+        "trigger": "challenge with"
+      },
+      {
+        "text": "ld have been a damaging trust issue with users.\n\n**Book Insight**\n\nIn *The Phoenix Project* by Gene Kim, Kevin Behr, and George Sp",
+        "trigger": "issue with"
+      },
+      {
+        "text": "’m excited about AI, but also worried about the future of web publishing.\n\nLLMs learn by reading the open web. But the web only th",
+        "trigger": "worried about"
+      },
+      {
+        "text": "l dropout could see this math doesn't work.\n\n# 5. I Built for Myself, Not Customers\n\nI made assumptions about what small businesse",
+        "trigger": "doesn't work"
+      },
+      {
+        "text": "g. Not because the technology doesn't work, but because they're approaching it completely wrong.\n\nThe biggest misconception is tha",
+        "trigger": "doesn't work"
+      },
+      {
+        "text": "nt to stop feeling, doing, or struggling with. Map pain clearly.\n* Primary Goals What they’re actively seeking—outcomes, progress,",
+        "trigger": "struggling with"
+      },
+      {
+        "text": "tartup founders, what are you struggling with when it comes to your GTM strategy? (I will not promote) When reading about the curr",
+        "trigger": "struggling with"
+      }
+    ],
+    "solutions": [
+      {
+        "solution": "best way to get rid of that cringe training is to make it feel less fake. practicing with coworkers is like doing improv with someone who already knows your lines. the brain just checks out. what works better is running the same scenario against something that reacts different every time so you don’t know what’s coming. keeps you thinking on your feet instead of just reading a script in your head. some folks run it through kendo ai or even things like secondnature or regie. makes it more like a ",
+        "score": 40,
+        "context": "Roleplaying sales calls with coworkers should be illegal.    \"i will not promote\""
+      },
+      {
+        "solution": "it resonates more than you know. I’ve been through the same loop: corporate comfort, startup failure, idea hopping, even the “maybe I just like ideation” phase. What helped me move forward was shifting the question from “which idea is best?” to “which one am I willing to suffer for, day after day, even when it’s not fun?”\n\nBuilding both sounds noble, but in reality, focus creates momentum. Pick the one where your *energy* naturally flows, even when it’s hard. Validation, economics, and market si",
+        "score": 2,
+        "context": "Can’t decide between two startup ideas or if to build at all- I will not promote"
+      }
+    ],
+    "themes": [
+      {
+        "item": "quality",
+        "count": 10
+      },
+      {
+        "item": "advanced",
+        "count": 5
+      },
+      {
+        "item": "comparison",
+        "count": 3
+      },
+      {
+        "item": "pricing",
+        "count": 1
+      }
+    ]
+  },
+  "analysis": {
+    "topicsCovered": [],
+    "topicsMissing": [],
+    "questionsCovered": [],
+    "questionsUnanswered": [
+      "Is AI SEO expensive for small businesses?",
+      "How to implement AI in SEO strategy?"
+    ],
+    "depthScore": 30,
+    "breadthScore": 30,
+    "gaps": [
+      {
+        "type": "unanswered_questions",
+        "priority": "high",
+        "items": [
+          "Is AI SEO expensive for small businesses?",
+          "How to implement AI in SEO strategy?"
+        ],
+        "recommendation": "Create dedicated sections answering these questions directly"
+      },
+      {
+        "type": "incomplete_answers",
+        "priority": "medium",
+        "items": [
+          {
+            "question": "How can small businesses use AI for SEO?",
+            "partialBy": "https://example.com/ai-seo-guide"
+          },
+          {
+            "question": "What are the best AI SEO tools for small businesses?",
+            "partialBy": "https://example.com/ai-seo-guide"
+          }
+        ],
+        "recommendation": "Expand coverage of these topics with more detail"
+      },
+      {
+        "type": "unaddressed_pain_points",
+        "priority": "high",
+        "items": [
+          {
+            "text": "Most entrepreneurs are still struggling with basic AI prompts. Meanwhile, this AI news reveals tools that can run entire companie",
+            "trigger": "struggling with"
+          },
+          {
+            "text": "es\n\nEnterprises face a unique challenge with AI presentation tools: they want the efficiency of automation without losing the bran",
+            "trigger": "challenge with"
+          },
+          {
+            "text": "ld have been a damaging trust issue with users.\n\n**Book Insight**\n\nIn *The Phoenix Project* by Gene Kim, Kevin Behr, and George Sp",
+            "trigger": "issue with"
+          },
+          {
+            "text": "’m excited about AI, but also worried about the future of web publishing.\n\nLLMs learn by reading the open web. But the web only th",
+            "trigger": "worried about"
+          },
+          {
+            "text": "l dropout could see this math doesn't work.\n\n# 5. I Built for Myself, Not Customers\n\nI made assumptions about what small businesse",
+            "trigger": "doesn't work"
+          },
+          {
+            "text": "g. Not because the technology doesn't work, but because they're approaching it completely wrong.\n\nThe biggest misconception is tha",
+            "trigger": "doesn't work"
+          },
+          {
+            "text": "nt to stop feeling, doing, or struggling with. Map pain clearly.\n* Primary Goals What they’re actively seeking—outcomes, progress,",
+            "trigger": "struggling with"
+          },
+          {
+            "text": "tartup founders, what are you struggling with when it comes to your GTM strategy? (I will not promote) When reading about the curr",
+            "trigger": "struggling with"
+          }
+        ],
+        "recommendation": "Address these user pain points with solutions"
+      },
+      {
+        "type": "missing_solutions",
+        "priority": "medium",
+        "items": [
+          {
+            "solution": "best way to get rid of that cringe training is to make it feel less fake. practicing with coworkers is like doing improv with someone who already knows your lines. the brain just checks out. what works better is running the same scenario against something that reacts different every time so you don’t know what’s coming. keeps you thinking on your feet instead of just reading a script in your head. some folks run it through kendo ai or even things like secondnature or regie. makes it more like a ",
+            "score": 40,
+            "context": "Roleplaying sales calls with coworkers should be illegal.    \"i will not promote\""
+          },
+          {
+            "solution": "it resonates more than you know. I’ve been through the same loop: corporate comfort, startup failure, idea hopping, even the “maybe I just like ideation” phase. What helped me move forward was shifting the question from “which idea is best?” to “which one am I willing to suffer for, day after day, even when it’s not fun?”\n\nBuilding both sounds noble, but in reality, focus creates momentum. Pick the one where your *energy* naturally flows, even when it’s hard. Validation, economics, and market si",
+            "score": 2,
+            "context": "Can’t decide between two startup ideas or if to build at all- I will not promote"
+          }
+        ],
+        "recommendation": "Include these proven solutions from community"
+      }
+    ],
+    "opportunities": [
+      {
+        "type": "featured_snippets",
+        "items": [
+          {
+            "format": "list",
+            "questions": [
+              "How to implement AI in SEO strategy?"
+            ]
+          },
+          {
+            "format": "table",
+            "questions": []
+          }
+        ],
+        "potential": "high",
+        "strategy": "Format content with clear definitions, lists, and tables"
+      },
+      {
+        "type": "content_depth",
+        "currentAverage": 330,
+        "recommended": 3000,
+        "potential": "high",
+        "strategy": "Create comprehensive guide exceeding competitor depth"
+      },
+      {
+        "type": "content_freshness",
+        "potential": "high",
+        "strategy": "Include latest 2025 data, trends, and examples"
+      }
+    ]
+  },
+  "outline": {
+    "title": "AI training for enterprise teams Fortune 500: The Ultimate Guide",
+    "sections": [
+      {
+        "title": "Quick Answer & Overview",
+        "points": [
+          "Direct answer to \"How can small businesses use AI for SEO?\"",
+          "5 key AI SEO strategies that work in 2025",
+          "Expected results and timeline"
+        ]
+      },
+      {
+        "title": "Answering Your Top Questions",
+        "points": [
+          "Has anybody lost their job in marketing because of AI?",
+          "Any marketers out there NOT using generative AI?",
+          "Ex-Marketers: What did you pivot to?",
+          "If you had 1000$ to spend on an online course, which one would you choose?",
+          "Can’t decide between two startup ideas or if to build at all- I will not promote"
+        ]
+      },
+      {
+        "title": "Solving Common Challenges",
+        "points": [
+          "Limited budget solutions",
+          "No technical expertise required",
+          "Time-saving automation strategies"
+        ]
+      },
+      {
+        "title": "AI SEO Tools Comparison (2025)",
+        "points": [
+          "Free vs paid options",
+          "Feature comparison matrix",
+          "ROI calculator for each tool"
+        ]
+      },
+      {
+        "title": "Step-by-Step Implementation",
+        "points": [
+          "Week 1: AI content audit",
+          "Week 2: Keyword research with AI",
+          "Week 3: Content optimization",
+          "Week 4: Performance tracking"
+        ]
+      },
+      {
+        "title": "Real Small Business Case Studies",
+        "points": [
+          "Local restaurant: 200% traffic increase",
+          "E-commerce store: 150% conversion boost",
+          "B2B service: 10x lead generation"
+        ]
+      },
+      {
+        "title": "Advanced Strategies",
+        "points": [
+          "Programmatic SEO with AI",
+          "Voice search optimization",
+          "AI-powered link building"
+        ]
+      }
+    ]
+  },
+  "metrics": {
+    "totalQuestions": 21,
+    "totalPainPoints": 8,
+    "totalSolutions": 2,
+    "depthScore": 30,
+    "breadthScore": 30
+  }
+}

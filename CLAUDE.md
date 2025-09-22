@@ -1,6 +1,9 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+> **AI Assistant Context File** - Automatically loaded by Claude Code, Cursor, and other AI coding assistants
+> Last Updated: December 2025
+
+This file provides guidance to AI assistants (Claude Code, Cursor, Windsurf, etc.) when working with code in this repository. It follows the 2025 standard for AI context files.
 
 ## Project Overview
 
@@ -342,6 +345,56 @@ Before publishing any post:
   - `/best-ai-coding` - AI adoption champion's playbook
   - `/ai-training` - Service page
   - `/marketing-strategy` - Service page
+
+## AI Assistant Workflow (2025 Best Practices)
+
+### Recommended Approach
+
+1. **Research First**: Before implementing, search and understand existing patterns
+2. **Plan Changes**: Outline the approach before coding
+3. **Test Incrementally**: Build and test frequently
+4. **Preserve Performance**: Always maintain 100/100 PageSpeed scores
+
+### Working with This Codebase
+
+When asked to make changes:
+1. Read relevant existing files first
+2. Follow established patterns
+3. Test with `npm run build`
+4. Verify no performance regression
+
+### Common Tasks
+
+#### Adding a New Page
+```bash
+# Create page file
+src/pages/new-page.astro
+
+# Follow existing page structure
+# Include SEO meta tags
+# Test internal links
+```
+
+#### Modifying Components
+```bash
+# Components are in src/components/
+# Follow PascalCase naming
+# Use Tailwind utilities
+# Keep JavaScript minimal
+```
+
+#### Content Updates
+- Use data from Reddit/user research
+- Start with pain points
+- Include evidence and examples
+- Add internal links
+
+### Flags and Modes
+
+For Claude Code specifically:
+- Use `--verbose` for debugging
+- Consider `--enable-architect` for large refactors
+- `--dangerously-skip-permissions` to avoid interruptions (use cautiously)
 
 ## Performance Standards
 

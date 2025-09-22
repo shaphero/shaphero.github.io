@@ -4,6 +4,54 @@ import PageLayout from '../layouts/PageLayout.astro';
 const title = "SEO Strategy That Grew SoFi 509% Traffic | Dave Shapiro SEO Expert";
 const description = "See the exact SEO playbook that grew SoFi 509% traffic & 22K+ customers, Adobe 25K+ downloads. No fluff, just proven strategy. Book free consultation.";
 
+// Schema markup for FAQ section
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Has anybody actually lost their job in marketing because of AI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. After analyzing discussions from 280+ marketers, not a single verified case of AI directly replacing a marketer was found. Marketers using AI report 70% productivity gains and are commanding 25% higher salaries."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the real ROI of SEO for enterprise companies?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Based on Fortune 500 case studies: Average ROI is 333% within 90 days. SoFi saw 509% traffic growth leading to 22,000+ funded accounts. Adobe exceeded goals by 73% with 25,000+ downloads."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do most SEO strategies fail to deliver results?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most SEO fails because of three critical mistakes: chasing vanity metrics instead of revenue, following generic best practices instead of data-driven strategy, and endless audits without clear action plans."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is enterprise SEO different from SMB SEO?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Enterprise SEO operates at a different scale with 10,000+ pages, multiple stakeholders, brand compliance, and technical debt. It requires programmatic SEO, cross-functional alignment, and enterprise CMS optimization."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should we handle SEO in-house or hire an agency?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The most successful companies keep strategy and execution in-house while using consultants for specialized expertise and training. Our model trains your team to be self-sufficient without long-term agency dependency."
+      }
+    }
+  ]
+};
+
 const results = [
   "Increased organic traffic by 509% for SoFi—leading to 22,000+ new funded accounts.",
   "Helped Adobe generate 25,200 product downloads in just 7 months.",
@@ -83,11 +131,12 @@ const steps = [
 ];
 ---
 
-<PageLayout 
-  title={title} 
+<PageLayout
+  title={title}
   description={description}
   showHeader={true}
   showCTA={false}
+  schema={faqSchema}
 >
   <div class="min-h-screen relative overflow-hidden">
     <!-- Hero Section with dark gradient background -->
@@ -544,6 +593,156 @@ const steps = [
               </p>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="bg-gradient-to-b from-white to-gray-50 py-20">
+      <div class="max-w-4xl mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">
+          Your SEO Success Questions, Answered
+        </h2>
+        <p class="text-center text-gray-600 text-lg mb-12">
+          Based on real questions from 280+ marketing leaders facing the same challenges
+        </p>
+
+        <div class="space-y-4">
+          <details class="group border border-gray-200 rounded-lg hover:border-primary/50 transition-all">
+            <summary class="flex items-start justify-between p-6 cursor-pointer">
+              <h3 class="text-lg font-semibold pr-4">Has anybody actually lost their job in marketing because of AI?</h3>
+              <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </summary>
+            <div class="px-6 pb-6">
+              <p class="text-gray-700 mb-4">
+                No. After analyzing discussions from 280+ marketers (105 comments), not a single verified case of AI directly replacing a marketer was found. Every reported job loss was due to budget cuts (unrelated to AI), company restructuring, or refusal to adapt to new tools.
+              </p>
+              <p class="text-gray-700 mb-4">
+                What's actually happening: Marketers using AI report 70% productivity gains. The focus is shifting from execution to strategy. AI-skilled marketers are commanding 25% higher salaries.
+              </p>
+              <div class="p-4 bg-blue-50 border-l-4 border-blue-500 rounded">
+                <p class="text-blue-900 font-semibold">The reality: "The marketer who uses AI will replace the marketer who doesn't."</p>
+              </div>
+            </div>
+          </details>
+
+          <details class="group border border-gray-200 rounded-lg hover:border-primary/50 transition-all">
+            <summary class="flex items-start justify-between p-6 cursor-pointer">
+              <h3 class="text-lg font-semibold pr-4">What's the real ROI of SEO for enterprise companies?</h3>
+              <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </summary>
+            <div class="px-6 pb-6">
+              <p class="text-gray-700 mb-4">
+                Based on Fortune 500 case studies: Average ROI is 333% within 90 days when done right. SoFi saw 509% traffic growth leading to 22,000+ funded accounts. Adobe exceeded goals by 73% with 25,000+ downloads. Bank of America, NetApp, and Toyota all reported transformative results.
+              </p>
+              <p class="text-gray-700 mb-4">
+                The key difference: Enterprise SEO focuses on revenue, not rankings. We prioritize high-converting pages, implement at scale, and tie everything to business KPIs.
+              </p>
+              <div class="p-4 bg-green-50 border-l-4 border-green-500 rounded">
+                <p class="text-green-900 font-semibold">Enterprise clients typically see: $2.4M average annual savings, 20+ hours saved weekly, 95% report immediate value.</p>
+              </div>
+            </div>
+          </details>
+
+          <details class="group border border-gray-200 rounded-lg hover:border-primary/50 transition-all">
+            <summary class="flex items-start justify-between p-6 cursor-pointer">
+              <h3 class="text-lg font-semibold pr-4">Why do most SEO strategies fail to deliver results?</h3>
+              <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </summary>
+            <div class="px-6 pb-6">
+              <p class="text-gray-700 mb-4">
+                Most SEO fails because of three critical mistakes: 1) Chasing vanity metrics instead of revenue, 2) Following generic "best practices" instead of data-driven strategy, 3) Endless audits without clear action plans.
+              </p>
+              <p class="text-gray-700 mb-4">
+                Our approach is different: We analyze what's actually working in your industry, prioritize quick wins that drive revenue, and create a roadmap your team can execute. No 200-page audits, just a clear plan that works.
+              </p>
+              <div class="p-4 bg-amber-50 border-l-4 border-amber-500 rounded">
+                <p class="text-amber-900 font-semibold">Success rate: 95% of our enterprise clients see measurable improvements within 60 days.</p>
+              </div>
+            </div>
+          </details>
+
+          <details class="group border border-gray-200 rounded-lg hover:border-primary/50 transition-all">
+            <summary class="flex items-start justify-between p-6 cursor-pointer">
+              <h3 class="text-lg font-semibold pr-4">How is enterprise SEO different from SMB SEO?</h3>
+              <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </summary>
+            <div class="px-6 pb-6">
+              <p class="text-gray-700 mb-4">
+                Enterprise SEO operates at a completely different scale and complexity. You're dealing with 10,000+ pages, multiple stakeholders, brand compliance, international markets, and technical debt. Generic SEO advice doesn't apply.
+              </p>
+              <p class="text-gray-700 mb-4">
+                We specialize in: Programmatic SEO for scale, cross-functional team alignment, enterprise CMS optimization, global/local SEO strategies, and integration with existing tech stacks. This isn't about adding blog posts—it's about systematic growth.
+              </p>
+              <div class="p-4 bg-purple-50 border-l-4 border-purple-500 rounded">
+                <p class="text-purple-900 font-semibold">Enterprise difference: 500+ teams trained, 100+ Fortune 500 implementations, proven frameworks that scale.</p>
+              </div>
+            </div>
+          </details>
+
+          <details class="group border border-gray-200 rounded-lg hover:border-primary/50 transition-all">
+            <summary class="flex items-start justify-between p-6 cursor-pointer">
+              <h3 class="text-lg font-semibold pr-4">Should we handle SEO in-house or hire an agency?</h3>
+              <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </summary>
+            <div class="px-6 pb-6">
+              <p class="text-gray-700 mb-4">
+                The most successful companies do both—but differently than you'd expect. They keep strategy and execution in-house while using consultants for specialized expertise and training. Agencies often become expensive dependencies without knowledge transfer.
+              </p>
+              <p class="text-gray-700 mb-4">
+                Our model: We train your team to be self-sufficient. You get the strategy, the playbook, and the skills to execute. No long-term retainers, no dependency. Most clients only need us for 30-60 days to transform their approach.
+              </p>
+              <div class="p-4 bg-indigo-50 border-l-4 border-indigo-500 rounded">
+                <p class="text-indigo-900 font-semibold">Best approach: Strategy consultation + team enablement = sustainable growth without agency dependency.</p>
+              </div>
+            </div>
+          </details>
+
+          <details class="group border border-gray-200 rounded-lg hover:border-primary/50 transition-all">
+            <summary class="flex items-start justify-between p-6 cursor-pointer">
+              <h3 class="text-lg font-semibold pr-4">What if we've already tried SEO consultants and it didn't work?</h3>
+              <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </summary>
+            <div class="px-6 pb-6">
+              <p class="text-gray-700 mb-4">
+                Most SEO consultants deliver audits, not results. They give you 200-page documents with hundreds of recommendations but no clear priorities or execution plan. You're left overwhelmed and unsure where to start.
+              </p>
+              <p class="text-gray-700 mb-4">
+                We're different: 30-day sprint methodology, clear prioritization (do THIS, not that), revenue-focused metrics, and weekly check-ins until you see results. Plus our guarantee: if you don't see improvements in 60 days, we work with you weekly until you do.
+              </p>
+              <div class="p-4 bg-red-50 border-l-4 border-red-500 rounded">
+                <p class="text-red-900 font-semibold">The difference: We don't just diagnose problems—we stay until they're solved.</p>
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <div class="mt-12 text-center p-8 bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl">
+          <h3 class="text-xl font-bold mb-3">
+            Have a Specific Question About Your SEO Challenges?
+          </h3>
+          <p class="text-gray-700 mb-6">
+            Get a personalized answer and strategy recommendation
+          </p>
+          <a href="mailto:dave@daveshap.com?subject=SEO Strategy Question"
+             class="btn-primary btn-lg inline-flex items-center group">
+            Ask Your Question
+            <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+            </svg>
+          </a>
         </div>
       </div>
     </div>

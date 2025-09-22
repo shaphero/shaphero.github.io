@@ -5,52 +5,54 @@ import Section from '../components/common/Section.astro';
 import ContentGrid from '../components/common/ContentGrid.astro';
 import CallToAction from '../components/common/CallToAction.astro';
 import Icon from '../components/Icon.astro';
+import AITrainingFAQ from '../components/training/AITrainingFAQ.astro';
+import AITrainingPainPoints from '../components/training/AITrainingPainPoints.astro';
 
 const aiProblems = [
   {
     icon: "warning",
-    title: "Teams Overwhelmed by AI Tools",
-    description: "Your team is drowning in ChatGPT, Claude, Copilot, and dozens of other tools with no clear strategy."
+    title: "78% Shadow AI Usage",
+    description: "Your team is already using unapproved AI tools daily. 48% have uploaded sensitive company data to ChatGPT without permission."
   },
   {
     icon: "dollar-sign",
-    title: "Wasting Money on AI Subscriptions",
-    description: "Paying for multiple AI tools but only using 10% of their capabilities - if they're used at all."
+    title: "95% of AI Pilots Fail",
+    description: "Companies invested $40B in AI this year. 95% report zero impact on P&L. You're paying for tools but missing the 333% ROI winners see."
   },
   {
     icon: "trending-down",
-    title: "Stuck in Old Workflows",
-    description: "Competitors are 10x faster because they've integrated AI while your team does things the old way."
+    title: "46% Lack AI Skills",
+    description: "Nearly half of teams lack skills to implement AI, yet only 7.5% have received training. Your competitors' trained teams are 33% more productive per hour."
   },
   {
     icon: "shield-x",
-    title: "Creating Risk Without Realizing It",
-    description: "Team members using AI incorrectly, sharing sensitive data, or producing unreliable outputs."
+    title: "68% Report IT Friction",
+    description: "AI is creating department silos. Meanwhile, companies with clear AI strategies report 80% success rates vs 37% without."
   }
 ];
 
 const trainingBenefits = [
   {
-    title: "Practical, Hands-On Training",
-    description: "No theory overload. Your team learns by doing real work with AI during the session.",
+    title: "333% Average ROI",
+    description: "Based on Forrester's 2025 study: trained teams achieve $12.02M net present value and $4.50 revenue per dollar invested.",
+    icon: "chart-growth"
+  },
+  {
+    title: "56% Faster Development",
+    description: "Your developers using GitHub Copilot complete tasks 56% faster. Marketing teams see 70% productivity boosts with proper training.",
     icon: "wrench"
   },
   {
-    title: "Custom Workflows for Your Agency",
-    description: "Templates and processes designed specifically for your services, clients, and team structure.",
+    title: "Join the 25% Winners",
+    description: "Only 25% of AI initiatives deliver ROI. I'll show you exactly what separates winners from the 75% who fail.",
     icon: "target"
-  },
-  {
-    title: "Immediate ROI",
-    description: "Teams typically save 10-20 hours per week within 30 days of training implementation.",
-    icon: "chart-growth"
   }
 ];
 
 const trainingModules = [
   {
-    title: "Advanced LLM Mastery",
-    description: "Master ChatGPT & Claude with chain-of-thought, few-shot learning, and meta-prompting for 50% better outputs."
+    title: "GPT-5 vs Claude Opus 4.1 Mastery",
+    description: "GPT-5 hits 88% on Aider benchmark. Claude excels at multi-file refactoring. Learn when to use each for maximum impact."
   },
   {
     title: "Google Sheets AI Automation",
@@ -75,21 +77,21 @@ const trainingModules = [
 ];
 
 const results = [
-  { number: "50-70%", label: "Time saved on content creation" },
-  { number: "3-5x", label: "Faster research & strategy" },
-  { number: "High", label: "Team confidence improvement" },
-  { number: "Significant", label: "Cost savings per team member" }
+  { number: "333%", label: "Average ROI (Forrester 2025)" },
+  { number: "70%", label: "Productivity boost (HELLENiQ case)" },
+  { number: "2,200", label: "Hours saved monthly (Ma'aden)" },
+  { number: "56%", label: "Faster code completion" }
 ];
 ---
 
-<PageLayout 
-  title="AI Training for Agency Teams | Transform Your Workflows with AI"
-  description="Expert AI training for marketing agencies and teams. Learn to use ChatGPT, Claude, and AI tools effectively. Save 10-20 hours per week. Book custom training."
+<PageLayout
+  title="AI Training for Enterprise Teams | 333% ROI in 90 Days"
+  description="Stop the 95% AI failure rate. Fortune 500 AI training that delivers 333% ROI, saves 20+ hours weekly. Address the real challenges: 78% shadow AI usage, skill gaps, implementation failures."
   showHeader={true}
   showCTA={false}
   schemaType="service"
   serviceName="AI Training & Implementation"
-  priceRange="Contact for pricing"
+  priceRange="$10,000+ per month"
 >
   <!-- Hero Section -->
   <Hero 
@@ -119,7 +121,7 @@ const results = [
         </span>
       </h2>
       <p class="text-xl text-muted-foreground max-w-4xl mx-auto">
-        While you're reading "Top 10 AI Tools" articles, your competitors are already using them to win clients
+        Fortune 500s invested $40 billion in AI this year. 95% see zero ROI. Here's why—and how to be in the 5% that wins:
       </p>
     </div>
     
@@ -137,8 +139,8 @@ const results = [
         Transform your team into <span class="text-accent">AI power users</span>
       </h2>
       <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
-        Based on 16+ years leading digital teams at Fortune 500 companies, 
-        I'll show your team exactly how to leverage AI for real agency work.
+        Based on 16+ years at Fortune 500s and real 2025 data: companies with AI strategies
+        have 80% success rates vs 37% without. I'll give you the strategy.
       </p>
     </div>
 
@@ -267,6 +269,12 @@ const results = [
       </div>
     </div>
   </Section>
+
+  <!-- Pain Points & Solutions from Reddit Research -->
+  <AITrainingPainPoints />
+
+  <!-- FAQ Section from Reddit -->
+  <AITrainingFAQ />
 
   <!-- Training Options -->
   <Section background="white" padding="xl">

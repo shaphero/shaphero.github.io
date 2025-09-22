@@ -1,0 +1,133 @@
+---
+// FAQ Section based on real Reddit questions
+const faqs = [
+  {
+    question: "How do consultants remain viable with AI?",
+    answer: "By becoming AI implementation experts, not just advisors. I help companies achieve 333% ROI with AI by focusing on actual workflow automation, not theoretical frameworks. The key is hands-on implementation that delivers measurable results within 30 days.",
+    upvotes: 46
+  },
+  {
+    question: "What's the real ROI of AI consulting for Fortune 500s?",
+    answer: "My clients typically see 333% ROI within 6 months. Example: A Fortune 500 saved 20+ hours per week per team member through AI workflow automation, resulting in $2.4M annual savings. The key is focusing on high-impact, repeatable processes.",
+    upvotes: 41
+  },
+  {
+    question: "How long before AI implementation shows results?",
+    answer: "First wins in 7-14 days, significant impact by 30 days, full ROI within 90 days. I use a phased approach: Week 1-2: Quick wins with existing tools. Week 3-4: Custom workflows. Month 2-3: Scale and optimize. No endless pilots—just rapid implementation.",
+    upvotes: 32
+  },
+  {
+    question: "Why do 95% of Fortune 500 AI projects fail?",
+    answer: "Three main reasons: 1) Starting too big instead of proving value quickly, 2) Focusing on technology instead of workflow integration, 3) Lack of employee training and adoption. I solve this with my 30-60-90 day implementation framework that ensures adoption and ROI.",
+    upvotes: 26
+  },
+  {
+    question: "What makes your approach different from other AI consultants?",
+    answer: "I'm a practitioner, not a theorist. Former CMO who's actually implemented AI at scale. I don't sell 6-month discovery phases—I deliver working solutions in 30 days. Plus, I train your team to be self-sufficient, not dependent on consultants forever.",
+    upvotes: 15
+  }
+];
+---
+
+<section class="py-20 px-6 bg-gradient-to-b from-gray-900 to-gray-950">
+  <div class="max-w-4xl mx-auto">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+        Your Questions, Answered
+      </h2>
+      <p class="text-gray-400 text-lg">
+        Based on 100+ conversations with Fortune 500 leaders
+      </p>
+    </div>
+
+    <div class="space-y-4">
+      {faqs.map((faq, index) => (
+        <details class="group bg-gray-800/50 backdrop-blur-sm rounded-xl border border-gray-700 hover:border-primary/50 transition-all duration-300">
+          <summary class="flex items-start justify-between p-6 cursor-pointer">
+            <div class="flex-1">
+              <h3 class="text-lg font-semibold text-white group-hover:text-primary transition-colors">
+                {faq.question}
+              </h3>
+              <span class="inline-flex items-center gap-1 mt-2 text-xs text-gray-500">
+                <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M2 10.5a1.5 1.5 0 113 0v6a1.5 1.5 0 01-3 0v-6zM6 10.333v5.43a2 2 0 001.106 1.79l.05.025A4 4 0 008.943 18h5.416a2 2 0 001.962-1.608l1.2-6A2 2 0 0015.56 8H12V4a2 2 0 00-2-2 1 1 0 00-1 1v.667a4 4 0 01-.8 2.4L6.8 7.933a4 4 0 00-.8 2.4z"></path>
+                </svg>
+                {faq.upvotes} found this helpful
+              </span>
+            </div>
+            <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </summary>
+          <div class="px-6 pb-6">
+            <p class="text-gray-300 leading-relaxed">
+              {faq.answer}
+            </p>
+          </div>
+        </details>
+      ))}
+    </div>
+
+    <div class="mt-8 text-center">
+      <p class="text-sm text-gray-500 mb-4">
+        Have a specific question about AI implementation?
+      </p>
+      <a href="mailto:dave@daveshap.com?subject=AI Implementation Question"
+         class="inline-flex items-center gap-2 px-6 py-3 bg-primary hover:bg-primary-dark text-white rounded-lg transition-all duration-300 hover:scale-105">
+        Ask Your Question
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do consultants remain viable with AI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "By becoming AI implementation experts, not just advisors. I help companies achieve 333% ROI with AI by focusing on actual workflow automation, not theoretical frameworks. The key is hands-on implementation that delivers measurable results within 30 days."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the real ROI of AI consulting for Fortune 500s?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "My clients typically see 333% ROI within 6 months. Example: A Fortune 500 saved 20+ hours per week per team member through AI workflow automation, resulting in $2.4M annual savings. The key is focusing on high-impact, repeatable processes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long before AI implementation shows results?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "First wins in 7-14 days, significant impact by 30 days, full ROI within 90 days. I use a phased approach: Week 1-2: Quick wins with existing tools. Week 3-4: Custom workflows. Month 2-3: Scale and optimize. No endless pilots—just rapid implementation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do 95% of Fortune 500 AI projects fail?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Three main reasons: 1) Starting too big instead of proving value quickly, 2) Focusing on technology instead of workflow integration, 3) Lack of employee training and adoption. I solve this with my 30-60-90 day implementation framework that ensures adoption and ROI."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What makes your approach different from other AI consultants?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "I'm a practitioner, not a theorist. Former CMO who's actually implemented AI at scale. I don't sell 6-month discovery phases—I deliver working solutions in 30 days. Plus, I train your team to be self-sufficient, not dependent on consultants forever."
+      }
+    }
+  ]
+}
+</script>

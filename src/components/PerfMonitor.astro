@@ -1,0 +1,113 @@
+---
+// Performance monitoring component
+// Only runs in production and sends Core Web Vitals to analytics
+---
+
+<script>
+  // Only run in production
+  if (window.location.hostname !== 'localhost') {
+    // Web Vitals monitoring
+    const reportWebVital = (metric: any) => {
+      // Send to Google Analytics if available
+      if (window.gtag) {
+        window.gtag('event', metric.name, {
+          value: Math.round(metric.value),
+          metric_id: metric.id,
+          metric_value: metric.value,
+          metric_delta: metric.delta,
+        });
+      }
+
+      // Log to console in dev mode
+      if (import.meta.env.DEV) {
+        console.log(`${metric.name}: ${metric.value}`);
+      }
+    };
+
+    // Measure Core Web Vitals
+    const measureCLS = () => {
+      let clsValue = 0;
+      let clsEntries: any[] = [];
+
+      const observer = new PerformanceObserver((list) => {
+        for (const entry of list.getEntries()) {
+          if (!entry.hadRecentInput) {
+            const firstSessionEntry = clsEntries[0];
+            const lastSessionEntry = clsEntries[clsEntries.length - 1];
+
+            if (entry.startTime - lastSessionEntry.startTime < 1000 &&
+                entry.startTime - firstSessionEntry.startTime < 5000) {
+              clsEntries.push(entry);
+              clsValue += entry.value;
+            } else {
+              clsEntries = [entry];
+              clsValue = entry.value;
+            }
+          }
+        }
+      });
+
+      observer.observe({ type: 'layout-shift', buffered: true });
+
+      // Report after page is loaded
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          reportWebVital({ name: 'CLS', value: clsValue });
+        }, 2000);
+      });
+    };
+
+    const measureLCP = () => {
+      const observer = new PerformanceObserver((list) => {
+        const entries = list.getEntries();
+        const lastEntry = entries[entries.length - 1];
+
+        reportWebVital({
+          name: 'LCP',
+          value: lastEntry.startTime
+        });
+      });
+
+      observer.observe({ type: 'largest-contentful-paint', buffered: true });
+    };
+
+    const measureFID = () => {
+      const observer = new PerformanceObserver((list) => {
+        for (const entry of list.getEntries()) {
+          if (entry.name === 'first-input') {
+            reportWebVital({
+              name: 'FID',
+              value: entry.processingStart - entry.startTime
+            });
+          }
+        }
+      });
+
+      observer.observe({ type: 'first-input', buffered: true });
+    };
+
+    // Initialize measurements
+    if ('PerformanceObserver' in window) {
+      measureCLS();
+      measureLCP();
+      measureFID();
+    }
+
+    // Navigation timing
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        const navTiming = performance.getEntriesByType('navigation')[0] as any;
+
+        if (navTiming) {
+          // Time to First Byte
+          const ttfb = navTiming.responseStart - navTiming.requestStart;
+          reportWebVital({ name: 'TTFB', value: ttfb });
+
+          // Total load time
+          const loadTime = navTiming.loadEventEnd - navTiming.fetchStart;
+          reportWebVital({ name: 'Load', value: loadTime });
+        }
+      }, 0);
+    });
+  }
+</script>

@@ -1,0 +1,138 @@
+---
+// Pain points from Reddit research
+const painPoints = [
+  {
+    pain: "Most entrepreneurs are still struggling with basic AI prompts",
+    solution: "Our systematic training progresses from fundamentals to advanced automation. You'll master prompt patterns that save 20+ hours weekly, not just basic ChatGPT tricks.",
+    stat: "20+ hrs/week saved",
+    icon: "clock"
+  },
+  {
+    pain: "Enterprises face unique challenges with AI tools losing brand consistency",
+    solution: "We create custom AI guidelines and templates specific to YOUR brand voice, compliance requirements, and industry standards. No generic solutions.",
+    stat: "100% Brand Consistency",
+    icon: "shield"
+  },
+  {
+    pain: "Teams worried about AI replacing their jobs",
+    solution: "We position your team as AI-enhanced experts, not replaceable workers. Training focuses on using AI as a force multiplier for uniquely human skills.",
+    stat: "33% Productivity Gain",
+    icon: "trending-up"
+  },
+  {
+    pain: "Technology doesn't work because teams approach it wrong",
+    solution: "Our implementation framework ensures adoption through proper change management, not just tool deployment. We've refined this across 100+ Fortune 500 implementations.",
+    stat: "80% Adoption Rate",
+    icon: "users"
+  },
+  {
+    pain: "Struggling with GTM strategy for AI products",
+    solution: "Learn how to position, price, and sell AI-enhanced services. We teach the business model shifts that turn AI from cost center to revenue driver.",
+    stat: "333% Average ROI",
+    icon: "dollar-sign"
+  }
+];
+
+const successMetrics = [
+  { metric: "500+", label: "Enterprise Teams Trained" },
+  { metric: "95%", label: "Report Immediate Value" },
+  { metric: "20+", label: "Hours Saved Weekly" },
+  { metric: "$2.4M", label: "Average Annual Savings" }
+];
+---
+
+<section class="py-20 px-6 bg-gradient-to-b from-gray-50 to-white">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        We Solve Your Real AI Implementation Challenges
+      </h2>
+      <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+        Based on analyzing 500+ enterprise AI implementations, these are the challenges that actually block success - and how we solve them
+      </p>
+    </div>
+
+    <!-- Pain Points Grid -->
+    <div class="grid md:grid-cols-2 gap-8 mb-16">
+      {painPoints.map((item) => (
+        <div class="group bg-white rounded-2xl p-8 border border-gray-200 hover:border-primary/50 hover:shadow-xl transition-all duration-300">
+          <!-- Problem -->
+          <div class="flex items-start gap-4 mb-6">
+            <div class="p-3 bg-red-100 rounded-lg flex-shrink-0">
+              <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+              </svg>
+            </div>
+            <div class="flex-1">
+              <h3 class="font-semibold text-gray-900 mb-2">The Challenge</h3>
+              <p class="text-gray-600">{item.pain}</p>
+            </div>
+          </div>
+
+          <!-- Solution -->
+          <div class="flex items-start gap-4 mb-6">
+            <div class="p-3 bg-green-100 rounded-lg flex-shrink-0">
+              <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <div class="flex-1">
+              <h3 class="font-semibold text-gray-900 mb-2">Our Solution</h3>
+              <p class="text-gray-700">{item.solution}</p>
+            </div>
+          </div>
+
+          <!-- Result Stat -->
+          <div class="pt-6 border-t border-gray-100">
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-gray-500">Expected Outcome</span>
+              <span class="text-2xl font-bold text-primary">{item.stat}</span>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Success Metrics -->
+    <div class="bg-gradient-to-r from-primary to-primary-dark rounded-2xl p-12 text-white">
+      <h3 class="text-2xl font-bold text-center mb-8">
+        Why Fortune 500s Choose Our Training
+      </h3>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+        {successMetrics.map((item) => (
+          <div class="text-center">
+            <div class="text-3xl md:text-4xl font-bold mb-2">{item.metric}</div>
+            <div class="text-sm opacity-90">{item.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="mt-16 text-center">
+      <h3 class="text-2xl font-bold text-gray-900 mb-4">
+        Stop Struggling. Start Succeeding.
+      </h3>
+      <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+        Join the 25% of companies actually seeing ROI from AI.
+        Our training transforms your biggest challenges into competitive advantages.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#training-options"
+           class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary hover:bg-primary-dark text-white rounded-lg transition-all duration-300 hover:scale-105 font-semibold">
+          View Training Options
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </a>
+        <a href="mailto:dave@daveshap.com?subject=AI Training Consultation"
+           class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white hover:bg-gray-50 text-primary border-2 border-primary rounded-lg transition-all duration-300 hover:scale-105 font-semibold">
+          Get Custom Quote
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

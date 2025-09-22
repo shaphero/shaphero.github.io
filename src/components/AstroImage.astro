@@ -1,0 +1,76 @@
+---
+import { Image } from 'astro:assets';
+
+export interface Props {
+  src: ImageMetadata | string;
+  alt: string;
+  width?: number;
+  height?: number;
+  loading?: 'lazy' | 'eager';
+  class?: string;
+  sizes?: string;
+  widths?: number[];
+  formats?: Array<'webp' | 'avif' | 'png' | 'jpg'>;
+  quality?: number;
+  fetchpriority?: 'high' | 'low' | 'auto';
+}
+
+const {
+  src,
+  alt,
+  width,
+  height,
+  loading = 'lazy',
+  class: className = '',
+  sizes = '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 800px',
+  widths = [400, 800, 1200], // Responsive sizes
+  formats = ['avif', 'webp'],  // Modern formats first
+  quality = 85,
+  fetchpriority = 'auto'
+} = Astro.props;
+
+// For local images, use direct import
+const isLocalImage = typeof src === 'string' && !src.startsWith('http');
+---
+
+{isLocalImage ? (
+  <Image
+    src={src}
+    alt={alt}
+    width={width}
+    height={height}
+    loading={loading}
+    class={className}
+    widths={widths}
+    sizes={sizes}
+    formats={formats}
+    quality={quality}
+    fetchpriority={fetchpriority}
+    decoding="async"
+  />
+) : (
+  <!-- For remote images, use optimized picture element -->
+  <picture>
+    <source
+      type="image/avif"
+      srcset={`${src}?fm=avif&q=${quality}`}
+      sizes={sizes}
+    />
+    <source
+      type="image/webp"
+      srcset={`${src}?fm=webp&q=${quality}`}
+      sizes={sizes}
+    />
+    <img
+      src={src}
+      alt={alt}
+      width={width}
+      height={height}
+      loading={loading}
+      class={className}
+      decoding="async"
+      fetchpriority={fetchpriority}
+      sizes={sizes}
+    />
+  </picture>
+)}
