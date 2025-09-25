@@ -259,14 +259,14 @@ const enablementStack = [
   </section>
 
   <!-- Fresh Research Component -->
-  <Section background="white" padding="lg">
+  <Section background="white" padding="md" paddingX="responsive">
     <div class="max-w-6xl mx-auto">
       <FreshROIResearch />
     </div>
   </Section>
 
   <!-- The Shocking Data Section -->
-  <Section background="white" padding="xl">
+  <Section background="white" padding="xl" paddingX="responsive">
     <div class="max-w-5xl mx-auto">
       <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">
         The Data Vendors <span class="text-red-600">Don't Want You to See</span>
@@ -326,7 +326,7 @@ const enablementStack = [
   </Section>
 
   <!-- Latest Research Signal Cards -->
-  <Section background="cream" padding="xl">
+  <Section background="cream" padding="lg" paddingX="responsive">
     <div class="max-w-6xl mx-auto">
       <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">
         2025 Enterprise AI <span class="text-blue-600">Signal Board</span>
@@ -336,7 +336,7 @@ const enablementStack = [
         before you authorize another seven-figure "transformation" budget.
       </p>
 
-      <div class="grid gap-6 md:grid-cols-2">
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
         {latestResearchSignals.map((signal) => (
           <div class="h-full bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-xl transition-all p-6 flex flex-col">
             <div class="mb-3 text-sm uppercase tracking-wide text-blue-600 font-semibold">
@@ -357,7 +357,7 @@ const enablementStack = [
   </Section>
 
   <!-- ROI Measurement Scorecard -->
-  <Section background="white" padding="xl">
+  <Section background="white" padding="lg" paddingX="responsive">
     <div class="max-w-5xl mx-auto">
       <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">
         The <span class="text-green-600">ROI Measurement Scorecard</span> I Use With CFOs
@@ -368,32 +368,34 @@ const enablementStack = [
       </p>
 
       <div class="overflow-hidden rounded-xl border border-gray-200 shadow-md">
-        <table class="w-full text-left text-sm md:text-base">
-          <thead class="bg-gray-50">
-            <tr class="text-gray-500 uppercase text-xs tracking-wider">
-              <th class="px-6 py-4">Metric</th>
-              <th class="px-6 py-4">Benchmark</th>
-              <th class="px-6 py-4">How We Measure</th>
-              <th class="px-6 py-4">Warning Light</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-gray-100">
-            {measurementScorecard.map((row) => (
-              <tr class="bg-white hover:bg-green-50 transition-colors">
-                <td class="px-6 py-4 font-semibold text-gray-900">{row.metric}</td>
-                <td class="px-6 py-4 text-gray-700">{row.benchmark}</td>
-                <td class="px-6 py-4 text-gray-600">{row.howToMeasure}</td>
-                <td class="px-6 py-4 text-red-600 font-medium">{row.warning}</td>
+        <div class="overflow-x-auto">
+          <table class="w-full min-w-[640px] text-left text-xs sm:text-sm md:text-base">
+            <thead class="bg-gray-50">
+              <tr class="text-gray-500 uppercase text-xs tracking-wider">
+                <th class="px-6 py-4">Metric</th>
+                <th class="px-6 py-4">Benchmark</th>
+                <th class="px-6 py-4">How We Measure</th>
+                <th class="px-6 py-4">Warning Light</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              {measurementScorecard.map((row) => (
+                <tr class="bg-white hover:bg-green-50 transition-colors">
+                  <td class="px-6 py-4 font-semibold text-gray-900">{row.metric}</td>
+                  <td class="px-6 py-4 text-gray-700">{row.benchmark}</td>
+                  <td class="px-6 py-4 text-gray-600">{row.howToMeasure}</td>
+                  <td class="px-6 py-4 text-red-600 font-medium">{row.warning}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </Section>
 
   <!-- ROI Readiness Checklist -->
-  <Section background="cream" padding="lg">
+  <Section background="cream" padding="md" paddingX="responsive">
     <div class="max-w-4xl mx-auto">
       <h2 class="text-3xl font-bold mb-4 text-center">Four-Question <span class="text-blue-600">ROI Readiness</span> Test</h2>
       <p class="text-center text-gray-600 mb-8">
@@ -408,14 +410,14 @@ const enablementStack = [
   </Section>
 
   <!-- Enablement Stack -->
-  <Section background="white" padding="lg">
+  <Section background="white" padding="lg" paddingX="responsive">
     <div class="max-w-5xl mx-auto">
       <h2 class="text-3xl font-bold text-center mb-4">What "Production Ready" Looks Like</h2>
       <p class="text-center text-gray-600 text-lg mb-10">
         Everyone talks about "platforms." The operators who win draw a stack that non-technical leaders understand.
       </p>
 
-      <div class="grid gap-6 md:grid-cols-2">
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {enablementStack.map((layer) => (
           <div class="p-6 rounded-2xl border border-gray-200 shadow-sm bg-gradient-to-br from-white to-gray-50">
             <p class="text-xs uppercase tracking-widest text-gray-400 mb-2">{layer.layer}</p>
@@ -429,7 +431,7 @@ const enablementStack = [
   </Section>
 
   <!-- What Vendors Won't Tell You -->
-  <div style="background-color: #111827;" class="py-32 px-6">
+  <div class="bg-gray-900 py-24 px-4 sm:px-6 lg:px-8">
     <div class="max-w-4xl mx-auto text-white">
       <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">
         Vendor Promises vs. <span class="text-red-500">Reality Check</span>
@@ -437,7 +439,7 @@ const enablementStack = [
 
       <div class="space-y-6">
         {whatVendorsWontTell.map((item, index) => (
-          <div class="backdrop-blur rounded-xl p-6 border hover:border-red-500/50 transition-all" style="background-color: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.1);">
+          <div class="backdrop-blur rounded-xl p-6 border border-white/10 bg-white/5 hover:border-red-500/40 transition-all">
             <div class="grid md:grid-cols-2 gap-6">
               <div>
                 <p class="text-red-400 font-semibold mb-2">❌ What They Tell You:</p>
@@ -453,7 +455,7 @@ const enablementStack = [
         ))}
       </div>
 
-      <div class="mt-12 p-8 rounded-xl border border-red-500/30" style="background: linear-gradient(to right, rgba(127, 29, 29, 0.5), rgba(154, 52, 18, 0.5));">
+      <div class="mt-12 rounded-xl border border-red-500/30 bg-gradient-to-r from-rose-900/60 via-red-900/60 to-amber-900/60 p-8">
         <h3 class="text-2xl font-bold mb-4">The $20 Million Reality Check</h3>
         <p class="text-lg mb-4">
           Gartner says generative AI transformation costs $5-20 million. Not $50K. Not $100K.

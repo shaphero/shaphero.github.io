@@ -3,17 +3,19 @@ export interface Props {
   id?: string;
   background?: 'white' | 'cream' | 'gradient' | 'transparent';
   padding?: 'sm' | 'md' | 'lg' | 'xl';
+  paddingX?: 'none' | 'compact' | 'responsive';
   maxWidth?: 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '4xl' | '6xl' | '7xl';
   center?: boolean;
 }
 
-const { 
+const {
   id,
   background = 'white',
   padding = 'lg',
+  paddingX = 'responsive',
   maxWidth = '6xl',
   center = true
-} = Astro.props;
+} = Astro.props as Props;
 
 const bgClasses = {
   white: 'bg-white',
@@ -27,6 +29,12 @@ const paddingClasses = {
   md: 'py-16', 
   lg: 'py-20',
   xl: 'py-32'
+};
+
+const paddingXClasses = {
+  none: '',
+  compact: 'px-4 sm:px-6',
+  responsive: 'px-4 sm:px-6 lg:px-8'
 };
 
 const maxWidthClasses = {
@@ -43,7 +51,7 @@ const maxWidthClasses = {
 
 <section 
   id={id}
-  class={`${bgClasses[background]} ${paddingClasses[padding]} px-6 relative overflow-hidden`}
+  class={`${bgClasses[background]} ${paddingClasses[padding]} ${paddingXClasses[paddingX]} relative overflow-hidden`}
 >
   <div class={`${maxWidthClasses[maxWidth]} ${center ? 'mx-auto' : ''}`}>
     <slot />
