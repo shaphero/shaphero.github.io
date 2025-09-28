@@ -114,9 +114,9 @@ Focus on:
     if (patterns.failures > patterns.successes * 2) {
       const confidence = Math.min(0.9, 0.55 + (patterns.failures / Math.max(1, patterns.failures + patterns.successes)) * 0.35);
       const snippet = this.buildPatternSnippet(chunks, Array.from(patterns.failureChunks)[0], 'fail');
-      const referenceIds = Array.from(patterns.failureChunks)
-        .map(id => chunkCitationMap.get(id))
-        .filter(Boolean) as string[];
+      const referenceIds = this.uniqueIds(
+        Array.from(patterns.failureChunks).map(id => chunkCitationMap.get(id))
+      );
       insights.push({
         type: 'risk',
         title: 'High Failure Rate Detected',
@@ -138,9 +138,9 @@ Focus on:
         const supportingIds = costMentions.map(stat => stat.chunkId).slice(0, 5);
         const snippet = costMentions[0]?.snippet;
         const confidence = Math.min(0.95, 0.65 + supportingIds.length * 0.05);
-        const referenceIds = supportingIds
-          .map(id => chunkCitationMap.get(id))
-          .filter(Boolean) as string[];
+        const referenceIds = this.uniqueIds(
+          supportingIds.map(id => chunkCitationMap.get(id))
+        );
         insights.push({
           type: 'controversy',
           title: 'Wide Cost Variance Detected',
@@ -159,10 +159,11 @@ Focus on:
       if (mentions.length > 2) {
         const confidence = Math.min(0.9, 0.6 + mentions.length * 0.05);
         const snippet = this.extractSnippetFromContent(mentions[0].content, mentions[0].content.toLowerCase().indexOf(keyword));
-        const referenceIds = mentions
-          .map(c => chunkCitationMap.get(c.id))
-          .filter(Boolean)
-          .slice(0, 3) as string[];
+        const referenceIds = this.uniqueIds(
+          mentions
+            .map(c => chunkCitationMap.get(c.id))
+            .slice(0, 3)
+        );
         insights.push({
           type: 'opportunity',
           title: `Pattern: "${keyword}" approach shows promise`,
@@ -310,10 +311,11 @@ Focus on:
         citationIds: i.referenceIds || []
       }));
 
-      const allReferenceIds = insights
-        .slice(0, 5)
-        .flatMap(i => i.referenceIds || [])
-        .filter((id, idx, arr) => arr.indexOf(id) === idx);
+      const allReferenceIds = this.uniqueIds(
+        insights
+          .slice(0, 5)
+          .flatMap(i => i.referenceIds || [])
+      );
 
       sections.push({
         heading: 'Critical Findings',
@@ -333,10 +335,11 @@ Focus on:
     const costChunks = chunks.filter(c => /\$[\d,]+[KMB]?/.test(c.content));
     if (costChunks.length > 0) {
       const costInsight = insights.find(i => i.type === 'controversy' && i.title.includes('Cost'));
-      const costReferenceIds = costChunks
-        .slice(0, 5)
-        .map(c => chunkCitationMap.get(c.id))
-        .filter(Boolean) as string[];
+      const costReferenceIds = this.uniqueIds(
+        costChunks
+          .slice(0, 5)
+          .map(c => chunkCitationMap.get(c.id))
+      );
       sections.push({
         heading: 'Cost Reality Check',
         level: 1,
@@ -350,10 +353,11 @@ Focus on:
     const successChunks = chunks.filter(c => /success|achieve|roi positive/i.test(c.content));
     if (successChunks.length > 0) {
       const successInsight = insights.find(i => i.type === 'opportunity');
-      const successReferenceIds = successChunks
-        .slice(0, 5)
-        .map(c => chunkCitationMap.get(c.id))
-        .filter(Boolean) as string[];
+      const successReferenceIds = this.uniqueIds(
+        successChunks
+          .slice(0, 5)
+          .map(c => chunkCitationMap.get(c.id))
+      );
       sections.push({
         heading: 'Success Patterns',
         level: 1,
@@ -560,6 +564,12 @@ Focus on:
     const end = endBoundary === -1 ? content.length : endBoundary + 1;
     const snippet = content.slice(start, end).replace(/\s+/g, ' ').trim();
     return snippet.substring(0, 280);
+  }
+
+  private uniqueIds(ids: Array<string | undefined>): string[] {
+    return Array.from(
+      new Set(ids.filter((id): id is string => typeof id === 'string' && id.length > 0))
+    );
   }
 
   private stringHash(value: string): number {

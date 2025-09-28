@@ -33,3 +33,6 @@ image-usage-report.txt
 content-generator/node_modules/
 content-generator/generated-content/
 content-generator/.env
+
+# Pipeline caches
+.cache/

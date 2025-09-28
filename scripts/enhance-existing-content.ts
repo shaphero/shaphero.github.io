@@ -1,7 +1,11 @@
 #!/usr/bin/env node
 
-import { ResearchAgent } from '../src/lib/content-pipeline';
+import { ClaudeResearchAgent } from '../src/lib/content-pipeline/claude-research-agent';
 import { ContentFormatter } from '../src/lib/content-pipeline/formatter';
+import { FileCache } from '../src/lib/content-pipeline/cache';
+import { VectorStore } from '../src/lib/content-pipeline/vector-store';
+import type { PipelineConfig } from '../src/lib/content-pipeline/config';
+import { RealDataCollector } from '../src/lib/content-pipeline/real-data-collector';
 import * as fs from 'fs';
 import * as path from 'path';
 
@@ -32,12 +36,14 @@ async function enhanceContent() {
   console.log('🚀 Content Enhancement Pipeline\n');
   console.log('This will research and generate enhanced versions of existing pages.\n');
 
+  const pipelineConfig = loadConfig();
+
   for (const page of pagesToEnhance) {
     console.log(`\n📄 Enhancing: ${page.path}`);
     console.log(`   Research focus: ${page.focus}`);
 
     try {
-      const agent = new ResearchAgent(loadConfig());
+      const agent = createResearchAgent(pipelineConfig);
       const result = await agent.research({
         keyword: page.keyword,
         depth: 'comprehensive',
@@ -72,17 +78,38 @@ async function enhanceContent() {
   console.log('4. Add new citations and sources');
 }
 
-function loadConfig() {
+function loadConfig(): PipelineConfig | undefined {
   const configPath = path.resolve('content-generator/config.json');
   if (fs.existsSync(configPath)) {
     try {
       const raw = fs.readFileSync(configPath, 'utf-8');
-      return JSON.parse(raw);
+      return JSON.parse(raw) as PipelineConfig;
     } catch (error) {
       console.warn('⚠️ Failed to parse config.json:', error);
     }
   }
-  return {};
+  return undefined;
+}
+
+function createResearchAgent(config?: PipelineConfig) {
+  const dependencies: {
+    collector?: RealDataCollector;
+    vectorStore?: VectorStore;
+  } = {};
+
+  if (config?.cache) {
+    dependencies.collector = new RealDataCollector({
+      cache: config.cache.baseDir ? new FileCache(config.cache.baseDir) : undefined,
+      serpTtlMs: config.cache.serpTtlMs,
+      scrapeTtlMs: config.cache.scrapeTtlMs
+    });
+  }
+
+  if (config?.vectorDb) {
+    dependencies.vectorStore = new VectorStore(config.vectorDb);
+  }
+
+  return new ClaudeResearchAgent(dependencies);
 }
 
 enhanceContent();
