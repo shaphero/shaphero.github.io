@@ -1,0 +1,189 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Section from '../common/Section.astro';
+import Icon from '../Icon.astro';
+import type { ContentMeta, ContentSection, Insight, Citation } from '../../lib/content-pipeline/config';
+
+export interface Props {
+  meta: ContentMeta;
+  sections: ContentSection[];
+  summary: string;
+  insights: Insight[];
+  citations: Citation[];
+}
+
+const { meta, sections, summary, insights, citations } = Astro.props;
+const heroSection = sections[0];
+const featureSections = sections.slice(1, 4);
+---
+
+<PageLayout title={meta.title} description={meta.description}>
+  <section class="relative overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900/40 to-gray-900 text-white py-24 px-4 sm:px-6">
+    <div class="absolute inset-0 opacity-60">
+      <div class="absolute -top-20 -left-10 w-64 h-64 bg-blue-500/30 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-0 right-10 w-72 h-72 bg-cyan-400/20 rounded-full blur-3xl"></div>
+    </div>
+    <div class="relative z-10 max-w-6xl mx-auto grid gap-12 lg:grid-cols-2 items-center">
+      <div>
+        <span class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-white/10 border border-white/20 text-sm font-semibold uppercase tracking-wide">
+          <Icon name="sparkles" class="w-4 h-4" />
+          {meta.audience || 'Executive Insight'}
+        </span>
+        <h1 class="mt-6 text-4xl md:text-6xl font-black leading-tight">{meta.title}</h1>
+        <p class="mt-6 text-lg md:text-xl text-white/80">{summary}</p>
+        <div class="mt-10 flex flex-col sm:flex-row gap-4">
+          <a href="#key-metrics" class="inline-flex items-center justify-center px-6 py-3 bg-white text-blue-700 rounded-lg font-semibold shadow-lg shadow-blue-500/20 hover:shadow-xl transition-transform hover:-translate-y-0.5">
+            View Key Metrics
+          </a>
+          <a href="#sections" class="inline-flex items-center justify-center px-6 py-3 border border-white/40 rounded-lg font-semibold text-white hover:bg-white/10 transition-colors">
+            Explore Findings
+          </a>
+        </div>
+      </div>
+      {heroSection && (
+          <div class="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur">
+            <h2 class="text-xl font-semibold mb-4 text-white">{heroSection.heading}</h2>
+            <p class="text-white/80">{heroSection.content}</p>
+            {heroSection.snippet && (
+              <blockquote class="mt-4 text-sm italic text-white/60 border-l-4 border-white/20 pl-4">
+                {heroSection.snippet}
+              </blockquote>
+            )}
+            {heroSection.reviewNotes && heroSection.reviewNotes.length > 0 && (
+              <div class="mt-4 space-y-1 text-xs text-white/70">
+                {heroSection.reviewNotes.map(note => (
+                  <div>
+                    <span class="uppercase tracking-wide mr-2">{note.reviewer}</span>
+                    <span class="font-semibold">{note.status}</span>
+                    <span class="ml-2">{note.explanation}</span>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        )}
+    </div>
+  </section>
+
+  {insights.length > 0 && (
+    <Section id="key-metrics" background="cream" padding="lg">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-12">Key Metrics & Signals</h2>
+        <div class="grid gap-6 md:grid-cols-2">
+          {insights.slice(0, 4).map((insight) => (
+            <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-6">
+              <div class="flex items-start gap-4">
+                <div class={
+                  insight.type === 'risk' ? 'text-red-500' :
+                  insight.type === 'opportunity' ? 'text-green-500' :
+                  insight.type === 'trend' ? 'text-blue-500' : 'text-amber-500'
+                }>
+                  <Icon name={
+                    insight.type === 'risk' ? 'warning' :
+                    insight.type === 'opportunity' ? 'target' :
+                    insight.type === 'trend' ? 'chart-growth' : 'analytics'
+                  } class="w-7 h-7" />
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-lg font-semibold mb-1">{insight.title}</h3>
+                  <p class="text-gray-600">{insight.description}</p>
+                  <p class="mt-3 text-sm text-gray-500">Confidence: {Math.round((insight.confidence ?? 0.6) * 100)}%</p>
+                  {insight.snippet && (
+                    <blockquote class="mt-3 text-sm italic text-gray-500 border-l-4 border-blue-200 pl-3">
+                      {insight.snippet}
+                    </blockquote>
+                  )}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </Section>
+  )}
+
+  {featureSections.length > 0 && (
+    <Section id="sections" background="white" padding="lg">
+      <div class="max-w-6xl mx-auto grid gap-8 md:grid-cols-3">
+        {featureSections.map(section => (
+          <div class="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm">
+            <h3 class="text-xl font-semibold mb-3">{section.heading}</h3>
+            <p class="text-gray-600">{section.content}</p>
+            {section.snippet && (
+              <blockquote class="mt-3 text-sm italic text-gray-500 border-l-4 border-blue-200 pl-3">
+                {section.snippet}
+              </blockquote>
+            )}
+            {section.reviewNotes && section.reviewNotes.length > 0 && (
+              <div class="mt-3 space-y-1 text-xs text-gray-500">
+                {section.reviewNotes.map(note => (
+                  <div>
+                    <span class="uppercase tracking-wide mr-2">{note.reviewer}</span>
+                    <span class={`font-semibold ${note.status === 'flagged' ? 'text-red-500' : note.status === 'unclear' ? 'text-amber-500' : 'text-green-600'}`}>{note.status}</span>
+                    <span class="ml-2">{note.explanation}</span>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </Section>
+  )}
+
+  {sections.slice(4).map(section => (
+    <Section background="cream" padding="lg">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-3xl font-bold mb-4">{section.heading}</h2>
+        <p class="text-lg text-gray-700 mb-4">{section.content}</p>
+        {section.snippet && (
+          <blockquote class="text-sm italic text-gray-500 border-l-4 border-blue-200 pl-3">
+            {section.snippet}
+          </blockquote>
+        )}
+        {section.evidence && (
+          <div class="mt-6 space-y-2">
+            {section.evidence.map(e => (
+              <div class="text-sm text-gray-600">
+                <span class="font-medium">{e.claim}</span>
+                <span class="ml-2 text-gray-500">Confidence: {Math.round((e.confidence ?? 0.6) * 100)}%</span>
+              </div>
+            ))}
+          </div>
+        )}
+        {section.reviewNotes && section.reviewNotes.length > 0 && (
+          <div class="mt-4 space-y-1 text-xs text-gray-500">
+            {section.reviewNotes.map(note => (
+              <div>
+                <span class="uppercase tracking-wide mr-2">{note.reviewer}</span>
+                <span class={`font-semibold ${note.status === 'flagged' ? 'text-red-500' : note.status === 'unclear' ? 'text-amber-500' : 'text-green-600'}`}>{note.status}</span>
+                <span class="ml-2">{note.explanation}</span>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    </Section>
+  ))}
+
+  {citations.length > 0 && (
+    <Section background="white" padding="lg">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-2xl font-bold mb-6">Sources & References</h2>
+        <div class="space-y-3">
+          {citations.map(citation => (
+            <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-lg border border-gray-200">
+              <span class="text-sm font-mono text-gray-500">[{citation.id}]</span>
+              <div>
+                <a href={citation.url} target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-700 font-medium">
+                  {citation.text}
+                </a>
+                <div class="text-xs text-gray-500">{citation.source}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </Section>
+  )}
+</PageLayout>

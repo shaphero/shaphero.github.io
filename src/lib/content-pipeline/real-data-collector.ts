@@ -1,4 +1,5 @@
 import type { Source } from './config';
+import { FileCache, type CacheProvider } from './cache';
 
 interface SearchOptions {
   limit?: number;
@@ -8,13 +9,22 @@ interface SearchOptions {
 
 const DEFAULT_FETCH_TIMEOUT = 15000;
 
+interface CollectorOptions {
+  cache?: CacheProvider;
+  serpTtlMs?: number;
+  scrapeTtlMs?: number;
+}
+
 export class RealDataCollector {
   private dataForSeoAuth: string | null;
   private redditAccessToken: string | null = null;
   private redditTokenExpiry: number | null = null;
   private hasWarnedMissingDataForSeo = false;
+  private cache: CacheProvider;
+  private serpTtlMs: number;
+  private scrapeTtlMs: number;
 
-  constructor() {
+  constructor(options: CollectorOptions = {}) {
     // DataForSEO uses basic auth
     const login = process.env.DATAFORSEO_API_LOGIN || '';
     const password = process.env.DATAFORSEO_API_PASSWORD || '';
@@ -24,6 +34,10 @@ export class RealDataCollector {
     } else {
       this.dataForSeoAuth = Buffer.from(`${login}:${password}`).toString('base64');
     }
+
+    this.cache = options.cache || new FileCache();
+    this.serpTtlMs = options.serpTtlMs ?? 1000 * 60 * 60 * 6;
+    this.scrapeTtlMs = options.scrapeTtlMs ?? 1000 * 60 * 60 * 24;
   }
 
   async searchWeb(keyword: string, options: SearchOptions = {}): Promise<Source[]> {
@@ -63,6 +77,11 @@ export class RealDataCollector {
     }
 
     const url = 'https://api.dataforseo.com/v3/serp/google/organic/live/advanced';
+    const cacheKey = this.buildCacheKey('serp:dataforseo', keyword, options);
+    const cached = await this.cache.get<Source[]>(cacheKey);
+    if (cached) {
+      return cached;
+    }
 
     const payload = [{
       keyword: keyword,
@@ -93,7 +112,7 @@ export class RealDataCollector {
       if (data.tasks && data.tasks[0] && data.tasks[0].result) {
         const items = data.tasks[0].result[0].items || [];
 
-        return items
+        const results = items
           .filter((item: any) => item.type === 'organic')
           .map((item: any) => ({
             url: item.url,
@@ -107,7 +126,10 @@ export class RealDataCollector {
               breadcrumb: item.breadcrumb,
               is_featured: item.is_featured_snippet || false
             }
-          }));
+          })) as Source[];
+
+        await this.cache.set(cacheKey, results, { ttlMs: this.serpTtlMs });
+        return results;
       }
     } catch (error) {
       console.error('DataForSEO error:', error);
@@ -119,6 +141,11 @@ export class RealDataCollector {
   private async searchDuckDuckGo(keyword: string, options: SearchOptions): Promise<Source[]> {
     // Use DuckDuckGo HTML search as backup
     const searchUrl = `https://html.duckduckgo.com/html/?q=${encodeURIComponent(keyword)}`;
+    const cacheKey = this.buildCacheKey('serp:duckduckgo', keyword, options);
+    const cached = await this.cache.get<Source[]>(cacheKey);
+    if (cached) {
+      return cached;
+    }
 
     try {
       const response = await this.fetchWithTimeout(searchUrl, {
@@ -154,6 +181,7 @@ export class RealDataCollector {
         count++;
       }
 
+      await this.cache.set(cacheKey, results, { ttlMs: this.serpTtlMs });
       return results;
     } catch (error) {
       console.error('DuckDuckGo search error:', error);
@@ -268,6 +296,12 @@ export class RealDataCollector {
   }
 
   async scrapeUrl(url: string): Promise<string> {
+    const cacheKey = this.buildCacheKey('scrape', url);
+    const cached = await this.cache.get<string>(cacheKey);
+    if (cached) {
+      return cached;
+    }
+
     try {
       const response = await this.fetchWithTimeout(url, {
         headers: {
@@ -276,7 +310,11 @@ export class RealDataCollector {
       }, DEFAULT_FETCH_TIMEOUT);
 
       const html = await response.text();
-      return this.extractContent(html);
+      const content = this.extractContent(html);
+      if (content) {
+        await this.cache.set(cacheKey, content, { ttlMs: this.scrapeTtlMs });
+      }
+      return content;
     } catch (error) {
       console.error(`Failed to scrape ${url}:`, error);
       return '';
@@ -354,5 +392,15 @@ export class RealDataCollector {
       return true;
     }
     return Date.now() >= this.redditTokenExpiry;
+  }
+
+  private buildCacheKey(prefix: string, value: string, options?: SearchOptions): string {
+    if (options) {
+      const limit = options.limit ?? 'all';
+      const freshness = options.freshness ?? 'any';
+      const sortBy = options.sortBy ?? 'relevance';
+      return `${prefix}:${value}:${limit}:${freshness}:${sortBy}`.toLowerCase();
+    }
+    return `${prefix}:${value}`.toLowerCase();
   }
 }

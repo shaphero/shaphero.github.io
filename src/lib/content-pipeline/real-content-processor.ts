@@ -1,14 +1,33 @@
 import type { ChunkData, Source } from './config';
 
+interface ProcessorOptions {
+  embeddingBatchSize?: number;
+  embeddingConcurrency?: number;
+  embeddingMaxRetries?: number;
+  retryBaseDelayMs?: number;
+}
+
 export class RealContentProcessor {
   private openaiApiKey: string;
   private chunkSize: number;
   private chunkOverlap: number;
+  private embeddingBatchSize: number;
+  private embeddingConcurrency: number;
+  private embeddingMaxRetries: number;
+  private retryBaseDelayMs: number;
 
-  constructor(chunkSize: number = 1500, chunkOverlap: number = 200) {
+  constructor(
+    chunkSize: number = 1500,
+    chunkOverlap: number = 200,
+    options: ProcessorOptions = {}
+  ) {
     this.openaiApiKey = process.env.OPENAI_API_KEY || '';
     this.chunkSize = chunkSize;
     this.chunkOverlap = chunkOverlap;
+    this.embeddingBatchSize = options.embeddingBatchSize ?? 20;
+    this.embeddingConcurrency = Math.max(1, options.embeddingConcurrency ?? 2);
+    this.embeddingMaxRetries = Math.max(1, options.embeddingMaxRetries ?? 3);
+    this.retryBaseDelayMs = options.retryBaseDelayMs ?? 1000;
   }
 
   async chunkContent(content: string, source: Source): Promise<ChunkData[]> {
@@ -37,7 +56,9 @@ export class RealContentProcessor {
           metadata: {
             position: chunkIndex,
             totalChunks: -1,
-            tokens: currentTokens
+            tokens: currentTokens,
+            entities: this.extractNamedEntities(currentChunk),
+            topics: this.extractTopics(currentChunk)
           }
         });
 
@@ -61,7 +82,9 @@ export class RealContentProcessor {
         metadata: {
           position: chunkIndex,
           totalChunks: chunks.length + 1,
-          tokens: currentTokens
+          tokens: currentTokens,
+          entities: this.extractNamedEntities(currentChunk),
+          topics: this.extractTopics(currentChunk)
         }
       });
     }
@@ -133,22 +156,22 @@ export class RealContentProcessor {
       return texts.map(text => this.createMockEmbedding(text));
     }
 
-    // Process in batches to handle long lists and reduce rate pressure
-    const batchSize = 20;
-    const results: number[][] = [];
-
-    for (let i = 0; i < texts.length; i += batchSize) {
-      const batch = texts.slice(i, i + batchSize);
-      const embeddings = await this.getOpenAIEmbeddings(batch);
-      results.push(...embeddings);
-
-      if (i + batchSize < texts.length) {
-        // Basic backoff between batches
-        await new Promise(resolve => setTimeout(resolve, 150));
-      }
+    const batches = [] as Array<{ index: number; texts: string[] }>;
+    for (let i = 0; i < texts.length; i += this.embeddingBatchSize) {
+      batches.push({ index: i, texts: texts.slice(i, i + this.embeddingBatchSize) });
     }
 
-    return results;
+    const embeddings: number[][] = new Array(texts.length);
+    const tasks = batches.map(batch => async () => {
+      const batchEmbeddings = await this.fetchEmbeddingsBatchWithRetry(batch.texts);
+      batchEmbeddings.forEach((embedding, offset) => {
+        embeddings[batch.index + offset] = embedding;
+      });
+    });
+
+    await this.runWithConcurrency(tasks, this.embeddingConcurrency);
+
+    return embeddings;
   }
 
   private async getOpenAIEmbeddings(texts: string[]): Promise<number[][]> {
@@ -174,12 +197,67 @@ export class RealContentProcessor {
     });
 
     if (!response.ok) {
-      const error = await response.text();
-      throw new Error(`OpenAI API error: ${response.status} - ${error}`);
+      const errorText = await response.text();
+      const error: any = new Error(`OpenAI API error: ${response.status} - ${errorText}`);
+      error.status = response.status;
+      const retryAfterHeader = response.headers.get('retry-after');
+      const retryAfterSeconds = retryAfterHeader ? Number(retryAfterHeader) : NaN;
+      if (!Number.isNaN(retryAfterSeconds) && retryAfterSeconds > 0) {
+        error.retryAfterMs = retryAfterSeconds * 1000;
+      }
+      throw error;
     }
 
     const data = await response.json();
     return data.data.map((item: any) => item.embedding);
+  }
+
+  private async fetchEmbeddingsBatchWithRetry(texts: string[]): Promise<number[][]> {
+    for (let attempt = 0; attempt < this.embeddingMaxRetries; attempt++) {
+      try {
+        return await this.getOpenAIEmbeddings(texts);
+      } catch (error: any) {
+        const isLastAttempt = attempt === this.embeddingMaxRetries - 1;
+        if (isLastAttempt) {
+          throw error;
+        }
+        const delayMs = this.calculateRetryDelay(error, attempt);
+        await this.delay(delayMs);
+      }
+    }
+    return texts.map(text => this.createMockEmbedding(text));
+  }
+
+  private calculateRetryDelay(error: any, attempt: number): number {
+    const retryAfterMs = typeof error?.retryAfterMs === 'number' ? error.retryAfterMs : null;
+    if (retryAfterMs && retryAfterMs > 0) {
+      return retryAfterMs;
+    }
+    const exponential = this.retryBaseDelayMs * Math.pow(2, attempt);
+    const capped = Math.min(exponential, 30_000);
+    const jitter = Math.random() * 250;
+    return capped + jitter;
+  }
+
+  private async runWithConcurrency(tasks: Array<() => Promise<void>>, limit: number): Promise<void> {
+    if (tasks.length === 0) {
+      return;
+    }
+
+    const concurrency = Math.min(limit, tasks.length);
+    let cursor = 0;
+    const runners = Array.from({ length: concurrency }, async () => {
+      while (cursor < tasks.length) {
+        const taskIndex = cursor++;
+        await tasks[taskIndex]();
+      }
+    });
+
+    await Promise.all(runners);
+  }
+
+  private async delay(ms: number): Promise<void> {
+    return new Promise(resolve => setTimeout(resolve, ms));
   }
 
   private generateMockEmbeddings(chunks: ChunkData[]): ChunkData[] {
@@ -246,6 +324,42 @@ export class RealContentProcessor {
     }
 
     return overlapWords.join(' ').trim();
+  }
+
+  private extractNamedEntities(text: string): string[] {
+    const entityPattern = /\b([A-Z][a-z]+(?:\s+[A-Z][a-z]+)+)\b/g;
+    const entities = new Set<string>();
+    let match: RegExpExecArray | null;
+
+    while ((match = entityPattern.exec(text)) !== null) {
+      const candidate = match[1].trim();
+      if (candidate.length <= 2) continue;
+      if (/^(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday|January|February|March|April|May|June|July|August|September|October|November|December)$/i.test(candidate)) {
+        continue;
+      }
+      entities.add(candidate);
+      if (entities.size >= 8) break;
+    }
+
+    return Array.from(entities);
+  }
+
+  private extractTopics(text: string): string[] {
+    const words = text
+      .toLowerCase()
+      .replace(/[^a-z0-9\s]/g, ' ')
+      .split(/\s+/)
+      .filter(word => word.length > 3 && !this.isStopWord(word));
+
+    const frequency = new Map<string, number>();
+    words.forEach(word => {
+      frequency.set(word, (frequency.get(word) || 0) + 1);
+    });
+
+    return Array.from(frequency.entries())
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 6)
+      .map(([word]) => word);
   }
 
   async extractKeyPhrases(text: string): Promise<string[]> {

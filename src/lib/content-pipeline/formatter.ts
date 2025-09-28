@@ -1,4 +1,4 @@
-import type { SynthesisResult, ContentSection, Citation, Insight } from './config';
+import type { SynthesisResult, ContentSection, Citation, Insight, ContentMeta } from './config';
 
 export class ContentFormatter {
   async format(synthesis: SynthesisResult): Promise<SynthesisResult> {
@@ -29,141 +29,28 @@ export class ContentFormatter {
 
   toAstroComponent(synthesis: SynthesisResult): string {
     const { meta, sections, citations, insights } = synthesis;
+    const template = this.selectTemplate(meta.format);
+
+    this.runLint(meta, sections, insights);
 
     return `---
-import PageLayout from '../layouts/PageLayout.astro';
-import Section from '../components/common/Section.astro';
-import Icon from '../components/Icon.astro';
+import ${template.importName} from '${template.importPath}';
 
-const title = "${this.escapeQuotes(meta.title)}";
-const description = "${this.escapeQuotes(meta.description)}";
-
+const meta = ${JSON.stringify(meta, null, 2)};
+const sections = ${JSON.stringify(sections, null, 2)};
 const insights = ${JSON.stringify(insights, null, 2)};
 const citations = ${JSON.stringify(citations, null, 2)};
+const summary = ${JSON.stringify(synthesis.summary)};
 ---
 
-<PageLayout title={title} description={description}>
-  <!-- Hero Section -->
-  <section class="relative overflow-hidden bg-gradient-to-br from-gray-900 via-purple-900/20 to-gray-900 text-white">
-    <div class="absolute inset-0">
-      <div class="absolute top-20 left-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse"></div>
-      <div class="absolute bottom-40 right-20 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl animate-pulse" style="animation-delay: 2s;"></div>
-    </div>
-
-    <div class="relative z-10 container mx-auto px-4 py-24">
-      <div class="max-w-5xl mx-auto text-center">
-        <div class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-purple-600/20 backdrop-blur-lg border border-purple-400/30 text-white font-semibold text-sm mb-8">
-          <span class="w-2 h-2 bg-purple-500 rounded-full animate-pulse"></span>
-          <span>RESEARCH ANALYSIS</span>
-        </div>
-
-        <h1 class="text-5xl md:text-7xl font-bold mb-8 bg-gradient-to-r from-white via-purple-200 to-white bg-clip-text text-transparent">
-          {title}
-        </h1>
-
-        <p class="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto">
-          {description}
-        </p>
-
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="#key-findings" class="px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 rounded-xl font-bold text-lg hover:shadow-2xl hover:shadow-purple-500/25 transform hover:-translate-y-1 transition-all">
-            View Key Findings
-          </a>
-          <a href="#recommendations" class="px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl font-bold text-lg hover:bg-white/20 transition-all">
-            Jump to Recommendations
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Executive Summary -->
-  <Section>
-    <div class="max-w-4xl mx-auto">
-      <div class="bg-gradient-to-br from-purple-50 to-blue-50 dark:from-gray-800 dark:to-gray-900 rounded-2xl p-8 mb-12">
-        <h2 class="text-3xl font-bold mb-6">Executive Summary</h2>
-        <div class="prose prose-lg max-w-none">
-          <p>${this.escapeHtml(synthesis.summary)}</p>
-        </div>
-      </div>
-    </div>
-  </Section>
-
-  <!-- Key Insights -->
-  {insights.length > 0 && (
-    <Section id="key-findings">
-      <div class="max-w-6xl mx-auto">
-        <h2 class="text-4xl font-bold text-center mb-12">Key Findings</h2>
-        <div class="grid md:grid-cols-2 gap-6">
-          {insights.map((insight) => (
-            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow">
-              <div class="flex items-start gap-4">
-                <div class={
-                  insight.type === 'trend' ? 'text-green-500' :
-                  insight.type === 'risk' ? 'text-red-500' :
-                  insight.type === 'opportunity' ? 'text-blue-500' :
-                  'text-yellow-500'
-                }>
-                  <Icon name={
-                    insight.type === 'trend' ? 'trending-up' :
-                    insight.type === 'risk' ? 'alert-triangle' :
-                    insight.type === 'opportunity' ? 'target' :
-                    'info'
-                  } class="w-8 h-8" />
-                </div>
-                <div class="flex-1">
-                  <h3 class="text-xl font-bold mb-2">{insight.title}</h3>
-                  <p class="text-gray-600 dark:text-gray-300">{insight.description}</p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </Section>
-  )}
-
-  <!-- Main Content Sections -->
-  ${sections.map(section => this.formatSectionAstro(section)).join('\n\n')}
-
-  <!-- Citations -->
-  {citations.length > 0 && (
-    <Section>
-      <div class="max-w-4xl mx-auto">
-        <h2 class="text-3xl font-bold mb-8">Sources & References</h2>
-        <div class="space-y-3">
-          {citations.map((citation) => (
-            <div class="flex items-start gap-3 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
-              <span class="text-sm font-mono text-gray-500">[{citation.id}]</span>
-              <div class="flex-1">
-                <a href={citation.url} target="_blank" rel="noopener noreferrer"
-                   class="text-blue-600 hover:text-blue-800 dark:text-blue-400 font-medium">
-                  {citation.text}
-                </a>
-                <span class="ml-2 text-sm text-gray-500">({citation.source})</span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </Section>
-  )}
-
-  <!-- CTA Section -->
-  <Section>
-    <div class="max-w-4xl mx-auto text-center">
-      <div class="bg-gradient-to-br from-purple-600 to-blue-600 rounded-2xl p-12 text-white">
-        <h2 class="text-3xl font-bold mb-4">Ready to Apply These Insights?</h2>
-        <p class="text-xl mb-8">Let's discuss how these findings can drive your strategy forward.</p>
-        <a href="mailto:dave@daveshap.com?subject=Research%20Discussion:%20${encodeURIComponent(meta.title)}"
-           class="inline-flex items-center gap-2 px-8 py-4 bg-white text-purple-600 rounded-xl font-bold text-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all">
-          <Icon name="mail" class="w-5 h-5" />
-          Schedule a Discussion
-        </a>
-      </div>
-    </div>
-  </Section>
-</PageLayout>`;
+<${template.component}
+  meta={meta}
+  sections={sections}
+  insights={insights}
+  citations={citations}
+  summary={summary}
+/>
+`;
   }
 
   toMarkdown(synthesis: SynthesisResult): string {
@@ -187,6 +74,10 @@ const citations = ${JSON.stringify(citations, null, 2)};
                     insight.type === 'opportunity' ? '🎯' : 'ℹ️';
         markdown += `### ${icon} ${insight.title}\n\n`;
         markdown += `${insight.description}\n\n`;
+        if (insight.snippet) {
+          markdown += `> ${insight.snippet}\n\n`;
+        }
+        markdown += `Confidence: ${Math.round((insight.confidence ?? 0.6) * 100)}%\n\n`;
       });
     }
 
@@ -196,10 +87,14 @@ const citations = ${JSON.stringify(citations, null, 2)};
       markdown += `${prefix} ${section.heading}\n\n`;
       markdown += `${section.content}\n\n`;
 
+      if (section.snippet) {
+        markdown += `> ${section.snippet}\n\n`;
+      }
+
       if (section.evidence && section.evidence.length > 0) {
         markdown += `**Supporting Evidence:**\n`;
         section.evidence.forEach(e => {
-          markdown += `- ${e.claim} (Confidence: ${e.confidence})\n`;
+          markdown += `- ${e.claim} (Confidence: ${Math.round((e.confidence ?? 0.6) * 100)}%)\n`;
         });
         markdown += '\n';
       }
@@ -267,7 +162,9 @@ const citations = ${JSON.stringify(citations, null, 2)};
     ${insights.map(insight => `
         <div class="insight">
             <strong>${this.escapeHtml(insight.title)}</strong><br>
-            ${this.escapeHtml(insight.description)}
+            ${this.escapeHtml(insight.description)}<br>
+            <span>Confidence: ${Math.round((insight.confidence ?? 0.6) * 100)}%</span>
+            ${insight.snippet ? `<blockquote>${this.escapeHtml(insight.snippet)}</blockquote>` : ''}
         </div>
     `).join('')}
     ` : ''}
@@ -275,6 +172,7 @@ const citations = ${JSON.stringify(citations, null, 2)};
     ${sections.map(section => `
         <h${section.level + 1}>${this.escapeHtml(section.heading)}</h${section.level + 1}>
         <p>${this.escapeHtml(section.content)}</p>
+        ${section.snippet ? `<blockquote>${this.escapeHtml(section.snippet)}</blockquote>` : ''}
     `).join('')}
 
     ${citations.length > 0 ? `
@@ -325,25 +223,67 @@ const citations = ${JSON.stringify(citations, null, 2)};
     return sections;
   }
 
-  private formatSectionAstro(section: ContentSection): string {
-    return `  <Section>
-    <div class="max-w-4xl mx-auto">
-      <h2 class="text-3xl font-bold mb-6">${this.escapeHtml(section.heading)}</h2>
-      <div class="prose prose-lg max-w-none">
-        <p>${this.escapeHtml(section.content)}</p>
-        ${section.evidence ? `
-        <div class="mt-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
-          <h3 class="font-semibold mb-3">Supporting Evidence:</h3>
-          <ul>
-            ${section.evidence.map(e => `
-            <li>${this.escapeHtml(e.claim)} <span class="text-sm text-gray-600">(Confidence: ${e.confidence}%)</span></li>
-            `).join('')}
-          </ul>
-        </div>
-        ` : ''}
-      </div>
-    </div>
-  </Section>`;
+  private selectTemplate(format: ContentMeta['format'] = 'analysis'): {
+    importName: string;
+    importPath: string;
+    component: string;
+  } {
+    switch (format) {
+      case 'landing':
+        return {
+          importName: 'LandingPageTemplate',
+          importPath: '../components/content-templates/LandingPageTemplate.astro',
+          component: 'LandingPageTemplate'
+        };
+      case 'blog':
+        return {
+          importName: 'BlogPostTemplate',
+          importPath: '../components/content-templates/BlogPostTemplate.astro',
+          component: 'BlogPostTemplate'
+        };
+      case 'brief':
+      case 'analysis':
+      default:
+        return {
+          importName: 'ResearchBriefTemplate',
+          importPath: '../components/content-templates/ResearchBriefTemplate.astro',
+          component: 'ResearchBriefTemplate'
+        };
+    }
+  }
+
+  private runLint(meta: ContentMeta, sections: ContentSection[], insights: Insight[]): void {
+    const warnings: string[] = [];
+
+    if (!meta.title || meta.title.length < 10) {
+      warnings.push('Meta title is short; consider expanding for SEO.');
+    }
+    if (!meta.description || meta.description.length < 60) {
+      warnings.push('Meta description is missing or under 60 characters.');
+    }
+    if (!sections.length) {
+      warnings.push('No content sections generated.');
+    }
+    sections.forEach((section, index) => {
+      if (!section.heading) {
+        warnings.push(`Section ${index + 1} is missing a heading.`);
+      }
+      if (!section.content || section.content.length < 40) {
+        warnings.push(`Section "${section.heading || index + 1}" has minimal content.`);
+      }
+    });
+    insights.forEach(insight => {
+      if (!insight.snippet) {
+        warnings.push(`Insight "${insight.title}" is missing a supporting snippet.`);
+      }
+      if (!insight.confidence) {
+        warnings.push(`Insight "${insight.title}" is missing a confidence score.`);
+      }
+    });
+
+    if (warnings.length > 0) {
+      console.warn('[ContentFormatter] Lint warnings for generated Astro output:', warnings);
+    }
   }
 
   private escapeHtml(text: string): string {
@@ -355,9 +295,5 @@ const citations = ${JSON.stringify(citations, null, 2)};
       "'": '&#39;'
     };
     return text.replace(/[&<>"']/g, m => map[m]);
-  }
-
-  private escapeQuotes(text: string): string {
-    return text.replace(/"/g, '\\"').replace(/'/g, "\\'");
   }
 }

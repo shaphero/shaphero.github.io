@@ -20,6 +20,11 @@ export interface PipelineConfig {
     type: 'memory' | 'faiss' | 'lancedb';
     path?: string;
   };
+  cache?: {
+    baseDir?: string;
+    serpTtlMs?: number;
+    scrapeTtlMs?: number;
+  };
 }
 
 export interface ResearchRequest {
@@ -40,6 +45,7 @@ export interface ContentMeta {
   readingTime: number;
   publishDate: string;
   sources: Source[];
+  format?: 'landing' | 'blog' | 'brief' | 'analysis';
 }
 
 export interface Source {
@@ -60,6 +66,8 @@ export interface ChunkData {
     position: number;
     totalChunks: number;
     tokens: number;
+    entities?: string[];
+    topics?: string[];
   };
 }
 
@@ -76,6 +84,8 @@ export interface ContentSection {
   content: string;
   level: number;
   evidence?: Evidence[];
+  snippet?: string;
+  reviewNotes?: ReviewNote[];
 }
 
 export interface Evidence {
@@ -97,4 +107,13 @@ export interface Insight {
   description: string;
   supporting: string[];
   conflicting?: string[];
+  confidence?: number;
+  snippet?: string;
+  reviewNotes?: ReviewNote[];
+}
+
+export interface ReviewNote {
+  reviewer: 'claude' | 'openai';
+  status: 'supported' | 'flagged' | 'unclear';
+  explanation: string;
 }

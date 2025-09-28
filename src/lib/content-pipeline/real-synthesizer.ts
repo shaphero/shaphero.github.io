@@ -7,8 +7,15 @@ import type {
   ResearchRequest,
   ContentMeta
 } from './config';
+import { EnsembleValidator } from './validator';
 
 export class RealSynthesizer {
+  private validator: EnsembleValidator;
+
+  constructor(validator: EnsembleValidator = new EnsembleValidator()) {
+    this.validator = validator;
+  }
+
   async synthesizeWithClaude(
     request: ResearchRequest,
     chunks: ChunkData[]
@@ -22,13 +29,20 @@ export class RealSynthesizer {
     const meta = this.generateMeta(request, chunks);
     const citations = this.extractCitations(chunks);
 
-    return {
+    const synthesis: SynthesisResult = {
       meta,
       summary: await this.createExecutiveSummary(summaries, insights),
       sections,
       citations,
       insights
     };
+
+    try {
+      return await this.validator.validate(synthesis, chunks);
+    } catch (error) {
+      console.warn('[RealSynthesizer] Validator failed, returning unvalidated synthesis:', error);
+      return synthesis;
+    }
   }
 
   private async generateSummaries(chunks: ChunkData[]): Promise<Map<string, string>> {
@@ -74,24 +88,34 @@ Focus on:
 
   private async extractInsights(chunks: ChunkData[]): Promise<Insight[]> {
     const insights: Insight[] = [];
+    const chunkMap = new Map(chunks.map(chunk => [chunk.id, chunk]));
     const stats = this.extractStatistics(chunks);
     const patterns = this.findPatterns(chunks);
 
     stats.forEach(stat => {
+      const chunk = chunkMap.get(stat.chunkId);
+      const metadata = chunk?.metadata || {};
+      const baseConfidence = this.calculateStatConfidence(stat, metadata);
       insights.push({
         type: this.categorizeInsight(stat),
         title: stat.metric,
         description: stat.context,
-        supporting: [stat.chunkId]
+        supporting: [stat.chunkId],
+        confidence: baseConfidence,
+        snippet: stat.snippet
       });
     });
 
     if (patterns.failures > patterns.successes * 2) {
+      const confidence = Math.min(0.9, 0.55 + (patterns.failures / Math.max(1, patterns.failures + patterns.successes)) * 0.35);
+      const snippet = this.buildPatternSnippet(chunks, Array.from(patterns.failureChunks)[0], 'fail');
       insights.push({
         type: 'risk',
         title: 'High Failure Rate Detected',
         description: `Analysis shows ${patterns.failures} failure mentions vs ${patterns.successes} success mentions across sources`,
-        supporting: Array.from(patterns.failureChunks).slice(0, 3)
+        supporting: Array.from(patterns.failureChunks).slice(0, 3),
+        confidence,
+        snippet
       });
     }
 
@@ -102,11 +126,16 @@ Focus on:
       const minCost = Math.min(...costs);
 
       if (maxCost > minCost * 10) {
+        const supportingIds = costMentions.map(stat => stat.chunkId).slice(0, 5);
+        const snippet = costMentions[0]?.snippet;
+        const confidence = Math.min(0.95, 0.65 + supportingIds.length * 0.05);
         insights.push({
           type: 'controversy',
           title: 'Wide Cost Variance Detected',
           description: `Costs range from ${this.formatCost(minCost)} to ${this.formatCost(maxCost)} - a ${Math.round(maxCost/minCost)}x difference`,
-          supporting: costMentions.map(stat => stat.chunkId).slice(0, 5)
+          supporting: supportingIds,
+          confidence,
+          snippet
         });
       }
     }
@@ -115,20 +144,28 @@ Focus on:
     opportunityKeywords.forEach(keyword => {
       const mentions = chunks.filter(c => c.content.toLowerCase().includes(keyword));
       if (mentions.length > 2) {
+        const confidence = Math.min(0.9, 0.6 + mentions.length * 0.05);
+        const snippet = this.extractSnippetFromContent(mentions[0].content, mentions[0].content.toLowerCase().indexOf(keyword));
         insights.push({
           type: 'opportunity',
           title: `Pattern: "${keyword}" approach shows promise`,
           description: `${mentions.length} sources recommend ${keyword} strategies for better ROI`,
-          supporting: mentions.map(c => c.id).slice(0, 3)
+          supporting: mentions.map(c => c.id).slice(0, 3),
+          confidence,
+          snippet
         });
       }
     });
 
-    return insights.slice(0, 10);
+    return insights
+      .sort((a, b) => (b.confidence ?? 0.5) - (a.confidence ?? 0.5))
+      .slice(0, 10);
   }
 
-  private extractStatistics(chunks: ChunkData[]): Array<{ metric: string; context: string; chunkId: string }> {
-    const stats: Array<{ metric: string; context: string; chunkId: string }> = [];
+  private extractStatistics(
+    chunks: ChunkData[]
+  ): Array<{ metric: string; context: string; chunkId: string; snippet: string; hasUnits: boolean }> {
+    const stats: Array<{ metric: string; context: string; chunkId: string; snippet: string; hasUnits: boolean }> = [];
 
     chunks.forEach(chunk => {
       const content = chunk.content;
@@ -137,20 +174,26 @@ Focus on:
       const percentPattern = /(\d+(?:\.\d+)?%)\s*([^\.\n]{0,180})/gi;
       let percentMatch: RegExpExecArray | null;
       while ((percentMatch = percentPattern.exec(content)) !== null) {
+        const matchIndex = percentPattern.lastIndex - percentMatch[0].length;
         stats.push({
           metric: percentMatch[1],
           context: percentMatch[2]?.trim() || 'Percentage mentioned without additional context.',
-          chunkId
+          chunkId,
+          snippet: this.extractSnippetFromContent(content, matchIndex),
+          hasUnits: true
         });
       }
 
       const dollarPattern = /(\$[\d,]+(?:\.\d+)?[KMB]?)\s*([^\.\n]{0,180})/gi;
       let dollarMatch: RegExpExecArray | null;
       while ((dollarMatch = dollarPattern.exec(content)) !== null) {
+        const matchIndex = dollarPattern.lastIndex - dollarMatch[0].length;
         stats.push({
           metric: dollarMatch[1],
           context: dollarMatch[2]?.trim() || 'Cost mentioned without additional context.',
-          chunkId
+          chunkId,
+          snippet: this.extractSnippetFromContent(content, matchIndex),
+          hasUnits: true
         });
       }
     });
@@ -192,7 +235,7 @@ Focus on:
     return result;
   }
 
-  private categorizeInsight(stat: any): 'trend' | 'risk' | 'opportunity' | 'controversy' {
+  private categorizeInsight(stat: { context: string; metric: string }): 'trend' | 'risk' | 'opportunity' | 'controversy' {
     const context = stat.context.toLowerCase();
     if (context.includes('fail') || context.includes('abandon') || context.includes('negative')) {
       return 'risk';
@@ -239,6 +282,7 @@ Focus on:
     if (insights.length > 0) {
       const riskInsights = insights.filter(i => i.type === 'risk');
       const opportunityInsights = insights.filter(i => i.type === 'opportunity');
+      const topInsight = insights[0];
 
       sections.push({
         heading: 'Critical Findings',
@@ -251,28 +295,33 @@ Focus on:
         evidence: insights.slice(0, 5).map(i => ({
           claim: i.title,
           sources: i.supporting,
-          confidence: i.type === 'risk' ? 0.8 : 0.7
-        }))
+          confidence: i.confidence ?? (i.type === 'risk' ? 0.75 : 0.7)
+        })),
+        snippet: topInsight?.snippet
       });
     }
 
     // Cost Analysis
     const costChunks = chunks.filter(c => /\$[\d,]+[KMB]?/.test(c.content));
     if (costChunks.length > 0) {
+      const costInsight = insights.find(i => i.type === 'controversy' && i.title.includes('Cost'));
       sections.push({
         heading: 'Cost Reality Check',
         level: 1,
-        content: `Implementation costs vary dramatically across organizations. Analysis of ${costChunks.length} cost data points reveals significant discrepancies between vendor claims and actual expenditures.`
+        content: `Implementation costs vary dramatically across organizations. Analysis of ${costChunks.length} cost data points reveals significant discrepancies between vendor claims and actual expenditures.`,
+        snippet: costInsight?.snippet
       });
     }
 
     // Success Patterns
     const successChunks = chunks.filter(c => /success|achieve|roi positive/i.test(c.content));
     if (successChunks.length > 0) {
+      const successInsight = insights.find(i => i.type === 'opportunity');
       sections.push({
         heading: 'Success Patterns',
         level: 1,
-        content: `Organizations achieving positive ROI share common characteristics: starting with simple use cases, measuring specific metrics, and scaling gradually. These patterns appear consistently across ${successChunks.length} success stories.`
+        content: `Organizations achieving positive ROI share common characteristics: starting with simple use cases, measuring specific metrics, and scaling gradually. These patterns appear consistently across ${successChunks.length} success stories.`,
+        snippet: successInsight?.snippet
       });
     }
 
@@ -318,7 +367,11 @@ Focus on:
 
     summary += `**Key Findings:**\n`;
     topInsights.forEach(insight => {
-      summary += `• ${insight.title}: ${insight.description}\n`;
+      summary += `• ${insight.title}: ${insight.description}`;
+      if (insight.snippet) {
+        summary += `\n  > ${insight.snippet}`;
+      }
+      summary += '\n';
     });
 
     summary += `\n**Bottom Line:** `;
@@ -356,6 +409,8 @@ Focus on:
       .slice(0, 20)
       .map(([word]) => word);
 
+    const format = this.mapFormat(request.format, request.audience);
+
     return {
       title: this.generateTitle(request.keyword),
       description: `Comprehensive analysis of ${request.keyword} based on ${chunks.length} data points from ${new Set(chunks.map(c => c.source.url)).size} sources. Includes real implementation costs, failure rates, and success patterns.`,
@@ -363,8 +418,25 @@ Focus on:
       audience: request.audience || 'executive',
       readingTime,
       publishDate: new Date().toISOString(),
-      sources: [...new Set(chunks.map(c => c.source))]
+      sources: [...new Set(chunks.map(c => c.source))],
+      format
     };
+  }
+
+  private mapFormat(
+    requestedFormat: ResearchRequest['format'],
+    audience?: ResearchRequest['audience']
+  ): ContentMeta['format'] {
+    switch (requestedFormat) {
+      case 'article':
+        return audience === 'executive' ? 'landing' : 'blog';
+      case 'report':
+        return 'brief';
+      case 'analysis':
+        return 'analysis';
+      default:
+        return audience === 'executive' ? 'landing' : 'analysis';
+    }
   }
 
   private generateTitle(keyword: string): string {
@@ -407,6 +479,45 @@ Focus on:
     });
 
     return citations;
+  }
+
+  private calculateStatConfidence(
+    stat: { hasUnits: boolean; context: string },
+    metadata: ChunkData['metadata'] = {}
+  ): number {
+    let confidence = 0.6;
+    if (stat.hasUnits) {
+      confidence += 0.2;
+    }
+    if (stat.context && stat.context.length > 40) {
+      confidence += 0.05;
+    }
+    if (metadata.entities && metadata.entities.length > 0) {
+      confidence += 0.05;
+    }
+    if (metadata.topics && metadata.topics.length > 0) {
+      confidence += 0.05;
+    }
+    return Math.min(0.95, confidence);
+  }
+
+  private buildPatternSnippet(chunks: ChunkData[], chunkId: string | undefined, keyword: string): string | undefined {
+    if (!chunkId) return undefined;
+    const chunk = chunks.find(c => c.id === chunkId);
+    if (!chunk) return undefined;
+    const index = chunk.content.toLowerCase().indexOf(keyword);
+    return this.extractSnippetFromContent(chunk.content, index >= 0 ? index : 0);
+  }
+
+  private extractSnippetFromContent(content: string, matchIndex: number): string {
+    if (!content) return '';
+    const safeIndex = Math.max(0, matchIndex);
+    const startBoundary = Math.max(0, content.lastIndexOf('.', safeIndex));
+    const start = startBoundary === -1 ? 0 : startBoundary + 1;
+    const endBoundary = content.indexOf('.', safeIndex + 1);
+    const end = endBoundary === -1 ? content.length : endBoundary + 1;
+    const snippet = content.slice(start, end).replace(/\s+/g, ' ').trim();
+    return snippet.substring(0, 280);
   }
 
   private stringHash(value: string): number {
