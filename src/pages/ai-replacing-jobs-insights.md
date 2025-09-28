@@ -1,4 +1,4 @@
-# AI job automation 2025 workforce impact: Complete Analysis and Strategic Insights
+# Understanding AI job automation 2025 workforce impact: Research, Trends, and Impact Analysis
 
 *Comprehensive analysis of AI job automation 2025 workforce impact based on 4 sources, including latest research, industry perspectives, and community insights.*
 
