@@ -86,12 +86,14 @@ export interface ContentSection {
   evidence?: Evidence[];
   snippet?: string;
   reviewNotes?: ReviewNote[];
+  referenceIds?: string[];
 }
 
 export interface Evidence {
   claim: string;
   sources: string[];
   confidence: number;
+  citationIds?: string[];
 }
 
 export interface Citation {
@@ -110,6 +112,7 @@ export interface Insight {
   confidence?: number;
   snippet?: string;
   reviewNotes?: ReviewNote[];
+  referenceIds?: string[];
 }
 
 export interface ReviewNote {

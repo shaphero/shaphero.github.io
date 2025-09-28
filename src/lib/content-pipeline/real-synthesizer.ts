@@ -24,10 +24,10 @@ export class RealSynthesizer {
     // we'll structure the prompts that would be sent to subtasks
 
     const summaries = await this.generateSummaries(chunks);
-    const insights = await this.extractInsights(chunks);
-    const sections = await this.buildSections(request, chunks, insights);
+    const { citations, chunkCitationMap } = this.extractCitations(chunks);
+    const insights = await this.extractInsights(chunks, chunkCitationMap);
+    const sections = await this.buildSections(request, chunks, insights, chunkCitationMap);
     const meta = this.generateMeta(request, chunks);
-    const citations = this.extractCitations(chunks);
 
     const synthesis: SynthesisResult = {
       meta,
@@ -86,7 +86,10 @@ Focus on:
     return summaries;
   }
 
-  private async extractInsights(chunks: ChunkData[]): Promise<Insight[]> {
+  private async extractInsights(
+    chunks: ChunkData[],
+    chunkCitationMap: Map<string, string>
+  ): Promise<Insight[]> {
     const insights: Insight[] = [];
     const chunkMap = new Map(chunks.map(chunk => [chunk.id, chunk]));
     const stats = this.extractStatistics(chunks);
@@ -96,26 +99,32 @@ Focus on:
       const chunk = chunkMap.get(stat.chunkId);
       const metadata = chunk?.metadata || {};
       const baseConfidence = this.calculateStatConfidence(stat, metadata);
+      const citationId = chunkCitationMap.get(stat.chunkId);
       insights.push({
         type: this.categorizeInsight(stat),
         title: stat.metric,
         description: stat.context,
         supporting: [stat.chunkId],
         confidence: baseConfidence,
-        snippet: stat.snippet
+        snippet: stat.snippet,
+        referenceIds: citationId ? [citationId] : []
       });
     });
 
     if (patterns.failures > patterns.successes * 2) {
       const confidence = Math.min(0.9, 0.55 + (patterns.failures / Math.max(1, patterns.failures + patterns.successes)) * 0.35);
       const snippet = this.buildPatternSnippet(chunks, Array.from(patterns.failureChunks)[0], 'fail');
+      const referenceIds = Array.from(patterns.failureChunks)
+        .map(id => chunkCitationMap.get(id))
+        .filter(Boolean) as string[];
       insights.push({
         type: 'risk',
         title: 'High Failure Rate Detected',
         description: `Analysis shows ${patterns.failures} failure mentions vs ${patterns.successes} success mentions across sources`,
         supporting: Array.from(patterns.failureChunks).slice(0, 3),
         confidence,
-        snippet
+        snippet,
+        referenceIds
       });
     }
 
@@ -129,13 +138,17 @@ Focus on:
         const supportingIds = costMentions.map(stat => stat.chunkId).slice(0, 5);
         const snippet = costMentions[0]?.snippet;
         const confidence = Math.min(0.95, 0.65 + supportingIds.length * 0.05);
+        const referenceIds = supportingIds
+          .map(id => chunkCitationMap.get(id))
+          .filter(Boolean) as string[];
         insights.push({
           type: 'controversy',
           title: 'Wide Cost Variance Detected',
           description: `Costs range from ${this.formatCost(minCost)} to ${this.formatCost(maxCost)} - a ${Math.round(maxCost/minCost)}x difference`,
           supporting: supportingIds,
           confidence,
-          snippet
+          snippet,
+          referenceIds
         });
       }
     }
@@ -146,13 +159,18 @@ Focus on:
       if (mentions.length > 2) {
         const confidence = Math.min(0.9, 0.6 + mentions.length * 0.05);
         const snippet = this.extractSnippetFromContent(mentions[0].content, mentions[0].content.toLowerCase().indexOf(keyword));
+        const referenceIds = mentions
+          .map(c => chunkCitationMap.get(c.id))
+          .filter(Boolean)
+          .slice(0, 3) as string[];
         insights.push({
           type: 'opportunity',
           title: `Pattern: "${keyword}" approach shows promise`,
           description: `${mentions.length} sources recommend ${keyword} strategies for better ROI`,
           supporting: mentions.map(c => c.id).slice(0, 3),
           confidence,
-          snippet
+          snippet,
+          referenceIds
         });
       }
     });
@@ -267,7 +285,8 @@ Focus on:
   private async buildSections(
     request: ResearchRequest,
     chunks: ChunkData[],
-    insights: Insight[]
+    insights: Insight[],
+    chunkCitationMap: Map<string, string>
   ): Promise<ContentSection[]> {
     const sections: ContentSection[] = [];
 
@@ -284,6 +303,18 @@ Focus on:
       const opportunityInsights = insights.filter(i => i.type === 'opportunity');
       const topInsight = insights[0];
 
+      const keyFindingsEvidence = insights.slice(0, 5).map(i => ({
+        claim: i.title,
+        sources: i.supporting,
+        confidence: i.confidence ?? (i.type === 'risk' ? 0.75 : 0.7),
+        citationIds: i.referenceIds || []
+      }));
+
+      const allReferenceIds = insights
+        .slice(0, 5)
+        .flatMap(i => i.referenceIds || [])
+        .filter((id, idx, arr) => arr.indexOf(id) === idx);
+
       sections.push({
         heading: 'Critical Findings',
         level: 1,
@@ -292,12 +323,9 @@ Focus on:
             ? 'The data suggests significant challenges in current implementations.'
             : 'Despite challenges, clear paths to success emerge from the data.'
         }`,
-        evidence: insights.slice(0, 5).map(i => ({
-          claim: i.title,
-          sources: i.supporting,
-          confidence: i.confidence ?? (i.type === 'risk' ? 0.75 : 0.7)
-        })),
-        snippet: topInsight?.snippet
+        evidence: keyFindingsEvidence,
+        snippet: topInsight?.snippet,
+        referenceIds: allReferenceIds
       });
     }
 
@@ -305,11 +333,16 @@ Focus on:
     const costChunks = chunks.filter(c => /\$[\d,]+[KMB]?/.test(c.content));
     if (costChunks.length > 0) {
       const costInsight = insights.find(i => i.type === 'controversy' && i.title.includes('Cost'));
+      const costReferenceIds = costChunks
+        .slice(0, 5)
+        .map(c => chunkCitationMap.get(c.id))
+        .filter(Boolean) as string[];
       sections.push({
         heading: 'Cost Reality Check',
         level: 1,
         content: `Implementation costs vary dramatically across organizations. Analysis of ${costChunks.length} cost data points reveals significant discrepancies between vendor claims and actual expenditures.`,
-        snippet: costInsight?.snippet
+        snippet: costInsight?.snippet,
+        referenceIds: costReferenceIds
       });
     }
 
@@ -317,11 +350,16 @@ Focus on:
     const successChunks = chunks.filter(c => /success|achieve|roi positive/i.test(c.content));
     if (successChunks.length > 0) {
       const successInsight = insights.find(i => i.type === 'opportunity');
+      const successReferenceIds = successChunks
+        .slice(0, 5)
+        .map(c => chunkCitationMap.get(c.id))
+        .filter(Boolean) as string[];
       sections.push({
         heading: 'Success Patterns',
         level: 1,
         content: `Organizations achieving positive ROI share common characteristics: starting with simple use cases, measuring specific metrics, and scaling gradually. These patterns appear consistently across ${successChunks.length} success stories.`,
-        snippet: successInsight?.snippet
+        snippet: successInsight?.snippet,
+        referenceIds: successReferenceIds
       });
     }
 
@@ -459,26 +497,30 @@ Focus on:
     return stopWords.has(word);
   }
 
-  private extractCitations(chunks: ChunkData[]): Citation[] {
+  private extractCitations(chunks: ChunkData[]): { citations: Citation[]; chunkCitationMap: Map<string, string> } {
     const citations: Citation[] = [];
-    const seen = new Set<string>();
+    const seen = new Map<string, string>();
+    const chunkCitationMap = new Map<string, string>();
 
     chunks.forEach((chunk, index) => {
       const source = chunk.source;
       const id = source.url || source.title;
 
       if (!seen.has(id)) {
-        seen.add(id);
+        const citationId = `cite_${citations.length + 1}`;
+        seen.set(id, citationId);
         citations.push({
-          id: `cite_${index + 1}`,
+          id: citationId,
           text: source.title,
           url: source.url,
           source: source.type
         });
       }
+
+      chunkCitationMap.set(chunk.id, seen.get(id)!);
     });
 
-    return citations;
+    return { citations, chunkCitationMap };
   }
 
   private calculateStatConfidence(

@@ -32,7 +32,16 @@ const { meta, sections, summary, insights, citations } = Astro.props;
         <ul class="space-y-3">
           {insights.map(insight => (
           <li class="bg-white rounded-xl border border-gray-200 p-4">
-            <h3 class="font-semibold text-lg">{insight.title}</h3>
+            <h3 class="font-semibold text-lg">
+              {insight.title}
+              {insight.referenceIds && insight.referenceIds.length > 0 && (
+                <span class="ml-1">
+                  {insight.referenceIds.map(refId => (
+                    <a href={`#${refId}`} class="text-blue-600 text-xs align-super hover:underline">[{refId.replace('cite_', '')}]</a>
+                  ))}
+                </span>
+              )}
+            </h3>
             <p class="text-gray-600">{insight.description}</p>
             <p class="text-sm text-gray-500 mt-2">Confidence: {Math.round((insight.confidence ?? 0.6) * 100)}%</p>
             {insight.snippet && (
@@ -61,7 +70,16 @@ const { meta, sections, summary, insights, citations } = Astro.props;
   {sections.map(section => (
     <Section background="white" padding="md">
       <div class="max-w-3xl mx-auto prose prose-lg">
-        <h2>{section.heading}</h2>
+        <h2>
+          {section.heading}
+          {section.referenceIds && section.referenceIds.length > 0 && (
+            <span class="ml-1">
+              {section.referenceIds.map(refId => (
+                <a href={`#${refId}`} class="text-blue-600 text-xs align-super hover:underline font-normal">[{refId.replace('cite_', '')}]</a>
+              ))}
+            </span>
+          )}
+        </h2>
         <p>{section.content}</p>
         {section.snippet && (
           <blockquote>{section.snippet}</blockquote>
@@ -70,7 +88,16 @@ const { meta, sections, summary, insights, citations } = Astro.props;
           <div class="not-prose mt-6 space-y-2">
             {section.evidence.map(e => (
               <div class="text-sm text-gray-600">
-                <span class="font-medium">{e.claim}</span>
+                <span class="font-medium">
+                  {e.claim}
+                  {e.citationIds && e.citationIds.length > 0 && (
+                    <span class="ml-1">
+                      {e.citationIds.map(refId => (
+                        <a href={`#${refId}`} class="text-blue-600 text-xs align-super hover:underline">[{refId.replace('cite_', '')}]</a>
+                      ))}
+                    </span>
+                  )}
+                </span>
                 <span class="ml-2 text-gray-500">Confidence: {Math.round((e.confidence ?? 0.6) * 100)}%</span>
               </div>
             ))}
@@ -97,7 +124,7 @@ const { meta, sections, summary, insights, citations } = Astro.props;
         <h2 class="text-xl font-bold mb-4">Sources</h2>
         <ol class="list-decimal list-inside space-y-2 text-sm text-gray-600">
           {citations.map(citation => (
-            <li>
+            <li id={citation.id}>
               <a href={citation.url} target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-700">
                 {citation.text}
               </a>
