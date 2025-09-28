@@ -71,14 +71,14 @@ export class ClaudeCodeSynthesizer {
       const content = chunks.map(c => c.content).join('\n\n');
       const citationId = sourceCitationMap.get(sourceId);
 
-      // Limit content length to avoid token limits
-      const truncatedContent = content.substring(0, 8000);
+      // Limit content length to avoid token limits and avoid argv length
+      const truncatedContent = content.substring(0, 6000);
 
       const prompt = `You are a research assistant analyzing sources about AI implementation and ROI.
 
 Source citation ID: ${citationId ?? 'unknown'}
 
-Summarize the following content focusing on:
+Summarize the provided CONTENT (read from stdin) focusing on:
 1. Implementation costs (specific numbers)
 2. ROI metrics and timelines
 3. Success and failure rates
@@ -93,13 +93,10 @@ Output as JSON with structure:
   "timeline": "implementation timeline if mentioned",
   "challenges": ["main challenges"],
   "recommendations": ["key recommendations"]
-}
-
-Content from ${sourceId}:
-${truncatedContent}`;
+}`;
 
       try {
-        const result = await claudeCode.query(prompt, { useJson: true });
+        const result = await claudeCode.queryWithInput(truncatedContent, prompt, { useJson: true, model: 'haiku' });
         const enriched = { ...result, citationId };
         summaries.set(sourceId, enriched);
         console.log(`✅ Summarized source: ${sourceId.substring(0, 50)}...`);
@@ -179,7 +176,7 @@ Rules:
 Extract 5-10 most important insights.`;
 
     try {
-      const result = await claudeCode.query(prompt, { useJson: true });
+      const result = await claudeCode.query(prompt, { useJson: true, model: 'haiku' });
 
       // Convert to Insight type
       const insights: Insight[] = (result.insights || result || []).map((i: any) => {
@@ -289,7 +286,8 @@ Write 5-6 detailed sections using specific numbers and examples from the researc
 
     try {
       const result = await claudeCode.query(prompt, {
-        useJson: true
+        useJson: true,
+        model: 'sonnet'
       });
 
       const sections = (result.sections || result || []).map((s: any) => ({
@@ -338,7 +336,7 @@ Write a 3-4 paragraph executive summary that:
 Make it compelling and data-driven.`;
 
     try {
-      const result = await claudeCode.query(prompt, { useJson: false });
+      const result = await claudeCode.query(prompt, { useJson: false, model: 'sonnet' });
       console.log('✅ Generated executive summary');
       return result;
     } catch (error) {
@@ -530,8 +528,11 @@ Make it compelling and data-driven.`;
   }
 
   private basicExecutiveSummary(insights: Insight[]): string {
-    return `This research analyzes current trends and patterns. Key findings include: ${
-      insights.slice(0, 3).map(i => i.title).join(', ')
-    }. The analysis reveals both opportunities and challenges for organizations considering implementation.`;
+    const top = insights.slice(0, 4);
+    const bullets = top.map(i => `- ${i.title}: ${i.description}`).join('\n');
+    const opening = `This research analyzes current trends and patterns in enterprise AI ROI.`;
+    const middle = top.length ? `Key findings:\n${bullets}` : `Key findings: Diverse results across sources with both opportunities and risks.`;
+    const close = `Bottom line: Organizations should align initiatives to measurable business outcomes, start narrow, and scale as ROI is proven.`;
+    return `${opening}\n\n${middle}\n\n${close}`;
   }
 }

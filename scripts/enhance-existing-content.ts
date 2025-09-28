@@ -43,6 +43,11 @@ async function enhanceContent() {
   // Optional filter: --page <slug>, e.g., --page ai-roi-analysis
   const pageArgIndex = process.argv.indexOf('--page');
   const pageFilter = pageArgIndex >= 0 ? process.argv[pageArgIndex + 1] : undefined;
+  const fast = process.argv.includes('--fast');
+  if (fast) {
+    process.env.FAST_PIPELINE = '1';
+    if (!process.env.DATAFORSEO_DISABLE) process.env.DATAFORSEO_DISABLE = '1';
+  }
   const selectedPages = pageFilter
     ? pagesToEnhance.filter(p => p.path.includes(pageFilter))
     : pagesToEnhance;
@@ -52,7 +57,7 @@ async function enhanceContent() {
     console.log(`   Research focus: ${page.focus}`);
 
     try {
-      const result = await runResearchPipeline(page, pipelineConfig);
+      const result = await runResearchPipeline(page, pipelineConfig, fast);
 
       const formatter = new ContentFormatter();
       const enhancedContent = formatter.toAstroComponent(result);
@@ -93,14 +98,15 @@ function loadConfig(): PipelineConfig | undefined {
 
 async function runResearchPipeline(
   page: { keyword: string; focus: string },
-  config?: PipelineConfig
+  config?: PipelineConfig,
+  fast: boolean = false
 ) {
   const request = {
     keyword: page.keyword,
     depth: 'comprehensive' as const,
     audience: 'technical' as const,
     format: 'analysis' as const,
-    maxSources: 20,
+    maxSources: fast ? 8 : 20,
     includeReddit: false,
     includeNews: true
   };

@@ -43,11 +43,18 @@ export class RealDataCollector {
   async searchWeb(keyword: string, options: SearchOptions = {}): Promise<Source[]> {
     const tasks: Array<Promise<Source[]>> = [];
 
-    if (this.dataForSeoAuth) {
-      tasks.push(this.searchDataForSEO(keyword, options));
-    } else if (!this.hasWarnedMissingDataForSeo) {
-      this.hasWarnedMissingDataForSeo = true;
-      console.warn('Skipping DataForSEO search due to missing credentials.');
+    if (process.env.DATAFORSEO_DISABLE !== '1') {
+      if (this.dataForSeoAuth) {
+        tasks.push(this.searchDataForSEO(keyword, options));
+      } else if (!this.hasWarnedMissingDataForSeo) {
+        this.hasWarnedMissingDataForSeo = true;
+        console.warn('Skipping DataForSEO search due to missing credentials.');
+      }
+    } else {
+      if (!this.hasWarnedMissingDataForSeo) {
+        this.hasWarnedMissingDataForSeo = true;
+        console.warn('DataForSEO disabled by env (DATAFORSEO_DISABLE=1).');
+      }
     }
 
     tasks.push(this.searchDuckDuckGo(keyword, options));

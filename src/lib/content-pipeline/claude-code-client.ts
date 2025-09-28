@@ -1,4 +1,4 @@
-import { exec } from 'child_process';
+import { exec, spawn } from 'child_process';
 import { promisify } from 'util';
 
 const execAsync = promisify(exec);
@@ -20,38 +20,19 @@ export class ClaudeCodeClient {
     model?: string;
   } = {}): Promise<any> {
     const { useJson = true, model } = options;
-
-    const escapedPrompt = this.escapeForShell(prompt);
     const args: string[] = [];
-
     if (model) {
-      args.push(`--model ${model}`);
+      args.push('--model', model);
     }
-
     args.push('--print');
-
     if (useJson) {
-      args.push('--output-format json');
+      args.push('--output-format', 'json');
     }
-
-    const command = `claude ${args.join(' ')} ${escapedPrompt}`;
 
     try {
       console.log('🤖 Calling Claude Code...');
 
-      const { stdout, stderr } = await execAsync(command, {
-        timeout: this.timeout,
-        maxBuffer: 10 * 1024 * 1024, // 10MB buffer
-        env: {
-          ...process.env,
-          // Set any Claude Code environment variables here
-          CLAUDE_MAX_TOKENS: '4000',
-        }
-      });
-
-      if (stderr && !stderr.includes('Warning')) {
-        console.warn('Claude stderr:', stderr);
-      }
+      const stdout = await this.runClaude(args, prompt);
 
       // Parse response
       if (useJson) {
@@ -97,38 +78,29 @@ export class ClaudeCodeClient {
   /**
    * Call Claude with input piped from text
    */
-  async queryWithInput(text: string, prompt: string, useJson: boolean = true): Promise<any> {
-    const escapedText = this.escapeForShell(text);
-    const escapedPrompt = this.escapeForShell(prompt);
-
-    const command = useJson
-      ? `echo ${escapedText} | claude --print --output-format json ${escapedPrompt}`
-      : `echo ${escapedText} | claude --print ${escapedPrompt}`;
+  async queryWithInput(text: string, prompt: string, options: { useJson?: boolean; model?: string } = {}): Promise<any> {
+    const { useJson = true, model } = options;
+    const args: string[] = [];
+    if (model) args.push('--model', model);
+    args.push('--print');
+    if (useJson) args.push('--output-format', 'json');
 
     try {
-      const { stdout, stderr } = await execAsync(command, {
-        timeout: this.timeout,
-        maxBuffer: 10 * 1024 * 1024
-      });
-
-      if (stderr && !stderr.includes('Warning')) {
-        console.warn('Claude stderr:', stderr);
-      }
+      const stdout = await this.runClaude(args, prompt, text);
 
       if (useJson) {
         try {
           const wrapper = JSON.parse(stdout);
-          const text = typeof (wrapper as any)?.result === 'string' ? String((wrapper as any).result) : stdout;
-          const extracted = this.extractJsonFromText(text);
+          const textOut = typeof (wrapper as any)?.result === 'string' ? String((wrapper as any).result) : stdout;
+          const extracted = this.extractJsonFromText(textOut);
           if (extracted != null) return extracted;
-          return { response: text };
+          return { response: textOut };
         } catch (e) {
           console.error('Failed to parse JSON response wrapper:', e);
           const extracted = this.extractJsonFromText(stdout);
           return extracted != null ? extracted : { response: stdout };
         }
       }
-      // Non-JSON wrapper path
       try {
         const wrapper = JSON.parse(stdout);
         if (typeof (wrapper as any)?.result === 'string') {
@@ -179,6 +151,44 @@ export class ClaudeCodeClient {
   private escapeForShell(text: string): string {
     // Replace single quotes with '\'' and wrap in single quotes
     return `'${text.replace(/'/g, "'\\''")}'`;
+  }
+
+  /**
+   * Low-level runner for Claude CLI with optional stdin piping.
+   */
+  private runClaude(args: string[], prompt: string, input?: string): Promise<string> {
+    return new Promise((resolve, reject) => {
+      const child = spawn('claude', [...args, prompt], {
+        env: {
+          ...process.env,
+          CLAUDE_MAX_TOKENS: '4000'
+        }
+      });
+
+      let stdout = '';
+      let stderr = '';
+      let finished = false;
+      const timer = setTimeout(() => {
+        if (!finished) child.kill('SIGKILL');
+      }, this.timeout);
+
+      child.stdout.on('data', d => (stdout += d.toString()));
+      child.stderr.on('data', d => (stderr += d.toString()));
+      child.on('error', err => {
+        clearTimeout(timer);
+        finished = true;
+        reject(err);
+      });
+      child.on('close', code => {
+        clearTimeout(timer);
+        finished = true;
+        if (code === 0) return resolve(stdout);
+        reject(new Error(stderr || `Claude exited with code ${code}`));
+      });
+
+      if (input) child.stdin.write(input);
+      child.stdin.end();
+    });
   }
 
   /**

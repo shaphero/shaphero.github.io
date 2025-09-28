@@ -11,6 +11,20 @@ export class ContentFormatter {
     // Add structure markers
     formatted.sections = this.addStructureMarkers(formatted.sections);
 
+    // Recompute reading time from output text (not raw chunks)
+    try {
+      const text = [formatted.summary, ...formatted.sections.map(s => [s.heading, s.content, s.snippet].filter(Boolean).join(' '))]
+        .filter(Boolean)
+        .join(' ');
+      const words = text.trim().split(/\s+/).filter(Boolean).length;
+      const minutes = Math.max(1, Math.ceil(words / 250));
+      if (formatted.meta) {
+        formatted.meta = { ...formatted.meta, readingTime: minutes } as ContentMeta;
+      }
+    } catch {
+      // ignore recompute errors, keep existing readingTime
+    }
+
     return formatted;
   }
 

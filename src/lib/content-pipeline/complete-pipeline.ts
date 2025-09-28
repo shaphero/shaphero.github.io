@@ -93,7 +93,7 @@ export class CompletePipeline {
     console.log(`✅ Stored ${chunks.length} chunks in vector database`);
 
     // Retrieve most relevant chunks
-    const relevantChunks = await this.vectorStore.search(request.keyword, 30);
+    const relevantChunks = await this.vectorStore.search(request.keyword, process.env.FAST_PIPELINE === '1' ? 12 : 30);
     console.log(`✅ Retrieved ${relevantChunks.length} most relevant chunks\n`);
 
     // ============================================================
@@ -136,7 +136,10 @@ export class CompletePipeline {
     const sources: Source[] = [];
 
     // Generate search queries based on depth
-    const queries = this.generateSearchQueries(request);
+    let queries = this.generateSearchQueries(request);
+    if (process.env.FAST_PIPELINE === '1') {
+      queries = queries.slice(0, 4);
+    }
     console.log(`   Searching with ${queries.length} query variations...`);
 
     // Parallel data collection from multiple sources
