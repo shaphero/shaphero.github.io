@@ -55,7 +55,7 @@ Return JSON only.`;
 
   private async runClaude(prompt: string): Promise<string | null> {
     return new Promise((resolve, reject) => {
-      const args = ['--model', this.model, '-p', prompt.trim(), '--json'];
+      const args = ['--model', this.model, '--print', '--output-format', 'json', prompt.trim()];
       const child = spawn('claude', args);
       let stdout = '';
       let stderr = '';
@@ -74,7 +74,13 @@ Return JSON only.`;
 
       child.on('close', code => {
         if (code === 0) {
-          resolve(stdout.trim());
+          try {
+            const wrapper = JSON.parse(stdout);
+            const text = typeof (wrapper as any)?.result === 'string' ? String((wrapper as any).result).trim() : stdout.trim();
+            resolve(text);
+          } catch {
+            resolve(stdout.trim());
+          }
         } else {
           reject(new Error(stderr || `Claude CLI exited with code ${code}`));
         }

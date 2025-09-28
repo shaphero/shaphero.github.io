@@ -1,11 +1,13 @@
 #!/usr/bin/env node
 
+import 'dotenv/config';
 import { ClaudeResearchAgent } from '../src/lib/content-pipeline/claude-research-agent';
 import { ContentFormatter } from '../src/lib/content-pipeline/formatter';
 import { FileCache } from '../src/lib/content-pipeline/cache';
 import { VectorStore } from '../src/lib/content-pipeline/vector-store';
 import type { PipelineConfig } from '../src/lib/content-pipeline/config';
 import { RealDataCollector } from '../src/lib/content-pipeline/real-data-collector';
+import { CompletePipeline } from '../src/lib/content-pipeline/complete-pipeline';
 import * as fs from 'fs';
 import * as path from 'path';
 
@@ -38,21 +40,19 @@ async function enhanceContent() {
 
   const pipelineConfig = loadConfig();
 
-  for (const page of pagesToEnhance) {
+  // Optional filter: --page <slug>, e.g., --page ai-roi-analysis
+  const pageArgIndex = process.argv.indexOf('--page');
+  const pageFilter = pageArgIndex >= 0 ? process.argv[pageArgIndex + 1] : undefined;
+  const selectedPages = pageFilter
+    ? pagesToEnhance.filter(p => p.path.includes(pageFilter))
+    : pagesToEnhance;
+
+  for (const page of selectedPages) {
     console.log(`\n📄 Enhancing: ${page.path}`);
     console.log(`   Research focus: ${page.focus}`);
 
     try {
-      const agent = createResearchAgent(pipelineConfig);
-      const result = await agent.research({
-        keyword: page.keyword,
-        depth: 'comprehensive',
-        audience: 'technical',
-        format: 'article',
-        maxSources: 15,
-        includeReddit: true,
-        includeNews: true
-      });
+      const result = await runResearchPipeline(page, pipelineConfig);
 
       const formatter = new ContentFormatter();
       const enhancedContent = formatter.toAstroComponent(result);
@@ -89,6 +89,33 @@ function loadConfig(): PipelineConfig | undefined {
     }
   }
   return undefined;
+}
+
+async function runResearchPipeline(
+  page: { keyword: string; focus: string },
+  config?: PipelineConfig
+) {
+  const request = {
+    keyword: page.keyword,
+    depth: 'comprehensive' as const,
+    audience: 'technical' as const,
+    format: 'analysis' as const,
+    maxSources: 20,
+    includeReddit: false,
+    includeNews: true
+  };
+
+  const complete = new CompletePipeline();
+  try {
+    return await complete.research(request);
+  } catch (error) {
+    console.warn('⚠️ Complete pipeline failed, falling back to ClaudeResearchAgent:', error);
+    const agent = createResearchAgent(config);
+    return agent.research({
+      ...request,
+      includeReddit: true
+    });
+  }
 }
 
 function createResearchAgent(config?: PipelineConfig) {

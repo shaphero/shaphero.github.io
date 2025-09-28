@@ -308,7 +308,11 @@ export class RealDataCollector {
           'User-Agent': 'Mozilla/5.0 (compatible; ContentPipeline/1.0)'
         }
       }, DEFAULT_FETCH_TIMEOUT);
-
+      const contentType = response.headers.get('content-type') || '';
+      if (!contentType.includes('text/html')) {
+        // Skip non-HTML (e.g., PDFs) to avoid binary noise in prompts
+        return '';
+      }
       const html = await response.text();
       const content = this.extractContent(html);
       if (content) {

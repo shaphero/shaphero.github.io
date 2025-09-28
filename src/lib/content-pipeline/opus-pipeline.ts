@@ -55,8 +55,11 @@ export class OpusPipeline {
    */
   private async runClaude(prompt: string, useJson: boolean = true): Promise<ClaudeResponse> {
     return new Promise((resolve, reject) => {
-      const args = ['--model', this.currentModel, '-p', prompt];
-      if (useJson) args.push('--json');
+      const args = ['--model', this.currentModel, '--print'];
+      if (useJson) {
+        args.push('--output-format', 'json');
+      }
+      args.push(prompt);
 
       console.log(`🤖 Calling Claude ${this.currentModel.includes('opus') ? 'Opus 4.1' : 'Sonnet'}...`);
 
@@ -98,11 +101,24 @@ export class OpusPipeline {
           }
         } else {
           try {
-            const result = useJson ? JSON.parse(stdout) : { completion: stdout };
-            resolve(result);
+            if (useJson) {
+              const wrapper = JSON.parse(stdout);
+              const text = typeof (wrapper as any)?.result === 'string' ? String((wrapper as any).result) : stdout;
+              // Try to parse a JSON object from the text (handles ```json fences)
+              const fence = text.match(/```json\s*([\s\S]*?)\s*```/i) || text.match(/```\s*([\s\S]*?)\s*```/);
+              const candidate = fence ? fence[1] : text;
+              try {
+                const parsed = JSON.parse(String(candidate).trim());
+                resolve(parsed as ClaudeResponse);
+              } catch {
+                resolve({ completion: text } as ClaudeResponse);
+              }
+            } else {
+              resolve({ completion: stdout } as ClaudeResponse);
+            }
           } catch (e) {
-            // If JSON parsing fails, return as plain text
-            resolve({ completion: stdout });
+            // If parsing fails, return as plain text
+            resolve({ completion: stdout } as ClaudeResponse);
           }
         }
       });

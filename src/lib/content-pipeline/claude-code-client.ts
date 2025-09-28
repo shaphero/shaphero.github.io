@@ -10,7 +10,7 @@ const execAsync = promisify(exec);
  */
 export class ClaudeCodeClient {
   private maxRetries: number = 2;
-  private timeout: number = 60000; // 60 seconds
+  private timeout: number = 300000; // 300 seconds to support longer generations
 
   /**
    * Call Claude Code CLI and return the response
@@ -18,35 +18,23 @@ export class ClaudeCodeClient {
   async query(prompt: string, options: {
     useJson?: boolean;
     model?: string;
-    maxTokens?: number;
-    temperature?: number;
   } = {}): Promise<any> {
-    const { useJson = true, model, maxTokens, temperature } = options;
+    const { useJson = true, model } = options;
 
-    // Build command arguments
+    const escapedPrompt = this.escapeForShell(prompt);
     const args: string[] = [];
 
     if (model) {
-      args.push('--model', model);
+      args.push(`--model ${model}`);
     }
 
-    if (maxTokens) {
-      args.push('--max-tokens', maxTokens.toString());
-    }
-
-    if (temperature !== undefined) {
-      args.push('--temperature', temperature.toString());
-    }
+    args.push('--print');
 
     if (useJson) {
-      args.push('--json');
+      args.push('--output-format json');
     }
 
-    // Escape the prompt for shell
-    const escapedPrompt = this.escapeForShell(prompt);
-    args.push('-p', escapedPrompt);
-
-    const command = `claude ${args.join(' ')}`;
+    const command = `claude ${args.join(' ')} ${escapedPrompt}`;
 
     try {
       console.log('🤖 Calling Claude Code...');
@@ -57,7 +45,7 @@ export class ClaudeCodeClient {
         env: {
           ...process.env,
           // Set any Claude Code environment variables here
-          CLAUDE_MAX_TOKENS: maxTokens?.toString() || '4000',
+          CLAUDE_MAX_TOKENS: '4000',
         }
       });
 
@@ -68,13 +56,25 @@ export class ClaudeCodeClient {
       // Parse response
       if (useJson) {
         try {
-          return JSON.parse(stdout);
+          const wrapper = JSON.parse(stdout);
+          const text = typeof (wrapper as any)?.result === 'string' ? String((wrapper as any).result) : stdout;
+          const extracted = this.extractJsonFromText(text);
+          if (extracted != null) return extracted;
+          return { response: text };
         } catch (e) {
-          console.error('Failed to parse JSON response:', e);
-          return { response: stdout };
+          console.error('Failed to parse JSON response wrapper:', e);
+          const extracted = this.extractJsonFromText(stdout);
+          return extracted != null ? extracted : { response: stdout };
         }
       }
 
+      // Non-JSON mode: prefer wrapper.result if available
+      try {
+        const wrapper = JSON.parse(stdout);
+        if (typeof (wrapper as any)?.result === 'string') {
+          return (wrapper as any).result.trim();
+        }
+      } catch {}
       return stdout.trim();
 
     } catch (error: any) {
@@ -102,8 +102,8 @@ export class ClaudeCodeClient {
     const escapedPrompt = this.escapeForShell(prompt);
 
     const command = useJson
-      ? `echo '${escapedText}' | claude -p '${escapedPrompt}' --json`
-      : `echo '${escapedText}' | claude -p '${escapedPrompt}'`;
+      ? `echo ${escapedText} | claude --print --output-format json ${escapedPrompt}`
+      : `echo ${escapedText} | claude --print ${escapedPrompt}`;
 
     try {
       const { stdout, stderr } = await execAsync(command, {
@@ -115,7 +115,27 @@ export class ClaudeCodeClient {
         console.warn('Claude stderr:', stderr);
       }
 
-      return useJson ? JSON.parse(stdout) : stdout.trim();
+      if (useJson) {
+        try {
+          const wrapper = JSON.parse(stdout);
+          const text = typeof (wrapper as any)?.result === 'string' ? String((wrapper as any).result) : stdout;
+          const extracted = this.extractJsonFromText(text);
+          if (extracted != null) return extracted;
+          return { response: text };
+        } catch (e) {
+          console.error('Failed to parse JSON response wrapper:', e);
+          const extracted = this.extractJsonFromText(stdout);
+          return extracted != null ? extracted : { response: stdout };
+        }
+      }
+      // Non-JSON wrapper path
+      try {
+        const wrapper = JSON.parse(stdout);
+        if (typeof (wrapper as any)?.result === 'string') {
+          return (wrapper as any).result.trim();
+        }
+      } catch {}
+      return stdout.trim();
     } catch (error) {
       console.error('Claude Code error:', error);
       throw error;
@@ -159,6 +179,22 @@ export class ClaudeCodeClient {
   private escapeForShell(text: string): string {
     // Replace single quotes with '\'' and wrap in single quotes
     return `'${text.replace(/'/g, "'\\''")}'`;
+  }
+
+  /**
+   * Extract JSON payload from a Claude result string, handling ```json code fences.
+   */
+  private extractJsonFromText(text: string): any | null {
+    if (!text) return null;
+    // Prefer fenced code blocks declared as json
+    const jsonFence = text.match(/```json\s*([\s\S]*?)\s*```/i);
+    const anyFence = jsonFence || text.match(/```\s*([\s\S]*?)\s*```/);
+    const candidate = anyFence ? anyFence[1] : text;
+    try {
+      return JSON.parse(candidate.trim());
+    } catch {
+      return null;
+    }
   }
 
   /**
