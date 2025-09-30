@@ -41,7 +41,9 @@ const faqSchema = {
   description={description}
   showHeader={true}
   showCTA={false}
-  schema={faqSchema}
+  schemaType="article"
+  datePublished="2025-09-29"
+  dateModified="2025-09-29"
 >
   <div class="min-h-screen relative overflow-hidden">
     <!-- Hero Section -->
@@ -83,37 +85,35 @@ const faqSchema = {
       </div>
     </div>
 
-    <!-- Main Content -->
-    <div class="relative bg-gradient-to-b from-secondary to-secondary/95 py-16">
-      <div class="max-w-4xl mx-auto px-6">
+    <!-- Main Content - Light background with good contrast -->
+    <div class="bg-background">
+      <article class="py-16 relative">
+        <div class="max-w-4xl mx-auto px-6">
         
-<div class="prose prose-lg prose-invert max-w-none mb-16">
-  <div class="glass-morphism p-8 rounded-2xl border border-white/10 shadow-xl mb-8">
-    
-<p>95% of enterprise AI pilots fail before delivering measurable ROI—and your boss has probably heard that statistic. But here's what the data doesn't tell you: the 5% that succeed aren't smarter, better funded, or luckier. They're following a specific playbook that turns skeptical executives into believers, and you're about to get that exact playbook.</p>
-  </div>
+<div class="mb-16 p-8 bg-card/50 backdrop-blur-sm rounded-2xl border border-border/50 shadow-elegant">
+<p class="text-lg leading-relaxed text-foreground">95% of enterprise AI pilots fail before delivering measurable ROI—and your boss has probably heard that statistic. But here's what the data doesn't tell you: the 5% that succeed aren't smarter, better funded, or luckier. They're following a specific playbook that turns skeptical executives into believers, and you're about to get that exact playbook.</p>
 </div>
 
 
 <section class="mb-16">
-  <h2 class="text-3xl md:text-4xl font-black text-white mb-6">
+  <h2 class="text-3xl md:text-4xl font-black text-foreground mb-6">
     <span class="bg-gradient-to-r from-accent to-primary-glow bg-clip-text text-transparent">The Stakes:</span> Why Internal Champions Must Act Now
   </h2>
-  <div class="prose prose-lg prose-invert max-w-none">
+  <div class="prose prose-lg max-w-none">
     
-<p>Your competitors aren't debating AI adoption anymore—they're counting the savings. Microsoft just announced $300M in annual cost reductions from AI implementation. Google cut support resolution time by 37% while maintaining quality. These aren't pilot programs or experimental initiatives. These are production deployments generating measurable ROI right now. And if you're reading this thinking "we'll get to AI next quarter," you're already behind.</p>
-<p>Here's the uncomfortable truth: 75% of organizations are actively using AI (McKinsey, 2025). That means three out of four competitors in your space have moved beyond the "should we?" conversation. They're optimizing workflows, reducing costs, and shipping faster while you're still building the business case. The early-mover advantage that existed 12 months ago? It's closing fast. Companies that wait until AI is "proven" will find themselves competing against teams that have already compressed their AI learning curve—and their cost structure.</p>
-<p>But here's what should really keep you up at night: the political cost of inaction compounds daily. Every month you delay, someone else in your organization is watching competitors pull ahead. Your CEO is seeing those Microsoft and Google headlines. Your board is asking questions. And when the pressure finally forces a rushed AI initiative 6-9 months from now, you'll be implementing frantically instead of strategically—with a skeptical audience who remembers you dragged your feet. Internal champions who move now get to shape the narrative. Those who wait get to defend why they didn't.</p>
-<p>The window isn't closed yet, but it's closing. Right now, you can still be the person who brought AI to your company <em>before</em> it became a crisis. You can still run small, smart pilots that prove value without betting the farm. You can still learn, iterate, and build organizational buy-in on your timeline. Wait six months, and you'll be the person explaining why your department is the bottleneck while competitors are scaling AI across their operations. The choice isn't whether to adopt AI—it's whether you'll lead the change or get dragged into it.</p>
+<p class="text-lg text-muted-foreground leading-relaxed mb-6">Your competitors aren't debating AI adoption anymore—they're counting the savings. Microsoft just announced $300M in annual cost reductions from AI implementation. Google cut support resolution time by 37% while maintaining quality. These aren't pilot programs or experimental initiatives. These are production deployments generating measurable ROI right now. And if you're reading this thinking "we'll get to AI next quarter," you're already behind.</p>
+<p class="text-lg text-muted-foreground leading-relaxed mb-6">Here's the uncomfortable truth: 75% of organizations are actively using AI (McKinsey, 2025). That means three out of four competitors in your space have moved beyond the "should we?" conversation. They're optimizing workflows, reducing costs, and shipping faster while you're still building the business case. The early-mover advantage that existed 12 months ago? It's closing fast. Companies that wait until AI is "proven" will find themselves competing against teams that have already compressed their AI learning curve—and their cost structure.</p>
+<p class="text-lg text-muted-foreground leading-relaxed mb-6">But here's what should really keep you up at night: the political cost of inaction compounds daily. Every month you delay, someone else in your organization is watching competitors pull ahead. Your CEO is seeing those Microsoft and Google headlines. Your board is asking questions. And when the pressure finally forces a rushed AI initiative 6-9 months from now, you'll be implementing frantically instead of strategically—with a skeptical audience who remembers you dragged your feet. Internal champions who move now get to shape the narrative. Those who wait get to defend why they didn't.</p>
+<p class="text-lg text-muted-foreground leading-relaxed">The window isn't closed yet, but it's closing. Right now, you can still be the person who brought AI to your company <em>before</em> it became a crisis. You can still run small, smart pilots that prove value without betting the farm. You can still learn, iterate, and build organizational buy-in on your timeline. Wait six months, and you'll be the person explaining why your department is the bottleneck while competitors are scaling AI across their operations. The choice isn't whether to adopt AI—it's whether you'll lead the change or get dragged into it.</p>
   </div>
 </section>
 
 
 <section class="mb-16">
-  <h2 class="text-3xl md:text-4xl font-black text-white mb-6">
+  <h2 class="text-3xl md:text-4xl font-black text-foreground mb-6">
     The 95/5 Divide: What Separates Winners from Losers
   </h2>
-  <div class="prose prose-lg prose-invert max-w-none">
+  <div class="prose prose-lg max-w-none">
     
 <p>The MIT NANDA Initiative report calls it the "GenAI Divide"—and the gap is brutal. According to their research, 95% of enterprise generative AI pilot programs are failing to deliver measurable impact. But the 5% that succeed aren't just doing better—they're achieving rapid revenue acceleration that's reshaping entire industries.</p>
 <p>So what's the difference?</p>
@@ -133,10 +133,10 @@ const faqSchema = {
 
 
 <section class="mb-16">
-  <h2 class="text-3xl md:text-4xl font-black text-white mb-6">
+  <h2 class="text-3xl md:text-4xl font-black text-foreground mb-6">
     The Proof: Real Companies, Real Numbers
   </h2>
-  <div class="prose prose-lg prose-invert max-w-none">
+  <div class="prose prose-lg max-w-none">
     
 <p>Talk is cheap. Let's look at what the winners actually achieved.</p>
 <h3>Microsoft: $300M in Annual Savings</h3>
@@ -156,10 +156,10 @@ const faqSchema = {
 
 
 <section class="mb-16">
-  <h2 class="text-3xl md:text-4xl font-black text-white mb-6">
+  <h2 class="text-3xl md:text-4xl font-black text-foreground mb-6">
     The Playbook: 5 Things the Winners Do
   </h2>
-  <div class="prose prose-lg prose-invert max-w-none">
+  <div class="prose prose-lg max-w-none">
     
 <p>Enough case studies. Here's the tactical playbook. If you're an internal champion trying to get AI approved and deployed, these are the five moves that actually work.</p>
 <h3>1. Partner with Specialized Vendors (Don't Build from Scratch)</h3>
@@ -192,10 +192,10 @@ const faqSchema = {
 
 
 <section class="mb-16">
-  <h2 class="text-3xl md:text-4xl font-black text-white mb-6">
+  <h2 class="text-3xl md:text-4xl font-black text-foreground mb-6">
     The Ammunition: What to Tell Your Boss
   </h2>
-  <div class="prose prose-lg prose-invert max-w-none">
+  <div class="prose prose-lg max-w-none">
     
 <p>You've got the strategy. Now you need to convince the skeptics. Here's the data that wins arguments:</p>
 <h3>For the CFO Who Thinks AI Is Too Expensive:</h3>
@@ -214,20 +214,20 @@ const faqSchema = {
 
 
 <section class="mb-16">
-  <h2 class="text-3xl md:text-4xl font-black text-white mb-6">
+  <h2 class="text-3xl md:text-4xl font-black text-foreground mb-6">
     Take Action: Your Next 30 Days
   </h2>
-  <div class="prose prose-lg prose-invert max-w-none">
+  <div class="prose prose-lg max-w-none">
     
 <p>You've got the playbook. You've got the data. You've got the arguments to convince skeptics. Now here's what to do in the next 30 days:</p>
 <p><strong class="text-accent">Week 1: Pick Your Battle</strong></p>
-<ul class="space-y-2 ml-4 text-white/90"><li>Identify 3-5 potential pain points (manual processes, repetitive work, bottlenecks)</li> <li>Score them on: volume (how often it happens), cost (time or money), and executive visibility (does leadership track this metric?)</li> <li>Pick the winner: high volume, measurable cost, executive visibility</li></ul>
+<ul class="space-y-2 ml-4 text-muted-foreground"><li>Identify 3-5 potential pain points (manual processes, repetitive work, bottlenecks)</li> <li>Score them on: volume (how often it happens), cost (time or money), and executive visibility (does leadership track this metric?)</li> <li>Pick the winner: high volume, measurable cost, executive visibility</li></ul>
 <p><strong class="text-accent">Week 2: Find Your Champion</strong></p>
-<ul class="space-y-2 ml-4 text-white/90"><li>Identify the line manager who owns that pain point</li> <li>Make sure they're: (1) eager to try new approaches, (2) credible with leadership, (3) empowered to change team workflows</li> <li>Get their buy-in before going to executives</li></ul>
+<ul class="space-y-2 ml-4 text-muted-foreground"><li>Identify the line manager who owns that pain point</li> <li>Make sure they're: (1) eager to try new approaches, (2) credible with leadership, (3) empowered to change team workflows</li> <li>Get their buy-in before going to executives</li></ul>
 <p><strong class="text-accent">Week 3: Build Your Case</strong></p>
-<ul class="space-y-2 ml-4 text-white/90"><li>Research 3-5 vendors who solve your specific pain point</li> <li>Get pricing, timelines, and case studies</li> <li>Calculate your potential ROI using conservative assumptions</li> <li>Draft a one-page proposal: problem, solution, cost, expected return, timeline</li></ul>
+<ul class="space-y-2 ml-4 text-muted-foreground"><li>Research 3-5 vendors who solve your specific pain point</li> <li>Get pricing, timelines, and case studies</li> <li>Calculate your potential ROI using conservative assumptions</li> <li>Draft a one-page proposal: problem, solution, cost, expected return, timeline</li></ul>
 <p><strong class="text-accent">Week 4: Get Approval and Launch</strong></p>
-<ul class="space-y-2 ml-4 text-white/90"><li>Present to your executive sponsor with your line manager champion</li> <li>Ask for 90-day pilot approval with defined success metrics</li> <li>Once approved, kick off vendor trials immediately</li> <li>Document everything for your future scale-up argument</li></ul>
+<ul class="space-y-2 ml-4 text-muted-foreground"><li>Present to your executive sponsor with your line manager champion</li> <li>Ask for 90-day pilot approval with defined success metrics</li> <li>Once approved, kick off vendor trials immediately</li> <li>Document everything for your future scale-up argument</li></ul>
 <p><strong class="text-accent">After 90 Days:</strong></p>
 <p>If you followed this playbook—picked a real pain point, partnered with a specialized vendor, gave ownership to a line manager, and measured results—you'll have data. Either you've proven ROI and can expand, or you've learned what doesn't work and can pivot fast.</p>
 <p>Either outcome is better than where most companies are: stuck in analysis paralysis while competitors scale AI into production.</p>
@@ -235,25 +235,26 @@ const faqSchema = {
 </section>
 
 
-<section class="mb-16">
-  <div class="prose prose-lg prose-invert max-w-none">
-    <h2>Work With Me</h2>
-<p>I've helped internal champions at Fortune 500 companies navigate the politics, build the business case, and get AI initiatives approved. If you're trying to be the 5% (not the 95%), I can help.</p>
-<p><strong class="text-accent">Book a free 30-minute strategy session:</strong> Email dave@daveshap.com with subject line "AI ROI Strategy"</p>
-<p>In 30 minutes, we'll:</p>
-<ul class="space-y-2 ml-4 text-white/90"><li>Identify your best first use case</li> <li>Review your vendor short-list</li> <li>Build your executive pitch</li> <li>Plan your 90-day pilot</li></ul>
-<p><strong class="text-accent">What you get:</strong></p>
-<ul class="space-y-2 ml-4 text-white/90"><li>A clear go/no-go decision on AI</li> <li>Vendor recommendations specific to your use case</li> <li>A one-page proposal you can take to your executive sponsor</li> <li>Confidence that you're following the playbook that actually works</li></ul>
-<p>The 95% are failing because they're guessing. The 5% are winning because they have a plan.</p>
-<p>Which group do you want to be in?</p>
-<p><strong class="text-accent">About Dave Shapiro</strong></p>
-<p>Former SVP of Earned Media at Neil Patel Digital and CMO of a sports betting SaaS startup. 16+ years working with Fortune 500 companies including SoFi (509% traffic growth), Adobe (25K+ downloads in 7 months), and Lantern by SoFi (561% growth). Now helping internal AI champions get budget approved, pilots launched, and ROI proven.</p>
-<p><strong class="text-accent">Sources:</strong></p>
-<ul class="space-y-2 ml-4 text-white/90"><li>MIT NANDA Initiative Report on Enterprise AI (2025)</li> <li>McKinsey Global Survey on AI (2025)</li> <li>Cloudera Enterprise AI Research (2025)</li> <li>a16z Enterprise AI 2025 Report</li> <li>Fortune Magazine: "95% of Generative AI Pilots Fail" (Aug 2025)</li></ul>
-<p><em>Last updated: September 29, 2025</em></p>
+<section class="mb-16 p-8 bg-card/50 backdrop-blur-sm rounded-2xl border border-border/50 shadow-elegant">
+  <div class="prose prose-lg max-w-none">
+    <h2 class="text-foreground">Work With Me</h2>
+<p class="text-muted-foreground">I've helped internal champions at Fortune 500 companies navigate the politics, build the business case, and get AI initiatives approved. If you're trying to be the 5% (not the 95%), I can help.</p>
+<p class="text-muted-foreground"><strong class="text-accent">Book a free 30-minute strategy session:</strong> Email dave@daveshap.com with subject line "AI ROI Strategy"</p>
+<p class="text-muted-foreground">In 30 minutes, we'll:</p>
+<ul class="space-y-2 ml-4 text-muted-foreground"><li>Identify your best first use case</li> <li>Review your vendor short-list</li> <li>Build your executive pitch</li> <li>Plan your 90-day pilot</li></ul>
+<p class="text-muted-foreground"><strong class="text-accent">What you get:</strong></p>
+<ul class="space-y-2 ml-4 text-muted-foreground"><li>A clear go/no-go decision on AI</li> <li>Vendor recommendations specific to your use case</li> <li>A one-page proposal you can take to your executive sponsor</li> <li>Confidence that you're following the playbook that actually works</li></ul>
+<p class="text-foreground font-medium">The 95% are failing because they're guessing. The 5% are winning because they have a plan.</p>
+<p class="text-foreground font-medium">Which group do you want to be in?</p>
+<p class="text-muted-foreground"><strong class="text-accent">About Dave Shapiro</strong></p>
+<p class="text-muted-foreground">Former SVP of Earned Media at Neil Patel Digital and CMO of a sports betting SaaS startup. 16+ years working with Fortune 500 companies including SoFi (509% traffic growth), Adobe (25K+ downloads in 7 months), and Lantern by SoFi (561% growth). Now helping internal AI champions get budget approved, pilots launched, and ROI proven.</p>
+<p class="text-muted-foreground"><strong class="text-accent">Sources:</strong></p>
+<ul class="space-y-2 ml-4 text-muted-foreground"><li>MIT NANDA Initiative Report on Enterprise AI (2025)</li> <li>McKinsey Global Survey on AI (2025)</li> <li>Cloudera Enterprise AI Research (2025)</li> <li>a16z Enterprise AI 2025 Report</li> <li>Fortune Magazine: "95% of Generative AI Pilots Fail" (Aug 2025)</li></ul>
+<p class="text-muted-foreground text-sm italic">Last updated: September 29, 2025</p>
   </div>
 </section>
-      </div>
+        </div>
+      </article>
     </div>
   </div>
 </PageLayout>
