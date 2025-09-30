@@ -1,0 +1,237 @@
+/* Global Styles - Single Source of Truth */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Blue & White Color System - HSL Format */
+    --background: 0 0% 100%; /* #ffffff */
+    --foreground: 215 65% 33%; /* #1d4e89 */
+    --card: 0 0% 100%;
+    --card-foreground: 215 65% 33%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 65% 33%;
+    --primary: 215 65% 33%; /* #1d4e89 */
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 213 94% 68%;
+    --primary-darker: 215 66% 23%;
+    --primary-glow: 225 73% 66%;
+    --secondary: 210 14% 96%;
+    --secondary-foreground: 215 65% 33%;
+    --muted: 0 0% 94%;
+    --muted-foreground: 215 13% 45%;
+    --accent: 213 94% 68%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 214 13% 84%;
+    --input: 0 0% 100%;
+    --ring: 215 65% 33%;
+    --radius: 12px;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-light)) 100%);
+    --gradient-hero: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+    --gradient-section: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(210 14% 96%) 100%);
+    --gradient-glass: linear-gradient(135deg, rgba(29, 78, 137, 0.1) 0%, rgba(29, 78, 137, 0.05) 100%);
+    --gradient-border: linear-gradient(135deg, hsl(var(--primary) / 0.3) 0%, hsl(var(--accent) / 0.2) 100%);
+
+    /* Shadows */
+    --shadow-elegant: 0 4px 6px hsl(var(--primary) / 0.05), 0 10px 20px hsl(var(--primary) / 0.1), 0 20px 40px hsl(var(--primary) / 0.05);
+    --shadow-premium: 0 8px 30px hsl(var(--primary) / 0.12), 0 20px 60px hsl(var(--primary) / 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    --shadow-glow: 0 0 50px hsl(var(--primary) / 0.2);
+    --shadow-glass: inset 0 1px 0 0 rgba(255, 255, 255, 0.3);
+    --shadow-inner: inset 0 2px 4px 0 hsl(var(--primary) / 0.1);
+
+    /* Transitions */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-elegant: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+    /* Glass Effect */
+    --glass-bg: rgba(255, 255, 255, 0.2);
+    --glass-border: rgba(29, 78, 137, 0.2);
+    --glass-shadow: 0 8px 32px 0 rgba(29, 78, 137, 0.1);
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+    color: hsl(var(--foreground));
+  }
+}
+
+@layer components {
+  /* Glass Effects */
+  .glass {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: var(--glass-shadow);
+  }
+
+  .glass-card {
+    @apply glass rounded-2xl p-6;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.02) 100%);
+  }
+
+  /* Premium Button System */
+  .btn-base {
+    @apply inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-semibold ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50;
+  }
+
+  .btn-primary {
+    @apply btn-base bg-primary text-white hover:bg-primary-darker shadow-premium h-12 px-6 py-3;
+  }
+
+  .btn-primary:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-glow);
+  }
+
+  .btn-secondary {
+    @apply btn-base bg-secondary text-secondary-foreground shadow-elegant h-12 px-6 py-3;
+  }
+
+  .btn-accent {
+    @apply btn-base bg-accent text-white shadow-premium h-12 px-6 py-3;
+  }
+
+  .btn-outline {
+    @apply btn-base border border-primary bg-background text-primary shadow-elegant h-12 px-6 py-3;
+  }
+
+  .btn-outline:hover {
+    @apply bg-primary text-white;
+  }
+
+  /* Glass Badge System */
+  .glass-badge {
+    @apply inline-flex items-center rounded-full px-4 py-2 text-sm font-semibold backdrop-blur-sm border transition-all duration-300;
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .glass-badge:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  /* Background Gradients */
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .bg-gradient-section {
+    background: var(--gradient-section);
+  }
+
+  /* Text Effects */
+  .text-hero {
+    font-size: clamp(2.5rem, 8vw, 6rem);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  /* Link Underline Effect */
+  .story-link {
+    @apply relative no-underline;
+  }
+
+  .story-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-0.5;
+    background: linear-gradient(90deg, hsl(var(--accent)) 0%, hsl(var(--primary-light)) 100%);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+
+  .story-link:hover::after {
+    transform: scaleX(1);
+  }
+}
+
+@layer utilities {
+  /* Shadow Utilities */
+  .shadow-elegant {
+    box-shadow: var(--shadow-elegant);
+  }
+
+  .shadow-premium {
+    box-shadow: var(--shadow-premium);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  /* Animation Utilities */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    33% { transform: translateY(-10px) rotate(1deg); }
+    66% { transform: translateY(-5px) rotate(-1deg); }
+  }
+
+  /* Fade In Animations */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Mobile Optimizations */
+  @media (max-width: 768px) {
+    .animate-float,
+    .animate-gradient-shift {
+      animation: none !important;
+    }
+
+    * {
+      transition-duration: 0.15s !important;
+    }
+
+    .section-padding {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+    }
+  }
+
+  /* Touch-friendly tap targets */
+  @media (pointer: coarse) {
+    button, a, input, select, textarea {
+      min-height: 44px;
+      min-width: 44px;
+    }
+  }
+
+  /* Reduced Motion */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}

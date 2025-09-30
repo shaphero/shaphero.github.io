@@ -3,10 +3,8 @@ import { ViewTransitions } from 'astro:transitions';
 import StructuredData from '../components/StructuredData.astro';
 import PerfMonitor from '../components/PerfMonitor.astro';
 
-// Import styles with ?inline to control loading
-import globalStyles from '../styles/global-complete.css?inline';
-import mobileStyles from '../styles/mobile-optimizations.css?inline';
-import premiumStyles from '../styles/premium-effects.css?inline';
+// Import consolidated global styles
+import '../styles/global.css';
 
 export interface Props {
   title: string;
@@ -93,19 +91,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
   <!-- Inline critical CSS for fastest first paint -->
   <style>
-    /* Critical CSS - Above the fold styles */
-    :root {
-      --primary: #2563eb;
-      --accent: #f59e0b;
-      --foreground: #1f2937;
-      --background: #ffffff;
-      --gradient-hero: linear-gradient(135deg, #1f2937 0%, #111827 100%);
-    }
+    /* Critical CSS - Above the fold styles using HSL variables */
     body {
       margin: 0;
       font-family: 'Inter', system-ui, -apple-system, sans-serif;
       line-height: 1.5;
-      color: var(--foreground);
     }
     .hero-section {
       min-height: 100vh;
@@ -116,14 +106,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       font-size: clamp(2.5rem, 5vw, 4.5rem);
       line-height: 1.2;
       margin: 0 0 1.5rem;
-    }
-    .btn-primary {
-      background: var(--primary);
-      color: white;
-      padding: 0.75rem 1.5rem;
-      border-radius: 0.5rem;
-      text-decoration: none;
-      display: inline-block;
     }
     /* Prevent layout shift */
     img { aspect-ratio: attr(width) / attr(height); }
@@ -203,11 +185,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       });
     }
   </script>
-  <!-- Inline non-critical styles (loaded async) -->
-  <style set:html={globalStyles}></style>
-  <style set:html={mobileStyles}></style>
-  <style set:html={premiumStyles}></style>
-
   <!-- Performance Monitoring -->
   <PerfMonitor />
 </head>
