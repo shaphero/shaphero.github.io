@@ -71,8 +71,8 @@ export class ClaudeCodeSynthesizer {
       const content = chunks.map(c => c.content).join('\n\n');
       const citationId = sourceCitationMap.get(sourceId);
 
-      // Limit content length to avoid token limits and avoid argv length
-      const truncatedContent = content.substring(0, 6000);
+      // Smart truncation at semantic boundaries
+      const truncatedContent = this.smartTruncate(content, 6000);
 
       const prompt = `You are a research assistant analyzing sources about AI implementation and ROI.
 
@@ -178,8 +178,12 @@ Extract 5-10 most important insights.`;
     try {
       const result = await claudeCode.query(prompt, { useJson: true, model: 'haiku' });
 
+      // Ensure we have an array
+      const rawInsights = result.insights || result;
+      const insightArray = Array.isArray(rawInsights) ? rawInsights : [];
+
       // Convert to Insight type
-      const insights: Insight[] = (result.insights || result || []).map((i: any) => {
+      const insights: Insight[] = insightArray.map((i: any) => {
         const baseSupporting = Array.isArray(i.supporting) ? i.supporting : Array.isArray(i.evidence) ? i.evidence : [];
         const supportingRefs = baseSupporting
           .map((value: any) => {
@@ -290,7 +294,11 @@ Write 5-6 detailed sections using specific numbers and examples from the researc
         model: 'sonnet'
       });
 
-      const sections = (result.sections || result || []).map((s: any) => ({
+      // Ensure we have an array
+      const rawSections = result.sections || result;
+      const sectionArray = Array.isArray(rawSections) ? rawSections : [];
+
+      const sections = sectionArray.map((s: any) => ({
         heading: s.heading,
         level: s.level || 1,
         content: s.content,
@@ -400,22 +408,24 @@ Make it compelling and data-driven.`;
 
   /**
    * Generate metadata
+   * Note: readingTime will be recalculated by formatter based on final output
    */
   private generateMeta(request: ResearchRequest, chunks: ChunkData[]): ContentMeta {
-    const wordCount = chunks.reduce((sum, chunk) => sum + chunk.content.split(' ').length, 0);
-    const readingTime = Math.ceil(wordCount / 250);
-
     return {
       title: `${request.keyword}: Research Analysis`,
       description: `Comprehensive analysis based on ${chunks.length} data points`,
       keywords: request.keyword.split(' '),
       audience: request.audience || 'executive',
-      readingTime,
+      readingTime: 1, // Placeholder - will be recalculated by formatter from final output
       publishDate: new Date().toISOString(),
       sources: [...new Set(chunks.map(c => c.source))]
     };
   }
 
+  /**
+   * Simplified citation normalization
+   * Ensures all references use cite_N format and exist in the citation map
+   */
   private normalizeReferenceIds(
     value: any,
     sourceCitationMap: Map<string, string>
@@ -423,28 +433,22 @@ Make it compelling and data-driven.`;
     if (!value) return [];
 
     const items = Array.isArray(value) ? value : [value];
-    const normalizedSourceMap = new Map<string, string>();
-    sourceCitationMap.forEach((citationId, sourceId) => {
-      normalizedSourceMap.set((sourceId || '').toLowerCase(), citationId);
-    });
+    const validCitationIds = new Set(sourceCitationMap.values());
+    const result: string[] = [];
 
-    return this.uniqueIds(
-      items
-        .map(item => {
-          if (typeof item !== 'string') return null;
-          const trimmed = item.trim();
-          if (!trimmed) return null;
-          const lower = trimmed.toLowerCase();
-          if (/^cite_\d+$/.test(lower)) {
-            return lower;
-          }
-          if (normalizedSourceMap.has(lower)) {
-            return normalizedSourceMap.get(lower)!;
-          }
-          return null;
-        })
-        .filter((id): id is string => Boolean(id))
-    );
+    for (const item of items) {
+      if (typeof item !== 'string') continue;
+
+      const trimmed = item.trim().toLowerCase();
+      if (!trimmed) continue;
+
+      // Check if it's already a valid cite_N format
+      if (/^cite_\d+$/.test(trimmed) && validCitationIds.has(trimmed)) {
+        result.push(trimmed);
+      }
+    }
+
+    return this.uniqueIds(result);
   }
 
   private attachCitationIdsToEvidence(
@@ -534,5 +538,45 @@ Make it compelling and data-driven.`;
     const middle = top.length ? `Key findings:\n${bullets}` : `Key findings: Diverse results across sources with both opportunities and risks.`;
     const close = `Bottom line: Organizations should align initiatives to measurable business outcomes, start narrow, and scale as ROI is proven.`;
     return `${opening}\n\n${middle}\n\n${close}`;
+  }
+
+  /**
+   * Smart truncation at semantic boundaries
+   * Prefers to cut at paragraph, sentence, or word boundaries rather than mid-word
+   */
+  private smartTruncate(text: string, maxLength: number): string {
+    if (text.length <= maxLength) {
+      return text;
+    }
+
+    // Try to find a paragraph boundary within last 10% of limit
+    const paragraphWindow = maxLength - Math.floor(maxLength * 0.1);
+    const paragraphBreak = text.lastIndexOf('\n\n', maxLength);
+    if (paragraphBreak >= paragraphWindow) {
+      return text.substring(0, paragraphBreak).trim();
+    }
+
+    // Try to find a sentence boundary
+    const sentenceWindow = maxLength - Math.floor(maxLength * 0.05);
+    const sentenceEndings = ['. ', '! ', '? ', '.\n', '!\n', '?\n'];
+    let bestSentenceEnd = -1;
+    for (const ending of sentenceEndings) {
+      const pos = text.lastIndexOf(ending, maxLength);
+      if (pos >= sentenceWindow && pos > bestSentenceEnd) {
+        bestSentenceEnd = pos;
+      }
+    }
+    if (bestSentenceEnd >= sentenceWindow) {
+      return text.substring(0, bestSentenceEnd + 1).trim();
+    }
+
+    // Fall back to word boundary
+    const wordBoundary = text.lastIndexOf(' ', maxLength);
+    if (wordBoundary > maxLength - 50) {
+      return text.substring(0, wordBoundary).trim();
+    }
+
+    // Last resort: hard truncate with ellipsis
+    return text.substring(0, maxLength - 3).trim() + '...';
   }
 }

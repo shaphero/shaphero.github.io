@@ -11,6 +11,15 @@ import { VectorStore } from './vector-store';
 import { ContentFormatter } from './formatter';
 import { claudeCode } from './claude-code-client';
 
+interface PipelineProgress {
+  phase: string;
+  step: string;
+  progress: number; // 0-100
+  details?: any;
+}
+
+type ProgressCallback = (progress: PipelineProgress) => void;
+
 /**
  * Complete Research Pipeline with Claude Code Integration
  *
@@ -26,17 +35,25 @@ export class CompletePipeline {
   private synthesizer: ClaudeCodeSynthesizer;
   private vectorStore: VectorStore;
   private formatter: ContentFormatter;
+  private progressCallback?: ProgressCallback;
 
-  constructor() {
+  constructor(options: { onProgress?: ProgressCallback } = {}) {
     this.collector = new RealDataCollector();
     this.processor = new RealContentProcessor();
     this.synthesizer = new ClaudeCodeSynthesizer();
     this.vectorStore = new VectorStore();
     this.formatter = new ContentFormatter();
+    this.progressCallback = options.onProgress;
+  }
+
+  private reportProgress(phase: string, step: string, progress: number, details?: any): void {
+    if (this.progressCallback) {
+      this.progressCallback({ phase, step, progress, details });
+    }
   }
 
   /**
-   * Main research pipeline
+   * Main research pipeline with progress tracking
    */
   async research(request: ResearchRequest): Promise<SynthesisResult> {
     console.log(`
@@ -44,6 +61,8 @@ export class CompletePipeline {
 ║     COMPLETE RESEARCH PIPELINE ACTIVE      ║
 ╚════════════════════════════════════════════╝
 `);
+
+    this.reportProgress('initialization', 'starting', 0);
 
     // Check Claude Code availability
     const claudeAvailable = await claudeCode.checkAvailability();
@@ -55,6 +74,8 @@ export class CompletePipeline {
     console.log(`🎯 Target Audience: ${request.audience || 'general'}`);
     console.log(`📊 Depth Level: ${request.depth || 'standard'}\n`);
 
+    this.reportProgress('initialization', 'complete', 5);
+
     // ============================================================
     // PHASE 1: DATA COLLECTION
     // ============================================================
@@ -62,11 +83,14 @@ export class CompletePipeline {
     console.log('📚 PHASE 1: MULTI-SOURCE DATA COLLECTION');
     console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
 
+    this.reportProgress('collection', 'searching', 10);
     const sources = await this.collectData(request);
     console.log(`✅ Collected ${sources.length} sources`);
     console.log(`   - Web results: ${sources.filter(s => s.type === 'article').length}`);
     console.log(`   - Reddit posts: ${sources.filter(s => s.type === 'reddit').length}`);
     console.log(`   - News articles: ${sources.filter(s => s.type === 'news').length}\n`);
+
+    this.reportProgress('collection', 'complete', 25, { sourceCount: sources.length });
 
     // ============================================================
     // PHASE 2: CONTENT PROCESSING
@@ -75,12 +99,15 @@ export class CompletePipeline {
     console.log('🧠 PHASE 2: CONTENT PROCESSING & EMBEDDINGS');
     console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
 
+    this.reportProgress('processing', 'chunking', 30);
     const chunks = await this.processContent(sources);
     console.log(`✅ Created ${chunks.length} semantic chunks`);
 
     const totalTokens = chunks.reduce((sum, c) => sum + (c.metadata?.tokens || 0), 0);
     console.log(`   - Total tokens: ${totalTokens.toLocaleString()}`);
     console.log(`   - Avg chunk size: ${Math.round(totalTokens / chunks.length)} tokens\n`);
+
+    this.reportProgress('processing', 'complete', 45, { chunkCount: chunks.length, totalTokens });
 
     // ============================================================
     // PHASE 3: VECTOR STORAGE
@@ -89,12 +116,16 @@ export class CompletePipeline {
     console.log('💾 PHASE 3: VECTOR DATABASE STORAGE');
     console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
 
+    this.reportProgress('vectorization', 'storing', 50);
     await this.vectorStore.addDocuments(chunks);
     console.log(`✅ Stored ${chunks.length} chunks in vector database`);
 
     // Retrieve most relevant chunks
+    this.reportProgress('vectorization', 'retrieving', 55);
     const relevantChunks = await this.vectorStore.search(request.keyword, process.env.FAST_PIPELINE === '1' ? 12 : 30);
     console.log(`✅ Retrieved ${relevantChunks.length} most relevant chunks\n`);
+
+    this.reportProgress('vectorization', 'complete', 60, { relevantChunkCount: relevantChunks.length });
 
     // ============================================================
     // PHASE 4: CLAUDE CODE SYNTHESIS
@@ -103,11 +134,18 @@ export class CompletePipeline {
     console.log('🤖 PHASE 4: CLAUDE CODE AI SYNTHESIS');
     console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
 
+    this.reportProgress('synthesis', 'analyzing', 65);
     const synthesis = await this.synthesizer.synthesize(request, relevantChunks);
     console.log(`✅ Synthesis complete`);
     console.log(`   - Insights extracted: ${synthesis.insights.length}`);
     console.log(`   - Sections generated: ${synthesis.sections.length}`);
     console.log(`   - Citations: ${synthesis.citations.length}\n`);
+
+    this.reportProgress('synthesis', 'complete', 85, {
+      insightCount: synthesis.insights.length,
+      sectionCount: synthesis.sections.length,
+      citationCount: synthesis.citations.length
+    });
 
     // ============================================================
     // PHASE 5: FORMATTING
@@ -116,9 +154,13 @@ export class CompletePipeline {
     console.log('🎨 PHASE 5: OUTPUT FORMATTING');
     console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
 
+    this.reportProgress('formatting', 'formatting', 90);
     const formatted = await this.formatter.format(synthesis);
+    this.reportProgress('formatting', 'refining', 95);
     const refined = await this.formatter.refine(formatted);
     console.log(`✅ Formatted and refined output\n`);
+
+    this.reportProgress('formatting', 'complete', 100);
 
     console.log(`
 ╔════════════════════════════════════════════╗

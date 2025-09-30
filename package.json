@@ -8,6 +8,9 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "diagnose": "tsx scripts/diagnose-env.ts",
+    "health": "tsx scripts/pipeline-health.ts",
+    "test:phase-one": "tsx scripts/verify-phase-one.ts",
     "research": "tsx scripts/research-content.ts",
     "enhance": "tsx scripts/enhance-existing-content.ts",
     "content:new": "tsx scripts/research-content.ts",
@@ -15,7 +18,8 @@
     "opus-research": "tsx scripts/opus-research.ts",
     "opus": "tsx scripts/opus-research.ts",
     "complete-research": "tsx scripts/complete-research.ts",
-    "complete": "tsx scripts/complete-research.ts"
+    "complete": "tsx scripts/complete-research.ts",
+    "workshop": "tsx scripts/content-workshop.ts"
   },
   "dependencies": {
     "astro": "^4.16.18"

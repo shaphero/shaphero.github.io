@@ -8,11 +8,15 @@ interface SearchOptions {
 }
 
 const DEFAULT_FETCH_TIMEOUT = 15000;
+const MAX_RETRIES = 3;
+const RETRY_DELAY_MS = 1000;
 
 interface CollectorOptions {
   cache?: CacheProvider;
   serpTtlMs?: number;
   scrapeTtlMs?: number;
+  maxRetries?: number;
+  retryDelay?: number;
 }
 
 export class RealDataCollector {
@@ -23,11 +27,14 @@ export class RealDataCollector {
   private cache: CacheProvider;
   private serpTtlMs: number;
   private scrapeTtlMs: number;
+  private maxRetries: number;
+  private retryDelay: number;
 
   constructor(options: CollectorOptions = {}) {
     // DataForSEO uses basic auth
-    const login = process.env.DATAFORSEO_API_LOGIN || '';
-    const password = process.env.DATAFORSEO_API_PASSWORD || '';
+    // Support both new and legacy env var names for compatibility
+    const login = process.env.DATAFORSEO_API_LOGIN || process.env.DATAFORSEO_USERNAME || '';
+    const password = process.env.DATAFORSEO_API_PASSWORD || process.env.DATAFORSEO_PASSWORD || '';
     if (!login || !password) {
       this.dataForSeoAuth = null;
       console.warn('DataForSEO credentials not found. Web search will rely on DuckDuckGo fallback.');
@@ -38,6 +45,8 @@ export class RealDataCollector {
     this.cache = options.cache || new FileCache();
     this.serpTtlMs = options.serpTtlMs ?? 1000 * 60 * 60 * 6;
     this.scrapeTtlMs = options.scrapeTtlMs ?? 1000 * 60 * 60 * 24;
+    this.maxRetries = options.maxRetries ?? MAX_RETRIES;
+    this.retryDelay = options.retryDelay ?? RETRY_DELAY_MS;
   }
 
   async searchWeb(keyword: string, options: SearchOptions = {}): Promise<Source[]> {
@@ -304,32 +313,71 @@ export class RealDataCollector {
 
   async scrapeUrl(url: string): Promise<string> {
     const cacheKey = this.buildCacheKey('scrape', url);
-    const cached = await this.cache.get<string>(cacheKey);
-    if (cached) {
-      return cached;
+
+    // Try cache first with error handling
+    try {
+      const cached = await this.cache.get<string>(cacheKey);
+      if (cached) {
+        return cached;
+      }
+    } catch (error) {
+      console.warn(`Cache read error for ${url}:`, error);
+      // Continue to scraping
     }
 
-    try {
-      const response = await this.fetchWithTimeout(url, {
-        headers: {
-          'User-Agent': 'Mozilla/5.0 (compatible; ContentPipeline/1.0)'
+    // Retry logic for scraping
+    let lastError: any = null;
+    for (let attempt = 1; attempt <= this.maxRetries; attempt++) {
+      try {
+        const response = await this.fetchWithTimeout(url, {
+          headers: {
+            'User-Agent': 'Mozilla/5.0 (compatible; ContentPipeline/1.0)',
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+            'Accept-Language': 'en-US,en;q=0.5',
+            'Accept-Encoding': 'gzip, deflate, br'
+          }
+        }, DEFAULT_FETCH_TIMEOUT);
+
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}: ${response.statusText}`);
         }
-      }, DEFAULT_FETCH_TIMEOUT);
-      const contentType = response.headers.get('content-type') || '';
-      if (!contentType.includes('text/html')) {
-        // Skip non-HTML (e.g., PDFs) to avoid binary noise in prompts
-        return '';
+
+        const contentType = response.headers.get('content-type') || '';
+        if (!contentType.includes('text/html')) {
+          // Skip non-HTML (e.g., PDFs) to avoid binary noise in prompts
+          console.warn(`Skipping non-HTML content: ${url} (${contentType})`);
+          return '';
+        }
+
+        const html = await response.text();
+        const content = this.extractContent(html);
+
+        if (content && content.length > 100) {
+          // Cache successful scrape with error handling
+          try {
+            await this.cache.set(cacheKey, content, { ttlMs: this.scrapeTtlMs });
+          } catch (error) {
+            console.warn(`Cache write error for ${url}:`, error);
+            // Continue despite cache error
+          }
+          return content;
+        } else {
+          throw new Error('Extracted content too short or empty');
+        }
+      } catch (error: any) {
+        lastError = error;
+        console.warn(`Scrape attempt ${attempt}/${this.maxRetries} failed for ${url}: ${error.message}`);
+
+        if (attempt < this.maxRetries) {
+          // Exponential backoff
+          const delay = this.retryDelay * Math.pow(2, attempt - 1);
+          await new Promise(resolve => setTimeout(resolve, delay));
+        }
       }
-      const html = await response.text();
-      const content = this.extractContent(html);
-      if (content) {
-        await this.cache.set(cacheKey, content, { ttlMs: this.scrapeTtlMs });
-      }
-      return content;
-    } catch (error) {
-      console.error(`Failed to scrape ${url}:`, error);
-      return '';
     }
+
+    console.error(`Failed to scrape ${url} after ${this.maxRetries} attempts:`, lastError);
+    return '';
   }
 
   private extractContent(html: string): string {
