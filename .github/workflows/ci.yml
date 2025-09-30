@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build-and-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci || npm install
+
+      - name: Phase-one smoke tests
+        run: npm run test:phase-one
+
+      - name: Build site
+        run: npm run build
+
+      - name: Pipeline health (offline fast)
+        run: npm run health -- --fast --offline --out .cache/diagnostics --json > .cache/diagnostics/health.stdout.json || true
+
+      - name: Upload diagnostics
+        uses: actions/upload-artifact@v4
+        with:
+          name: diagnostics
+          path: .cache/diagnostics
+

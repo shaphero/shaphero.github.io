@@ -121,13 +121,20 @@ npm run build
 # Preview production build locally
 npm run preview
 
-# Run linting and type checks
-npm run lint
-npm run typecheck
+# Research pipelines
+npm run research "AI adoption strategies"      # Standard research → ./generated/
+npm run enhance -- --page ai-roi-analysis      # Enhance existing page(s)
+npm run complete "AI ROI 2025"                 # Full pipeline (Claude Code + fallbacks)
+npm run diagnose                               # Env + CLI diagnostics (see below)
+npm run test:phase-one                         # Cache/vector/processor smoke tests
+```
 
-# Content generation (requires API keys)
-cd content-generator
-node index.js "your topic here"
+### Diagnostics & Smoke Tests
+
+```bash
+# Check env vars, Claude Code CLI, and optional smoke test
+npm run diagnose            # summary only
+npm run diagnose -- --smoke # quick end-to-end smoke (fast mode, no paid APIs)
 ```
 
 ### Environment Variables
@@ -140,10 +147,19 @@ REDDIT_CLIENT_ID=your_client_id
 REDDIT_CLIENT_SECRET=your_secret
 REDDIT_USERNAME=your_username
 REDDIT_PASSWORD=your_password
+REDDIT_USER_AGENT=ContentPipeline/1.0 (daveshap.com)
 
-# DataForSEO API (optional)
-DATAFORSEO_USERNAME=your_username
+# DataForSEO (optional, preferred names)
+DATAFORSEO_API_LOGIN=your_login
+DATAFORSEO_API_PASSWORD=your_password
+# Legacy fallback also supported:
+DATAFORSEO_USERNAME=your_login
 DATAFORSEO_PASSWORD=your_password
+# To force fallback search (DuckDuckGo):
+# DATAFORSEO_DISABLE=1
+
+# OpenAI for embeddings (optional)
+OPENAI_API_KEY=your_openai_api_key
 ```
 
 ### Code Style
