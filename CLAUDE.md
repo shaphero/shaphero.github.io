@@ -1,31 +1,27 @@
 # CLAUDE.md
 
 > **AI Assistant Context File** - Automatically loaded by Claude Code, Cursor, and other AI coding assistants
-> Last Updated: December 2025
+> Last Updated: January 2025
 
-This file provides guidance to AI assistants (Claude Code, Cursor, Windsurf, etc.) when working with code in this repository. It follows the 2025 standard for AI context files.
+This file provides guidance to AI assistants when working with code in this repository. It follows the 2025 standard for AI context files.
 
 ## Project Overview
 
-**Name**: Dave Shapiro SEO & AI Consulting Website  
-**URL**: https://daveshap.com  
-**Tech Stack**: Astro (Static Site Generator) + Tailwind CSS  
-**Purpose**: Lead generation for SEO/AI consulting services  
-**Target Audience**: Enterprise & mid-market companies + Internal AI champions
+**Name**: Dave Shapiro Educational Content Site
+**URL**: https://daveshap.com
+**Tech Stack**: Astro (Static Site Generator) + Tailwind CSS
+**Purpose**: Publishing high-quality educational content that makes readers smarter
+**Content Philosophy**: Research-driven, fact-based, educational content that informs and teaches
 
-## Key Business Context
+## Core Mission
 
-### Success Metrics
-- 500% growth for Fortune 500s (generalized from specific cases)
-- Former CMO, SVP at Neil Patel Digital
-- 16+ years working with Fortune 500 companies
-- Helping internal champions get AI adopted at their companies
-
-### Current Focus
-1. **SEO Consulting**: Data-driven strategies for measurable revenue growth
-2. **AI Implementation**: Helping companies and internal champions adopt AI tools
-3. **Content Authority**: Publishing audience-first content that solves real problems
-4. **Champion Support**: Giving internal innovators the playbook to drive change
+Create content that **teaches and informs**. Every article should:
+- Make readers smarter than they were before
+- Be grounded in real research and data
+- Present multiple perspectives and sources
+- Cite all claims with proper attribution
+- Explain complex concepts clearly
+- Leave readers with actionable knowledge
 
 ## Code Style & Conventions
 
@@ -39,13 +35,7 @@ This file provides guidance to AI assistants (Claude Code, Cursor, Windsurf, etc
 - Use Tailwind CSS utility classes
 - Custom styles in `src/styles/` only when necessary
 - Mobile-first responsive design
-- Premium glass morphism effects for modern look
-
-### Content Writing
-- **Headlines**: Start with reader's pain or desired outcome
-- **Copy**: Mirror their language, address their objections
-- **CTAs**: Email-based (dave@daveshap.com) with clear subject lines
-- **Tone**: Guide/ally, not guru. Help them be the hero.
+- Clean, readable layouts that prioritize content
 
 ### SEO Requirements
 - Every page needs unique title/description meta tags
@@ -64,6 +54,10 @@ npm run dev          # Start dev server on localhost:4321
 npm run build        # Build static site to dist/
 npm run preview      # Preview production build locally
 
+# Content Generation
+npm run research "topic" --depth comprehensive  # Research new topics
+npm run enhance                                 # Enhance existing content
+
 # Deployment (automatic via GitHub Actions)
 git push origin main # Triggers deploy to GitHub Pages
 ```
@@ -73,287 +67,397 @@ git push origin main # Triggers deploy to GitHub Pages
 ```
 /
 ├── src/
-│   ├── pages/           # Routes (auto-generated)
-│   │   ├── index.astro       # Homepage
-│   │   ├── seo-success.astro # Case study
-│   │   ├── best-ai-coding.astro # AI analysis post
-│   │   └── ...
-│   ├── components/      # Reusable components
-│   │   ├── Header.astro
-│   │   ├── Hero.astro
-│   │   └── common/
-│   ├── layouts/         # Page templates
-│   └── styles/          # Global styles
-├── public/              # Static assets
-│   ├── images/
-│   ├── CNAME           # Custom domain config
-│   └── robots.txt
-├── dist/               # Build output (git ignored)
-└── astro.config.mjs    # Astro configuration
+│   ├── pages/                    # Routes (auto-generated)
+│   ├── components/               # Reusable components
+│   ├── layouts/                  # Page templates
+│   ├── lib/
+│   │   └── content-pipeline/    # Research & generation system
+│   │       ├── research-agent.ts      # Main orchestrator
+│   │       ├── data-collector.ts      # Multi-source data gathering
+│   │       ├── content-processor.ts   # Chunking & embeddings
+│   │       ├── synthesizer.ts         # AI synthesis with fact-checking
+│   │       ├── vector-store.ts        # Document storage & retrieval
+│   │       └── formatter.ts           # Output generation
+│   └── styles/                  # Global styles
+├── scripts/
+│   ├── research-content.ts      # CLI for content research
+│   └── enhance-existing-content.ts  # Update existing pages
+├── generated/                   # Generated content output
+├── public/                      # Static assets
+└── content-generator/          # Legacy system (to be deprecated)
 ```
 
-## Content Strategy Rules
+## Educational Content Generation System
 
-### Blog Posts Must Have
-1. **Audience pain upfront** - Start with their frustration
-2. **Practical solutions** - Scripts, templates, playbooks
-3. **Social proof** - Who else is doing this successfully
-4. **Objection handling** - Address fears and blockers
-5. **Clear next action** - One specific thing to do now
+### Philosophy: Research → Synthesis → Education
 
-### Homepage Requirements
-- Hero: Lead with transformation (500% growth for Fortune 500s)
-- Social proof: Fortune 500 logos
-- Problem/solution focus
-- Clear service offerings
-- Multiple CTAs throughout
+Our content generation follows a rigorous research-driven approach:
 
-## Testing Checklist
+1. **Multi-Source Research**: Gather data from authoritative sources
+2. **Fact Verification**: Cross-reference claims across sources
+3. **Contextual Synthesis**: Use RAG with sufficient context
+4. **Educational Structuring**: Present information for learning
+5. **Proper Attribution**: Cite all sources transparently
 
-Before committing:
-- [ ] Run `npm run build` - must succeed
-- [ ] Check all internal links work
-- [ ] Verify meta tags are unique per page
-- [ ] Test on mobile viewport
-- [ ] Lighthouse score > 90 for Performance & SEO
-- [ ] No console errors in browser
+### The 4-Layer Architecture
 
-## GitHub Workflow
+#### 1. Research Layer (Truth Gathering)
+**Purpose**: Collect verified, authoritative information
 
-1. Make changes locally
-2. Test with `npm run dev`
-3. Build with `npm run build`
-4. Commit with descriptive message
-5. Push to main (auto-deploys via GitHub Actions)
-6. Verify at https://daveshap.com after ~2 minutes
+**Data Sources**:
+- **DataForSEO API**: SERP data, keyword research, content analysis
+- **Academic Sources**: CORE API (open access papers), Crossref
+- **Reddit API**: Real user questions, discussions, pain points
+- **News APIs**: Recent developments, expert commentary
+- **Google Scholar**: Citation data, research trends
 
-## Key Business Goals
+**Quality Criteria**:
+- Prioritize academic and authoritative sources
+- Include publication dates and author credentials
+- Cross-reference facts across multiple sources
+- Flag any claims that can't be verified
 
-### Immediate (Current Sprint)
-- Establish thought leadership through data-driven content
-- Generate qualified leads via email CTAs
-- Showcase concrete results (SoFi, Adobe case studies)
+#### 2. Processing Layer (RAG with Sufficient Context)
+**Purpose**: Chunk and embed content for intelligent retrieval
 
-### Next Quarter
-- Build email list of 500+ qualified prospects
-- Publish 2 authority posts per month
-- Generate 10+ enterprise consultations monthly
+**Key Techniques**:
+- **Semantic Chunking**: Preserve meaning, not arbitrary splits
+- **Embeddings**: Vector representations via OpenAI/Vertex AI
+- **Vector Storage**: In-memory or Pinecone for similarity search
+- **Context Sufficiency**: Ensure retrieved chunks actually answer questions
+- **Relevance Scoring**: Rank sources by credibility and relevance
 
-## Writing New Content
+**2025 Best Practices** (based on recent research):
+- Use "sufficient context" not just "relevant context"
+- Implement Corrective RAG (CRAG) to verify retrieved data
+- Apply agentic RAG for adaptive retrieval strategies
+- Ensure context provides enough information for complete answers
 
-When creating new pages or posts:
+#### 3. Synthesis Layer (Educational Content Creation)
+**Purpose**: Transform research into clear, educational content
 
-1. **Research First**: Use WebSearch for current data/trends
-2. **Structure**: Hero → Problem → Solution → Proof → CTA
-3. **Headlines**: Specific numbers beat vague promises
-4. **Evidence**: Link to sources, show real data
-5. **Visuals**: Use tables, charts, comparisons
-6. **Length**: Comprehensive but scannable (2000-3000 words for authority posts)
-7. **SEO**: Target specific long-tail keywords
-8. **Internal Links**: Connect to service pages and related content
+**Process**:
+1. **Research Synthesis**: Combine findings from multiple sources
+2. **Claim Verification**: Flag unverified statements
+3. **Citation Management**: Proper attribution for all facts
+4. **Clarity Optimization**: Explain complex concepts simply
+5. **Learning Progression**: Structure from basics to advanced
+6. **Multiple Perspectives**: Present different viewpoints fairly
 
-## 📢 Audience-First Content Principles
+**Educational Standards**:
+- Clear learning objectives for each section
+- Progressive disclosure (simple → complex)
+- Concrete examples for abstract concepts
+- Visual aids (charts, diagrams, comparisons)
+- Key takeaways and summaries
+- Further reading recommendations
 
-Before anything else, understand WHO you're writing for and WHAT they need:
+#### 4. Quality Layer (Fact-Checking & Verification)
+**Purpose**: Ensure accuracy and educational value
 
-### 1. Start with Their Pain, Not Your Solution
-- **Their morning frustration**: What made them search for this?
-- **Their failed attempts**: What have they already tried that didn't work?
-- **Their emotional state**: Frustrated? Desperate? Skeptical? Excited?
-- **Write the headline they'd click**: Not what you want to say
+**Quality Checks**:
+- **Source Credibility**: Score and rank source authority
+- **Hallucination Detection**: Verify all AI claims against sources
+- **Fact Cross-Reference**: Multiple sources for key claims
+- **Currency Check**: Flag outdated information
+- **Bias Detection**: Identify potential bias in sources
+- **Completeness**: Ensure topic coverage is comprehensive
 
-### 2. Mirror Their Language
-- **Use their words**: Pull exact phrases from forums, reviews, support tickets
-- **Match their sophistication**: Don't talk down or over their heads
-- **Reflect their identity**: "People like us do things like this"
-- **Avoid your jargon**: Use their terminology, not yours
+**Before Publishing Checklist**:
+- [ ] All facts cited with sources
+- [ ] No unverified AI hallucinations
+- [ ] Multiple authoritative sources confirm key claims
+- [ ] Complex concepts explained clearly
+- [ ] Examples provided for abstract ideas
+- [ ] Visual aids enhance understanding
+- [ ] Clear learning objectives stated
+- [ ] Accessible to target audience level
+- [ ] Proper attribution for all data/quotes
+- [ ] Links to primary sources work
 
-### 3. Address the Unspoken Objections
-- **The excuse they'll use**: "We don't have time/budget/expertise"
-- **The fear they won't admit**: "What if I look stupid/fail/get fired"
-- **The political reality**: "My boss will never approve this"
-- **The hidden agenda**: What are they REALLY trying to achieve?
+## Content Generation Workflow
 
-### 4. Make Them the Hero
-- **They get the credit**: Position them as the innovative leader
-- **You're the guide**: Gandalf to their Frodo
-- **Success is theirs**: "You'll achieve..." not "I achieved..."
-- **Failure protection**: Give them cover if things go wrong
+### 1. Research New Topics
 
-### 5. Solve for Their Context
-- **Their constraints**: Time, money, politics, technical debt
-- **Their environment**: Startup chaos? Enterprise bureaucracy?
-- **Their timeline**: Do they need results today or next quarter?
-- **Their success metrics**: What numbers matter to THEM?
+```bash
+# Basic research
+npm run research "synthetic data for LLM training"
 
-### 6. Give Them Ammunition
-- **Scripts to convince bosses**: Exact words to use
-- **Data to justify decisions**: ROI calculations, case studies
-- **Responses to pushback**: "When they say X, you say Y"
-- **Political cover**: "Amazon/Google/Microsoft does this"
+# Comprehensive research with options
+npm run research "AI safety measures 2025" \
+  --depth comprehensive \
+  --sources 25 \
+  --include-academic true
+```
 
-### 7. Make it Skimmable AND Deep
-- **30-second version**: They can get value from just headlines
-- **5-minute version**: Key sections give complete picture
-- **30-minute version**: Full depth for those who need it
-- **Multiple entry points**: Different readers, different needs
+**What This Does**:
+- Searches multiple data sources (web, Reddit, academic papers, news)
+- Scrapes and processes content into chunks
+- Creates vector embeddings for semantic search
+- Synthesizes findings with AI (with fact-checking)
+- Generates Astro page with citations and sources
+- Creates metadata file with all research data
 
-### 8. Remove Friction to Action
-- **Tiny first step**: Make it so easy they'd feel silly NOT doing it
-- **Clear sequence**: Step 1, then 2, then 3 (not 15 options)
-- **Templates included**: Copy-paste solutions
-- **Success guaranteed**: Or at least failure made safe
+**Output Files**:
+- `generated/topic.astro` - Ready-to-publish page
+- `generated/topic.md` - Markdown version
+- `generated/topic.html` - HTML preview
+- `generated/topic.meta.json` - Raw research data
 
-### 9. Build Trust Through Specificity
-- **Exact numbers**: "26% faster" not "much faster"
-- **Real names**: "John from Spotify" not "a client"
-- **Precise timeframes**: "Tuesday at 2pm" not "later"
-- **Actual screenshots**: Show, don't just tell
+### 2. Enhance Existing Content
 
-### 10. Create Urgency Without Manipulation
-- **Cost of inaction**: What happens if they don't act?
-- **Competitive pressure**: Who's already doing this?
-- **Window closing**: Why now matters
-- **But stay honest**: No fake scarcity or false deadlines
+```bash
+npm run enhance
+```
 
-## 🎯 Data Storytelling Principles
+Updates existing pages with:
+- Fresh research and recent data
+- New citations and sources
+- Updated statistics and examples
+- Enhanced fact-checking
+- Improved clarity and structure
 
-When presenting data and building narrative:
+### 3. Review and Customize
 
-### 1. Start with Purpose
-- **Define the decision/action**: What specific action do you want the reader to take?
-- **Single focus**: Every element must serve this goal - delete everything else
-- **Clear outcome**: Reader should know exactly what to do after reading
+Before publishing:
+1. Review `generated/topic.html` in browser
+2. Verify all citations are accurate
+3. Check that sources are authoritative
+4. Ensure explanations are clear
+5. Customize for your audience if needed
+6. Copy to `src/pages/` when ready
 
-### 2. Know Your Audience Deeply
-- **Knowledge level**: Are they beginners, practitioners, or experts?
-- **Pain points**: What keeps them up at night?
-- **Emotional triggers**: What motivates them? Fear of falling behind? Desire for competitive advantage?
-- **Language**: Use their terminology, not yours
+## Content Structure Standards
 
-### 3. Find the Narrative Thread
-- **Data without story is noise**: Don't just present facts - weave them into a compelling narrative
-- **Hero's journey**: Position reader as hero, their problem as villain, your solution as the weapon
-- **Progression**: Build from problem → discovery → transformation → triumph
+Every generated page includes:
 
-### 4. Simplify Ruthlessly
-- **One idea per paragraph**: Don't mix concepts
-- **Cut 50%, then cut 25% more**: If it doesn't directly support your message, delete it
-- **Tufte principle**: "Above all else, show the data" - let numbers speak
+### Required Sections
 
-### 5. Design for Cognitive Ease
-- **Visual hierarchy**: Headlines → Key points → Supporting details
-- **White space**: Give ideas room to breathe
-- **Consistent patterns**: Same structure for similar content
-- **Progressive disclosure**: Start simple, add complexity gradually
+1. **Hero/Introduction**
+   - Clear headline explaining what reader will learn
+   - Brief overview of topic importance
+   - Learning objectives stated upfront
 
-### 6. Create Moments of Insight
-- **Build toward "aha!" moments**: Set up the problem, then reveal the surprising solution
-- **Before/after contrasts**: Show transformation clearly
-- **Unexpected connections**: Link seemingly unrelated concepts
-- **The reveal**: Save your best insight for maximum impact
+2. **Executive Summary** (optional for long posts)
+   - Key findings at a glance
+   - Main takeaways in 3-5 bullets
+   - Who should read this and why
 
-### 7. Test and Iterate
-- **Get feedback early**: Show drafts to target audience members
-- **Track engagement**: Which sections do people skip? Where do they stop reading?
-- **A/B test headlines**: Try different angles, measure clicks
-- **Refine based on data**: Let metrics guide revisions
+3. **Core Educational Content**
+   - Logical progression from simple to complex
+   - Clear section headers (H2, H3 hierarchy)
+   - Concrete examples for each major concept
+   - Visual aids (tables, charts, diagrams)
+   - Code snippets or templates where applicable
 
-### 8. Balance Emotion and Logic
-- **Lead with emotion**: Hook them with a feeling
-- **Support with logic**: Back it up with hard data
-- **Humanize numbers**: "22,000 new customers" not just "509% growth"
-- **Stories + statistics**: Personal anecdotes make data memorable
+4. **Evidence & Citations**
+   - Inline citations for all claims
+   - "Evidence boxes" highlighting key research
+   - Data visualizations with sources
+   - Quotes from experts (properly attributed)
 
-### 9. Make it Actionable
-- **Clear next steps**: End with 3-5 specific actions
-- **Templates/tools**: Give them something to use immediately
-- **Quick wins**: Start with easy victories to build momentum
-- **Success metrics**: How will they know it's working?
+5. **Key Takeaways**
+   - Summary of main points
+   - Actionable insights
+   - Further reading/resources
 
-### 10. Respect the Data
-- **Never distort**: Accurate representation > better story
-- **Show sources**: Link to primary data
-- **Acknowledge limitations**: Be honest about what data doesn't show
-- **Update when wrong**: Correct errors prominently
+6. **Sources & References**
+   - Complete bibliography
+   - Links to primary sources
+   - Publication dates and authors
+   - DOI or URLs for academic papers
 
-## Blog Post Template Structure
+## Writing Guidelines for Educational Content
+
+### Clarity Above All
+
+- **Explain jargon**: Define technical terms on first use
+- **Use analogies**: Relate complex ideas to familiar concepts
+- **Be specific**: "26% improvement" not "significant improvement"
+- **Show, don't just tell**: Include examples, screenshots, code
+- **Progressive complexity**: Start simple, add nuance gradually
+
+### Objectivity and Balance
+
+- **Present multiple viewpoints**: Especially on controversial topics
+- **Acknowledge limitations**: What the research doesn't tell us
+- **Avoid absolute claims**: "Research suggests" not "This proves"
+- **Cite dissenting opinions**: Include counterarguments fairly
+- **Distinguish fact from opinion**: Be clear when interpreting data
+
+### Educational Best Practices
+
+- **State learning objectives**: What will readers know after reading?
+- **Use the ADEPT method**: Analogy, Diagram, Example, Plain English, Technical
+- **Include "Why it matters"**: Connect concepts to real applications
+- **Provide practice opportunities**: Questions, exercises, challenges
+- **Offer multiple entry points**: Beginners and experts both get value
+
+### Pedagogical Structure
 
 ```markdown
-# [Number/Outcome] + [Surprising Angle] + [Timestamp]
-Example: "GPT-5 Just Crushed Every Coding Benchmark (August 2025 Data)"
+# [Clear, Descriptive Title]
 
-## Hook (Opening 2-3 sentences)
-- Start with surprising fact or contrarian take
-- Make them need to know more
-- Reference breaking news or recent event
+## What You'll Learn
+- Objective 1
+- Objective 2
+- Objective 3
 
-## The Stakes (Why This Matters Now)
-- What happens if they ignore this?
-- What opportunity are they missing?
-- Why is timing critical?
+## Why This Matters
+[Real-world context and applications]
 
-## The Discovery (Your Unique Insight)
-- Present your data/findings
-- Use visuals to make complex simple
-- Build toward the "aha!" moment
+## The Basics
+[Foundational concepts, defined clearly]
 
-## The Proof (Evidence It Works)
-- Real examples with numbers
-- Before/after comparisons
-- Third-party validation
+## Deeper Dive
+[More complex aspects, building on basics]
 
-## The Method (How To Apply This)
-- Step-by-step process
-- Common mistakes to avoid
-- Tools/resources needed
+## Practical Examples
+[Concrete use cases with code/data]
 
-## The Payoff (What Success Looks Like)
-- Specific outcomes they'll achieve
-- Timeline for results
-- Success metrics
+## Common Misconceptions
+[Address frequent misunderstandings]
 
-## The Call to Action
-- One primary action
-- Make it easy and specific
-- Create urgency without being pushy
+## Key Takeaways
+- Takeaway 1
+- Takeaway 2
+- Takeaway 3
+
+## Further Reading
+- [Source 1 with annotation]
+- [Source 2 with annotation]
+
+## References
+[Complete bibliography]
 ```
 
-## Content Quality Checklist
+## Research Quality Standards
 
-Before publishing any post:
+### Source Hierarchy (Highest to Lowest Priority)
 
-- [ ] **Purpose Clear**: Can you state the reader's next action in one sentence?
-- [ ] **Audience Focused**: Is this solving their actual problem (not what you think their problem is)?
-- [ ] **Narrative Flow**: Does each section naturally lead to the next?
-- [ ] **Simplified**: Can you cut 25% more without losing meaning?
-- [ ] **Visual Relief**: Is there visual interest every 150-200 words?
-- [ ] **Insight Moment**: Is there at least one "I never thought of it that way" moment?
-- [ ] **Tested**: Did at least 2 target readers review it?
-- [ ] **Emotional Hook**: Do the first 3 sentences create urgency/curiosity?
-- [ ] **Actionable**: Can reader implement something within 24 hours?
-- [ ] **Data Integrity**: Are all statistics accurate and sourced?
+1. **Peer-reviewed academic papers** - Published in reputable journals
+2. **Official documentation** - From creators of technology/methodology
+3. **Industry research reports** - From established organizations
+4. **Expert commentary** - From recognized authorities (with credentials)
+5. **News from reputable outlets** - Major publications with editorial standards
+6. **Community discussions** - Reddit, forums (for pain points, not facts)
+7. **Blog posts** - Use cautiously, verify claims independently
+
+### Citation Requirements
+
+- **Direct quotes**: Must include quotation marks and exact source
+- **Statistics/data**: Must cite original research, not secondary reporting
+- **Claims of fact**: Need at least 2 independent authoritative sources
+- **Controversial topics**: Present multiple perspectives with sources
+- **Code examples**: Attribute to original author/documentation
+- **Images/diagrams**: Credit creator, include license information
+
+### Red Flags to Avoid
+
+❌ Claims without sources
+❌ Statistics without methodology
+❌ "Experts say" without naming experts
+❌ Outdated information presented as current
+❌ Cherry-picked data that supports only one viewpoint
+❌ Correlation presented as causation
+❌ Anecdotes presented as evidence
+❌ AI hallucinations not verified against sources
+
+## API Configuration
+
+### Required API Keys
+
+Create `.env` file with:
+
+```env
+# Research APIs
+DATAFORSEO_API_KEY=your_key          # Web/SERP data
+REDDIT_CLIENT_ID=your_id              # Reddit discussions
+REDDIT_CLIENT_SECRET=your_secret      # Reddit API access
+
+# Processing APIs
+OPENAI_API_KEY=your_key              # Embeddings & synthesis
+# OR
+ANTHROPIC_API_KEY=your_key           # Alternative for synthesis
+
+# Optional APIs
+CORE_API_KEY=your_key                # Academic papers
+CROSSREF_API_KEY=your_key            # Citation data
+```
+
+### Data Sources & APIs
+
+| Source | Purpose | Priority | API |
+|--------|---------|----------|-----|
+| DataForSEO | SERP, content analysis | High | Required |
+| CORE | Academic papers | High | Optional |
+| Reddit | User pain points | Medium | Recommended |
+| News APIs | Current events | Medium | Optional |
+| Crossref | Citations | Low | Optional |
+
+## Testing & Quality Assurance
+
+### Before Publishing
+
+```bash
+# 1. Build and test locally
+npm run build
+npm run preview
+
+# 2. Verify all citations
+grep -r "http" generated/your-topic.astro  # Check links work
+
+# 3. Fact-check key claims
+# Manually verify 3-5 major claims against primary sources
+
+# 4. Test reading level
+# Use Hemingway Editor or similar for accessibility
+
+# 5. Check SEO
+# Lighthouse score should be 95+
+```
+
+### Quality Checklist
+
+- [ ] All facts have citations
+- [ ] Citations link to primary sources
+- [ ] Sources are authoritative and current
+- [ ] Complex concepts explained clearly
+- [ ] Examples illustrate key points
+- [ ] No AI hallucinations detected
+- [ ] Multiple perspectives presented
+- [ ] Learning objectives achieved
+- [ ] Accessible to target audience
+- [ ] Visual aids enhance understanding
+- [ ] Code examples tested and work
+- [ ] Internal links enhance learning
+- [ ] SEO optimized (but education-first)
+- [ ] Mobile-friendly and readable
+
+## Performance Standards
+
+- Page load < 3 seconds
+- Mobile-first responsive design
+- Accessibility: WCAG 2.1 AA compliant
+- SEO: Pages score 95+ on Lighthouse
+- No JavaScript required for core content
+- Properly structured for screen readers
 
 ## Important URLs
 
 - **Production**: https://daveshap.com
 - **GitHub Repo**: https://github.com/shaphero/shaphero.github.io
 - **Email**: dave@daveshap.com
-- **Key Pages**:
-  - `/` - Homepage (500% growth for Fortune 500s)
-  - `/seo-success` - Main case study
-  - `/best-ai-coding` - AI adoption champion's playbook
-  - `/ai-training` - Service page
-  - `/marketing-strategy` - Service page
 
-## AI Assistant Workflow (2025 Best Practices)
+## AI Assistant Workflow
 
-### Recommended Approach
+### When Generating Content
 
-1. **Research First**: Before implementing, search and understand existing patterns
-2. **Plan Changes**: Outline the approach before coding
-3. **Test Incrementally**: Build and test frequently
-4. **Preserve Performance**: Always maintain 100/100 PageSpeed scores
+1. **Research First**: Use the content pipeline to gather real data
+2. **Verify Facts**: Cross-reference all claims
+3. **Cite Sources**: Attribute everything properly
+4. **Explain Clearly**: Optimize for understanding
+5. **Review Quality**: Use the checklist above
 
 ### Working with This Codebase
 
@@ -361,62 +465,14 @@ When asked to make changes:
 1. Read relevant existing files first
 2. Follow established patterns
 3. Test with `npm run build`
-4. Verify no performance regression
-
-### Common Tasks
-
-#### Adding a New Page
-```bash
-# Create page file
-src/pages/new-page.astro
-
-# Follow existing page structure
-# Include SEO meta tags
-# Test internal links
-```
-
-#### Modifying Components
-```bash
-# Components are in src/components/
-# Follow PascalCase naming
-# Use Tailwind utilities
-# Keep JavaScript minimal
-```
-
-#### Content Updates
-- Use data from Reddit/user research
-- Start with pain points
-- Include evidence and examples
-- Add internal links
-
-### Flags and Modes
-
-For Claude Code specifically:
-- Use `--verbose` for debugging
-- Consider `--enable-architect` for large refactors
-- `--dangerously-skip-permissions` to avoid interruptions (use cautiously)
-
-## Performance Standards
-
-- Page load < 3 seconds
-- Mobile-first responsive design
-- Accessibility: WCAG 2.1 AA compliant
-- SEO: All pages score 95+ on Lighthouse
-- No JavaScript required for core content
-
-## Error Handling
-
-If deployment fails:
-1. Check GitHub Actions logs
-2. Verify `npm run build` works locally
-3. Ensure no syntax errors in .astro files
-4. Check for missing dependencies
-5. Verify CNAME file exists in public/
+4. Verify citations and sources work
 
 ## Remember
 
-- **Quality > Quantity**: One great post beats ten mediocre ones
-- **Results Focus**: Always lead with concrete outcomes
-- **Expert Positioning**: We're consultants, not vendors
-- **Direct Communication**: Clear, confident, no corporate speak
-- **Evidence-Based**: Every claim needs proof
+- **Education First**: Make readers smarter
+- **Facts Over Opinions**: Research-driven content only
+- **Cite Everything**: Proper attribution always
+- **Clarity Matters**: Explain complex ideas simply
+- **Quality > Quantity**: One great article beats ten mediocre ones
+- **Truth Over Engagement**: Accuracy before virality
+- **Teach, Don't Sell**: Focus on knowledge, not conversion

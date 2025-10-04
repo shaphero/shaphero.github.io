@@ -1,0 +1,1422 @@
+{
+  "summary": {
+    "totalSources": 17,
+    "qualitySources": 17,
+    "totalChunks": 10,
+    "averageCredibility": 77.11764705882354,
+    "sourcesByType": {
+      "academic": 17
+    },
+    "topSources": [
+      {
+        "title": "CausaLM: Causal Model Explanation Through Counterfactual Language Models",
+        "authors": [
+          "Feder, Amir",
+          "Oved, Nadav",
+          "Reichart, Roi",
+          "Shalit, Uri"
+        ],
+        "year": 2020,
+        "credibility": 75,
+        "doi": null,
+        "url": "http://arxiv.org/abs/2005.13407"
+      },
+      {
+        "title": "Cognitive effort modulates connectivity between dorsal anterior cingulate cortex and task-relevant cortical areas",
+        "authors": [
+          "Aben, Bart",
+          "Buc Calderon, Cristian",
+          "Van den Bussche, Eva",
+          "Verguts, Tom"
+        ],
+        "year": 2020,
+        "credibility": 75,
+        "doi": "10.1523/jneurosci.2948-19.2020",
+        "url": "https://core.ac.uk/download/322827820.pdf"
+      },
+      {
+        "title": "Individual differences in pain sensitivity are associated with cognitive network functional connectivity following one night of experimental sleep disruption.",
+        "authors": [
+          "Finan, Patrick H",
+          "Irwin, Michael R",
+          "Letzen, Janelle E",
+          "Remeniuk, Bethany",
+          "Seminowicz, David A",
+          "Smith, Michael T"
+        ],
+        "year": 2020,
+        "credibility": 75,
+        "doi": "10.1002/hbm.24824",
+        "url": "https://core.ac.uk/download/323076421.pdf"
+      },
+      {
+        "title": "Tailored for Real-World: A Whole Slide Image Classification System Validated on Uncurated Multi-Site Data Emulating the Prospective Pathology Workload.",
+        "authors": [
+          "Ayyagari, Devi",
+          "Bonham, Michael J.",
+          "Chamarthi, Ramachandra Vikas",
+          "Cockerell, Clay J.",
+          "Feeser, Theresa A.",
+          "Ianni, Julianna D.",
+          "Lee, Jason B.",
+          "Motaparthi, Kiran",
+          "Olsen, Thomas G.",
+          "Sankarapandian, Sivaramakrishnan",
+          "Soans, Rajath E.",
+          "Stavish, Coleman C."
+        ],
+        "year": 2020,
+        "credibility": 75,
+        "doi": null,
+        "url": "https://core.ac.uk/download/288847206.pdf"
+      },
+      {
+        "title": "AI management an exploratory survey of the influence of GDPR and FAT principles",
+        "authors": [
+          "Addis, MC",
+          "Kutar, MS"
+        ],
+        "year": 2020,
+        "credibility": 75,
+        "doi": "10.1109/smartworld/scalcom/u46104.2019",
+        "url": "https://core.ac.uk/download/322492373.pdf"
+      },
+      {
+        "title": "Acceptance of e-learning using artificial intelligence technology in military education process in UAE",
+        "authors": [
+          "Ali Alnaqbi, Ali Mohamed"
+        ],
+        "year": 2022,
+        "credibility": 75,
+        "doi": null,
+        "url": "https://core.ac.uk/download/83541080.pdf"
+      },
+      {
+        "title": "From adoption to adaptation: Bridging digital transformation and AI integration in contemporary SMEs",
+        "authors": [
+          "Hu, Hsiang An",
+          "Kim, Jongki",
+          "Mou, Jian",
+          "Tseng, Hsiao-Ting"
+        ],
+        "year": 2023,
+        "credibility": 83,
+        "doi": null,
+        "url": "https://core.ac.uk/download/599100439.pdf"
+      },
+      {
+        "title": "Success Factors and Development Areas for the Implementation of Generative AI in Companies",
+        "authors": [
+          "Meyer, Julian Anton",
+          "Meyer, Julian Anton"
+        ],
+        "year": 2025,
+        "credibility": 85,
+        "doi": "10.5282/jums/v10i1pp1-23",
+        "url": "https://core.ac.uk/download/648205984.pdf"
+      },
+      {
+        "title": "Artificial Intelligence and Economic Growth: A Theoretical Framework",
+        "authors": [
+          "Alam, Kausar",
+          "Sarker, Provash",
+          "Sumon, Shahneoaj",
+          "Wang, Lei"
+        ],
+        "year": 2021,
+        "credibility": 75,
+        "doi": "10.47743/saeb-2021-0027",
+        "url": "https://core.ac.uk/download/539887244.pdf"
+      },
+      {
+        "title": "The Impact of Organizational Culture on Artificial Intelligence (AI) and Organizational Performance: A Mixed Methods Approach",
+        "authors": [
+          "Mutale, Wlifred C."
+        ],
+        "year": 2025,
+        "credibility": 85,
+        "doi": null,
+        "url": "https://core.ac.uk/download/658901069.pdf"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "core-85955608",
+      "url": "http://arxiv.org/abs/2005.13407",
+      "title": "CausaLM: Causal Model Explanation Through Counterfactual Language Models",
+      "type": "academic",
+      "date": "2020-06-14T08:00:00.000Z",
+      "authors": [
+        "Feder, Amir",
+        "Oved, Nadav",
+        "Reichart, Roi",
+        "Shalit, Uri"
+      ],
+      "doi": null,
+      "citationCount": 0,
+      "credibilityScore": 75,
+      "credibilityBreakdown": {
+        "authority": 30,
+        "recency": 10,
+        "citations": 5,
+        "methodology": 15,
+        "bias": 15
+      },
+      "hasMethodology": true,
+      "metadata": {
+        "abstract": "Understanding predictions made by deep neural networks is notoriously\ndifficult, but also crucial to their dissemination. As all ML-based methods,\nthey are as good as their training data, and can also capture unwanted biases.\nWhile there are tools that can help understand whether such biases exist, they\ndo not distinguish between correlation and causation, and might be ill-suited\nfor text-based models and for reasoning about high level language concepts. A\nkey problem of estimating the causal effect of a concept of interest on a given\nmodel is that this estimation requires the generation of counterfactual\nexamples, which is challenging with existing generation technology. To bridge\nthat gap, we propose CausaLM, a framework for producing causal model\nexplanations using counterfactual language representation models. Our approach\nis based on fine-tuning of deep contextualized embedding models with auxiliary\nadversarial tasks derived from the causal graph of the problem. Concretely, we\nshow that by carefully choosing auxiliary adversarial pre-training tasks,\nlanguage representation models such as BERT can effectively learn a\ncounterfactual representation for a given concept of interest, and be used to\nestimate its true causal effect on model performance. A byproduct of our method\nis a language representation model that is unaffected by the tested concept,\nwhich can be useful in mitigating unwanted bias ingrained in the data.Comment: Our code and data are available at:\n  https://amirfeder.github.io/CausaLM/ Under review for the Computational\n  Linguistics journa",
+        "subjects": [],
+        "yearPublished": 2020,
+        "coreId": "85955608",
+        "downloadUrl": "http://arxiv.org/abs/2005.13407",
+        "language": "English",
+        "documentType": "research"
+      }
+    },
+    {
+      "id": "core-85773448",
+      "url": "https://core.ac.uk/download/322827820.pdf",
+      "title": "Cognitive effort modulates connectivity between dorsal anterior cingulate cortex and task-relevant cortical areas",
+      "type": "academic",
+      "date": "2020-01-01T08:00:00.000Z",
+      "authors": [
+        "Aben, Bart",
+        "Buc Calderon, Cristian",
+        "Van den Bussche, Eva",
+        "Verguts, Tom"
+      ],
+      "publication": "'Society for Neuroscience'",
+      "doi": "10.1523/jneurosci.2948-19.2020",
+      "citationCount": 0,
+      "credibilityScore": 75,
+      "credibilityBreakdown": {
+        "authority": 30,
+        "recency": 10,
+        "citations": 5,
+        "methodology": 15,
+        "bias": 15
+      },
+      "hasMethodology": true,
+      "metadata": {
+        "abstract": "Investment of cognitive effort is required in everyday life and has received ample attention in recent neurocognitive frameworks. The neural mechanism of effort investment is thought to be structured hierarchically, with dorsal anterior cingulate cortex (dACC) at the highest level, recruiting task-specific upstream areas. In the current fMRI study, we tested whether dACC is generally active when effort demand is high across tasks with different stimuli, and whether connectivity between dACC and task-specific areas is increased depending on the task requirements and effort level at hand. For that purpose, a perceptual detection task was administered that required male and female human participants to detect either a face or a house in a noisy image. Effort demand was manipulated by adding little (low effort) or much (high effort) noise to the images. Results showed a network of dACC, anterior insula (AI), and intraparietal sulcus (IPS) to be more active when effort demand was high, independent of the performed task (face or house detection). Importantly, effort demand modulated functional connectivity between dACC and face-responsive or house-responsive perceptual areas, depending on the task at hand. This shows that dACC, AI, and IPS constitute a general effort-responsive network and suggests that the neural implementation of cognitive effort involves dACC-initiated sensitization of task-relevant areas",
+        "subjects": [],
+        "yearPublished": 2020,
+        "coreId": "85773448",
+        "downloadUrl": "https://core.ac.uk/download/322827820.pdf",
+        "language": "English",
+        "documentType": "research"
+      }
+    },
+    {
+      "id": "core-85865963",
+      "url": "https://core.ac.uk/download/323076421.pdf",
+      "title": "Individual differences in pain sensitivity are associated with cognitive network functional connectivity following one night of experimental sleep disruption.",
+      "type": "academic",
+      "date": "2020-02-01T08:00:00.000Z",
+      "authors": [
+        "Finan, Patrick H",
+        "Irwin, Michael R",
+        "Letzen, Janelle E",
+        "Remeniuk, Bethany",
+        "Seminowicz, David A",
+        "Smith, Michael T"
+      ],
+      "publication": "eScholarship, University of California",
+      "doi": "10.1002/hbm.24824",
+      "citationCount": 0,
+      "credibilityScore": 75,
+      "credibilityBreakdown": {
+        "authority": 30,
+        "recency": 10,
+        "citations": 5,
+        "methodology": 15,
+        "bias": 15
+      },
+      "hasMethodology": true,
+      "metadata": {
+        "abstract": "Previous work suggests that sleep disruption can contribute to poor pain modulation. Here, we used experimental sleep disruption to examine the relationship between sleep disruption-induced pain sensitivity and functional connectivity (FC) of cognitive networks contributing to pain modulation. Nineteen healthy individuals underwent two counterbalanced experimental sleep conditions for one night each: uninterrupted sleep versus sleep disruption. Following each condition, participants completed functional MRI including a simple motor task and a noxious thermal stimulation task. Pain ratings and stimulus temperatures from the latter task were combined to calculate a pain sensitivity change score following sleep disruption. This change score was used as a predictor of simple motor task FC changes using bilateral executive control networks (RECN, LECN) and the default mode network (DMN) masks as seed regions of interest (ROIs). Increased pain sensitivity after sleep disruption was positively associated with increased RECN FC to ROIs within the DMN and LECN (F(4,14) = 25.28, pFDR = 0.05). However, this pain sensitivity change score did not predict FC changes using LECN and DMN masks as seeds (pFDR &gt; 0.05). Given that only RECN FC was associated with sleep loss-induced hyperalgesia, findings suggest that cognitive networks only partially contribute to the sleep-pain dyad",
+        "subjects": [],
+        "yearPublished": 2020,
+        "coreId": "85865963",
+        "downloadUrl": "https://core.ac.uk/download/323076421.pdf",
+        "language": "English",
+        "documentType": "research"
+      }
+    },
+    {
+      "id": "core-45243716",
+      "url": "https://core.ac.uk/download/288847206.pdf",
+      "title": "Tailored for Real-World: A Whole Slide Image Classification System Validated on Uncurated Multi-Site Data Emulating the Prospective Pathology Workload.",
+      "type": "academic",
+      "date": "2020-02-21T16:00:00.000Z",
+      "authors": [
+        "Ayyagari, Devi",
+        "Bonham, Michael J.",
+        "Chamarthi, Ramachandra Vikas",
+        "Cockerell, Clay J.",
+        "Feeser, Theresa A.",
+        "Ianni, Julianna D.",
+        "Lee, Jason B.",
+        "Motaparthi, Kiran",
+        "Olsen, Thomas G.",
+        "Sankarapandian, Sivaramakrishnan",
+        "Soans, Rajath E.",
+        "Stavish, Coleman C."
+      ],
+      "publication": "Jefferson Digital Commons",
+      "doi": null,
+      "citationCount": 0,
+      "credibilityScore": 75,
+      "credibilityBreakdown": {
+        "authority": 30,
+        "recency": 10,
+        "citations": 5,
+        "methodology": 15,
+        "bias": 15
+      },
+      "hasMethodology": true,
+      "metadata": {
+        "abstract": "Standard of care diagnostic procedure for suspected skin cancer is microscopic examination of hematoxylin & eosin stained tissue by a pathologist. Areas of high inter-pathologist discordance and rising biopsy rates necessitate higher efficiency and diagnostic reproducibility. We present and validate a deep learning system which classifies digitized dermatopathology slides into 4 categories. The system is developed using 5,070 images from a single lab, and tested on an uncurated set of 13,537 images from 3 test labs, using whole slide scanners manufactured by 3 different vendors. The system\\u27s use of deep-learning-based confidence scoring as a criterion to consider the result as accurate yields an accuracy of up to 98%, and makes it adoptable in a real-world setting. Without confidence scoring, the system achieved an accuracy of 78%. We anticipate that our deep learning system will serve as a foundation enabling faster diagnosis of skin cancer, identification of cases for specialist review, and targeted diagnostic classifications",
+        "subjects": [],
+        "yearPublished": 2020,
+        "coreId": "45243716",
+        "downloadUrl": "https://core.ac.uk/download/288847206.pdf",
+        "language": "English",
+        "documentType": "research"
+      }
+    },
+    {
+      "id": "core-8377248",
+      "url": "https://core.ac.uk/download/322492373.pdf",
+      "title": "AI management an exploratory survey of the influence of GDPR and FAT principles",
+      "type": "academic",
+      "date": "2020-04-09T07:00:00.000Z",
+      "authors": [
+        "Addis, MC",
+        "Kutar, MS"
+      ],
+      "publication": "'Institute of Electrical and Electronics Engineers (IEEE)'",
+      "doi": "10.1109/smartworld/scalcom/u46104.2019",
+      "citationCount": 0,
+      "credibilityScore": 75,
+      "credibilityBreakdown": {
+        "authority": 30,
+        "recency": 10,
+        "citations": 5,
+        "methodology": 15,
+        "bias": 15
+      },
+      "hasMethodology": true,
+      "metadata": {
+        "abstract": "As organisations increasingly adopt AI technologies, a number of ethical issues arise. Much research focuses on algorithmic bias, but there are other important concerns arising from the new uses of data and the introduction of technologies which may impact individuals. This paper examines the interplay between AI, Data Protection and FAT (Fairness, Accountability and Transparency) principles. We review the potential impact of the GDPR and consider the importance of the management of AI adoption. A survey of data protection experts is presented, the initial analysis of which provides some early insights into the praxis of AI in operational contexts. The findings indicate that organisations are not fully compliant with the GDPR, and that there is limited understanding of the relevance of FAT principles as AI is introduced. Those organisations which demonstrate greater GDPR compliance are likely to take a more cautious, risk-based approach to the introduction of AI",
+        "subjects": [],
+        "yearPublished": 2020,
+        "coreId": "8377248",
+        "downloadUrl": "https://core.ac.uk/download/322492373.pdf",
+        "language": "English",
+        "documentType": "research"
+      }
+    },
+    {
+      "id": "core-139952478",
+      "url": "https://core.ac.uk/download/83541080.pdf",
+      "title": "Acceptance of e-learning using artificial intelligence technology in military education process in UAE",
+      "type": "academic",
+      "date": "2022-04-01T08:00:00.000Z",
+      "authors": [
+        "Ali Alnaqbi, Ali Mohamed"
+      ],
+      "doi": null,
+      "citationCount": 0,
+      "credibilityScore": 75,
+      "credibilityBreakdown": {
+        "authority": 30,
+        "recency": 10,
+        "citations": 5,
+        "methodology": 15,
+        "bias": 15
+      },
+      "hasMethodology": true,
+      "metadata": {
+        "abstract": "Recently, UAE has adopted Artificial Intelligence (AI) and e-learning systems in several fields, including education. Military colleges have embraced this new technology with the institutions running on the conventional educational system. This study assessed the current adoption status, challenges, and strategies of using an AI-based e-learning system in the UAE military-based colleges. This study aims to identify the level of acceptance of e-learning using artificial intelligence (AI) technology in the military education process in the UAE from students and teachers of the Joint Command and Staff College (JCSC). It is a quantitative assessment study based on students' and teachers' perceptions of UAE-JCSC. Data was collected using a questionnaire survey, where the questionnaire was distributed to a total of 240 JCSC students and teachers at the college. However, only 207 completed forms were received. The questions were divided into three sections: level of adoption, challenges, and strategies in using an AI-based e-learning education system. It was concluded there are statistically positive significant relationships between the three factors: the current AI and e-learning application; strategies and budgets set by the state to implement AI and e-learning; the availability of critical success factors in applying AI and e-learning in military colleges process and the improvement of flow at the significance level P=0.000 < 0.05. However, challenges encountered by AI and eLearning applications in the military education process are strongly but negatively correlated with the acceptance of AI in Military colleges. Those four variables explain 98.5% of the variation and change in the acceptance of AI and e-learning in military colleges. The findings from this study are beneficial; it provides a valuable source of information for devising strategies to promote the uses of these modern tools and motivate the students to get the maximum benefits of AI and e-learning technologies. It is expected that this study will have several contributions and positive repercussions that can be summarized in theoretical and practical assistance. It constitutes a helpful reference for future studies if it provides for subsequent researchers and scientists interested in artificial intelligence valuable literature and recommendations related to critical success factors in the application of artificial intelligence and e-learning in military colleges. This study will have practical implications for students in encouraging them to use AI and e-learning techniques to improve access to resources and new learning methods and motivate decision-makers in the UAE. To provide intelligent applications for teaching the military students to enable them to receive education and maintain their military training simultaneously",
+        "subjects": [],
+        "yearPublished": 2022,
+        "coreId": "139952478",
+        "downloadUrl": "https://core.ac.uk/download/83541080.pdf",
+        "documentType": "research"
+      }
+    },
+    {
+      "id": "core-166763162",
+      "url": "https://core.ac.uk/download/599100439.pdf",
+      "title": "From adoption to adaptation: Bridging digital transformation and AI integration in contemporary SMEs",
+      "type": "academic",
+      "date": "2023-12-01T16:00:00.000Z",
+      "authors": [
+        "Hu, Hsiang An",
+        "Kim, Jongki",
+        "Mou, Jian",
+        "Tseng, Hsiao-Ting"
+      ],
+      "publication": "AIS Electronic Library (AISeL)",
+      "doi": null,
+      "citationCount": 0,
+      "credibilityScore": 83,
+      "credibilityBreakdown": {
+        "authority": 30,
+        "recency": 18,
+        "citations": 5,
+        "methodology": 15,
+        "bias": 15
+      },
+      "hasMethodology": true,
+      "metadata": {
+        "abstract": "In today\\u27s rapidly evolving business landscape with prevalent uncertainties, firms seek innovative strategies to remain competitive and sustainable. The ascent of digital transformation and artificial intelligence (AI) presents both opportunities and challenges, emphasizing swift adoption and adaptation. SMEs risk further losses by solely focusing on the advantages of new technologies without addressing organizational adaptability and culture. This strategy cannot simply be mirrored from larger enterprises. This study offers a two-phase exploration of the interplay between digital transformation and AI integration. The first phase, informed by literature and qualitative research, crafts a digital transformation strategy. The subsequent phase, through mixed-method case studies, assesses enterprise readiness for AI, resulting in a strategic model validated by industry practices, benefiting enterprise management and AI integration. This study highlights the critical linkage between digital transformation foundations and AI adoption readiness in SMEs, providing strategic insights based on a two-stage research approach",
+        "subjects": [],
+        "yearPublished": 2023,
+        "coreId": "166763162",
+        "downloadUrl": "https://core.ac.uk/download/599100439.pdf",
+        "language": "English"
+      }
+    },
+    {
+      "id": "core-292157371",
+      "url": "https://core.ac.uk/download/648205984.pdf",
+      "title": "Success Factors and Development Areas for the Implementation of Generative AI in Companies",
+      "type": "academic",
+      "date": "2025-03-12T07:00:00.000Z",
+      "authors": [
+        "Meyer, Julian Anton",
+        "Meyer, Julian Anton"
+      ],
+      "publication": "Junior Management Science",
+      "doi": "10.5282/jums/v10i1pp1-23",
+      "citationCount": 0,
+      "credibilityScore": 85,
+      "credibilityBreakdown": {
+        "authority": 30,
+        "recency": 20,
+        "citations": 5,
+        "methodology": 15,
+        "bias": 15
+      },
+      "hasMethodology": true,
+      "metadata": {
+        "abstract": "With the significant increase in public interest in ChatGPT since its breakthrough following the public release in November 2022, an expanding array of application possibilities is being discovered. This heightened interest is also reflected in economic contexts and for businesses. These Generative AI (GenAI) models are believed to have the potential to contribute trillions of dollars in value to the global economy. Now, pioneering companies face the challenge of successfully leveraging this Generative AI technology to their advantage, positioning themselves successfully at the forefront of AI. The adoption of Generative AI proves to be neither straightforward nor simple for companies and is associated with various challenges. Within this thesis, these challenges will be identified by conducting a multiple-case study involving expert interviews. Practical insights will be obtained to identify the decisive factors for the successful adoption of Generative AI, and these insights will be translated into a hands-on implementation framework for companies.\nKeywords: ChatGPT Enterprise; Generative AI; GenAI; GenAI adoption; GenAI frameworkWith the significant increase in public interest in ChatGPT since its breakthrough following the public release in November 2022, an expanding array of application possibilities is being discovered. This heightened interest is also reflected in economic contexts and for businesses. These Generative AI (GenAI) models are believed to have the potential to contribute trillions of dollars in value to the global economy. Now, pioneering companies face the challenge of successfully leveraging this Generative AI technology to their advantage, positioning themselves successfully at the forefront of AI. The adoption of Generative AI proves to be neither straightforward nor simple for companies and is associated with various challenges. Within this thesis, these challenges will be identified by conducting a multiple-case study involving expert interviews. Practical insights will be obtained to identify the decisive factors for the successful adoption of Generative AI, and these insights will be translated into a hands-on implementation framework for companies.\nKeywords: ChatGPT Enterprise; Generative AI; GenAI; GenAI adoption; GenAI framewor",
+        "subjects": [],
+        "yearPublished": 2025,
+        "coreId": "292157371",
+        "downloadUrl": "https://core.ac.uk/download/648205984.pdf",
+        "language": "English"
+      }
+    },
+    {
+      "id": "core-127202118",
+      "url": "https://core.ac.uk/download/539887244.pdf",
+      "title": "Artificial Intelligence and Economic Growth: A Theoretical Framework",
+      "type": "academic",
+      "date": "2021-11-26T08:00:00.000Z",
+      "authors": [
+        "Alam, Kausar",
+        "Sarker, Provash",
+        "Sumon, Shahneoaj",
+        "Wang, Lei"
+      ],
+      "publication": "Editura Universitatii Alexandru Ioan Cuza din Iasi",
+      "doi": "10.47743/saeb-2021-0027",
+      "citationCount": 0,
+      "credibilityScore": 75,
+      "credibilityBreakdown": {
+        "authority": 30,
+        "recency": 10,
+        "citations": 5,
+        "methodology": 15,
+        "bias": 15
+      },
+      "hasMethodology": true,
+      "metadata": {
+        "abstract": "The growing adoption of Artificial Intelligence (AI) has sparked ubiquitous concerns worldwide. Artificial intelligence can affect economic growth and employment. The influence is assumed to be substantial because the adoption of AI technology may lead to increased productivity, lower wages, prices, and labor substitution. Artificial intelligence can affect global economic growth with its widespread adoption and diffusion. We mathematically examined the effects of AI on economic growth, reiterating how AI is unique as a production factor. The models show that AI capital lowers capital prices, increases wages, and augments productivity. Besides, AI capital positively affects the labor share and vice versa, provided that AI and labor are complementary. We improved a task-based model to show AI raises both labor share and wages by generating new tasks. We also present the potential policy implications of AI adoption. We conclude AI can contribute to economic growth. Labor-abundant countries should adopt labor-augmenting technology, while countries with an aging population can adopt capital-augmenting technology. However, caution should be exercised in ensuring that the models are leveraged optimally",
+        "subjects": [],
+        "yearPublished": 2021,
+        "coreId": "127202118",
+        "downloadUrl": "https://core.ac.uk/download/539887244.pdf",
+        "language": "English"
+      }
+    },
+    {
+      "id": "core-291598987",
+      "url": "https://core.ac.uk/download/658901069.pdf",
+      "title": "The Impact of Organizational Culture on Artificial Intelligence (AI) and Organizational Performance: A Mixed Methods Approach",
+      "type": "academic",
+      "date": "2025-01-01T16:00:00.000Z",
+      "authors": [
+        "Mutale, Wlifred C."
+      ],
+      "publication": "Beadle Scholar",
+      "doi": null,
+      "citationCount": 0,
+      "credibilityScore": 85,
+      "credibilityBreakdown": {
+        "authority": 30,
+        "recency": 20,
+        "citations": 5,
+        "methodology": 15,
+        "bias": 15
+      },
+      "hasMethodology": true,
+      "metadata": {
+        "abstract": "The rapid evolution of artificial intelligence (AI) has created many opportunities for organizations to improve organizational performance. AI has increasingly become an integral part of the digital strategy for organizations. Despite these benefits, many organizations are still struggling to leverage AI to gain competitive advantage. Although previous research has explored the notion of technology adoption, very little literature exist that examines the impact of organizational culture on AI adoption in organizations using a mixed methods approach. Specifically, prior literature investigating aspects of the organizations that enable AI adoption has focused on challenges associated with the technical aspects such as the capability, thus providing inadequate insight about the impact of organizational culture on AI adoption and organizational performance. To address this gap, this study has conducted a sequential mixed methods research design indicated as QUAN→ qual to collect data from 96-United States (US) based organizations using a questionnaire and semi-structured interviews with 9 technology leaders in organizations to examine how organizational culture impacts AI adoption and organizational performance. This study proposes a theoretical model adapted from the technology organization environment framework (TOE) and the diffusion of innovation (DOI) theory. Accordingly, informed by the literature, this study has formulated six hypotheses presented in the research model to explain the relationship among constructs: transformational leadership, organizational culture, AI capability, organizational creativity, AI adoption, and organizational performance.\nThe results from the study indicate that transformational leadership is an antecedent of organizational culture, as is AI capability an antecedent of AI adoption, and organizational creativity plays a mediating role between AI capability and AI adoption to positively influence organizational performance. The results suggest that a nurturing AI-friendly organizational culture can help organizations leverage AI and improve organizational performance. This study makes significant contributions to the information systems (IS) literature by examining the impact of organizational culture, particularly when adopting new technologies like artificial intelligence (AI), and it provides practical insights for managers to leverage AI and enhance organizational performance",
+        "subjects": [],
+        "yearPublished": 2025,
+        "coreId": "291598987",
+        "downloadUrl": "https://core.ac.uk/download/658901069.pdf",
+        "language": "English",
+        "documentType": "text"
+      }
+    },
+    {
+      "id": "core-155403027",
+      "url": "http://arxiv.org/abs/2311.10840",
+      "title": "Integration and Implementation Strategies for AI Algorithm Deployment\n  with Smart Routing Rules and Workflow Management",
+      "type": "academic",
+      "date": "2023-11-21T08:00:00.000Z",
+      "authors": [
+        "Bericat, David",
+        "Blair, Jeff",
+        "Deichert, Barbara",
+        "Demirer, Mutlu",
+        "Erdal, Barbaros Selnur",
+        "Fair, Kim H.",
+        "Genereaux, Brad",
+        "Gupta, Vikash",
+        "Lafleur, Laurie",
+        "Qin, Ming Melvin",
+        "White, Richard D."
+      ],
+      "doi": null,
+      "citationCount": 0,
+      "credibilityScore": 83,
+      "credibilityBreakdown": {
+        "authority": 30,
+        "recency": 18,
+        "citations": 5,
+        "methodology": 15,
+        "bias": 15
+      },
+      "hasMethodology": true,
+      "metadata": {
+        "abstract": "This paper reviews the challenges hindering the widespread adoption of\nartificial intelligence (AI) solutions in the healthcare industry, focusing on\ncomputer vision applications for medical imaging, and how interoperability and\nenterprise-grade scalability can be used to address these challenges. The\ncomplex nature of healthcare workflows, intricacies in managing large and\nsecure medical imaging data, and the absence of standardized frameworks for AI\ndevelopment pose significant barriers and require a new paradigm to address\nthem.\n  The role of interoperability is examined in this paper as a crucial factor in\nconnecting disparate applications within healthcare workflows. Standards such\nas DICOM, Health Level 7 (HL7), and Integrating the Healthcare Enterprise (IHE)\nare highlighted as foundational for common imaging workflows. A specific focus\nis placed on the role of DICOM gateways, with Smart Routing Rules and Workflow\nManagement leading transformational efforts in this area.\n  To drive enterprise scalability, new tools are needed. Project MONAI,\nestablished in 2019, is introduced as an initiative aiming to redefine the\ndevelopment of medical AI applications. The MONAI Deploy App SDK, a component\nof Project MONAI, is identified as a key tool in simplifying the packaging and\ndeployment process, enabling repeatable, scalable, and standardized deployment\npatterns for AI applications.\n  The abstract underscores the potential impact of successful AI adoption in\nhealthcare, offering physicians both life-saving and time-saving insights and\ndriving efficiencies in radiology department workflows. The collaborative\nefforts between academia and industry, are emphasized as essential for\nadvancing the adoption of healthcare AI solutions.Comment: 13 pages, 6 figure",
+        "subjects": [],
+        "yearPublished": 2023,
+        "coreId": "155403027",
+        "downloadUrl": "http://arxiv.org/abs/2311.10840",
+        "language": "English"
+      }
+    },
+    {
+      "id": "core-67801263",
+      "url": "https://core.ac.uk/download/299807283.pdf",
+      "title": "Eco‐Holonic 4.0 Circular Business Model to  Conceptualize Sustainable Value Chain Towards  Digital Transition ",
+      "type": "academic",
+      "date": "2020-03-01T08:00:00.000Z",
+      "authors": [
+        "Aguayo-González, Francisco",
+        "Lama-Ruiz, Juan Ramón",
+        "Martín-Gómez, Alejandro Manuel",
+        "Ávila-Gutiérrez, María Jesús"
+      ],
+      "publication": "'MDPI AG'",
+      "doi": "10.3390/su12051889",
+      "citationCount": 0,
+      "credibilityScore": 75,
+      "credibilityBreakdown": {
+        "authority": 30,
+        "recency": 10,
+        "citations": 5,
+        "methodology": 15,
+        "bias": 15
+      },
+      "hasMethodology": true,
+      "metadata": {
+        "abstract": "The purpose of this paper is to conceptualize a circular business model based on an Eco-Holonic Architecture, through the integration of circular economy and holonic principles. A conceptual model is developed to manage the complexity of integrating circular economy principles, digital transformation, and tools and frameworks for sustainability into business models. The proposed architecture is multilevel and multiscale in order to achieve the instantiation of the sustainable value chain in any territory. The architecture promotes the incorporation of circular economy and holonic principles into new circular business models. This integrated perspective of business model can support the design and upgrade of the manufacturing companies in their respective industrial sectors. The conceptual model proposed is based on activity theory that considers the interactions between technical and social systems and allows the mitigation of the metabolic rift that exists between natural and social metabolism. This study contributes to the existing literature on circular economy, circular business models and activity theory by considering holonic paradigm concerns, which have not been explored yet. This research also offers a unique holonic architecture of circular business model by considering different levels, relationships, dynamism and contextualization (territory) aspects",
+        "subjects": [],
+        "yearPublished": 2020,
+        "coreId": "67801263",
+        "downloadUrl": "https://core.ac.uk/download/299807283.pdf",
+        "language": "English",
+        "documentType": "research"
+      }
+    },
+    {
+      "id": "core-85729228",
+      "url": "https://core.ac.uk/download/326703705.pdf",
+      "title": "Handling Concept Drift for Predictions in Business Process Mining",
+      "type": "academic",
+      "date": "2020-01-01T08:00:00.000Z",
+      "authors": [
+        "Baier, Lucas",
+        "Kühl, Niklas",
+        "Reimold, Josua"
+      ],
+      "publication": "'Institute of Electrical and Electronics Engineers (IEEE)'",
+      "doi": "10.1109/cbi49978.2020.00016",
+      "citationCount": 0,
+      "credibilityScore": 75,
+      "credibilityBreakdown": {
+        "authority": 30,
+        "recency": 10,
+        "citations": 5,
+        "methodology": 15,
+        "bias": 15
+      },
+      "hasMethodology": true,
+      "metadata": {
+        "abstract": "Predictive services nowadays play an important role across all business\nsectors. However, deployed machine learning models are challenged by changing\ndata streams over time which is described as concept drift. Prediction quality\nof models can be largely influenced by this phenomenon. Therefore, concept\ndrift is usually handled by retraining of the model. However, current research\nlacks a recommendation which data should be selected for the retraining of the\nmachine learning model. Therefore, we systematically analyze different data\nselection strategies in this work. Subsequently, we instantiate our findings on\na use case in process mining which is strongly affected by concept drift. We\ncan show that we can improve accuracy from 0.5400 to 0.7010 with concept drift\nhandling. Furthermore, we depict the effects of the different data selection\nstrategies",
+        "subjects": [],
+        "yearPublished": 2020,
+        "coreId": "85729228",
+        "downloadUrl": "https://core.ac.uk/download/326703705.pdf",
+        "language": "English",
+        "documentType": "research"
+      }
+    },
+    {
+      "id": "core-44596874",
+      "url": "http://arxiv.org/abs/1709.00084",
+      "title": "Behavior Trees in Robotics and AI: An Introduction",
+      "type": "academic",
+      "date": "2020-06-03T08:00:00.000Z",
+      "authors": [
+        "Colledanchise, Michele",
+        "Ögren, Petter"
+      ],
+      "publication": "'Informa UK Limited'",
+      "doi": "10.1201/9780429489105",
+      "citationCount": 0,
+      "credibilityScore": 75,
+      "credibilityBreakdown": {
+        "authority": 30,
+        "recency": 10,
+        "citations": 5,
+        "methodology": 15,
+        "bias": 15
+      },
+      "hasMethodology": true,
+      "metadata": {
+        "abstract": "A Behavior Tree (BT) is a way to structure the switching between different\ntasks in an autonomous agent, such as a robot or a virtual entity in a computer\ngame. BTs are a very efficient way of creating complex systems that are both\nmodular and reactive. These properties are crucial in many applications, which\nhas led to the spread of BT from computer game programming to many branches of\nAI and Robotics. In this book, we will first give an introduction to BTs, then\nwe describe how BTs relate to, and in many cases generalize, earlier switching\nstructures. These ideas are then used as a foundation for a set of efficient\nand easy to use design principles. Properties such as safety, robustness, and\nefficiency are important for an autonomous system, and we describe a set of\ntools for formally analyzing these using a state space description of BTs. With\nthe new analysis tools, we can formalize the descriptions of how BTs generalize\nearlier approaches. We also show the use of BTs in automated planning and\nmachine learning. Finally, we describe an extended set of tools to capture the\nbehavior of Stochastic BTs, where the outcomes of actions are described by\nprobabilities. These tools enable the computation of both success probabilities\nand time to completion",
+        "subjects": [],
+        "yearPublished": 2020,
+        "coreId": "44596874",
+        "downloadUrl": "http://arxiv.org/abs/1709.00084",
+        "language": "English",
+        "documentType": "research"
+      }
+    },
+    {
+      "id": "core-58982109",
+      "url": "http://arxiv.org/abs/1905.11481",
+      "title": "AI Feynman: a Physics-Inspired Method for Symbolic Regression",
+      "type": "academic",
+      "date": "2020-04-15T08:00:00.000Z",
+      "authors": [
+        "Tegmark, Max",
+        "Udrescu, Silviu-Marian"
+      ],
+      "doi": "10.1126/sciadv.aay2631",
+      "citationCount": 0,
+      "credibilityScore": 75,
+      "credibilityBreakdown": {
+        "authority": 30,
+        "recency": 10,
+        "citations": 5,
+        "methodology": 15,
+        "bias": 15
+      },
+      "hasMethodology": true,
+      "metadata": {
+        "abstract": "A core challenge for both physics and artificial intellicence (AI) is\nsymbolic regression: finding a symbolic expression that matches data from an\nunknown function. Although this problem is likely to be NP-hard in principle,\nfunctions of practical interest often exhibit symmetries, separability,\ncompositionality and other simplifying properties. In this spirit, we develop a\nrecursive multidimensional symbolic regression algorithm that combines neural\nnetwork fitting with a suite of physics-inspired techniques. We apply it to 100\nequations from the Feynman Lectures on Physics, and it discovers all of them,\nwhile previous publicly available software cracks only 71; for a more difficult\ntest set, we improve the state of the art success rate from 15% to 90%.Comment: 15 pages, 2 figs. Our code is available at\n  https://github.com/SJ001/AI-Feynman and our Feynman Symbolic Regression\n  Database for benchmarking can be downloaded at\n  https://space.mit.edu/home/tegmark/aifeynman.htm",
+        "subjects": [],
+        "yearPublished": 2020,
+        "coreId": "58982109",
+        "downloadUrl": "http://arxiv.org/abs/1905.11481",
+        "language": "English",
+        "documentType": "research"
+      }
+    },
+    {
+      "id": "core-58980360",
+      "url": "http://arxiv.org/abs/1905.09084",
+      "title": "Revisiting Shor's quantum algorithm for computing general discrete\n  logarithms",
+      "type": "academic",
+      "date": "2021-04-12T08:00:00.000Z",
+      "authors": [
+        "Ekerå, Martin"
+      ],
+      "doi": null,
+      "citationCount": 0,
+      "credibilityScore": 75,
+      "credibilityBreakdown": {
+        "authority": 30,
+        "recency": 10,
+        "citations": 5,
+        "methodology": 15,
+        "bias": 15
+      },
+      "hasMethodology": true,
+      "metadata": {
+        "abstract": "We heuristically demonstrate that Shor's algorithm for computing general\ndiscrete logarithms, modified to allow the semi-classical Fourier transform to\nbe used with control qubit recycling, achieves a success probability of\napproximately 60% to 82% in a single run. By slightly increasing the number of\ngroup operations that are evaluated quantumly, and by performing a limited\nsearch in the classical post-processing, we furthermore show how the algorithm\ncan be modified to achieve a success probability exceeding 99% in a single run.\nWe provide concrete heuristic estimates of the success probability of the\nmodified algorithm, as a function of the group order, the size of the search\nspace in the classical post-processing, and the additional number of group\noperations evaluated quantumly. In analogy with our earlier works, we show how\nthe modified quantum algorithm may be simulated classically when the logarithm\nand group order are both known. Furthermore, we show how slightly better\ntradeoffs may be achieved, compared to our earlier works, if the group order is\nknown when computing the logarithm.Comment: The pre-print has been extended to show how slightly better tradeoffs\n  may be achieved, compared to our earlier works, if the group order is known.\n  A minor issue with an integration limit, that lead us to give a rough success\n  probability estimate of 60% to 70%, as opposed to 60% to 82%, has been\n  corrected. The heuristic and results reported in the original pre-print are\n  otherwise unaffecte",
+        "subjects": [],
+        "yearPublished": 2021,
+        "coreId": "58980360",
+        "downloadUrl": "http://arxiv.org/abs/1905.09084",
+        "language": "English",
+        "documentType": "research"
+      }
+    },
+    {
+      "id": "core-85729428",
+      "url": "http://arxiv.org/abs/2005.05920",
+      "title": "Projected gradient descent for non-convex sparse spike estimation",
+      "type": "academic",
+      "date": "2020-01-01T08:00:00.000Z",
+      "authors": [
+        "Aujol, Jean-François",
+        "Leclaire, Arthur",
+        "Traonmilin, Yann"
+      ],
+      "publication": "'Institute of Electrical and Electronics Engineers (IEEE)'",
+      "doi": "10.1109/lsp.2020.3003241",
+      "citationCount": 0,
+      "credibilityScore": 75,
+      "credibilityBreakdown": {
+        "authority": 30,
+        "recency": 10,
+        "citations": 5,
+        "methodology": 15,
+        "bias": 15
+      },
+      "hasMethodology": true,
+      "metadata": {
+        "abstract": "We propose a new algorithm for sparse spike estimation from Fourier\nmeasurements. Based on theoretical results on non-convex optimization\ntechniques for off-the-grid sparse spike estimation, we present a projected\ngradient descent algorithm coupled with a spectral initialization procedure.\nOur algorithm permits to estimate the positions of large numbers of Diracs in\n2d from random Fourier measurements. We present, along with the algorithm,\ntheoretical qualitative insights explaining the success of our algorithm. This\nopens a new direction for practical off-the-grid spike estimation with\ntheoretical guarantees in imaging applications",
+        "subjects": [],
+        "yearPublished": 2020,
+        "coreId": "85729428",
+        "downloadUrl": "http://arxiv.org/abs/2005.05920",
+        "language": "English",
+        "documentType": "research"
+      }
+    }
+  ],
+  "chunks": [
+    {
+      "id": "core-85955608-chunk-0",
+      "content": "Understanding predictions made by deep neural networks is notoriously\ndifficult, but also crucial to their dissemination. As all ML-based methods,\nthey are as good as their training data, and can also capture unwanted biases.\nWhile there are tools that can help understand whether such biases exist, they\ndo not distinguish between correlation and causation, and might be ill-suited\nfor text-based models and for reasoning about high level language concepts. A\nkey problem of estimating the causal effect of a concept of interest on a given\nmodel is that this estimation requires the generation of counterfactual\nexamples, which is challenging with existing generation technology. To bridge\nthat gap, we propose CausaLM, a framework for producing causal model\nexplanations using counterfactual language representation models. Our approach\nis based on fine-tuning of deep contextualized embedding models with auxiliary\nadversarial tasks derived from the causal graph of the problem. Concretely, we\nshow that by carefully choosing auxiliary adversarial pre-training tasks,\nlanguage representation models such as BERT can effectively learn a\ncounterfactual representation for a given concept of interest, and be used to\nestimate its true causal effect on model performance. A byproduct of our method\nis a language representation model that is unaffected by the tested concept,\nwhich can be useful in mitigating unwanted bias ingrained in the data.Comment: Our code and data are available at:\n  https://amirfeder.github.io/CausaLM/ Under review for the Computational\n  Linguistics journa",
+      "source": {
+        "id": "core-85955608",
+        "url": "http://arxiv.org/abs/2005.13407",
+        "title": "CausaLM: Causal Model Explanation Through Counterfactual Language Models",
+        "type": "academic",
+        "date": "2020-06-14T08:00:00.000Z",
+        "authors": [
+          "Feder, Amir",
+          "Oved, Nadav",
+          "Reichart, Roi",
+          "Shalit, Uri"
+        ],
+        "doi": null,
+        "citationCount": 0,
+        "credibilityScore": 75,
+        "credibilityBreakdown": {
+          "authority": 30,
+          "recency": 10,
+          "citations": 5,
+          "methodology": 15,
+          "bias": 15
+        },
+        "hasMethodology": true,
+        "metadata": {
+          "abstract": "Understanding predictions made by deep neural networks is notoriously\ndifficult, but also crucial to their dissemination. As all ML-based methods,\nthey are as good as their training data, and can also capture unwanted biases.\nWhile there are tools that can help understand whether such biases exist, they\ndo not distinguish between correlation and causation, and might be ill-suited\nfor text-based models and for reasoning about high level language concepts. A\nkey problem of estimating the causal effect of a concept of interest on a given\nmodel is that this estimation requires the generation of counterfactual\nexamples, which is challenging with existing generation technology. To bridge\nthat gap, we propose CausaLM, a framework for producing causal model\nexplanations using counterfactual language representation models. Our approach\nis based on fine-tuning of deep contextualized embedding models with auxiliary\nadversarial tasks derived from the causal graph of the problem. Concretely, we\nshow that by carefully choosing auxiliary adversarial pre-training tasks,\nlanguage representation models such as BERT can effectively learn a\ncounterfactual representation for a given concept of interest, and be used to\nestimate its true causal effect on model performance. A byproduct of our method\nis a language representation model that is unaffected by the tested concept,\nwhich can be useful in mitigating unwanted bias ingrained in the data.Comment: Our code and data are available at:\n  https://amirfeder.github.io/CausaLM/ Under review for the Computational\n  Linguistics journa",
+          "subjects": [],
+          "yearPublished": 2020,
+          "coreId": "85955608",
+          "downloadUrl": "http://arxiv.org/abs/2005.13407",
+          "language": "English",
+          "documentType": "research"
+        }
+      },
+      "metadata": {
+        "conceptType": "general",
+        "position": 0,
+        "totalChunks": 1,
+        "tokens": 396,
+        "startChar": 0,
+        "endChar": 1583,
+        "isSelfContained": true,
+        "entities": [
+          "Understanding",
+          "As",
+          "While",
+          "To",
+          "Our",
+          "Concretely",
+          "Comment",
+          "Under",
+          "Computational\n  Linguistics",
+          "ML"
+        ],
+        "topics": [
+          "high level language concepts"
+        ],
+        "keywords": [
+          "models",
+          "language",
+          "causal",
+          "model",
+          "representation",
+          "based",
+          "data",
+          "concept",
+          "counterfactual",
+          "deep"
+        ]
+      }
+    },
+    {
+      "id": "core-85773448-chunk-0",
+      "content": "Investment of cognitive effort is required in everyday life and has received ample attention in recent neurocognitive frameworks. The neural mechanism of effort investment is thought to be structured hierarchically, with dorsal anterior cingulate cortex (dACC) at the highest level, recruiting task-specific upstream areas. In the current fMRI study, we tested whether dACC is generally active when effort demand is high across tasks with different stimuli, and whether connectivity between dACC and task-specific areas is increased depending on the task requirements and effort level at hand. For that purpose, a perceptual detection task was administered that required male and female human participants to detect either a face or a house in a noisy image. Effort demand was manipulated by adding little (low effort) or much (high effort) noise to the images. Results showed a network of dACC, anterior insula (AI), and intraparietal sulcus (IPS) to be more active when effort demand was high, independent of the performed task (face or house detection). Importantly, effort demand modulated functional connectivity between dACC and face-responsive or house-responsive perceptual areas, depending on the task at hand. This shows that dACC, AI, and IPS constitute a general effort-responsive network and suggests that the neural implementation of cognitive effort involves dACC-initiated sensitization of task-relevant areas",
+      "source": {
+        "id": "core-85773448",
+        "url": "https://core.ac.uk/download/322827820.pdf",
+        "title": "Cognitive effort modulates connectivity between dorsal anterior cingulate cortex and task-relevant cortical areas",
+        "type": "academic",
+        "date": "2020-01-01T08:00:00.000Z",
+        "authors": [
+          "Aben, Bart",
+          "Buc Calderon, Cristian",
+          "Van den Bussche, Eva",
+          "Verguts, Tom"
+        ],
+        "publication": "'Society for Neuroscience'",
+        "doi": "10.1523/jneurosci.2948-19.2020",
+        "citationCount": 0,
+        "credibilityScore": 75,
+        "credibilityBreakdown": {
+          "authority": 30,
+          "recency": 10,
+          "citations": 5,
+          "methodology": 15,
+          "bias": 15
+        },
+        "hasMethodology": true,
+        "metadata": {
+          "abstract": "Investment of cognitive effort is required in everyday life and has received ample attention in recent neurocognitive frameworks. The neural mechanism of effort investment is thought to be structured hierarchically, with dorsal anterior cingulate cortex (dACC) at the highest level, recruiting task-specific upstream areas. In the current fMRI study, we tested whether dACC is generally active when effort demand is high across tasks with different stimuli, and whether connectivity between dACC and task-specific areas is increased depending on the task requirements and effort level at hand. For that purpose, a perceptual detection task was administered that required male and female human participants to detect either a face or a house in a noisy image. Effort demand was manipulated by adding little (low effort) or much (high effort) noise to the images. Results showed a network of dACC, anterior insula (AI), and intraparietal sulcus (IPS) to be more active when effort demand was high, independent of the performed task (face or house detection). Importantly, effort demand modulated functional connectivity between dACC and face-responsive or house-responsive perceptual areas, depending on the task at hand. This shows that dACC, AI, and IPS constitute a general effort-responsive network and suggests that the neural implementation of cognitive effort involves dACC-initiated sensitization of task-relevant areas",
+          "subjects": [],
+          "yearPublished": 2020,
+          "coreId": "85773448",
+          "downloadUrl": "https://core.ac.uk/download/322827820.pdf",
+          "language": "English",
+          "documentType": "research"
+        }
+      },
+      "metadata": {
+        "conceptType": "general",
+        "position": 0,
+        "totalChunks": 1,
+        "tokens": 357,
+        "startChar": 0,
+        "endChar": 1425,
+        "isSelfContained": true,
+        "entities": [
+          "Investment",
+          "The",
+          "In",
+          "For",
+          "Effort",
+          "Results",
+          "Importantly",
+          "This",
+          "AI",
+          "IPS"
+        ],
+        "topics": [],
+        "keywords": [
+          "effort",
+          "dacc",
+          "task",
+          "areas",
+          "demand",
+          "high",
+          "face",
+          "house",
+          "responsive",
+          "investment"
+        ]
+      }
+    },
+    {
+      "id": "core-85865963-chunk-0",
+      "content": "Previous work suggests that sleep disruption can contribute to poor pain modulation. Here, we used experimental sleep disruption to examine the relationship between sleep disruption-induced pain sensitivity and functional connectivity (FC) of cognitive networks contributing to pain modulation. Nineteen healthy individuals underwent two counterbalanced experimental sleep conditions for one night each: uninterrupted sleep versus sleep disruption. Following each condition, participants completed functional MRI including a simple motor task and a noxious thermal stimulation task. Pain ratings and stimulus temperatures from the latter task were combined to calculate a pain sensitivity change score following sleep disruption. This change score was used as a predictor of simple motor task FC changes using bilateral executive control networks (RECN, LECN) and the default mode network (DMN) masks as seed regions of interest (ROIs). Increased pain sensitivity after sleep disruption was positively associated with increased RECN FC to ROIs within the DMN and LECN (F(4,14) = 25.28, pFDR = 0.05). However, this pain sensitivity change score did not predict FC changes using LECN and DMN masks as seeds (pFDR &gt; 0.05). Given that only RECN FC was associated with sleep loss-induced hyperalgesia, findings suggest that cognitive networks only partially contribute to the sleep-pain dyad",
+      "source": {
+        "id": "core-85865963",
+        "url": "https://core.ac.uk/download/323076421.pdf",
+        "title": "Individual differences in pain sensitivity are associated with cognitive network functional connectivity following one night of experimental sleep disruption.",
+        "type": "academic",
+        "date": "2020-02-01T08:00:00.000Z",
+        "authors": [
+          "Finan, Patrick H",
+          "Irwin, Michael R",
+          "Letzen, Janelle E",
+          "Remeniuk, Bethany",
+          "Seminowicz, David A",
+          "Smith, Michael T"
+        ],
+        "publication": "eScholarship, University of California",
+        "doi": "10.1002/hbm.24824",
+        "citationCount": 0,
+        "credibilityScore": 75,
+        "credibilityBreakdown": {
+          "authority": 30,
+          "recency": 10,
+          "citations": 5,
+          "methodology": 15,
+          "bias": 15
+        },
+        "hasMethodology": true,
+        "metadata": {
+          "abstract": "Previous work suggests that sleep disruption can contribute to poor pain modulation. Here, we used experimental sleep disruption to examine the relationship between sleep disruption-induced pain sensitivity and functional connectivity (FC) of cognitive networks contributing to pain modulation. Nineteen healthy individuals underwent two counterbalanced experimental sleep conditions for one night each: uninterrupted sleep versus sleep disruption. Following each condition, participants completed functional MRI including a simple motor task and a noxious thermal stimulation task. Pain ratings and stimulus temperatures from the latter task were combined to calculate a pain sensitivity change score following sleep disruption. This change score was used as a predictor of simple motor task FC changes using bilateral executive control networks (RECN, LECN) and the default mode network (DMN) masks as seed regions of interest (ROIs). Increased pain sensitivity after sleep disruption was positively associated with increased RECN FC to ROIs within the DMN and LECN (F(4,14) = 25.28, pFDR = 0.05). However, this pain sensitivity change score did not predict FC changes using LECN and DMN masks as seeds (pFDR &gt; 0.05). Given that only RECN FC was associated with sleep loss-induced hyperalgesia, findings suggest that cognitive networks only partially contribute to the sleep-pain dyad",
+          "subjects": [],
+          "yearPublished": 2020,
+          "coreId": "85865963",
+          "downloadUrl": "https://core.ac.uk/download/323076421.pdf",
+          "language": "English",
+          "documentType": "research"
+        }
+      },
+      "metadata": {
+        "conceptType": "general",
+        "position": 0,
+        "totalChunks": 1,
+        "tokens": 348,
+        "startChar": 0,
+        "endChar": 1389,
+        "isSelfContained": true,
+        "entities": [
+          "Previous",
+          "Here",
+          "Nineteen",
+          "Following",
+          "Pain",
+          "This",
+          "Increased",
+          "However",
+          "Given",
+          "FC"
+        ],
+        "topics": [],
+        "keywords": [
+          "sleep",
+          "pain",
+          "disruption",
+          "sensitivity",
+          "task",
+          "networks",
+          "change",
+          "score",
+          "recn",
+          "lecn"
+        ]
+      }
+    },
+    {
+      "id": "core-45243716-chunk-0",
+      "content": "Standard of care diagnostic procedure for suspected skin cancer is microscopic examination of hematoxylin & eosin stained tissue by a pathologist. Areas of high inter-pathologist discordance and rising biopsy rates necessitate higher efficiency and diagnostic reproducibility. We present and validate a deep learning system which classifies digitized dermatopathology slides into 4 categories. The system is developed using 5,070 images from a single lab, and tested on an uncurated set of 13,537 images from 3 test labs, using whole slide scanners manufactured by 3 different vendors. The system\\u27s use of deep-learning-based confidence scoring as a criterion to consider the result as accurate yields an accuracy of up to 98%, and makes it adoptable in a real-world setting. Without confidence scoring, the system achieved an accuracy of 78%. We anticipate that our deep learning system will serve as a foundation enabling faster diagnosis of skin cancer, identification of cases for specialist review, and targeted diagnostic classifications",
+      "source": {
+        "id": "core-45243716",
+        "url": "https://core.ac.uk/download/288847206.pdf",
+        "title": "Tailored for Real-World: A Whole Slide Image Classification System Validated on Uncurated Multi-Site Data Emulating the Prospective Pathology Workload.",
+        "type": "academic",
+        "date": "2020-02-21T16:00:00.000Z",
+        "authors": [
+          "Ayyagari, Devi",
+          "Bonham, Michael J.",
+          "Chamarthi, Ramachandra Vikas",
+          "Cockerell, Clay J.",
+          "Feeser, Theresa A.",
+          "Ianni, Julianna D.",
+          "Lee, Jason B.",
+          "Motaparthi, Kiran",
+          "Olsen, Thomas G.",
+          "Sankarapandian, Sivaramakrishnan",
+          "Soans, Rajath E.",
+          "Stavish, Coleman C."
+        ],
+        "publication": "Jefferson Digital Commons",
+        "doi": null,
+        "citationCount": 0,
+        "credibilityScore": 75,
+        "credibilityBreakdown": {
+          "authority": 30,
+          "recency": 10,
+          "citations": 5,
+          "methodology": 15,
+          "bias": 15
+        },
+        "hasMethodology": true,
+        "metadata": {
+          "abstract": "Standard of care diagnostic procedure for suspected skin cancer is microscopic examination of hematoxylin & eosin stained tissue by a pathologist. Areas of high inter-pathologist discordance and rising biopsy rates necessitate higher efficiency and diagnostic reproducibility. We present and validate a deep learning system which classifies digitized dermatopathology slides into 4 categories. The system is developed using 5,070 images from a single lab, and tested on an uncurated set of 13,537 images from 3 test labs, using whole slide scanners manufactured by 3 different vendors. The system\\u27s use of deep-learning-based confidence scoring as a criterion to consider the result as accurate yields an accuracy of up to 98%, and makes it adoptable in a real-world setting. Without confidence scoring, the system achieved an accuracy of 78%. We anticipate that our deep learning system will serve as a foundation enabling faster diagnosis of skin cancer, identification of cases for specialist review, and targeted diagnostic classifications",
+          "subjects": [],
+          "yearPublished": 2020,
+          "coreId": "45243716",
+          "downloadUrl": "https://core.ac.uk/download/288847206.pdf",
+          "language": "English",
+          "documentType": "research"
+        }
+      },
+      "metadata": {
+        "conceptType": "general",
+        "position": 0,
+        "totalChunks": 1,
+        "tokens": 262,
+        "startChar": 0,
+        "endChar": 1046,
+        "isSelfContained": true,
+        "entities": [
+          "Standard",
+          "Areas",
+          "We",
+          "The",
+          "Without"
+        ],
+        "topics": [],
+        "keywords": [
+          "system",
+          "diagnostic",
+          "deep",
+          "learning",
+          "skin",
+          "cancer",
+          "pathologist",
+          "using",
+          "images",
+          "confidence"
+        ]
+      }
+    },
+    {
+      "id": "core-8377248-chunk-0",
+      "content": "As organisations increasingly adopt AI technologies, a number of ethical issues arise. Much research focuses on algorithmic bias, but there are other important concerns arising from the new uses of data and the introduction of technologies which may impact individuals. This paper examines the interplay between AI, Data Protection and FAT (Fairness, Accountability and Transparency) principles. We review the potential impact of the GDPR and consider the importance of the management of AI adoption. A survey of data protection experts is presented, the initial analysis of which provides some early insights into the praxis of AI in operational contexts. The findings indicate that organisations are not fully compliant with the GDPR, and that there is limited understanding of the relevance of FAT principles as AI is introduced. Those organisations which demonstrate greater GDPR compliance are likely to take a more cautious, risk-based approach to the introduction of AI",
+      "source": {
+        "id": "core-8377248",
+        "url": "https://core.ac.uk/download/322492373.pdf",
+        "title": "AI management an exploratory survey of the influence of GDPR and FAT principles",
+        "type": "academic",
+        "date": "2020-04-09T07:00:00.000Z",
+        "authors": [
+          "Addis, MC",
+          "Kutar, MS"
+        ],
+        "publication": "'Institute of Electrical and Electronics Engineers (IEEE)'",
+        "doi": "10.1109/smartworld/scalcom/u46104.2019",
+        "citationCount": 0,
+        "credibilityScore": 75,
+        "credibilityBreakdown": {
+          "authority": 30,
+          "recency": 10,
+          "citations": 5,
+          "methodology": 15,
+          "bias": 15
+        },
+        "hasMethodology": true,
+        "metadata": {
+          "abstract": "As organisations increasingly adopt AI technologies, a number of ethical issues arise. Much research focuses on algorithmic bias, but there are other important concerns arising from the new uses of data and the introduction of technologies which may impact individuals. This paper examines the interplay between AI, Data Protection and FAT (Fairness, Accountability and Transparency) principles. We review the potential impact of the GDPR and consider the importance of the management of AI adoption. A survey of data protection experts is presented, the initial analysis of which provides some early insights into the praxis of AI in operational contexts. The findings indicate that organisations are not fully compliant with the GDPR, and that there is limited understanding of the relevance of FAT principles as AI is introduced. Those organisations which demonstrate greater GDPR compliance are likely to take a more cautious, risk-based approach to the introduction of AI",
+          "subjects": [],
+          "yearPublished": 2020,
+          "coreId": "8377248",
+          "downloadUrl": "https://core.ac.uk/download/322492373.pdf",
+          "language": "English",
+          "documentType": "research"
+        }
+      },
+      "metadata": {
+        "conceptType": "general",
+        "position": 0,
+        "totalChunks": 1,
+        "tokens": 244,
+        "startChar": 0,
+        "endChar": 976,
+        "isSelfContained": true,
+        "entities": [
+          "As",
+          "Much",
+          "This",
+          "Data Protection",
+          "Fairness",
+          "Accountability",
+          "Transparency",
+          "We",
+          "The",
+          "Those"
+        ],
+        "topics": [
+          "algorithmic bias"
+        ],
+        "keywords": [
+          "organisations",
+          "data",
+          "which",
+          "gdpr",
+          "technologies",
+          "introduction",
+          "impact",
+          "protection",
+          "principles",
+          "increasingly"
+        ]
+      }
+    },
+    {
+      "id": "core-139952478-chunk-0",
+      "content": "Recently, UAE has adopted Artificial Intelligence (AI) and e-learning systems in several fields, including education. Military colleges have embraced this new technology with the institutions running on the conventional educational system. This study assessed the current adoption status, challenges, and strategies of using an AI-based e-learning system in the UAE military-based colleges. This study aims to identify the level of acceptance of e-learning using artificial intelligence (AI) technology in the military education process in the UAE from students and teachers of the Joint Command and Staff College (JCSC). It is a quantitative assessment study based on students' and teachers' perceptions of UAE-JCSC. Data was collected using a questionnaire survey, where the questionnaire was distributed to a total of 240 JCSC students and teachers at the college. However, only 207 completed forms were received. The questions were divided into three sections: level of adoption, challenges, and strategies in using an AI-based e-learning education system. It was concluded there are statistically positive significant relationships between the three factors: the current AI and e-learning application; strategies and budgets set by the state to implement AI and e-learning; the availability of critical success factors in applying AI and e-learning in military colleges process and the improvement of flow at the significance level P=0.000 < 0.05. However, challenges encountered by AI and eLearning applications in the military education process are strongly but negatively correlated with the acceptance of AI in Military colleges. Those four variables explain 98.5% of the variation and change in the acceptance of AI and e-learning in military colleges. The findings from this study are beneficial; it provides a valuable source of information for devising strategies to promote the uses of these modern tools and motivate the students to get the maximum benefits of AI and e-learning technologies. It is expected that this study will have several contributions and positive repercussions that can be summarized in theoretical and practical assistance. It constitutes a helpful reference for future studies if it provides for subsequent researchers and scientists interested in artificial intelligence valuable literature and recommendations related to critical success factors in the application of artificial intelligence and e-learning in military colleges. This study will have practical implications for students in encouraging them to use AI and e-learning techniques to improve access to resources and new learning methods and motivate decision-makers in the UAE. To provide intelligent applications for teaching the military students to enable them to receive education and maintain their military training simultaneously",
+      "source": {
+        "id": "core-139952478",
+        "url": "https://core.ac.uk/download/83541080.pdf",
+        "title": "Acceptance of e-learning using artificial intelligence technology in military education process in UAE",
+        "type": "academic",
+        "date": "2022-04-01T08:00:00.000Z",
+        "authors": [
+          "Ali Alnaqbi, Ali Mohamed"
+        ],
+        "doi": null,
+        "citationCount": 0,
+        "credibilityScore": 75,
+        "credibilityBreakdown": {
+          "authority": 30,
+          "recency": 10,
+          "citations": 5,
+          "methodology": 15,
+          "bias": 15
+        },
+        "hasMethodology": true,
+        "metadata": {
+          "abstract": "Recently, UAE has adopted Artificial Intelligence (AI) and e-learning systems in several fields, including education. Military colleges have embraced this new technology with the institutions running on the conventional educational system. This study assessed the current adoption status, challenges, and strategies of using an AI-based e-learning system in the UAE military-based colleges. This study aims to identify the level of acceptance of e-learning using artificial intelligence (AI) technology in the military education process in the UAE from students and teachers of the Joint Command and Staff College (JCSC). It is a quantitative assessment study based on students' and teachers' perceptions of UAE-JCSC. Data was collected using a questionnaire survey, where the questionnaire was distributed to a total of 240 JCSC students and teachers at the college. However, only 207 completed forms were received. The questions were divided into three sections: level of adoption, challenges, and strategies in using an AI-based e-learning education system. It was concluded there are statistically positive significant relationships between the three factors: the current AI and e-learning application; strategies and budgets set by the state to implement AI and e-learning; the availability of critical success factors in applying AI and e-learning in military colleges process and the improvement of flow at the significance level P=0.000 < 0.05. However, challenges encountered by AI and eLearning applications in the military education process are strongly but negatively correlated with the acceptance of AI in Military colleges. Those four variables explain 98.5% of the variation and change in the acceptance of AI and e-learning in military colleges. The findings from this study are beneficial; it provides a valuable source of information for devising strategies to promote the uses of these modern tools and motivate the students to get the maximum benefits of AI and e-learning technologies. It is expected that this study will have several contributions and positive repercussions that can be summarized in theoretical and practical assistance. It constitutes a helpful reference for future studies if it provides for subsequent researchers and scientists interested in artificial intelligence valuable literature and recommendations related to critical success factors in the application of artificial intelligence and e-learning in military colleges. This study will have practical implications for students in encouraging them to use AI and e-learning techniques to improve access to resources and new learning methods and motivate decision-makers in the UAE. To provide intelligent applications for teaching the military students to enable them to receive education and maintain their military training simultaneously",
+          "subjects": [],
+          "yearPublished": 2022,
+          "coreId": "139952478",
+          "downloadUrl": "https://core.ac.uk/download/83541080.pdf",
+          "documentType": "research"
+        }
+      },
+      "metadata": {
+        "conceptType": "general",
+        "position": 0,
+        "totalChunks": 1,
+        "tokens": 710,
+        "startChar": 0,
+        "endChar": 2838,
+        "isSelfContained": true,
+        "entities": [
+          "Recently",
+          "Artificial Intelligence",
+          "Military",
+          "This",
+          "Joint Command",
+          "Staff College",
+          "It",
+          "Data",
+          "However",
+          "The"
+        ],
+        "topics": [],
+        "keywords": [
+          "learning",
+          "military",
+          "colleges",
+          "study",
+          "students",
+          "education",
+          "artificial",
+          "intelligence",
+          "strategies",
+          "using"
+        ]
+      }
+    },
+    {
+      "id": "core-166763162-chunk-0",
+      "content": "In today\\u27s rapidly evolving business landscape with prevalent uncertainties, firms seek innovative strategies to remain competitive and sustainable. The ascent of digital transformation and artificial intelligence (AI) presents both opportunities and challenges, emphasizing swift adoption and adaptation. SMEs risk further losses by solely focusing on the advantages of new technologies without addressing organizational adaptability and culture. This strategy cannot simply be mirrored from larger enterprises. This study offers a two-phase exploration of the interplay between digital transformation and AI integration. The first phase, informed by literature and qualitative research, crafts a digital transformation strategy. The subsequent phase, through mixed-method case studies, assesses enterprise readiness for AI, resulting in a strategic model validated by industry practices, benefiting enterprise management and AI integration. This study highlights the critical linkage between digital transformation foundations and AI adoption readiness in SMEs, providing strategic insights based on a two-stage research approach",
+      "source": {
+        "id": "core-166763162",
+        "url": "https://core.ac.uk/download/599100439.pdf",
+        "title": "From adoption to adaptation: Bridging digital transformation and AI integration in contemporary SMEs",
+        "type": "academic",
+        "date": "2023-12-01T16:00:00.000Z",
+        "authors": [
+          "Hu, Hsiang An",
+          "Kim, Jongki",
+          "Mou, Jian",
+          "Tseng, Hsiao-Ting"
+        ],
+        "publication": "AIS Electronic Library (AISeL)",
+        "doi": null,
+        "citationCount": 0,
+        "credibilityScore": 83,
+        "credibilityBreakdown": {
+          "authority": 30,
+          "recency": 18,
+          "citations": 5,
+          "methodology": 15,
+          "bias": 15
+        },
+        "hasMethodology": true,
+        "metadata": {
+          "abstract": "In today\\u27s rapidly evolving business landscape with prevalent uncertainties, firms seek innovative strategies to remain competitive and sustainable. The ascent of digital transformation and artificial intelligence (AI) presents both opportunities and challenges, emphasizing swift adoption and adaptation. SMEs risk further losses by solely focusing on the advantages of new technologies without addressing organizational adaptability and culture. This strategy cannot simply be mirrored from larger enterprises. This study offers a two-phase exploration of the interplay between digital transformation and AI integration. The first phase, informed by literature and qualitative research, crafts a digital transformation strategy. The subsequent phase, through mixed-method case studies, assesses enterprise readiness for AI, resulting in a strategic model validated by industry practices, benefiting enterprise management and AI integration. This study highlights the critical linkage between digital transformation foundations and AI adoption readiness in SMEs, providing strategic insights based on a two-stage research approach",
+          "subjects": [],
+          "yearPublished": 2023,
+          "coreId": "166763162",
+          "downloadUrl": "https://core.ac.uk/download/599100439.pdf",
+          "language": "English"
+        }
+      },
+      "metadata": {
+        "conceptType": "general",
+        "position": 0,
+        "totalChunks": 1,
+        "tokens": 284,
+        "startChar": 0,
+        "endChar": 1134,
+        "isSelfContained": true,
+        "entities": [
+          "In",
+          "The",
+          "This",
+          "AI"
+        ],
+        "topics": [
+          "the advantages of new technologies without addressing organizational adaptability and culture"
+        ],
+        "keywords": [
+          "digital",
+          "transformation",
+          "phase",
+          "adoption",
+          "smes",
+          "strategy",
+          "study",
+          "between",
+          "integration",
+          "research"
+        ]
+      }
+    },
+    {
+      "id": "core-292157371-chunk-0",
+      "content": "With the significant increase in public interest in ChatGPT since its breakthrough following the public release in November 2022, an expanding array of application possibilities is being discovered. This heightened interest is also reflected in economic contexts and for businesses. These Generative AI (GenAI) models are believed to have the potential to contribute trillions of dollars in value to the global economy. Now, pioneering companies face the challenge of successfully leveraging this Generative AI technology to their advantage, positioning themselves successfully at the forefront of AI. The adoption of Generative AI proves to be neither straightforward nor simple for companies and is associated with various challenges. Within this thesis, these challenges will be identified by conducting a multiple-case study involving expert interviews. Practical insights will be obtained to identify the decisive factors for the successful adoption of Generative AI, and these insights will be translated into a hands-on implementation framework for companies.\nKeywords: ChatGPT Enterprise; Generative AI; GenAI; GenAI adoption; GenAI frameworkWith the significant increase in public interest in ChatGPT since its breakthrough following the public release in November 2022, an expanding array of application possibilities is being discovered. This heightened interest is also reflected in economic contexts and for businesses. These Generative AI (GenAI) models are believed to have the potential to contribute trillions of dollars in value to the global economy. Now, pioneering companies face the challenge of successfully leveraging this Generative AI technology to their advantage, positioning themselves successfully at the forefront of AI. The adoption of Generative AI proves to be neither straightforward nor simple for companies and is associated with various challenges. Within this thesis, these challenges will be identified by conducting a multiple-case study involving expert interviews. Practical insights will be obtained to identify the decisive factors for the successful adoption of Generative AI, and these insights will be translated into a hands-on implementation framework for companies.\nKeywords: ChatGPT Enterprise; Generative AI; GenAI; GenAI adoption; GenAI framewor",
+      "source": {
+        "id": "core-292157371",
+        "url": "https://core.ac.uk/download/648205984.pdf",
+        "title": "Success Factors and Development Areas for the Implementation of Generative AI in Companies",
+        "type": "academic",
+        "date": "2025-03-12T07:00:00.000Z",
+        "authors": [
+          "Meyer, Julian Anton",
+          "Meyer, Julian Anton"
+        ],
+        "publication": "Junior Management Science",
+        "doi": "10.5282/jums/v10i1pp1-23",
+        "citationCount": 0,
+        "credibilityScore": 85,
+        "credibilityBreakdown": {
+          "authority": 30,
+          "recency": 20,
+          "citations": 5,
+          "methodology": 15,
+          "bias": 15
+        },
+        "hasMethodology": true,
+        "metadata": {
+          "abstract": "With the significant increase in public interest in ChatGPT since its breakthrough following the public release in November 2022, an expanding array of application possibilities is being discovered. This heightened interest is also reflected in economic contexts and for businesses. These Generative AI (GenAI) models are believed to have the potential to contribute trillions of dollars in value to the global economy. Now, pioneering companies face the challenge of successfully leveraging this Generative AI technology to their advantage, positioning themselves successfully at the forefront of AI. The adoption of Generative AI proves to be neither straightforward nor simple for companies and is associated with various challenges. Within this thesis, these challenges will be identified by conducting a multiple-case study involving expert interviews. Practical insights will be obtained to identify the decisive factors for the successful adoption of Generative AI, and these insights will be translated into a hands-on implementation framework for companies.\nKeywords: ChatGPT Enterprise; Generative AI; GenAI; GenAI adoption; GenAI frameworkWith the significant increase in public interest in ChatGPT since its breakthrough following the public release in November 2022, an expanding array of application possibilities is being discovered. This heightened interest is also reflected in economic contexts and for businesses. These Generative AI (GenAI) models are believed to have the potential to contribute trillions of dollars in value to the global economy. Now, pioneering companies face the challenge of successfully leveraging this Generative AI technology to their advantage, positioning themselves successfully at the forefront of AI. The adoption of Generative AI proves to be neither straightforward nor simple for companies and is associated with various challenges. Within this thesis, these challenges will be identified by conducting a multiple-case study involving expert interviews. Practical insights will be obtained to identify the decisive factors for the successful adoption of Generative AI, and these insights will be translated into a hands-on implementation framework for companies.\nKeywords: ChatGPT Enterprise; Generative AI; GenAI; GenAI adoption; GenAI framewor",
+          "subjects": [],
+          "yearPublished": 2025,
+          "coreId": "292157371",
+          "downloadUrl": "https://core.ac.uk/download/648205984.pdf",
+          "language": "English"
+        }
+      },
+      "metadata": {
+        "conceptType": "general",
+        "position": 0,
+        "totalChunks": 1,
+        "tokens": 575,
+        "startChar": 0,
+        "endChar": 2299,
+        "isSelfContained": true,
+        "entities": [
+          "With",
+          "November",
+          "This",
+          "These Generative",
+          "Now",
+          "Generative",
+          "The",
+          "Within",
+          "Practical",
+          "Keywords"
+        ],
+        "topics": [],
+        "keywords": [
+          "generative",
+          "genai",
+          "these",
+          "companies",
+          "adoption",
+          "public",
+          "interest",
+          "chatgpt",
+          "successfully",
+          "challenges"
+        ]
+      }
+    },
+    {
+      "id": "core-127202118-chunk-0",
+      "content": "The growing adoption of Artificial Intelligence (AI) has sparked ubiquitous concerns worldwide. Artificial intelligence can affect economic growth and employment. The influence is assumed to be substantial because the adoption of AI technology may lead to increased productivity, lower wages, prices, and labor substitution. Artificial intelligence can affect global economic growth with its widespread adoption and diffusion. We mathematically examined the effects of AI on economic growth, reiterating how AI is unique as a production factor. The models show that AI capital lowers capital prices, increases wages, and augments productivity. Besides, AI capital positively affects the labor share and vice versa, provided that AI and labor are complementary. We improved a task-based model to show AI raises both labor share and wages by generating new tasks. We also present the potential policy implications of AI adoption. We conclude AI can contribute to economic growth. Labor-abundant countries should adopt labor-augmenting technology, while countries with an aging population can adopt capital-augmenting technology. However, caution should be exercised in ensuring that the models are leveraged optimally",
+      "source": {
+        "id": "core-127202118",
+        "url": "https://core.ac.uk/download/539887244.pdf",
+        "title": "Artificial Intelligence and Economic Growth: A Theoretical Framework",
+        "type": "academic",
+        "date": "2021-11-26T08:00:00.000Z",
+        "authors": [
+          "Alam, Kausar",
+          "Sarker, Provash",
+          "Sumon, Shahneoaj",
+          "Wang, Lei"
+        ],
+        "publication": "Editura Universitatii Alexandru Ioan Cuza din Iasi",
+        "doi": "10.47743/saeb-2021-0027",
+        "citationCount": 0,
+        "credibilityScore": 75,
+        "credibilityBreakdown": {
+          "authority": 30,
+          "recency": 10,
+          "citations": 5,
+          "methodology": 15,
+          "bias": 15
+        },
+        "hasMethodology": true,
+        "metadata": {
+          "abstract": "The growing adoption of Artificial Intelligence (AI) has sparked ubiquitous concerns worldwide. Artificial intelligence can affect economic growth and employment. The influence is assumed to be substantial because the adoption of AI technology may lead to increased productivity, lower wages, prices, and labor substitution. Artificial intelligence can affect global economic growth with its widespread adoption and diffusion. We mathematically examined the effects of AI on economic growth, reiterating how AI is unique as a production factor. The models show that AI capital lowers capital prices, increases wages, and augments productivity. Besides, AI capital positively affects the labor share and vice versa, provided that AI and labor are complementary. We improved a task-based model to show AI raises both labor share and wages by generating new tasks. We also present the potential policy implications of AI adoption. We conclude AI can contribute to economic growth. Labor-abundant countries should adopt labor-augmenting technology, while countries with an aging population can adopt capital-augmenting technology. However, caution should be exercised in ensuring that the models are leveraged optimally",
+          "subjects": [],
+          "yearPublished": 2021,
+          "coreId": "127202118",
+          "downloadUrl": "https://core.ac.uk/download/539887244.pdf",
+          "language": "English"
+        }
+      },
+      "metadata": {
+        "conceptType": "general",
+        "position": 0,
+        "totalChunks": 1,
+        "tokens": 304,
+        "startChar": 0,
+        "endChar": 1215,
+        "isSelfContained": true,
+        "entities": [
+          "The",
+          "Artificial Intelligence",
+          "Artificial",
+          "We",
+          "Besides",
+          "Labor",
+          "However",
+          "AI"
+        ],
+        "topics": [],
+        "keywords": [
+          "labor",
+          "adoption",
+          "economic",
+          "growth",
+          "capital",
+          "artificial",
+          "intelligence",
+          "technology",
+          "wages",
+          "affect"
+        ]
+      }
+    },
+    {
+      "id": "core-291598987-chunk-0",
+      "content": "The rapid evolution of artificial intelligence (AI) has created many opportunities for organizations to improve organizational performance. AI has increasingly become an integral part of the digital strategy for organizations. Despite these benefits, many organizations are still struggling to leverage AI to gain competitive advantage. Although previous research has explored the notion of technology adoption, very little literature exist that examines the impact of organizational culture on AI adoption in organizations using a mixed methods approach. Specifically, prior literature investigating aspects of the organizations that enable AI adoption has focused on challenges associated with the technical aspects such as the capability, thus providing inadequate insight about the impact of organizational culture on AI adoption and organizational performance. To address this gap, this study has conducted a sequential mixed methods research design indicated as QUAN→ qual to collect data from 96-United States (US) based organizations using a questionnaire and semi-structured interviews with 9 technology leaders in organizations to examine how organizational culture impacts AI adoption and organizational performance. This study proposes a theoretical model adapted from the technology organization environment framework (TOE) and the diffusion of innovation (DOI) theory. Accordingly, informed by the literature, this study has formulated six hypotheses presented in the research model to explain the relationship among constructs: transformational leadership, organizational culture, AI capability, organizational creativity, AI adoption, and organizational performance.\nThe results from the study indicate that transformational leadership is an antecedent of organizational culture, as is AI capability an antecedent of AI adoption, and organizational creativity plays a mediating role between AI capability and AI adoption to positively influence organizational performance. The results suggest that a nurturing AI-friendly organizational culture can help organizations leverage AI and improve organizational performance. This study makes significant contributions to the information systems (IS) literature by examining the impact of organizational culture, particularly when adopting new technologies like artificial intelligence (AI), and it provides practical insights for managers to leverage AI and enhance organizational performance",
+      "source": {
+        "id": "core-291598987",
+        "url": "https://core.ac.uk/download/658901069.pdf",
+        "title": "The Impact of Organizational Culture on Artificial Intelligence (AI) and Organizational Performance: A Mixed Methods Approach",
+        "type": "academic",
+        "date": "2025-01-01T16:00:00.000Z",
+        "authors": [
+          "Mutale, Wlifred C."
+        ],
+        "publication": "Beadle Scholar",
+        "doi": null,
+        "citationCount": 0,
+        "credibilityScore": 85,
+        "credibilityBreakdown": {
+          "authority": 30,
+          "recency": 20,
+          "citations": 5,
+          "methodology": 15,
+          "bias": 15
+        },
+        "hasMethodology": true,
+        "metadata": {
+          "abstract": "The rapid evolution of artificial intelligence (AI) has created many opportunities for organizations to improve organizational performance. AI has increasingly become an integral part of the digital strategy for organizations. Despite these benefits, many organizations are still struggling to leverage AI to gain competitive advantage. Although previous research has explored the notion of technology adoption, very little literature exist that examines the impact of organizational culture on AI adoption in organizations using a mixed methods approach. Specifically, prior literature investigating aspects of the organizations that enable AI adoption has focused on challenges associated with the technical aspects such as the capability, thus providing inadequate insight about the impact of organizational culture on AI adoption and organizational performance. To address this gap, this study has conducted a sequential mixed methods research design indicated as QUAN→ qual to collect data from 96-United States (US) based organizations using a questionnaire and semi-structured interviews with 9 technology leaders in organizations to examine how organizational culture impacts AI adoption and organizational performance. This study proposes a theoretical model adapted from the technology organization environment framework (TOE) and the diffusion of innovation (DOI) theory. Accordingly, informed by the literature, this study has formulated six hypotheses presented in the research model to explain the relationship among constructs: transformational leadership, organizational culture, AI capability, organizational creativity, AI adoption, and organizational performance.\nThe results from the study indicate that transformational leadership is an antecedent of organizational culture, as is AI capability an antecedent of AI adoption, and organizational creativity plays a mediating role between AI capability and AI adoption to positively influence organizational performance. The results suggest that a nurturing AI-friendly organizational culture can help organizations leverage AI and improve organizational performance. This study makes significant contributions to the information systems (IS) literature by examining the impact of organizational culture, particularly when adopting new technologies like artificial intelligence (AI), and it provides practical insights for managers to leverage AI and enhance organizational performance",
+          "subjects": [],
+          "yearPublished": 2025,
+          "coreId": "291598987",
+          "downloadUrl": "https://core.ac.uk/download/658901069.pdf",
+          "language": "English",
+          "documentType": "text"
+        }
+      },
+      "metadata": {
+        "conceptType": "general",
+        "position": 0,
+        "totalChunks": 1,
+        "tokens": 614,
+        "startChar": 0,
+        "endChar": 2453,
+        "isSelfContained": true,
+        "entities": [
+          "The",
+          "Despite",
+          "Although",
+          "Specifically",
+          "To",
+          "United States",
+          "This",
+          "Accordingly",
+          "AI",
+          "QUAN"
+        ],
+        "topics": [
+          "the impact of organizational culture on AI adoption and organizational performance"
+        ],
+        "keywords": [
+          "organizational",
+          "organizations",
+          "adoption",
+          "performance",
+          "culture",
+          "study",
+          "literature",
+          "capability",
+          "leverage",
+          "research"
+        ]
+      }
+    }
+  ]
+}
