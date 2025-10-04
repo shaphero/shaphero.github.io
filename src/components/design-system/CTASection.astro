@@ -1,0 +1,75 @@
+---
+interface CTA {
+  text: string;
+  href: string;
+}
+
+interface Props {
+  title: string;
+  description: string;
+  primaryCTA: CTA;
+  secondaryCTA?: CTA;
+  variant?: 'default' | 'gradient';
+  benefits?: string[];
+}
+
+const {
+  title,
+  description,
+  primaryCTA,
+  secondaryCTA,
+  variant = 'default',
+  benefits
+} = Astro.props;
+---
+
+<div class={
+  variant === 'gradient'
+    ? "p-8 md:p-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl shadow-2xl"
+    : "p-8 md:p-12 bg-white border-2 border-gray-200 rounded-2xl"
+}>
+  <h2 class={`text-3xl md:text-4xl font-black mb-4 ${variant === 'gradient' ? 'text-white' : 'text-gray-900'}`}>
+    {title}
+  </h2>
+
+  <p class={`text-lg md:text-xl mb-6 ${variant === 'gradient' ? 'text-white/90' : 'text-gray-700'}`}>
+    {description}
+  </p>
+
+  {benefits && benefits.length > 0 && (
+    <ul class={`space-y-2 mb-6 ${variant === 'gradient' ? 'text-white/90' : 'text-gray-700'}`}>
+      {benefits.map(benefit => (
+        <li class="flex items-start gap-2">
+          <span class={variant === 'gradient' ? 'text-yellow-300' : 'text-blue-600'}>✓</span>
+          {benefit}
+        </li>
+      ))}
+    </ul>
+  )}
+
+  <div class="flex flex-col sm:flex-row gap-4">
+    <a
+      href={primaryCTA.href}
+      class={
+        variant === 'gradient'
+          ? "px-8 py-4 bg-white text-blue-600 hover:bg-gray-100 rounded-lg font-semibold text-lg transition-colors inline-flex items-center justify-center"
+          : "px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold text-lg transition-colors inline-flex items-center justify-center"
+      }
+    >
+      {primaryCTA.text}
+    </a>
+
+    {secondaryCTA && (
+      <a
+        href={secondaryCTA.href}
+        class={
+          variant === 'gradient'
+            ? "px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white hover:bg-white/20 rounded-lg font-semibold text-lg transition-all inline-flex items-center justify-center"
+            : "px-8 py-4 bg-white border-2 border-gray-200 hover:border-blue-600 hover:text-blue-600 text-gray-900 rounded-lg font-semibold text-lg transition-all inline-flex items-center justify-center"
+        }
+      >
+        {secondaryCTA.text}
+      </a>
+    )}
+  </div>
+</div>

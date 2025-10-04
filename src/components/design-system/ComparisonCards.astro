@@ -1,0 +1,73 @@
+---
+interface Item {
+  icon?: string;
+  title: string;
+  description: string;
+}
+
+interface Props {
+  leftTitle: string;
+  leftEmoji?: string;
+  leftItems: Item[];
+  rightTitle: string;
+  rightEmoji?: string;
+  rightItems: Item[];
+  insightText?: string;
+}
+
+const {
+  leftTitle,
+  leftEmoji = '❌',
+  leftItems,
+  rightTitle,
+  rightEmoji = '✅',
+  rightItems,
+  insightText
+} = Astro.props;
+---
+
+<div class="space-y-8">
+  <div class="grid lg:grid-cols-2 gap-8">
+    <!-- Left Card (Usually "What NOT to do") -->
+    <div class="p-6 bg-red-50 rounded-2xl border-2 border-red-200">
+      <h3 class="text-2xl font-bold text-red-900 mb-6 flex items-center gap-2">
+        <span class="text-3xl">{leftEmoji}</span> {leftTitle}
+      </h3>
+      <div class="space-y-4">
+        {leftItems.map(item => (
+          <div class="flex items-start gap-3">
+            {item.icon && <span class="text-2xl mt-1">{item.icon}</span>}
+            <div>
+              <p class="font-semibold text-gray-900">{item.title}</p>
+              <p class="text-sm text-gray-700">{item.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Right Card (Usually "What TO do") -->
+    <div class="p-6 bg-green-50 rounded-2xl border-2 border-green-200">
+      <h3 class="text-2xl font-bold text-green-900 mb-6 flex items-center gap-2">
+        <span class="text-3xl">{rightEmoji}</span> {rightTitle}
+      </h3>
+      <div class="space-y-4">
+        {rightItems.map(item => (
+          <div class="flex items-start gap-3">
+            {item.icon && <span class="text-2xl mt-1">{item.icon}</span>}
+            <div>
+              <p class="font-semibold text-gray-900">{item.title}</p>
+              <p class="text-sm text-gray-700">{item.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  {insightText && (
+    <div class="p-6 bg-blue-50 rounded-xl border border-blue-200">
+      <p class="text-lg text-gray-800 font-semibold">💡 {insightText}</p>
+    </div>
+  )}
+</div>

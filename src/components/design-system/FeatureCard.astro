@@ -1,0 +1,27 @@
+---
+interface Props {
+  icon?: string;
+  title: string;
+  description: string;
+  link?: {
+    text: string;
+    href: string;
+  };
+}
+
+const { icon, title, description, link } = Astro.props;
+---
+
+<div class="p-6 bg-white border border-gray-200 rounded-xl hover:border-blue-600 transition-colors h-full flex flex-col">
+  {icon && <div class="text-4xl mb-4">{icon}</div>}
+
+  <h3 class="text-xl font-bold text-gray-900 mb-3">{title}</h3>
+
+  <p class="text-gray-600 mb-4 flex-grow">{description}</p>
+
+  {link && (
+    <a href={link.href} class="text-blue-600 hover:text-blue-700 font-semibold inline-flex items-center gap-1">
+      {link.text} →
+    </a>
+  )}
+</div>

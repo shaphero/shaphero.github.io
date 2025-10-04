@@ -1,0 +1,104 @@
+---
+interface Stat {
+  number: string;
+  label: string;
+  color?: 'blue' | 'green' | 'red' | 'purple' | 'orange';
+}
+
+interface CTA {
+  text: string;
+  href: string;
+  variant?: 'primary' | 'secondary';
+}
+
+interface Props {
+  badge?: string;
+  badgeColor?: 'blue' | 'purple' | 'green' | 'orange' | 'red';
+  title: string;
+  subtitle: string;
+  stats?: Stat[];
+  ctas?: CTA[];
+  byline?: string;
+  metadata?: string;
+}
+
+const {
+  badge,
+  badgeColor = 'blue',
+  title,
+  subtitle,
+  stats,
+  ctas,
+  byline,
+  metadata
+} = Astro.props;
+
+const badgeColors = {
+  blue: 'bg-blue-50 border-blue-200 text-blue-700',
+  purple: 'bg-purple-50 border-purple-200 text-purple-700',
+  green: 'bg-green-50 border-green-200 text-green-700',
+  orange: 'bg-orange-50 border-orange-200 text-orange-700',
+  red: 'bg-red-50 border-red-200 text-red-700',
+};
+
+const statColors = {
+  blue: 'text-blue-600',
+  green: 'text-green-600',
+  red: 'text-red-600',
+  purple: 'text-purple-600',
+  orange: 'text-orange-600',
+};
+---
+
+<section class="bg-white border-b border-gray-200">
+  <div class="container mx-auto px-6 py-16 md:py-24">
+    <div class="max-w-4xl mx-auto">
+      {badge && (
+        <div class={`inline-flex items-center gap-2 px-4 py-2 rounded-full border font-semibold text-sm mb-6 ${badgeColors[badgeColor]}`}>
+          {badge}
+        </div>
+      )}
+
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6 leading-tight" set:html={title} />
+
+      <p class="text-xl md:text-2xl text-gray-700 leading-relaxed mb-8" set:html={subtitle} />
+
+      {stats && stats.length > 0 && (
+        <div class="flex flex-wrap gap-6 mb-8">
+          {stats.map(stat => (
+            <div class="flex items-center gap-2">
+              <div class={`text-3xl font-black ${statColors[stat.color || 'blue']}`}>
+                {stat.number}
+              </div>
+              <div class="text-sm text-gray-600">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {ctas && ctas.length > 0 && (
+        <div class="flex flex-col sm:flex-row gap-4 mb-8">
+          {ctas.map(cta => (
+            <a
+              href={cta.href}
+              class={
+                cta.variant === 'secondary'
+                  ? "px-8 py-4 bg-white border-2 border-gray-200 hover:border-blue-600 hover:text-blue-600 text-gray-900 rounded-lg font-semibold text-lg transition-all inline-flex items-center justify-center"
+                  : "px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold text-lg transition-colors inline-flex items-center justify-center"
+              }
+            >
+              {cta.text}
+            </a>
+          ))}
+        </div>
+      )}
+
+      {(byline || metadata) && (
+        <div class="text-gray-600 text-sm border-t border-gray-200 pt-6">
+          {byline && <p set:html={byline} />}
+          {metadata && <p class="mt-1">{metadata}</p>}
+        </div>
+      )}
+    </div>
+  </div>
+</section>
