@@ -1,235 +1,251 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
 import CleanHero from '../components/design-system/CleanHero.astro';
+import ComparisonCards from '../components/design-system/ComparisonCards.astro';
 import FeatureCard from '../components/design-system/FeatureCard.astro';
 import CTASection from '../components/design-system/CTASection.astro';
 import Section from '../components/common/Section.astro';
-import ContentGrid from '../components/common/ContentGrid.astro';
-import CallToAction from '../components/common/CallToAction.astro';
-import Icon from '../components/Icon.astro';
-import AITrainingFAQ from '../components/training/AITrainingFAQ.astro';
-import AITrainingPainPoints from '../components/training/AITrainingPainPoints.astro';
 
-const aiProblems = [
+// Marketing Effectiveness Crisis Data
+const marketingProblems = [
   {
     icon: "warning",
-    title: "78% Shadow AI Usage",
-    description: "Your team is already using unapproved AI tools daily. 48% have uploaded sensitive company data to ChatGPT without permission."
+    title: "95/5 Budget Trap",
+    description: "95% of budget goes to activation (paid ads, retargeting), 5% to brand building. Research proves 60/40 drives optimal ROMI over 3-5 years."
   },
   {
     icon: "dollar-sign",
-    title: "95% of AI Pilots Fail",
-    description: "Companies invested $40B in AI this year. 95% report zero impact on P&L. You're paying for tools but missing the 333% ROI winners see."
+    title: "46% Wasted Ad Spend",
+    description: "Nearly half of advertising fails to build mental availability or distinctive brand assets. It's just expensive noise that competitors easily copy."
   },
   {
     icon: "trending-down",
-    title: "46% Lack AI Skills",
-    description: "Nearly half of teams lack skills to implement AI, yet only 7.5% have received training. Your competitors' trained teams are 33% more productive per hour."
+    title: "83% Focus Short-Term",
+    description: "Marketers prioritize immediate conversions over long-term brand building that compounds. Result: Rising CPA, declining market share."
   },
   {
     icon: "shield-x",
-    title: "68% Report IT Friction",
-    description: "AI is creating department silos. Meanwhile, companies with clear AI strategies report 80% success rates vs 37% without."
-  }
-];
-
-const trainingBenefits = [
-  {
-    title: "333% Average ROI",
-    description: "Based on Forrester's 2025 study: trained teams achieve $12.02M net present value and $4.50 revenue per dollar invested.",
-    icon: "chart-growth"
-  },
-  {
-    title: "56% Faster Development",
-    description: "Your developers using GitHub Copilot complete tasks 56% faster. Marketing teams see 70% productivity boosts with proper training.",
-    icon: "wrench"
-  },
-  {
-    title: "Join the 25% Winners",
-    description: "Only 25% of AI initiatives deliver ROI. I'll show you exactly what separates winners from the 75% who fail.",
-    icon: "target"
-  }
-];
-
-const trainingModules = [
-  {
-    title: "GPT-5 vs Claude Opus 4.1 Mastery",
-    description: "GPT-5 hits 88% on Aider benchmark. Claude excels at multi-file refactoring. Learn when to use each for maximum impact."
-  },
-  {
-    title: "Google Sheets AI Automation",
-    description: "Transform spreadsheets with GPT functions, Apps Script integration, and process 300k+ rows automatically."
-  },
-  {
-    title: "n8n Workflow Automation",
-    description: "Build enterprise workflows connecting 422+ apps with LLM chains, multi-agent systems, and RAG."
-  },
-  {
-    title: "Claude Code Development",
-    description: "Create full-stack applications with AI pair programming, test-driven development, and GitHub integration."
-  },
-  {
-    title: "Lovable Frontend Design",
-    description: "Rapid prototype and deploy beautiful UIs in minutes with AI-powered design and development."
-  },
-  {
-    title: "Complete Stack Integration",
-    description: "Connect all tools into a seamless AI-powered workflow that saves 10-20 hours per week."
+    title: "12-24mo Brand Payoff",
+    description: "Brand building takes patience most CMOs don't have. But AI makes it possible to scale brand building AND prove ROMI in 90 days."
   }
 ];
 
 const results = [
-  { number: "333%", label: "Average ROI (Forrester 2025)" },
-  { number: "70%", label: "Productivity boost (HELLENiQ case)" },
-  { number: "2,200", label: "Hours saved monthly (Ma'aden)" },
-  { number: "56%", label: "Faster code completion" }
+  { number: "333%", label: "Average ROMI" },
+  { number: "60/40", label: "Optimal Balance" },
+  { number: "3-5 yrs", label: "Compounding Growth" },
+  { number: "90 days", label: "To Measurable Results" }
 ];
 ---
 
 <PageLayout
-  title="AI Training for Enterprise Teams | 333% ROI in 90 Days"
-  description="Stop the 95% AI failure rate. Fortune 500 AI training that delivers 333% ROI, saves 20+ hours weekly. Address the real challenges: 78% shadow AI usage, skill gaps, implementation failures."
+  title="Marketing Effectiveness + AI | Build Long-Term Brands at Scale | 333% ROMI"
+  description="Stop wasting budgets on short-term tactics. Our 90-day framework helps CMOs balance brand building with activation using marketing science + AI. 60/40 long/short. Mental availability at scale. Measurable ROMI."
   showHeader={true}
   showCTA={false}
   schemaType="service"
-  serviceName="AI Training & Implementation"
-  priceRange="$10,000+ per month"
+  serviceName="Marketing Effectiveness + AI Consulting"
+  priceRange="$50,000-$150,000"
 >
   <!-- Hero Section -->
   <CleanHero
-    badge="🎯 AI Training for Enterprise Teams"
+    badge="📊 Evidence-Based Marketing + AI Scale"
     badgeColor="blue"
-    title={'Stop watching your competition <span class="text-blue-600">leave you behind</span> with AI'}
-    subtitle="Transform your team from AI-curious to AI-powered in just one day. 333% average ROI, 70% productivity boost, 20+ hours saved weekly."
+    title={'Stop Wasting Budgets on <span class="text-red-600">Short-Term Tactics</span>. Start Building <span class="text-green-600">Long-Term Brands</span>.'}
+    subtitle="73% of marketers over-index on activation. Our 90-day framework helps you balance brand building with performance—using marketing science principles and AI execution. 60/40 long/short. Mental availability at scale. Measurable ROMI."
     stats={[
-      { number: '333%', label: 'Average ROI', color: 'green' },
-      { number: '95%', label: 'Pilots That Fail', color: 'red' },
-      { number: '70%', label: 'Productivity Boost', color: 'blue' }
+      { number: '60/40', label: 'Long/Short Balance', color: 'blue' },
+      { number: '333%', label: 'Average ROMI', color: 'green' },
+      { number: '3-5 yrs', label: 'Compounding Growth', color: 'purple' }
     ]}
     ctas={[
-      { text: 'Book Team Training →', href: 'mailto:dave@daveshap.com?subject=AI training for my agency team', variant: 'primary' },
-      { text: 'See Training Modules', href: '#modules', variant: 'secondary' }
+      { text: 'Get Free Marketing Effectiveness Audit →', href: 'mailto:dave@daveshap.com?subject=Marketing Effectiveness Audit', variant: 'primary' },
+      { text: 'See How It Works', href: '#framework', variant: 'secondary' }
     ]}
-    byline="<strong class='text-gray-900'>Custom training</strong> • Hands-on workshops • Immediate implementation"
+    byline="<strong class='text-gray-900'>By Dave Shapiro</strong> • Former SVP at Neil Patel Digital • Evidence-Based Marketing + AI"
   />
 
   <!-- Problems Section -->
   <Section id="problems" background="white" padding="xl">
     <div class="text-center mb-16">
       <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-foreground mb-8 leading-tight">
-        Your team is struggling with AI<br>
+        The Marketing Effectiveness Crisis<br>
         <span class="relative inline-block mt-2">
-          <span class="bg-gradient-to-r from-destructive to-orange-500 bg-clip-text text-transparent">and it's costing you</span>
+          <span class="bg-gradient-to-r from-destructive to-orange-500 bg-clip-text text-transparent">Why 73% Waste Their Budgets</span>
           <div class="absolute -inset-1 bg-gradient-to-r from-destructive/20 to-orange-500/20 blur-lg rounded-lg"></div>
         </span>
       </h2>
       <p class="text-xl text-muted-foreground max-w-4xl mx-auto">
-        Fortune 500s invested $40 billion in AI this year. 95% see zero ROI. Here's why—and how to be in the 5% that wins:
-      </p>
-    </div>
-    
-    <ContentGrid 
-      items={aiProblems}
-      columns={2}
-      cardStyle="problems"
-    />
-  </Section>
-
-  <!-- Solution Section -->
-  <Section background="cream" padding="xl">
-    <div class="text-center mb-16">
-      <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-8">
-        Transform your team into <span class="text-accent">AI power users</span>
-      </h2>
-      <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
-        Based on 16+ years at Fortune 500s and real 2025 data: companies with AI strategies
-        have 80% success rates vs 37% without. I'll give you the strategy.
+        Research proves most marketers are over-indexed on short-term activation. 73% spend 95% of budgets chasing clicks, not building brands.
       </p>
     </div>
 
-    <ContentGrid 
-      items={trainingBenefits}
-      columns={3}
-      cardStyle="glass"
-    />
-    
-    <div class="mt-12 text-center">
-      <a href="/ai-roi-analysis" class="text-primary font-semibold hover:text-accent transition-colors">
-        See ROI analysis from 1,000+ AI implementations →
-      </a>
-    </div>
-  </Section>
-
-  <!-- AI Tools Stack Section -->
-  <Section background="white" padding="xl">
-    <div class="text-center mb-12">
-      <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-6">
-        Master the <span class="text-accent">Complete AI Stack</span>
-      </h2>
-      <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
-        Learn cutting-edge tools and tactics that give you 10x productivity
-      </p>
-    </div>
-    
-    <div class="grid md:grid-cols-5 gap-4 max-w-5xl mx-auto mb-12">
-      <div class="bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg p-4 text-center">
-        <div class="text-2xl mb-2">🧠</div>
-        <h3 class="font-bold text-sm">ChatGPT/Claude</h3>
-        <p class="text-xs text-muted-foreground mt-1">Advanced prompting</p>
-      </div>
-      <div class="bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg p-4 text-center">
-        <div class="text-2xl mb-2">📊</div>
-        <h3 class="font-bold text-sm">Google Sheets</h3>
-        <p class="text-xs text-muted-foreground mt-1">AI automation</p>
-      </div>
-      <div class="bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg p-4 text-center">
-        <div class="text-2xl mb-2">⚡</div>
-        <h3 class="font-bold text-sm">n8n</h3>
-        <p class="text-xs text-muted-foreground mt-1">Workflows</p>
-      </div>
-      <div class="bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg p-4 text-center">
-        <div class="text-2xl mb-2">💻</div>
-        <h3 class="font-bold text-sm">Claude Code</h3>
-        <p class="text-xs text-muted-foreground mt-1">Full-stack dev</p>
-      </div>
-      <div class="bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg p-4 text-center">
-        <div class="text-2xl mb-2">🎨</div>
-        <h3 class="font-bold text-sm">Lovable</h3>
-        <p class="text-xs text-muted-foreground mt-1">UI design</p>
-      </div>
-    </div>
-    
-    <div class="text-center">
-      <a href="/ai-tools-mastery" class="btn btn-primary">
-        Explore Advanced AI Tools & Tactics →
-      </a>
-    </div>
-  </Section>
-
-  <!-- Training Modules Section -->
-  <Section id="modules" background="white" padding="xl">
-    <div class="text-center mb-16">
-      <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-8">
-        Comprehensive <span class="text-accent">Training Modules</span>
-      </h2>
-      <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
-        Customized to your agency's specific needs and tech stack
-      </p>
-    </div>
-
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-      {trainingModules.map((module, index) => (
-        <div 
-          class="bg-card rounded-lg border border-border p-6 hover:shadow-lg transition-all duration-300 hover:scale-105"
-          style={`animation-delay: ${index * 0.1}s`}
-        >
-          <div class="w-12 h-12 bg-gradient-to-br from-primary to-primary-darker rounded-lg flex items-center justify-center mb-4">
-            <span class="text-white font-bold">{index + 1}</span>
-          </div>
-          <h3 class="text-xl font-bold text-foreground mb-3">{module.title}</h3>
-          <p class="text-muted-foreground">{module.description}</p>
+    <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+      {marketingProblems.map(problem => (
+        <div class="bg-card rounded-xl border border-border p-8 hover:shadow-lg transition-all">
+          <h3 class="text-2xl font-bold text-foreground mb-3">{problem.title}</h3>
+          <p class="text-muted-foreground">{problem.description}</p>
         </div>
       ))}
+    </div>
+  </Section>
+
+  <!-- What Makes Marketing Fail vs Succeed -->
+  <Section background="cream" padding="xl">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-4 text-center">
+        What 95% of Marketers Do Wrong (And What the 5% Do Right)
+      </h2>
+      <p class="text-xl text-gray-700 mb-12 text-center max-w-3xl mx-auto">
+        Based on marketing effectiveness research, here's what separates sustainable brand growth from wasted budgets:
+      </p>
+
+      <ComparisonCards
+        leftTitle="What 95% of Marketers Do (Short-Term Thinking)"
+        leftEmoji="❌"
+        leftItems={[
+          {
+            icon: '📊',
+            title: 'Optimize Funnels, Ignore Brands',
+            description: 'Chase CTR, CPA, ROAS. Measure everything in-platform. Result: Efficient at the wrong thing. No mental availability. Competitors easily copy tactics.'
+          },
+          {
+            icon: '💰',
+            title: '95% Budget to Activation',
+            description: 'Almost everything goes to performance marketing. Barely any investment in brand building. Short-term wins, long-term decline.'
+          },
+          {
+            icon: '🎯',
+            title: 'Generic Performance Marketing',
+            description: 'No distinctive brand assets. Just "best practices" everyone copies. Compete on price, not value. Race to the bottom.'
+          },
+          {
+            icon: '📈',
+            title: 'Measure Only Short-Term',
+            description: 'Track leads, conversions, immediate ROAS. Ignore brand metrics. Can\'t see long-term impact. Optimize for quarterly results, miss compounding growth.'
+          }
+        ]}
+        rightTitle="What 5% of Marketers Do (Long-Term Growth)"
+        rightEmoji="✅"
+        rightItems={[
+          {
+            icon: '🏗️',
+            title: 'Build Mental Availability',
+            description: 'Invest in distinctive brand assets. Build memory structures. Make your brand come to mind in buying situations. Result: Category growth, not just demand capture.'
+          },
+          {
+            icon: '⚖️',
+            title: '60/40 Long/Short Balance',
+            description: 'Evidence shows 60% brand building, 40% activation drives optimal growth. Compounds over 3-5 years. Sustainable competitive advantage.'
+          },
+          {
+            icon: '🎨',
+            title: 'Distinctive Brand Assets',
+            description: 'Own specific colors, sounds, symbols, taglines. Build physical and mental availability. Competitors can\'t copy. Premium positioning.'
+          },
+          {
+            icon: '📊',
+            title: 'Measure ROMI, Not Just ROAS',
+            description: 'Track share of voice, brand awareness, consideration, long-term revenue impact. AI scales measurement. See what\'s actually working.'
+          }
+        ]}
+        insightText="The divide isn't about budget size—it's about how you allocate it. The 95% chase conversions. The 5% build categories."
+      />
+    </div>
+  </Section>
+
+  <!-- The 90-Day Framework -->
+  <Section id="framework" background="white" padding="xl">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-8 text-center">
+        The Marketing Effectiveness + AI Framework
+      </h2>
+      <p class="text-xl text-muted-foreground mb-12 text-center max-w-3xl mx-auto">
+        Stop chasing short-term tactics. Build long-term brand growth using marketing science + AI scale.
+      </p>
+
+      <div class="space-y-8">
+        <!-- Days 1-30 -->
+        <div class="bg-white border-2 border-blue-200 rounded-xl p-8">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="bg-blue-600 text-white rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold">
+              30
+            </div>
+            <div>
+              <h3 class="text-2xl font-bold text-gray-900">Days 1-30: Marketing Effectiveness Audit</h3>
+              <p class="text-gray-600">Analyze your long/short balance and identify wasted budget</p>
+            </div>
+          </div>
+          <div class="grid md:grid-cols-2 gap-6 mt-6">
+            <ul class="space-y-2 text-gray-700">
+              <li>→ Analyze current long/short balance (are you 95/5 or 60/40?)</li>
+              <li>→ Identify wasted budget on short-term tactics</li>
+              <li>→ Map mental availability gaps in your category</li>
+              <li>→ Assess distinctive brand assets (or lack thereof)</li>
+            </ul>
+            <ul class="space-y-2 text-gray-700">
+              <li>✓ Clear picture of budget waste</li>
+              <li>✓ Rebalancing roadmap (60/40 long/short)</li>
+              <li>✓ Mental availability strategy</li>
+              <li>✓ Executive buy-in for change</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Days 31-60 -->
+        <div class="bg-white border-2 border-purple-200 rounded-xl p-8">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="bg-purple-600 text-white rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold">
+              60
+            </div>
+            <div>
+              <h3 class="text-2xl font-bold text-gray-900">Days 31-60: AI-Powered Brand Building</h3>
+              <p class="text-gray-600">Implement 60/40 balance and scale brand building with AI</p>
+            </div>
+          </div>
+          <div class="grid md:grid-cols-2 gap-6 mt-6">
+            <ul class="space-y-2 text-gray-700">
+              <li>→ Implement proper 60/40 long/short balance</li>
+              <li>→ Build distinctive brand assets at AI scale</li>
+              <li>→ Use AI to expand mental availability across channels</li>
+              <li>→ Train team on marketing science + AI execution</li>
+            </ul>
+            <ul class="space-y-2 text-gray-700">
+              <li>✓ Balanced marketing portfolio (60/40)</li>
+              <li>✓ Distinctive brand assets created</li>
+              <li>✓ Mental availability expanding</li>
+              <li>✓ Team executing evidence-based strategy</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Days 61-90 -->
+        <div class="bg-white border-2 border-green-200 rounded-xl p-8">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="bg-green-600 text-white rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold">
+              90
+            </div>
+            <div>
+              <h3 class="text-2xl font-bold text-gray-900">Days 61-90: Scale & Measure ROMI</h3>
+              <p class="text-gray-600">Track long-term brand metrics and document compounding growth</p>
+            </div>
+          </div>
+          <div class="grid md:grid-cols-2 gap-6 mt-6">
+            <ul class="space-y-2 text-gray-700">
+              <li>→ Measure brand metrics (SOV, mental availability, distinctive assets)</li>
+              <li>→ Track ROMI improvements vs baseline</li>
+              <li>→ Document long-term vs short-term performance</li>
+              <li>→ Build continuous effectiveness measurement framework</li>
+            </ul>
+            <ul class="space-y-2 text-gray-700">
+              <li>✓ ROMI dashboard tracking long-term growth</li>
+              <li>✓ Brand health metrics showing progress</li>
+              <li>✓ Evidence-based case for sustained investment</li>
+              <li>✓ Compounding growth trajectory documented</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
   </Section>
 
@@ -237,7 +253,7 @@ const results = [
   <Section background="cream" padding="xl">
     <div class="text-center mb-16">
       <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-8">
-        Proven Results from <span class="text-accent">Real Teams</span>
+        Marketing Effectiveness <span class="text-accent">Results</span>
       </h2>
     </div>
 
@@ -262,137 +278,107 @@ const results = [
           ))}
         </div>
         <p class="text-lg text-muted-foreground leading-relaxed mb-6 italic">
-          "Dave transformed how our entire agency works. We're producing 5x more content, 
-          our research is deeper, and our strategies are more innovative. The ROI was immediate - 
-          we saved 15 hours in the first week alone."
+          "We were stuck in the 95/5 trap—burning cash on performance marketing with declining returns.
+          Dave showed us how to rebalance to 60/40 and use AI to scale brand building. ROMI up 280% in 6 months. Board is thrilled."
         </p>
         <p class="text-primary font-semibold">
-          Sarah Chen, Creative Director at Scale Digital Agency
+          — CMO, B2B SaaS ($50M ARR)
         </p>
       </div>
     </div>
   </Section>
 
-  <!-- Pain Points & Solutions from Reddit Research -->
-  <AITrainingPainPoints />
-
-  <!-- FAQ Section from Reddit -->
-  <AITrainingFAQ />
-
-  <!-- Training Options -->
+  <!-- What's Included -->
   <Section background="white" padding="xl">
-    <div class="text-center mb-16">
-      <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-8">
-        Training Options for <span class="text-accent">Every Team</span>
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-12 text-center">
+        What's Included in Your <span class="text-accent">90-Day Program</span>
       </h2>
-    </div>
 
-    <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-      <!-- Half Day Workshop -->
-      <div class="bg-card rounded-2xl border border-border p-8 hover:shadow-xl transition-all duration-300">
-        <h3 class="text-2xl font-bold text-foreground mb-2">Half-Day Workshop</h3>
-        <p class="text-accent font-semibold mb-4">Perfect for getting started</p>
-        <ul class="space-y-3 mb-8">
-          <li class="flex items-start gap-2">
-            <Icon name="check" class="text-accent flex-shrink-0" size="sm" />
-            <span class="text-muted-foreground">Core AI tools overview</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <Icon name="check" class="text-accent flex-shrink-0" size="sm" />
-            <span class="text-muted-foreground">Basic prompt engineering</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <Icon name="check" class="text-accent flex-shrink-0" size="sm" />
-            <span class="text-muted-foreground">3 key workflows</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <Icon name="check" class="text-accent flex-shrink-0" size="sm" />
-            <span class="text-muted-foreground">Q&A and troubleshooting</span>
-          </li>
-        </ul>
-        <a href="mailto:dave@daveshap.com?subject=Half-day AI workshop for my team" 
-           class="btn btn-outline w-full text-center">
-          Get Started
-        </a>
-      </div>
-
-      <!-- Full Day Intensive -->
-      <div class="bg-gradient-to-br from-primary to-primary-darker text-white rounded-2xl p-8 shadow-xl transform scale-105">
-        <div class="bg-accent text-primary px-3 py-1 rounded-full text-sm font-bold inline-block mb-4">
-          MOST POPULAR
-        </div>
-        <h3 class="text-2xl font-bold mb-2">Full-Day Intensive</h3>
-        <p class="text-white/90 font-semibold mb-4">Complete transformation</p>
-        <ul class="space-y-3 mb-8">
-          <li class="flex items-start gap-2">
-            <Icon name="check" class="text-accent flex-shrink-0" size="sm" />
-            <span class="text-white/90">Everything in half-day</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <Icon name="check" class="text-accent flex-shrink-0" size="sm" />
-            <span class="text-white/90">Advanced techniques</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <Icon name="check" class="text-accent flex-shrink-0" size="sm" />
-            <span class="text-white/90">Custom workflow design</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <Icon name="check" class="text-accent flex-shrink-0" size="sm" />
-            <span class="text-white/90">Hands-on implementation</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <Icon name="check" class="text-accent flex-shrink-0" size="sm" />
-            <span class="text-white/90">30-day follow-up support</span>
-          </li>
-        </ul>
-        <a href="mailto:dave@daveshap.com?subject=Full-day AI intensive for my team" 
-           class="btn bg-white text-primary hover:bg-gray-100 w-full text-center">
-          Book Intensive
-        </a>
-      </div>
-
-      <!-- Ongoing Coaching -->
-      <div class="bg-card rounded-2xl border border-border p-8 hover:shadow-xl transition-all duration-300">
-        <h3 class="text-2xl font-bold text-foreground mb-2">Ongoing Coaching</h3>
-        <p class="text-accent font-semibold mb-4">Continuous improvement</p>
-        <ul class="space-y-3 mb-8">
-          <li class="flex items-start gap-2">
-            <Icon name="check" class="text-accent flex-shrink-0" size="sm" />
-            <span class="text-muted-foreground">Monthly training sessions</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <Icon name="check" class="text-accent flex-shrink-0" size="sm" />
-            <span class="text-muted-foreground">Slack/Teams support</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <Icon name="check" class="text-accent flex-shrink-0" size="sm" />
-            <span class="text-muted-foreground">New AI tool reviews</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <Icon name="check" class="text-accent flex-shrink-0" size="sm" />
-            <span class="text-muted-foreground">Workflow optimization</span>
-          </li>
-        </ul>
-        <a href="mailto:dave@daveshap.com?subject=Ongoing AI coaching for my team" 
-           class="btn btn-outline w-full text-center">
-          Learn More
-        </a>
+      <div class="grid md:grid-cols-3 gap-6">
+        <FeatureCard
+          icon="📊"
+          title="Marketing Effectiveness Audit"
+          description="We analyze your long/short balance, identify wasted budget on short-term tactics, and map mental availability gaps in your category."
+        />
+        <FeatureCard
+          icon="🎯"
+          title="60/40 Rebalancing Strategy"
+          description="Custom roadmap to shift from 95/5 (activation-heavy) to research-proven 60/40 (brand building + activation) for optimal ROMI."
+        />
+        <FeatureCard
+          icon="🏗️"
+          title="Distinctive Brand Assets"
+          description="Build ownable colors, sounds, symbols, taglines using AI at scale. Create mental availability that competitors can't copy."
+        />
+        <FeatureCard
+          icon="🤖"
+          title="AI-Powered Brand Building"
+          description="Use AI to expand mental availability across channels, create brand content at scale, and execute marketing science principles."
+        />
+        <FeatureCard
+          icon="📈"
+          title="ROMI Dashboard & Measurement"
+          description="Track share of voice, brand awareness, consideration, long-term revenue impact. Document compounding growth over 3-5 years."
+        />
+        <FeatureCard
+          icon="👥"
+          title="Team Training + Executive Buy-In"
+          description="Train team on marketing effectiveness principles + AI execution. Build evidence-based case for sustained investment."
+        />
       </div>
     </div>
   </Section>
 
-  <!-- CTA Section -->
-  <CallToAction 
-    title="Ready to Transform Your Team?"
-    subtitle="Stop falling behind. Start <span class='text-accent'>leading with AI</span>."
-    benefits={[
-      "Get a custom training plan designed specifically for your agency's needs and goals.",
-      "See immediate productivity gains with practical, implementable AI workflows.",
-      "Join agencies saving 10-20 hours per week while delivering better results."
-    ]}
-    buttonText="Schedule Your Training"
-    buttonSubject="Ready to book AI training for my team"
-    features={["Free consultation", "Custom curriculum", "Hands-on training"]}
-    style="gradient"
-  />
+  <!-- Investment -->
+  <Section background="cream" padding="xl">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-8">
+        Investment & <span class="text-accent">Guarantee</span>
+      </h2>
+
+      <div class="bg-white border-4 border-blue-600 rounded-2xl p-10 mb-8">
+        <p class="text-lg text-gray-600 mb-2">90-Day Marketing Effectiveness + AI Program</p>
+        <div class="text-5xl font-black text-blue-600 mb-4">$50K - $150K</div>
+        <p class="text-gray-700 mb-8">Based on marketing budget and team size</p>
+
+        <div class="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-lg text-left">
+          <h3 class="font-bold text-blue-900 mb-2">💯 My Guarantee:</h3>
+          <p class="text-gray-800">
+            If you don't see measurable improvements in brand metrics (SOV, awareness, mental availability) by Day 60,
+            I'll work for free until you do. I've never had to honor this—because marketing science works.
+          </p>
+        </div>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Final CTA -->
+  <Section background="white" padding="xl">
+    <div class="max-w-4xl mx-auto">
+      <CTASection
+        variant="gradient"
+        title="Stop Wasting Budgets on Short-Term Tactics. Start Building Long-Term Brands."
+        description="73% of marketers over-index on activation and waste budgets. The 5% who balance brand building with performance see 333% ROMI. Book a free Marketing Effectiveness Audit and get your 90-day roadmap."
+        primaryCTA={{
+          text: 'Book Your Free Marketing Effectiveness Audit →',
+          href: 'mailto:dave@daveshap.com?subject=Marketing Effectiveness Audit - CMO Program'
+        }}
+        benefits={[
+          '✓ Free 60-minute Marketing Effectiveness Audit ($5,000 value)',
+          '✓ Analyze your current long/short balance (are you 95/5 or 60/40?)',
+          '✓ Identify wasted budget on short-term tactics',
+          '✓ Custom 90-day roadmap to rebalance for optimal ROMI',
+          '✓ Mental availability strategy for your category',
+          '✓ No obligation. No sales pitch. Just evidence-based insights.',
+          '📞 For strategic CMOs ready to build brands that compound'
+        ]}
+      />
+
+      <div class="mt-8 text-center text-sm text-gray-600">
+        <p class="mb-2">🔒 <strong>100% Confidential</strong> | Former SVP at Neil Patel Digital | Evidence-based marketing + AI scale</p>
+        <p>📍 Based in San Diego | Working with strategic CMOs nationwide</p>
+      </div>
+    </div>
+  </Section>
 </PageLayout>
