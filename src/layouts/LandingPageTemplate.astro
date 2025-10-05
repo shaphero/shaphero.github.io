@@ -1,0 +1,140 @@
+---
+/**
+ * LandingPageTemplate - Standardized template for landing/service pages
+ *
+ * This template ensures consistency across all landing pages using the design system.
+ * Use this for services, products, and conversion-focused pages.
+ */
+
+import PageLayout from './PageLayout.astro';
+import CleanHero from '../components/design-system/CleanHero.astro';
+import FeatureCard from '../components/design-system/FeatureCard.astro';
+import CTASection from '../components/design-system/CTASection.astro';
+import Section from '../components/common/Section.astro';
+
+interface Stat {
+  number: string;
+  label: string;
+  color?: 'blue' | 'green' | 'red' | 'purple' | 'orange';
+}
+
+interface CTA {
+  text: string;
+  href: string;
+  variant?: 'primary' | 'secondary';
+}
+
+interface Feature {
+  icon?: string;
+  title: string;
+  description: string;
+  link?: {
+    text: string;
+    href: string;
+  };
+}
+
+interface Props {
+  // Page metadata
+  title: string;
+  description: string;
+
+  // Hero props
+  badge?: string;
+  badgeColor?: 'blue' | 'purple' | 'green' | 'orange' | 'red';
+  heroTitle: string;
+  heroSubtitle: string;
+  stats?: Stat[];
+  heroCtas?: CTA[];
+
+  // Features section (optional)
+  features?: Feature[];
+  featuresTitle?: string;
+  featuresSubtitle?: string;
+
+  // Final CTA props
+  ctaTitle?: string;
+  ctaDescription?: string;
+  ctaPrimary?: { text: string; href: string };
+  ctaBenefits?: string[];
+
+  // Optional schema
+  schema?: object;
+}
+
+const {
+  title,
+  description,
+  badge,
+  badgeColor = 'blue',
+  heroTitle,
+  heroSubtitle,
+  stats,
+  heroCtas,
+  features,
+  featuresTitle = 'How It Works',
+  featuresSubtitle,
+  ctaTitle = 'Ready to Get Started?',
+  ctaDescription = 'Let\'s discuss how we can help you achieve your goals.',
+  ctaPrimary = { text: 'Get Started →', href: 'mailto:dave@daveshap.com' },
+  ctaBenefits,
+  schema
+} = Astro.props;
+---
+
+<PageLayout title={title} description={description} schema={schema}>
+  <!-- Hero Section -->
+  <CleanHero
+    badge={badge}
+    badgeColor={badgeColor}
+    title={heroTitle}
+    subtitle={heroSubtitle}
+    stats={stats}
+    ctas={heroCtas}
+  />
+
+  <!-- Main Content -->
+  <slot />
+
+  <!-- Features Section (if provided) -->
+  {features && features.length > 0 && (
+    <Section background="white" padding="xl">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-4">
+            {featuresTitle}
+          </h2>
+          {featuresSubtitle && (
+            <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+              {featuresSubtitle}
+            </p>
+          )}
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          {features.map(feature => (
+            <FeatureCard
+              icon={feature.icon}
+              title={feature.title}
+              description={feature.description}
+              link={feature.link}
+            />
+          ))}
+        </div>
+      </div>
+    </Section>
+  )}
+
+  <!-- CTA Section -->
+  <Section background="white" padding="xl">
+    <div class="max-w-4xl mx-auto">
+      <CTASection
+        variant="gradient"
+        title={ctaTitle}
+        description={ctaDescription}
+        primaryCTA={ctaPrimary}
+        benefits={ctaBenefits}
+      />
+    </div>
+  </Section>
+</PageLayout>

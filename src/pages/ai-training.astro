@@ -1,6 +1,8 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
-import Hero from '../components/common/Hero.astro';
+import CleanHero from '../components/design-system/CleanHero.astro';
+import FeatureCard from '../components/design-system/FeatureCard.astro';
+import CTASection from '../components/design-system/CTASection.astro';
 import Section from '../components/common/Section.astro';
 import ContentGrid from '../components/common/ContentGrid.astro';
 import CallToAction from '../components/common/CallToAction.astro';
@@ -94,20 +96,21 @@ const results = [
   priceRange="$10,000+ per month"
 >
   <!-- Hero Section -->
-  <Hero 
-    title="Stop watching your competition <span class='text-accent'>leave you behind</span> with AI"
-    subtitle="Transform your agency team from AI-curious to AI-powered in just one day"
-    badge="AI Training for Agencies"
-    ctaPrimary={{
-      text: "Book Team Training",
-      subject: "AI training for my agency team"
-    }}
-    ctaSecondary={{
-      text: "See Training Modules",
-      href: "#modules"
-    }}
-    features={["Custom training for your team", "Hands-on workshops", "Immediate implementation"]}
-    background="gradient"
+  <CleanHero
+    badge="🎯 AI Training for Enterprise Teams"
+    badgeColor="blue"
+    title={'Stop watching your competition <span class="text-blue-600">leave you behind</span> with AI'}
+    subtitle="Transform your team from AI-curious to AI-powered in just one day. 333% average ROI, 70% productivity boost, 20+ hours saved weekly."
+    stats={[
+      { number: '333%', label: 'Average ROI', color: 'green' },
+      { number: '95%', label: 'Pilots That Fail', color: 'red' },
+      { number: '70%', label: 'Productivity Boost', color: 'blue' }
+    ]}
+    ctas={[
+      { text: 'Book Team Training →', href: 'mailto:dave@daveshap.com?subject=AI training for my agency team', variant: 'primary' },
+      { text: 'See Training Modules', href: '#modules', variant: 'secondary' }
+    ]}
+    byline="<strong class='text-gray-900'>Custom training</strong> • Hands-on workshops • Immediate implementation"
   />
 
   <!-- Problems Section -->

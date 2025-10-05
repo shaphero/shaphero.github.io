@@ -1,0 +1,88 @@
+---
+/**
+ * ArticlePageTemplate - Standardized template for article/long-form pages
+ *
+ * This template ensures consistency across all article pages using the design system.
+ * Use this for educational content, case studies, and analysis pages.
+ */
+
+import PageLayout from './PageLayout.astro';
+import CleanHero from '../components/design-system/CleanHero.astro';
+import CTASection from '../components/design-system/CTASection.astro';
+import Section from '../components/common/Section.astro';
+
+interface Stat {
+  number: string;
+  label: string;
+  color?: 'blue' | 'green' | 'red' | 'purple' | 'orange';
+}
+
+interface Props {
+  // Page metadata
+  title: string;
+  description: string;
+
+  // Hero props
+  badge?: string;
+  badgeColor?: 'blue' | 'purple' | 'green' | 'orange' | 'red';
+  heroTitle: string;
+  heroSubtitle: string;
+  stats?: Stat[];
+  byline?: string;
+  metadata?: string;
+
+  // Optional schema
+  schema?: object;
+}
+
+const {
+  title,
+  description,
+  badge,
+  badgeColor = 'blue',
+  heroTitle,
+  heroSubtitle,
+  stats,
+  byline,
+  metadata,
+  schema
+} = Astro.props;
+---
+
+<PageLayout title={title} description={description} schema={schema}>
+  <!-- Hero Section -->
+  <CleanHero
+    badge={badge}
+    badgeColor={badgeColor}
+    title={heroTitle}
+    subtitle={heroSubtitle}
+    stats={stats}
+    byline={byline}
+    metadata={metadata}
+  />
+
+  <!-- Content Sections -->
+  <slot />
+
+  <!-- Default CTA Section (can be overridden with named slot) -->
+  <slot name="cta">
+    <Section background="white" padding="xl">
+      <div class="max-w-4xl mx-auto">
+        <CTASection
+          variant="gradient"
+          title="Ready to Get Started?"
+          description="Let's discuss how AI and data-driven strategies can transform your business."
+          primaryCTA={{
+            text: 'Schedule a Conversation →',
+            href: 'mailto:dave@daveshap.com?subject=Let\'s discuss growth opportunities'
+          }}
+          benefits={[
+            'Get a custom strategy for your use case',
+            'Learn from 16+ years of Fortune 500 experience',
+            'Join the 5% who see real ROI from AI'
+          ]}
+        />
+      </div>
+    </Section>
+  </slot>
+</PageLayout>
