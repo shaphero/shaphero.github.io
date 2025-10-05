@@ -20,6 +20,12 @@ interface Props {
   ctas?: CTA[];
   byline?: string;
   metadata?: string;
+  image?: {
+    src: string;
+    alt: string;
+    width?: number;
+    height?: number;
+  };
 }
 
 const {
@@ -30,7 +36,8 @@ const {
   stats,
   ctas,
   byline,
-  metadata
+  metadata,
+  image
 } = Astro.props;
 
 const badgeColors = {
@@ -52,16 +59,17 @@ const statColors = {
 
 <section class="bg-white border-b border-gray-200">
   <div class="container mx-auto px-6 py-16 md:py-24">
-    <div class="max-w-4xl mx-auto">
-      {badge && (
-        <div class={`inline-flex items-center gap-2 px-4 py-2 rounded-full border font-semibold text-sm mb-6 ${badgeColors[badgeColor]}`}>
-          {badge}
-        </div>
-      )}
+    <div class={image ? "grid md:grid-cols-2 gap-16 items-center max-w-7xl mx-auto" : "max-w-4xl mx-auto"}>
+      <div class={image ? "order-2 md:order-1" : ""}>
+        {badge && (
+          <div class={`inline-flex items-center gap-2 px-4 py-2 rounded-full border font-semibold text-sm mb-6 ${badgeColors[badgeColor]}`}>
+            {badge}
+          </div>
+        )}
 
-      <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6 leading-tight" set:html={title} />
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6 leading-tight" set:html={title} />
 
-      <p class="text-xl md:text-2xl text-gray-700 leading-relaxed mb-8" set:html={subtitle} />
+        <p class="text-xl md:text-2xl text-gray-700 leading-relaxed mb-8" set:html={subtitle} />
 
       {stats && stats.length > 0 && (
         <div class="flex flex-wrap gap-6 mb-8">
@@ -97,6 +105,24 @@ const statColors = {
         <div class="text-gray-600 text-sm border-t border-gray-200 pt-6">
           {byline && <p set:html={byline} />}
           {metadata && <p class="mt-1">{metadata}</p>}
+        </div>
+      )}
+      </div>
+
+      {image && (
+        <div class="order-1 md:order-2 flex justify-center">
+          <div class="relative">
+            <div class="w-80 h-80 md:w-96 md:h-96 rounded-3xl overflow-hidden shadow-2xl">
+              <img
+                src={image.src}
+                alt={image.alt}
+                class="w-full h-full object-cover"
+                loading="eager"
+                width={image.width || 384}
+                height={image.height || 384}
+              />
+            </div>
+          </div>
         </div>
       )}
     </div>
