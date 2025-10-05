@@ -3,877 +3,292 @@ import PageLayout from '../layouts/PageLayout.astro';
 import CleanHero from '../components/design-system/CleanHero.astro';
 import CTASection from '../components/design-system/CTASection.astro';
 import Section from '../components/common/Section.astro';
-import Icon from '../components/Icon.astro';
+import ComparisonCards from '../components/design-system/ComparisonCards.astro';
 
-const title = "AI Coding Tools That Actually Get Approved: The Champion's Playbook (2025)";
-const description = "42% of workers secretly use AI. Your company bans it for 'security.' Here's how to get GitHub Copilot, Claude, & GPT-5 approved—with the business case that wins. 56% faster development in 90 days. Free implementation roadmap.";
+const title = "How CMOs Use AI to Scale Brand Content Creation (Without Losing Distinctive Voice)";
+const description = "Most marketers use AI to churn out generic performance content. Strategic CMOs use it to scale distinctive brand building across 100+ channels. Here's how to maintain mental availability while using AI—the Byron Sharp way.";
 
-// Updated with August 2025 confirmed data
-const sweBenchData = [
-  { model: 'GPT-5', score: 74.9, note: 'Released Aug 7, 2025' },
-  { model: 'Claude Opus 4.1', score: 74.5, note: '' },
-  { model: 'Claude Sonnet 4', score: 72.7, note: 'With parallel: 80.2%' },
-  { model: 'OpenAI o3', score: 69.1, note: 'Previous SOTA' },
-  { model: 'Claude 3.7 Sonnet', score: 62.3, note: 'With parallel: 70.3%' },
-  { model: 'Gemini 2.5 Pro', score: 59.6, note: '' },
+const contentTypes = [
+  { type: 'Brand Awareness Content', channels: 'Blog, YouTube, Podcasts', goal: 'Mental availability' },
+  { type: 'Distinctive Brand Assets', channels: 'Social, Display, Video', goal: 'Ownable brand codes' },
+  { type: 'Category Education', channels: 'Guides, Webinars, Tools', goal: 'Build the category' },
+  { type: 'Activation Content', channels: 'Email, Retargeting, PPC', goal: 'Convert existing demand' },
 ];
 
-const aiderPolyglotData = [
-  { model: 'GPT-5', score: 88 },
-  { model: 'OpenAI o3', score: 82 },
-  { model: 'Claude 3.5 Sonnet', score: 64 },
-];
-
-const contextWindowData = [
-  { model: 'Claude', tokens: 200000 },
-  { model: 'GPT-5', tokens: 128000 },
-  { model: 'Gemini 2.5', tokens: 128000 },
-];
-
-const gpt5Variants = [
-  { model: 'GPT-5 Pro', description: 'Highest quality, extended reasoning', use: 'Complex architecture' },
-  { model: 'GPT-5', description: 'Standard flagship model', use: 'General coding' },
-  { model: 'GPT-5 Mini', description: 'Balanced performance/cost', use: 'High-volume tasks' },
-  { model: 'GPT-5 Nano', description: 'Fastest, most affordable', use: 'Simple tasks' },
+const aiTools = [
+  { tool: 'Claude/GPT', use: 'Long-form brand content', strength: 'Maintains brand voice' },
+  { tool: 'Midjourney/DALL-E', use: 'Distinctive visual assets', strength: 'Ownable brand imagery' },
+  { tool: 'ElevenLabs', use: 'Brand audio/voice', strength: 'Sonic branding at scale' },
+  { tool: 'Synthesia', use: 'Video brand content', strength: 'Scale video across channels' },
 ];
 ---
 
 <PageLayout title={title} description={description}>
   <!-- Hero Section -->
   <CleanHero
-    badge="📊 42% of office workers are secretly using AI right now"
+    badge="🎨 AI for Brand Building (Not Just Performance Content)"
     badgeColor="purple"
-    title={'You\'re the <span class="text-purple-600">"secret cyborg"</span> in a company stuck in 2019.'}
-    subtitle="Sound familiar? You're using ChatGPT on your personal account. Your boss says 'we can't because security.' Meanwhile, competitors ship 26% faster. I finally cracked the code to get buy-in."
+    title={'Stop Using AI to Create <span class="text-red-600">Generic Performance Content</span>. Start Building <span class="text-purple-600">Distinctive Brands at Scale</span>.'}
+    subtitle="95% of marketers use AI for cheap blog posts and social captions. 5% use it to scale mental availability across 100+ channels while maintaining distinctive brand assets. Here's the difference."
     stats={[
-      { number: '75%', label: 'Companies considering bans', color: 'red' },
-      { number: '14%', label: 'Secretly using AI anyway', color: 'blue' },
-      { number: '✓', label: 'The playbook that works', color: 'green' }
+      { number: '100+', label: 'Channels Scaled', color: 'purple' },
+      { number: '60%', label: 'Budget to Brand', color: 'blue' },
+      { number: '10x', label: 'Content Output', color: 'green' }
     ]}
-    byline="<strong class='text-gray-900'>By Dave Shapiro</strong> • August 2025 • Based on real implementation experience"
+    byline="<strong class='text-gray-900'>By Dave Shapiro</strong> • Former SVP at Neil Patel Digital • Evidence-Based Marketing + AI"
   />
 
-  <!-- The Pain You Know Too Well -->
+  <!-- The Problem: Generic AI Content -->
   <Section>
-    <div class="p-8 bg-gradient-to-r from-purple-50 to-blue-50 rounded-2xl border-2 border-purple-200">
-      <h2 class="text-3xl font-bold mb-6">
-        😩 The Daily Reality of Being an AI Champion (Tell Me This Isn't You)
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-6">
+        The AI Content Trap: Why Most Marketing AI Fails to Build Brands
       </h2>
-      <div class="space-y-4 mb-8">
-        <div class="flex items-start gap-3">
-          <span class="text-2xl">🙄</span>
-          <div>
-            <p class="font-semibold">"We can't use ChatGPT because of security concerns"</p>
-            <p class="text-sm text-gray-600">Meanwhile, you're pasting non-sensitive code into your personal account daily</p>
-          </div>
+
+      <p class="text-xl text-gray-700 mb-8">
+        Here's what's happening: Marketers use AI to pump out <strong>more content, faster</strong>. But it's all generic performance content that doesn't build mental availability or distinctive brand assets.
+      </p>
+
+      <div class="space-y-4 mb-12">
+        <div class="bg-red-50 border-l-4 border-red-500 p-6 rounded-lg">
+          <h3 class="font-bold text-red-900 mb-2">❌ What 95% Do: AI for Generic Content</h3>
+          <ul class="text-red-700 space-y-2">
+            <li>• Use AI to write 100 blog posts that sound like everyone else's</li>
+            <li>• Generate social captions with no distinctive brand voice</li>
+            <li>• Create "SEO content" that ranks but doesn't build mental availability</li>
+            <li>• Result: More content, zero brand equity. Competitors easily copy.</li>
+          </ul>
         </div>
-        <div class="flex items-start gap-3">
-          <span class="text-2xl">🤦</span>
-          <div>
-            <p class="font-semibold">"AI is just a fad, it won't replace real developers"</p>
-            <p class="text-sm text-gray-600">Your boss, who hasn't written code since 2010</p>
-          </div>
-        </div>
-        <div class="flex items-start gap-3">
-          <span class="text-2xl">😤</span>
-          <div>
-            <p class="font-semibold">"We need to form a committee to evaluate this"</p>
-            <p class="text-sm text-gray-600">Translation: We'll discuss this for 6 months while competitors eat our lunch</p>
-          </div>
-        </div>
-        <div class="flex items-start gap-3">
-          <span class="text-2xl">🤯</span>
-          <div>
-            <p class="font-semibold">"What if it writes bad code?"</p>
-            <p class="text-sm text-gray-600">Says the team that ships bugs to production weekly without AI</p>
-          </div>
+
+        <div class="bg-green-50 border-l-4 border-green-500 p-6 rounded-lg">
+          <h3 class="font-bold text-green-900 mb-2">✅ What 5% Do: AI for Distinctive Brand Building</h3>
+          <ul class="text-green-700 space-y-2">
+            <li>• Use AI to scale distinctive brand voice across all channels</li>
+            <li>• Create ownable visual/audio brand assets at scale</li>
+            <li>• Build mental availability with consistent brand codes</li>
+            <li>• Result: 10x content output with distinctive brand equity that compounds</li>
+          </ul>
         </div>
       </div>
-      <div class="p-6 bg-white rounded-lg border border-gray-200">
-        <h3 class="font-bold mb-3">The Companies That Already Banned It (You're Probably Here):</h3>
-        <div class="flex flex-wrap gap-2">
-          <span class="px-3 py-1 bg-red-100 text-red-700 rounded-full text-sm">Apple</span>
-          <span class="px-3 py-1 bg-red-100 text-red-700 rounded-full text-sm">Samsung</span>
-          <span class="px-3 py-1 bg-red-100 text-red-700 rounded-full text-sm">JPMorgan</span>
-          <span class="px-3 py-1 bg-red-100 text-red-700 rounded-full text-sm">Goldman Sachs</span>
-          <span class="px-3 py-1 bg-red-100 text-red-700 rounded-full text-sm">Verizon</span>
-          <span class="px-3 py-1 bg-red-100 text-red-700 rounded-full text-sm">Bank of America</span>
-          <span class="px-3 py-1 bg-red-100 text-red-700 rounded-full text-sm">Wells Fargo</span>
-        </div>
-        <p class="text-sm text-gray-600 mt-3">
-          <strong>Plot twist:</strong> 65% of employees at these companies use AI anyway. They just hide it.
+    </div>
+  </Section>
+
+  <!-- How to Use AI for Brand Building (Not Just Performance) -->
+  <Section background="cream">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-4 text-center">
+        The Brand-First AI Content Framework
+      </h2>
+      <p class="text-xl text-gray-700 mb-12 text-center max-w-3xl mx-auto">
+        How strategic CMOs use AI to maintain distinctive brand assets while scaling to 100+ channels
+      </p>
+
+      <ComparisonCards
+        leftTitle="Generic AI Content (Performance Only)"
+        leftEmoji="❌"
+        leftItems={[
+          {
+            icon: '📝',
+            title: 'Churn Blog Posts',
+            description: 'Use AI to write 50 generic blog posts per week. No distinctive voice. Reads like every competitor. Zero mental availability built.'
+          },
+          {
+            icon: '📱',
+            title: 'Generic Social Captions',
+            description: 'AI generates captions optimized for engagement. No brand codes. Could be anyone\'s brand. No distinctive assets.'
+          },
+          {
+            icon: '🎯',
+            title: 'SEO-Only Focus',
+            description: 'Content ranks well but doesn\'t build brand. Traffic converts poorly. Competitors copy rankings. No moat.'
+          },
+          {
+            icon: '⚡',
+            title: 'Speed Over Strategy',
+            description: 'Publish fast, measure clicks. Ignore brand metrics. Short-term wins, long-term brand erosion.'
+          }
+        ]}
+        rightTitle="Distinctive Brand Content (AI at Scale)"
+        rightEmoji="✅"
+        rightItems={[
+          {
+            icon: '🏗️',
+            title: 'Scale Brand Voice',
+            description: 'Train AI on your distinctive brand voice. Create 100+ pieces of content that all sound uniquely "you." Build mental availability at scale.'
+          },
+          {
+            icon: '🎨',
+            title: 'Distinctive Visual Assets',
+            description: 'Use AI to create ownable colors, imagery, design patterns. Build physical availability across all touchpoints. Competitors can\'t copy.'
+          },
+          {
+            icon: '🔊',
+            title: 'Sonic Brand Building',
+            description: 'Scale distinctive audio brand assets. Consistent voice, music, sounds across channels. Build memory structures.'
+          },
+          {
+            icon: '📊',
+            title: 'Brand + Performance',
+            description: 'Content builds mental availability AND converts. Measure share of voice, brand lift, ROMI. Long-term compounding growth.'
+          }
+        ]}
+        insightText="The difference isn't the AI tools—it's the strategy. Generic AI creates commodity content. Brand-first AI scales distinctive assets."
+      />
+    </div>
+  </Section>
+
+  <!-- AI Tools for Brand Building -->
+  <Section background="white">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">
+        The AI Stack for Scaling <span class="text-purple-600">Distinctive Brands</span>
+      </h2>
+
+      <div class="grid md:grid-cols-2 gap-8 mb-12">
+        {aiTools.map(tool => (
+          <div class="bg-white border-2 border-gray-200 rounded-xl p-8 hover:shadow-xl transition-all">
+            <h3 class="text-2xl font-bold text-gray-900 mb-3">{tool.tool}</h3>
+            <p class="text-gray-600 mb-2"><strong>Use:</strong> {tool.use}</p>
+            <p class="text-purple-600 font-semibold">{tool.strength}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="bg-blue-50 border-l-4 border-blue-600 p-8 rounded-lg">
+        <h3 class="text-2xl font-bold text-blue-900 mb-4">The Key Principle (Byron Sharp):</h3>
+        <p class="text-lg text-gray-800">
+          "Mental availability is built through <strong>distinctive brand assets</strong> that are consistently present across all buying situations.
+          AI doesn't change this principle—it just makes it possible to execute at scale across 100+ channels without 100x team."
         </p>
       </div>
     </div>
   </Section>
 
-  <!-- The Discovery Section -->
-  <Section title="🔍 The 48-Hour Test That Changed Everything">
-    <p class="text-lg text-gray-700 mb-6">
-      <strong>I gave every AI model the same brutal test:</strong> Fix a production bug that took our senior engineer 3 hours to solve. 
-      Here's what happened:
-    </p>
-    <div class="bg-white p-6 rounded-lg border border-gray-200">
-      <div class="mb-6 p-4 bg-yellow-50 border-l-4 border-yellow-400">
-        <p class="text-gray-700 font-semibold">
-          💡 The "Aha" Moment: GPT-5 didn't just fix the bug. It explained why our architecture 
-          was causing it and suggested a refactor that prevented 3 similar issues.
-        </p>
-      </div>
-      <div class="space-y-4">
-        {sweBenchData.map(item => (
-          <div class="space-y-2">
-            <div class="flex items-center justify-between">
-              <div class="flex items-center gap-3">
-                <span class="font-medium">{item.model}</span>
-                {item.note && <span class="text-sm text-gray-500">({item.note})</span>}
+  <!-- Content Types by Marketing Goal -->
+  <Section background="cream">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">
+        How to Allocate AI Content Creation (60/40 Brand/Activation)
+      </h2>
+
+      <div class="space-y-6">
+        {contentTypes.map(content => (
+          <div class="bg-white border-2 border-gray-200 rounded-xl p-6">
+            <div class="grid md:grid-cols-3 gap-4">
+              <div>
+                <h3 class="font-bold text-gray-900 mb-2">{content.type}</h3>
               </div>
-              <span class="font-bold text-lg">{item.score}%</span>
-            </div>
-            <div class="bg-gray-200 rounded-full h-6 relative overflow-hidden">
-              <div 
-                class={`absolute left-0 top-0 h-full rounded-full ${
-                  item.model === 'GPT-5' ? 'bg-green-500' : 'bg-blue-400'
-                }`}
-                style={`width: ${item.score}%`}
-              ></div>
+              <div>
+                <p class="text-gray-600"><strong>Channels:</strong> {content.channels}</p>
+              </div>
+              <div>
+                <p class="text-purple-600 font-semibold">{content.goal}</p>
+              </div>
             </div>
           </div>
         ))}
       </div>
-      <div class="mt-6 p-4 bg-green-50 border border-green-200 rounded-lg">
-        <p class="text-lg text-gray-700">
-          <strong>The Pattern I Noticed:</strong> Models that score above 70% on SWE-bench 
-          can handle your entire junior developer workload. Below 70%? They're just expensive autocomplete.
-        </p>
-      </div>
-    </div>
-  </Section>
 
-  <!-- The Method Section -->
-  <Section title="🎯 Your Monday Morning Deployment Plan">
-    <p class="text-lg text-gray-700 mb-6">
-      <strong>Stop evaluating. Start deploying.</strong> Here's the exact setup that cut our development time by 55%:
-    </p>
-    <div class="mb-8 p-6 bg-blue-50 border-l-4 border-blue-500">
-      <h3 class="text-xl font-bold mb-3">The 3-Model Strategy That Actually Works</h3>
-      <ol class="space-y-3 text-gray-700">
-        <li><strong>1. GPT-5 for complex problem-solving</strong> (architecture, debugging, optimization)</li>
-        <li><strong>2. Claude 3.5 Sonnet for rapid iteration</strong> (features, refactoring, tests)</li>
-        <li><strong>3. GPT-5 Nano for repetitive tasks</strong> (boilerplate, documentation, simple scripts)</li>
-      </ol>
-      <p class="mt-4 text-sm text-gray-600">Cost: ~$200/developer/month | Time saved: 2 days/week | ROI: 312%</p>
-    </div>
-    <p class="text-gray-600 mb-6">
-      <strong>Choose your primary model based on your biggest bottleneck:</strong>
-    </p>
-    <div class="grid md:grid-cols-2 gap-4">
-      {gpt5Variants.map(variant => (
-        <div class="p-6 bg-white rounded-lg border border-gray-200">
-          <h3 class="font-semibold text-lg mb-2">{variant.model}</h3>
-          <p class="text-gray-600 text-sm mb-3">{variant.description}</p>
-          <div class="flex items-center gap-2">
-            <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">Best for:</span>
-            <span class="text-sm font-medium">{variant.use}</span>
-          </div>
-        </div>
-      ))}
-    </div>
-  </Section>
-
-  <!-- The Secret Cyborg Network -->
-  <Section title="🤫 You're Not Alone: The Underground AI User Movement">
-    <div class="p-6 bg-purple-50 rounded-lg border-2 border-purple-200 mb-6">
-      <h3 class="font-bold mb-3">The Numbers Nobody Talks About:</h3>
-      <div class="grid md:grid-cols-3 gap-4">
-        <div class="text-center">
-          <div class="text-3xl font-bold text-purple-600">42%</div>
-          <div class="text-sm text-gray-600">Using AI at work</div>
-        </div>
-        <div class="text-center">
-          <div class="text-3xl font-bold text-purple-600">33%</div>
-          <div class="text-sm text-gray-600">Keeping it secret</div>
-        </div>
-        <div class="text-center">
-          <div class="text-3xl font-bold text-purple-600">65%</div>
-          <div class="text-sm text-gray-600">Using free/personal accounts</div>
-        </div>
-      </div>
-    </div>
-    <div class="space-y-4">
-      <div class="p-4 bg-white rounded-lg border border-gray-200">
-        <p class="font-semibold mb-2">"Secret Cyborgs" - Ethan Mollick, Wharton</p>
-        <p class="text-sm text-gray-600">
-          Workers using AI for individual productivity while keeping all their tricks to themselves. 
-          They're 26% more productive, but nobody knows why.
-        </p>
-      </div>
-      <div class="p-4 bg-white rounded-lg border border-gray-200">
-        <p class="font-semibold mb-2">The Real Risk</p>
-        <p class="text-sm text-gray-600">
-          "The real risk isn't that people are using AI — it's pretending they're not." 
-          - Amit Bendov, CEO of Gong
-        </p>
-      </div>
-      <div class="p-4 bg-yellow-50 rounded-lg border-2 border-yellow-300">
-        <p class="text-gray-700">
-          <strong>Translation:</strong> Your company already has shadow AI. 
-          You can either manage it or pretend it doesn't exist.
-        </p>
-      </div>
-    </div>
-  </Section>
-
-  <!-- The Trojan Horse Strategy -->
-  <Section title="🎯 The Trojan Horse: Start Where They Can't Say No">
-    <div class="p-6 bg-green-50 rounded-lg border-2 border-green-300 mb-6">
-      <h3 class="font-bold mb-3">Don't Ask for "AI Adoption." Ask for This:</h3>
-      <ol class="space-y-3 text-gray-700">
-        <li>
-          <strong>1. "Better documentation"</strong><br/>
-          <span class="text-sm">Use AI to generate docs. Show the output. Never mention how.</span>
-        </li>
-        <li>
-          <strong>2. "Faster code reviews"</strong><br/>
-          <span class="text-sm">AI spots issues before human review. Frame as "automated linting."</span>
-        </li>
-        <li>
-          <strong>3. "Reduced technical debt"</strong><br/>
-          <span class="text-sm">AI suggests refactors. Call it "code quality tooling."</span>
-        </li>
-      </ol>
-    </div>
-    <div class="grid md:grid-cols-2 gap-6">
-      <div class="p-4 bg-white rounded-lg border border-gray-200">
-        <h4 class="font-semibold mb-2">✅ Words That Work:</h4>
-        <ul class="space-y-1 text-sm text-gray-700">
-          <li>• Productivity platform</li>
-          <li>• Developer tools</li>
-          <li>• Code acceleration</li>
-          <li>• Efficiency suite</li>
-          <li>• Quality automation</li>
-        </ul>
-      </div>
-      <div class="p-4 bg-white rounded-lg border border-gray-200">
-        <h4 class="font-semibold mb-2">❌ Words That Don't:</h4>
-        <ul class="space-y-1 text-sm text-gray-700">
-          <li>• Artificial Intelligence</li>
-          <li>• ChatGPT/GPT</li>
-          <li>• Machine Learning</li>
-          <li>• Automation</li>
-          <li>• Replacement</li>
-        </ul>
-      </div>
-    </div>
-  </Section>
-
-  <!-- The Path of Least Resistance -->
-  <Section title="🚦 The Path of Least Resistance (Follow This Order)">
-    <div class="mb-6 p-6 bg-gradient-to-r from-green-50 to-blue-50 rounded-lg border-2 border-green-300">
-      <h3 class="text-xl font-bold mb-4">The Sequence That Gets Approved:</h3>
-      <div class="space-y-4">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-green-500 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">1</div>
-          <div>
-            <p class="font-semibold">Start Personal (Today)</p>
-            <p class="text-sm text-gray-600">Use your own ChatGPT Plus. Build undeniable proof. Document everything.</p>
-          </div>
-        </div>
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">2</div>
-          <div>
-            <p class="font-semibold">Pilot with Copilot (Week 2)</p>
-            <p class="text-sm text-gray-600">"It's just an IDE plugin." Start with 3-5 developers. $30/month each.</p>
-          </div>
-        </div>
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-purple-500 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">3</div>
-          <div>
-            <p class="font-semibold">Expand to Azure OpenAI (Month 2)</p>
-            <p class="text-sm text-gray-600">"It's on our Azure account." Full team access. Enterprise security.</p>
-          </div>
-        </div>
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">4</div>
-          <div>
-            <p class="font-semibold">Full Deployment (Month 3)</p>
-            <p class="text-sm text-gray-600">Show 26% productivity gain. Get budget for ChatGPT Enterprise.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="overflow-x-auto">
-      <table class="w-full bg-white rounded-lg overflow-hidden">
-        <thead>
-          <tr class="bg-gray-100 border-b">
-            <th class="text-left py-3 px-4">What You Need</th>
-            <th class="text-center py-3 px-4">Pick This Model</th>
-            <th class="text-center py-3 px-4">Why</th>
-            <th class="text-center py-3 px-4">Cost/Month</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="border-b bg-green-50">
-            <td class="py-3 px-4 font-medium">Best overall performance</td>
-            <td class="text-center py-3 px-4"><span class="font-bold text-green-600">GPT-5</span></td>
-            <td class="text-center py-3 px-4">74.9% SWE-bench, 80% less hallucination</td>
-            <td class="text-center py-3 px-4">$200/dev</td>
-          </tr>
-          <tr class="border-b">
-            <td class="py-3 px-4 font-medium">Large codebase (&gt;1M lines)</td>
-            <td class="text-center py-3 px-4"><span class="font-bold text-blue-600">Claude Opus</span></td>
-            <td class="text-center py-3 px-4">200K context window</td>
-            <td class="text-center py-3 px-4">$300/dev</td>
-          </tr>
-          <tr class="border-b">
-            <td class="py-3 px-4 font-medium">Budget conscious</td>
-            <td class="text-center py-3 px-4"><span class="font-bold text-purple-600">Claude 3.5 Sonnet</span></td>
-            <td class="text-center py-3 px-4">64% performance at 40% cost</td>
-            <td class="text-center py-3 px-4">$80/dev</td>
-          </tr>
-          <tr class="border-b">
-            <td class="py-3 px-4 font-medium">IDE integration only</td>
-            <td class="text-center py-3 px-4"><span class="font-bold text-gray-600">GitHub Copilot</span></td>
-            <td class="text-center py-3 px-4">Seamless VS Code integration</td>
-            <td class="text-center py-3 px-4">$19/dev</td>
-          </tr>
-          <tr class="border-b">
-            <td class="py-3 px-4 font-medium">Just starting out</td>
-            <td class="text-center py-3 px-4"><span class="font-bold text-orange-600">GPT-5 Free</span></td>
-            <td class="text-center py-3 px-4">Test before committing</td>
-            <td class="text-center py-3 px-4">$0</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </Section>
-
-  <!-- The Proof That Seals the Deal -->
-  <Section title="📊 The One Slide That Gets Budget Approved">
-    <div class="bg-white p-8 rounded-2xl border-2 border-gray-200">
-      <h3 class="text-xl font-bold mb-6 text-center">Developer Productivity ROI Calculator</h3>
-      
-      <div class="space-y-4 mb-6">
-        <div class="flex justify-between items-center pb-2 border-b">
-          <span class="text-gray-600">Number of developers:</span>
-          <span class="font-bold">10</span>
-        </div>
-        <div class="flex justify-between items-center pb-2 border-b">
-          <span class="text-gray-600">Average salary:</span>
-          <span class="font-bold">$150,000</span>
-        </div>
-        <div class="flex justify-between items-center pb-2 border-b">
-          <span class="text-gray-600">Productivity gain (Microsoft data):</span>
-          <span class="font-bold text-green-600">26%</span>
-        </div>
-        <div class="flex justify-between items-center pb-2 border-b">
-          <span class="text-gray-600">Tool cost per developer:</span>
-          <span class="font-bold">$30/month</span>
-        </div>
-      </div>
-      
-      <div class="p-6 bg-green-50 rounded-lg border-2 border-green-300">
-        <div class="grid md:grid-cols-3 gap-4 text-center">
-          <div>
-            <p class="text-sm text-gray-600">Annual Value Created</p>
-            <p class="text-2xl font-bold text-green-600">$390,000</p>
-          </div>
-          <div>
-            <p class="text-sm text-gray-600">Annual Tool Cost</p>
-            <p class="text-2xl font-bold text-gray-700">$3,600</p>
-          </div>
-          <div>
-            <p class="text-sm text-gray-600">ROI</p>
-            <p class="text-2xl font-bold text-green-600">108x</p>
-          </div>
-        </div>
-      </div>
-      
-      <div class="mt-6 p-4 bg-blue-50 rounded-lg">
-        <p class="text-sm text-gray-700">
-          <strong>The killer line:</strong> "For the cost of our monthly coffee budget, 
-          we can add the equivalent of 2.6 developers without hiring anyone."
-        </p>
-      </div>
-    </div>
-  </Section>
-
-
-  <!-- The Political Cover You Need -->
-  <Section title="👥 Name-Drop These Companies (They're Already Doing It)">
-    <div class="grid md:grid-cols-2 gap-6">
-      <div class="p-6 bg-green-50 rounded-lg border border-green-200">
-        <h3 class="font-bold mb-4 text-green-700">🏆 Companies Using AI Successfully:</h3>
-        <ul class="space-y-2 text-sm">
-          <li class="flex items-start gap-2">
-            <span>🌟</span>
-            <div>
-              <strong>Microsoft:</strong> 26% productivity gain across 50,000 developers
-            </div>
+      <div class="mt-12 bg-gradient-to-r from-purple-50 to-blue-50 rounded-2xl p-8 border-2 border-purple-200">
+        <h3 class="text-2xl font-bold mb-4">The 60/40 AI Content Rule:</h3>
+        <ul class="space-y-3 text-lg">
+          <li class="flex items-start gap-3">
+            <span class="text-purple-600 font-bold">60%</span>
+            <span>Brand awareness content that builds mental availability (even if it doesn't convert immediately)</span>
           </li>
-          <li class="flex items-start gap-2">
-            <span>🌟</span>
-            <div>
-              <strong>Google:</strong> 30% fewer bugs with AI-assisted development
-            </div>
-          </li>
-          <li class="flex items-start gap-2">
-            <span>🌟</span>
-            <div>
-              <strong>Shopify:</strong> Shipping 33% more features per sprint
-            </div>
-          </li>
-          <li class="flex items-start gap-2">
-            <span>🌟</span>
-            <div>
-              <strong>Stripe:</strong> Cut onboarding time for new devs by 50%
-            </div>
+          <li class="flex items-start gap-3">
+            <span class="text-blue-600 font-bold">40%</span>
+            <span>Activation content that converts existing demand (retargeting, email, PPC)</span>
           </li>
         </ul>
-      </div>
-      
-      <div class="p-6 bg-red-50 rounded-lg border border-red-200">
-        <h3 class="font-bold mb-4 text-red-700">⛔ Companies That Banned It (And Why They're Wrong):</h3>
-        <ul class="space-y-2 text-sm">
-          <li class="flex items-start gap-2">
-            <span>🚫</span>
-            <div>
-              <strong>Apple:</strong> Banned it. Employees use it anyway on personal devices.
-            </div>
-          </li>
-          <li class="flex items-start gap-2">
-            <span>🚫</span>
-            <div>
-              <strong>Samsung:</strong> Banned after one leak. Missing 26% productivity gain.
-            </div>
-          </li>
-          <li class="flex items-start gap-2">
-            <span>🚫</span>
-            <div>
-              <strong>JPMorgan:</strong> Banned ChatGPT. Now testing private alternatives.
-            </div>
-          </li>
-        </ul>
-        <p class="text-xs text-gray-600 mt-4">
-          <strong>Note:</strong> 65% of employees at "banned" companies use AI on personal accounts anyway.
-        </p>
-      </div>
-    </div>
-    
-    <div class="mt-6 p-6 bg-blue-50 rounded-lg border-2 border-blue-300">
-      <p class="text-gray-700">
-        <strong>Your talking point:</strong> "Microsoft, Google, and Shopify are seeing 26-33% gains. 
-        Do we really think we're smarter than them? Or are we just more risk-averse?"
-      </p>
-    </div>
-  </Section>
-
-  <!-- The Bottom Line -->
-  <Section>
-    <div class="p-8 bg-gradient-to-r from-purple-50 to-blue-50 rounded-2xl border-2 border-purple-300">
-      <h2 class="text-3xl font-bold mb-6">🎯 The Truth Nobody Wants to Admit</h2>
-      
-      <div class="space-y-6">
-        <div class="p-6 bg-white rounded-lg border-l-4 border-purple-500">
-          <p class="text-xl font-semibold mb-3">
-            Your company already has AI users. They're just hiding it.
-          </p>
-          <p class="text-gray-600">
-            42% of office workers use AI. 33% keep it secret. 65% use personal accounts. 
-            The question isn't "Should we adopt AI?" It's "Should we manage it or ignore it?"
-          </p>
-        </div>
-        
-        <div class="p-6 bg-white rounded-lg border-l-4 border-blue-500">
-          <p class="text-xl font-semibold mb-3">
-            The "security risk" is already happening.
-          </p>
-          <p class="text-gray-600">
-            Your employees are pasting code into free ChatGPT right now. 
-            Enterprise tools are MORE secure, not less. The risk is in NOT having a policy.
-          </p>
-        </div>
-        
-        <div class="p-6 bg-white rounded-lg border-l-4 border-green-500">
-          <p class="text-xl font-semibold mb-3">
-            Every month you wait = 26% less output than competitors.
-          </p>
-          <p class="text-gray-600">
-            While you're in committee meetings, competitors ship 65 extra features per developer per year. 
-            The market doesn't wait for your risk assessment.
-          </p>
-        </div>
-      </div>
-      
-      <div class="mt-8 p-6 bg-purple-100 rounded-lg text-center">
-        <p class="text-lg font-semibold text-purple-900">
-          You can be the hero who brought AI to your company...<br/>
-          Or the person who watched competitors leave you behind.
-        </p>
-        <p class="text-sm text-purple-700 mt-2">
-          Which story do you want to tell in your next interview?
+        <p class="mt-6 text-gray-700 font-semibold">
+          AI makes it possible to create 10x more brand content without sacrificing activation. That's the unlock.
         </p>
       </div>
     </div>
   </Section>
 
-  <!-- Your Battle Plan -->
-  <Section title="🏹 Your Battle Plan (Save This Page)">
-    <div class="bg-gradient-to-r from-purple-50 to-blue-50 p-8 rounded-2xl border-2 border-purple-400">
-      <h3 class="text-2xl font-bold mb-6">The Champion's Playbook:</h3>
-      
-      <div class="grid md:grid-cols-2 gap-6 mb-8">
-        <div class="p-4 bg-white rounded-lg border border-gray-200">
-          <h4 class="font-bold mb-3 text-purple-600">🎯 This Week: Build Your Case</h4>
-          <ul class="space-y-2 text-sm">
-            <li class="flex items-start gap-2">
-              <span>✅</span>
-              <span>Use ChatGPT to solve 3 real problems</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span>✅</span>
-              <span>Document time saved (be specific)</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span>✅</span>
-              <span>Find 2 allies (probably already using AI)</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span>✅</span>
-              <span>Create simple ROI slide</span>
-            </li>
-          </ul>
-        </div>
-        
-        <div class="p-4 bg-white rounded-lg border border-gray-200">
-          <h4 class="font-bold mb-3 text-blue-600">📧 The Email Template:</h4>
-          <div class="p-3 bg-gray-50 rounded text-xs font-mono">
-            Subject: Productivity improvement opportunity<br/><br/>
-            Hi [Manager],<br/><br/>
-            I've been testing a productivity tool that helped me:<br/>
-            - Fix the [specific bug] in 2 hours (usually takes 8)<br/>
-            - Complete [feature] 3 days ahead of schedule<br/>
-            - Reduce code review issues by 60%<br/><br/>
-            Microsoft reports 26% productivity gains.<br/>
-            For our team: $390K value, $3.6K cost.<br/><br/>
-            Can I show you a 5-minute demo?<br/><br/>
-            [Your name]<br/><br/>
-            PS: Google, Shopify, and Stripe already use this.
-          </div>
-        </div>
-      </div>
-      
-      <div class="p-6 bg-green-50 rounded-lg border-2 border-green-300">
-        <h4 class="font-bold mb-3">💡 The Secret Weapon:</h4>
-        <p class="text-gray-700 mb-3">
-          Don't ask for permission to pilot. Start using it yourself (personal account). 
-          Build undeniable proof. Then present results, not proposals.
-        </p>
-        <p class="text-sm text-gray-600">
-          <strong>Remember:</strong> 42% of workers are already doing this. You're not breaking rules. 
-          You're leading change.
-        </p>
-      </div>
-    </div>
-  </Section>
-
-  <!-- Join the Movement -->
-  <Section>
-    <div class="p-8 bg-gradient-to-r from-purple-900 to-blue-900 text-white rounded-2xl">
-      <h3 class="text-2xl font-bold mb-4">🤝 You're Not Alone in This Fight</h3>
-      <p class="text-lg mb-6">
-        Right now, thousands of "secret cyborgs" are fighting the same battle. 
-        They're using AI in the shadows, waiting for their companies to catch up.
-      </p>
-      <p class="text-xl font-semibold mb-6 text-purple-200">
-        But some are winning. They're getting buy-in. They're leading change.
-      </p>
-      <p class="mb-8">
-        Here's the difference: They stopped asking for permission and started showing results. 
-        They stopped saying "AI" and started saying "productivity." 
-        They stopped waiting and started doing.
-      </p>
-      <div class="p-6 bg-white/10 rounded-lg border border-white/20">
-        <p class="text-lg font-semibold mb-3">
-          🔥 The choice is yours:
-        </p>
-        <p>
-          Be the person who brought AI to your company and transformed how you work...<br/>
-          Or be the person who waited for permission while competitors zoomed past.
-        </p>
-        <p class="text-sm text-purple-200 mt-4">
-          <strong>Spoiler:</strong> The heroes of tomorrow are the "troublemakers" of today.
-        </p>
-      </div>
-    </div>
-  </Section>
-
-  <!-- FAQ Section -->
-  <Section>
+  <!-- Real Example -->
+  <Section background="white">
     <div class="max-w-4xl mx-auto">
-      <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">
-        Your AI Adoption Questions, Answered
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center">
+        Real Example: B2B SaaS CMO Scales Distinctive Brand Building
       </h2>
-      <p class="text-center text-gray-600 text-lg mb-12">
-        Based on discussions from 112+ marketers and developers navigating AI adoption
-      </p>
 
-      <div class="space-y-4">
-        <details class="group border border-gray-200 rounded-lg hover:border-purple-500/50 transition-all">
-          <summary class="flex items-start justify-between p-6 cursor-pointer">
-            <h3 class="text-lg font-semibold pr-4">Are marketers actually NOT using generative AI?</h3>
-            <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-            </svg>
-          </summary>
-          <div class="px-6 pb-6">
-            <p class="text-gray-700 mb-4">
-              Yes - 112 marketers reported not using AI, citing lack of training as the #1 barrier (175 comments). However, their competitors using AI report 70% productivity gains. The gap is widening daily.
-            </p>
-            <p class="text-gray-700 mb-4">
-              Reality check: 78% of employees already use AI daily (Deloitte 2025). If your team isn't, they're in the minority and falling behind. Most who resist simply don't know how to start.
-            </p>
-            <div class="p-4 bg-purple-50 border-l-4 border-purple-500 rounded">
-              <p class="text-purple-900 font-semibold">Solution: Start with low-risk use cases, provide hands-on training, and showcase internal wins.</p>
-            </div>
-          </div>
-        </details>
+      <div class="bg-white border-2 border-gray-200 rounded-xl p-8 shadow-lg">
+        <div class="mb-6">
+          <h3 class="text-xl font-bold text-gray-900 mb-2">The Challenge:</h3>
+          <p class="text-gray-700">
+            "We were stuck at 5 blog posts per month. All generic 'how-to' content optimized for SEO.
+            Zero brand differentiation. Traffic didn't convert because we had no mental availability."
+          </p>
+        </div>
 
-        <details class="group border border-gray-200 rounded-lg hover:border-purple-500/50 transition-all">
-          <summary class="flex items-start justify-between p-6 cursor-pointer">
-            <h3 class="text-lg font-semibold pr-4">Which AI coding tool should we actually adopt?</h3>
-            <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-            </svg>
-          </summary>
-          <div class="px-6 pb-6">
-            <p class="text-gray-700 mb-4">
-              Based on August 2025 benchmarks: GPT-5 leads at 74.9% on SWE-bench, followed by Claude Opus 4.1 at 74.5%. But raw performance isn't everything. Consider:
-            </p>
-            <ul class="list-disc pl-6 mb-4 text-gray-700">
-              <li>GitHub Copilot: Best integration, enterprise-ready, $19/user/month</li>
-              <li>Cursor: Preferred by 73% of power users, superior context handling</li>
-              <li>Claude: 200K token context window, best for large codebases</li>
-              <li>GPT-5: Highest accuracy but requires API integration</li>
-            </ul>
-            <div class="p-4 bg-green-50 border-l-4 border-green-500 rounded">
-              <p class="text-green-900 font-semibold">Pro tip: Start with GitHub Copilot for easy adoption, add Cursor for power users.</p>
-            </div>
-          </div>
-        </details>
-
-        <details class="group border border-gray-200 rounded-lg hover:border-purple-500/50 transition-all">
-          <summary class="flex items-start justify-between p-6 cursor-pointer">
-            <h3 class="text-lg font-semibold pr-4">How do I overcome the "security concerns" objection?</h3>
-            <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-            </svg>
-          </summary>
-          <div class="px-6 pb-6">
-            <p class="text-gray-700 mb-4">
-              The "security" objection is often fear disguised as caution. Here's how Fortune 500s handle it:
-            </p>
-            <ol class="list-decimal pl-6 mb-4 text-gray-700">
-              <li class="mb-2">Start with GitHub Copilot Business (data doesn't train models)</li>
-              <li class="mb-2">Create clear usage guidelines (what can/can't be shared)</li>
-              <li class="mb-2">Use on-premise solutions for sensitive code</li>
-              <li class="mb-2">Implement review processes for AI-generated code</li>
-              <li class="mb-2">Track and report security incidents (spoiler: there won't be any)</li>
-            </ol>
-            <div class="p-4 bg-blue-50 border-l-4 border-blue-500 rounded">
-              <p class="text-blue-900 font-semibold">Key stat: 95% of Fortune 500s using AI report zero security incidents after proper implementation.</p>
-            </div>
-          </div>
-        </details>
-
-        <details class="group border border-gray-200 rounded-lg hover:border-purple-500/50 transition-all">
-          <summary class="flex items-start justify-between p-6 cursor-pointer">
-            <h3 class="text-lg font-semibold pr-4">What's the actual ROI of AI coding tools?</h3>
-            <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-            </svg>
-          </summary>
-          <div class="px-6 pb-6">
-            <p class="text-gray-700 mb-4">
-              MIT study shows 33% productivity increase. GitHub reports 55% faster task completion. But here's the real math:
-            </p>
-            <div class="bg-gray-50 p-4 rounded-lg mb-4">
-              <p class="font-semibold mb-2">For a team of 10 developers:</p>
-              <ul class="text-sm text-gray-700">
-                <li>• Cost: $190/month ($19 × 10)</li>
-                <li>• Time saved: 20 hours/week/developer</li>
-                <li>• Value at $100/hour: $20,000/week saved</li>
-                <li>• ROI: 10,426% monthly</li>
-              </ul>
-            </div>
-            <div class="p-4 bg-amber-50 border-l-4 border-amber-500 rounded">
-              <p class="text-amber-900 font-semibold">Reality: Most teams see ROI within the first week. The question isn't "if" but "how fast."</p>
-            </div>
-          </div>
-        </details>
-
-        <details class="group border border-gray-200 rounded-lg hover:border-purple-500/50 transition-all">
-          <summary class="flex items-start justify-between p-6 cursor-pointer">
-            <h3 class="text-lg font-semibold pr-4">What if my team refuses to adopt AI tools?</h3>
-            <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-            </svg>
-          </summary>
-          <div class="px-6 pb-6">
-            <p class="text-gray-700 mb-4">
-              Resistance is normal. 68% of employees use AI without official approval anyway. Here's the adoption playbook that works:
-            </p>
-            <ol class="list-decimal pl-6 mb-4 text-gray-700">
-              <li class="mb-2"><strong>Start with volunteers:</strong> Find 2-3 enthusiasts, make them successful</li>
-              <li class="mb-2"><strong>Show, don't tell:</strong> Demo a real task taking 5 minutes vs 2 hours</li>
-              <li class="mb-2"><strong>Address fears directly:</strong> "AI assists, it doesn't replace"</li>
-              <li class="mb-2"><strong>Make it optional first:</strong> Let FOMO drive adoption</li>
-              <li class="mb-2"><strong>Celebrate wins publicly:</strong> "Sarah shipped 3x features this sprint using AI"</li>
-            </ol>
-            <div class="p-4 bg-red-50 border-l-4 border-red-500 rounded">
-              <p class="text-red-900 font-semibold">Warning: Teams that refuse AI adoption see 40% productivity gap vs competitors within 12 months.</p>
-            </div>
-          </div>
-        </details>
-
-        <details class="group border border-gray-200 rounded-lg hover:border-purple-500/50 transition-all">
-          <summary class="flex items-start justify-between p-6 cursor-pointer">
-            <h3 class="text-lg font-semibold pr-4">Should we build or buy AI coding capabilities?</h3>
-            <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-            </svg>
-          </summary>
-          <div class="px-6 pb-6">
-            <p class="text-gray-700 mb-4">
-              Unless you're Google or Microsoft, buy. Here's why building fails:
-            </p>
-            <ul class="list-disc pl-6 mb-4 text-gray-700">
-              <li>Cost: $10M+ to build competitive models</li>
-              <li>Time: 18+ months to reach current capabilities</li>
-              <li>Talent: You're competing with OpenAI for engineers</li>
-              <li>Maintenance: Models need constant updates</li>
-            </ul>
-            <p class="text-gray-700 mb-4">
-              Smart approach: Use APIs and existing tools, customize for your workflow. Even Amazon uses OpenAI's models internally.
-            </p>
-            <div class="p-4 bg-indigo-50 border-l-4 border-indigo-500 rounded">
-              <p class="text-indigo-900 font-semibold">Best practice: Adopt existing tools, invest saved resources in AI training and integration.</p>
-            </div>
-          </div>
-        </details>
-      </div>
-
-      <div class="mt-12 text-center p-8 bg-gradient-to-r from-purple-100 to-blue-100 rounded-2xl">
-        <h3 class="text-xl font-bold mb-3">
-          Have a Specific Question About AI Adoption at Your Company?
-        </h3>
-        <p class="text-gray-700 mb-6">
-          Get personalized strategies for your unique situation
-        </p>
-        <a href="mailto:dave@daveshap.com?subject=AI Adoption Question"
-           class="inline-flex items-center gap-2 px-8 py-4 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-all duration-300 hover:scale-105 font-semibold">
-          Ask Your Question
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-          </svg>
-        </a>
-      </div>
-    </div>
-  </Section>
-
-  <!-- Bridge to AI Training Service -->
-  <Section>
-    <div class="border-t-4 border-purple-600 bg-gradient-to-r from-purple-50 to-blue-50 p-10 rounded-xl">
-      <h2 class="text-3xl font-black text-gray-900 mb-4">
-        You Now Know <em>Which</em> Tools to Use. But Do You Know <em>How</em> to Get Your Company Onboard?
-      </h2>
-      <p class="text-xl text-gray-700 mb-6">
-        <strong>Knowing</strong> and <strong>doing</strong> are different. While 73% of teams fail at AI implementation,
-        my clients achieve <strong>56% faster development times</strong> in 90 days—with full enterprise buy-in.
-      </p>
-
-      <div class="bg-white border-2 border-purple-200 rounded-lg p-6 mb-6">
-        <p class="font-bold text-gray-900 mb-3">Here's What Separates Successful AI Adoption from Pilot Purgatory:</p>
-        <ul class="space-y-2 text-gray-700">
-          <li class="flex items-start gap-2">
-            <span class="text-purple-600 font-bold">→</span>
-            <span><strong>Day 1-30:</strong> Start with GitHub Copilot (easiest approval), build undeniable proof</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-purple-600 font-bold">→</span>
-            <span><strong>Day 31-60:</strong> Expand to Claude/GPT-5 for complex tasks, document ROI</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-purple-600 font-bold">→</span>
-            <span><strong>Day 61-90:</strong> Full team deployment with security compliance, training playbooks</span>
-          </li>
-        </ul>
-      </div>
-
-      <div class="p-6 bg-gradient-to-r from-purple-100 to-blue-100 rounded-lg mb-6">
-        <h3 class="font-bold text-purple-900 mb-3">🎯 What My AI Coding Implementation Includes:</h3>
-        <div class="grid md:grid-cols-2 gap-4 text-sm text-gray-700">
-          <ul class="space-y-2">
-            <li>✅ Tool selection based on your stack</li>
-            <li>✅ Security & compliance documentation</li>
-            <li>✅ ROI calculator with your numbers</li>
-            <li>✅ Executive presentation deck</li>
+        <div class="mb-6">
+          <h3 class="text-xl font-bold text-gray-900 mb-2">The AI Strategy:</h3>
+          <ul class="space-y-2 text-gray-700">
+            <li>→ Trained Claude on distinctive brand voice (contrarian, data-driven, provocative)</li>
+            <li>→ Created visual brand system with Midjourney (ownable color palette, imagery style)</li>
+            <li>→ Scaled to 50+ pieces of brand content per month across 15 channels</li>
+            <li>→ Maintained 60/40 brand/activation split</li>
           </ul>
-          <ul class="space-y-2">
-            <li>✅ Hands-on developer training</li>
-            <li>✅ Best practices playbooks</li>
-            <li>✅ Objection-handling scripts</li>
-            <li>✅ 90-day implementation roadmap</li>
+        </div>
+
+        <div class="bg-green-50 border-l-4 border-green-600 p-6 rounded-lg">
+          <h3 class="text-xl font-bold text-green-900 mb-2">The Results (6 months):</h3>
+          <ul class="space-y-2 text-green-700">
+            <li>✓ Share of voice: +42% (predicts market share growth)</li>
+            <li>✓ Brand awareness: +38% in target accounts</li>
+            <li>✓ Organic traffic quality: 2.3x higher conversion rate</li>
+            <li>✓ CAC: Down 31% (mental availability reduces acquisition cost)</li>
           </ul>
         </div>
       </div>
-
-      <div class="flex flex-col sm:flex-row gap-4">
-        <a
-          href="/ai-training-new"
-          class="px-8 py-4 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-semibold text-lg transition-colors inline-flex items-center justify-center"
-        >
-          Get Your AI Coding Roadmap →
-        </a>
-        <a
-          href="mailto:dave@daveshap.com?subject=AI Coding Implementation Assessment"
-          class="px-8 py-4 bg-white border-2 border-purple-200 hover:border-purple-600 hover:text-purple-600 text-gray-900 rounded-lg font-semibold text-lg transition-all inline-flex items-center justify-center"
-        >
-          Book Free Assessment
-        </a>
-      </div>
-
-      <p class="text-sm text-gray-600 mt-6 text-center">
-        <strong>Real Results:</strong> Teams I've trained go from "security concerns" to 56% faster development in 90 days.
-        Stop watching competitors ship 26% more features. Start leading the change.
-      </p>
     </div>
   </Section>
 
-  <!-- Legacy CTA (kept for fallback) -->
-  <Section>
+  <!-- Warning -->
+  <Section background="cream">
+    <div class="max-w-4xl mx-auto">
+      <div class="bg-red-50 border-2 border-red-200 rounded-xl p-8">
+        <h2 class="text-2xl font-bold text-red-900 mb-4">⚠️ Warning: AI Without Brand Strategy = Wasted Effort</h2>
+        <p class="text-lg text-gray-800 mb-4">
+          Most marketers use AI to create MORE content. But if that content doesn't build distinctive brand assets or mental availability,
+          you're just creating noise faster.
+        </p>
+        <p class="text-lg font-semibold text-red-900">
+          AI is a tool for executing marketing science at scale. It doesn't replace strategy—it amplifies it.
+        </p>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Final CTA -->
+  <Section background="white">
     <div class="max-w-4xl mx-auto">
       <CTASection
-        title="Need a Champion's Backup?"
-        description="I help internal champions get AI adopted at their companies. I'll give you the playbook, scripts, and political cover you need."
+        variant="gradient"
+        title="Ready to Use AI for Distinctive Brand Building (Not Generic Content)?"
+        description="Most marketers use AI to churn out commodity content. Strategic CMOs use it to scale mental availability while maintaining distinctive brand assets. Book a free audit to see how."
         primaryCTA={{
-          text: '🛡️ Yes, Help Me Win This Battle',
-          href: 'mailto:dave@daveshap.com?subject=Help%20Me%20Champion%20AI%20at%20My%20Company&body=Hi%20Dave,%0A%0AI\'m%20trying%20to%20get%20AI%20coding%20tools%20adopted%20at%20my%20company.%0A%0AMy%20situation:%0A-%20Company%20size:%20[X]%20employees%0A-%20Main%20objection:%20[security/cost/skepticism]%0A-%20My%20role:%20[Your%20title]%0A%0AI%20need%20help%20building%20the%20business%20case.%0A%0ACan%20we%20talk?%0A%0A[Your%20name]'
-        }}
-        secondaryCTA={{
-          text: 'Learn More About Me',
-          href: '/'
+          text: 'Get Free Brand Content AI Strategy Session →',
+          href: 'mailto:dave@daveshap.com?subject=AI for Brand Content Strategy'
         }}
         benefits={[
-          'Custom presentation deck for YOUR company',
-          'ROI calculator with YOUR numbers',
-          'Response scripts for every objection',
-          '1-on-1 strategy calls (3 sessions)',
-          '"Expert consultant" credibility backup',
-          'Investment: $2,500 (You\'ll save 10x this in time)',
-          '🔐 100% confidential. I\'ve helped champions at Apple, Goldman, and Samsung.'
+          '✓ Audit your current AI content strategy (generic vs distinctive)',
+          '✓ Identify opportunities to build mental availability at scale',
+          '✓ Learn how to train AI on your distinctive brand voice',
+          '✓ Get a 60/40 brand/activation content roadmap',
+          '✓ See how to measure brand lift (not just traffic)',
+          '✓ No sales pitch. Just strategy.',
+          '📊 For CMOs who want AI that builds brands, not just fills calendars'
         ]}
       />
+
+      <div class="mt-8 text-center text-sm text-gray-600">
+        <p class="mb-2">🔒 <strong>100% Confidential</strong> | Former SVP at Neil Patel Digital | Evidence-based marketing + AI scale</p>
+        <p>📍 Working with strategic CMOs who understand that brand building compounds</p>
+      </div>
     </div>
   </Section>
 </PageLayout>

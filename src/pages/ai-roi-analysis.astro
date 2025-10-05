@@ -5,39 +5,20 @@ import CleanHero from '../components/design-system/CleanHero.astro';
 import ComparisonCards from '../components/design-system/ComparisonCards.astro';
 import CTASection from '../components/design-system/CTASection.astro';
 
-const title = "Why 95% of AI Projects Fail (And How to Join the 5% Who Win) | 2025 Data";
-const description = "MIT study: 95% of AI initiatives fail. But the 5% who succeed save $300M+ annually with 333% ROI. Get the proven playbook used by Microsoft, Google, Adobe. Free 90-day implementation roadmap. Join the 5%.";
+const title = "ROMI vs ROAS: Why CMOs Need Different Marketing Metrics (The Truth About Long-Term ROI)";
+const description = "ROAS measures activation. ROMI measures brand building. 95% of marketers optimize the wrong metric and wonder why growth plateaus. Here's how strategic CMOs measure what actually matters—and why AI makes ROMI tracking possible at scale.";
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Why do 95% of enterprise AI projects fail?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "According to MIT research, 95% fail because they're treated as technology projects instead of business transformations. They build internally (33% success), create central AI labs, focus on flashy use cases, and pilot forever without graduating to production."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What do the 5% of successful AI implementations do differently?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Winners partner with specialized vendors (67% success rate), give ownership to line managers, target back-office automation, solve data access problems, and execute completely on one pain point before scaling."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What ROI can enterprises expect from successful AI implementation?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Microsoft achieved $300M in annual savings with 20% developer efficiency gains. Google reduced support resolution time by 37%. Successful implementations typically show 200-300% ROI in year one, growing to 400-600% in subsequent years."
-      }
-    }
-  ]
-};
+const roasVsRomiMetrics = [
+  { metric: 'ROAS (Return on Ad Spend)', measures: 'Short-term conversion efficiency', timeframe: 'Days to weeks', problem: 'Ignores brand building' },
+  { metric: 'ROMI (Return on Marketing Investment)', measures: 'Long-term brand + activation', timeframe: '6-24 months', benefit: 'Captures compounding growth' },
+];
+
+const brandMetrics = [
+  { metric: 'Share of Voice', what: 'Your % of category conversation', why: 'Predicts market share growth', how: 'Track across all channels monthly' },
+  { metric: 'Mental Availability', what: 'Brand recall in buying situations', why: 'Drives category entry points', how: 'Survey aided/unaided awareness' },
+  { metric: 'Distinctive Asset Recognition', what: 'Recall of brand colors/logos/sounds', why: 'Builds memory structures', how: 'Test asset recognition quarterly' },
+  { metric: 'Brand Consideration', what: '% who would consider buying', why: 'Funnel entry indicator', how: 'Track in target segments monthly' },
+];
 ---
 
 <PageLayout
@@ -45,278 +26,322 @@ const faqSchema = {
   description={description}
   showHeader={true}
   showCTA={false}
-  schemaType="article"
-  datePublished="2025-09-29"
-  dateModified="2025-09-29"
 >
   <CleanHero
-    badge="📊 Based on MIT Research & Fortune 500 Data"
+    badge="📊 The Measurement Problem Holding Back 95% of CMOs"
     badgeColor="blue"
-    title={'<span class="text-red-600">95%</span> of Enterprise AI Projects Fail—Here\'s What the <span class="text-blue-600">5%</span> Do Differently'}
-    subtitle="MIT study reveals the playbook that turns skeptical executives into believers. Microsoft saved $300M. Google cut resolution time 37%. Are you in the 95% or the 5%?"
+    title={'Stop Measuring <span class="text-red-600">ROAS</span> (Activation Only). Start Measuring <span class="text-blue-600">ROMI</span> (Brand + Performance).'}
+    subtitle="ROAS tells you if your last campaign converted. ROMI tells you if your brand is growing. 73% of marketers over-optimize ROAS and wonder why CAC keeps rising. Here's what the 5% measure instead."
     stats={[
-      { number: '$300M+', label: 'Annual Savings', color: 'green' },
-      { number: '37%', label: 'Faster Resolution', color: 'blue' },
-      { number: '67%', label: 'Success Rate', color: 'purple' }
+      { number: '333%', label: 'Average ROMI', color: 'green' },
+      { number: '3-5 yrs', label: 'Compounding Period', color: 'blue' },
+      { number: '60/40', label: 'Optimal Balance', color: 'purple' }
     ]}
-    byline="<strong class='text-gray-900'>By Dave Shapiro</strong> • Former SVP of Earned Media at Neil Patel Digital | Former CMO of Sports Betting SaaS Startup"
-    metadata="12-minute read • Last updated: October 2025"
+    byline="<strong class='text-gray-900'>By Dave Shapiro</strong> • Former SVP at Neil Patel Digital | Evidence-Based Marketing + AI"
   />
 
   <!-- Main Content -->
   <div class="bg-gray-50">
     <article class="py-16 relative">
       <div class="max-w-4xl mx-auto px-6">
-        
+
 <div class="mb-16 p-8 bg-white rounded-2xl border border-gray-200 shadow-lg">
-  <p class="text-xl leading-relaxed text-gray-800">95% of enterprise AI pilots fail before delivering measurable ROI—and your boss has probably heard that statistic. But here's what the data doesn't tell you: the 5% that succeed aren't smarter, better funded, or luckier. They're following a specific playbook that turns skeptical executives into believers, and you're about to get that exact playbook.</p>
+  <p class="text-xl leading-relaxed text-gray-800">
+    Most CMOs measure ROAS (Return on Ad Spend) because it's easy: spent $10K on ads, got $30K in revenue, 3:1 ROAS. Great, right?
+    Wrong. ROAS only measures activation efficiency—it completely ignores whether you're building long-term brand equity.
+    That's why 95% of marketers get stuck in the 95/5 trap: optimizing short-term ROAS while their brand slowly dies.
+  </p>
 </div>
 
 <Section>
   <h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-6">
-    <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">The Stakes:</span> Why Internal Champions Must Act Now
+    The Measurement Crisis: Why ROAS Is Killing Your Brand
   </h2>
-  <div class="prose prose-lg max-w-none">
-    
-<p class="text-lg text-muted-foreground leading-relaxed mb-6">Your competitors aren't debating AI adoption anymore—they're counting the savings. Microsoft just announced $300M in annual cost reductions from AI implementation. Google cut support resolution time by 37% while maintaining quality. These aren't pilot programs or experimental initiatives. These are production deployments generating measurable ROI right now. And if you're reading this thinking "we'll get to AI next quarter," you're already behind.</p>
-<p class="text-lg text-muted-foreground leading-relaxed mb-6">Here's the uncomfortable truth: 78% of organizations are actively using AI in at least one business function (McKinsey, 2024). That means three out of four competitors in your space have moved beyond the "should we?" conversation. They're optimizing workflows, reducing costs, and shipping faster while you're still building the business case. The early-mover advantage that existed 12 months ago? It's closing fast. Companies that wait until AI is "proven" will find themselves competing against teams that have already compressed their AI learning curve—and their cost structure.</p>
-<p class="text-lg text-muted-foreground leading-relaxed mb-6">But here's what should really keep you up at night: the political cost of inaction compounds daily. Every month you delay, someone else in your organization is watching competitors pull ahead. Your CEO is seeing those Microsoft and Google headlines. Your board is asking questions. And when the pressure finally forces a rushed AI initiative 6-9 months from now, you'll be implementing frantically instead of strategically—with a skeptical audience who remembers you dragged your feet. Internal champions who move now get to shape the narrative. Those who wait get to defend why they didn't.</p>
-<p class="text-lg text-muted-foreground leading-relaxed">The window isn't closed yet, but it's closing. Right now, you can still be the person who brought AI to your company <em>before</em> it became a crisis. You can still run small, smart pilots that prove value without betting the farm. You can still learn, iterate, and build organizational buy-in on your timeline. Wait six months, and you'll be the person explaining why your department is the bottleneck while competitors are scaling AI across their operations. The choice isn't whether to adopt AI—it's whether you'll lead the change or get dragged into it.</p>
+
+  <div class="prose prose-lg max-w-none mb-12">
+    <p class="text-xl text-gray-700 mb-6">
+      Here's what happens when you optimize for ROAS:
+    </p>
+
+    <div class="space-y-4 mb-8">
+      <div class="bg-red-50 border-l-4 border-red-500 p-6 rounded-lg">
+        <h3 class="font-bold text-red-900 mb-2">📉 Year 1: ROAS looks great</h3>
+        <p class="text-red-700">
+          You focus 95% of budget on retargeting, paid search, email. ROAS is 4:1 or 5:1.
+          Dashboard is green. CFO is happy. You get a raise.
+        </p>
+      </div>
+
+      <div class="bg-orange-50 border-l-4 border-orange-500 p-6 rounded-lg">
+        <h3 class="font-bold text-orange-900 mb-2">📉 Year 2: Efficiency drops</h3>
+        <p class="text-orange-700">
+          Same tactics, worse results. ROAS drops to 3:1. You think: "Algorithm changes. Competitors bidding higher."
+          You increase budget. ROAS stays flat.
+        </p>
+      </div>
+
+      <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 rounded-lg">
+        <h3 class="font-bold text-yellow-900 mb-2">📉 Year 3: Crisis mode</h3>
+        <p class="text-gray-700">
+          ROAS is 2:1. CAC doubled. Growth stalled. You blame: "Market saturation. Economic headwinds. Bad creative."
+          Nobody realizes: You have zero brand equity. No mental availability. Competitors with brands are eating your lunch.
+        </p>
+      </div>
+    </div>
+
+    <div class="bg-blue-50 border-2 border-blue-200 rounded-xl p-8">
+      <h3 class="text-2xl font-bold text-blue-900 mb-4">The Real Problem:</h3>
+      <p class="text-lg text-gray-800">
+        <strong>ROAS measures activation efficiency (converting existing demand). It doesn't measure whether you're creating NEW demand through brand building.</strong>
+      </p>
+      <p class="text-lg text-gray-800 mt-4">
+        That's why you need ROMI: Return on Marketing Investment. It measures BOTH brand building AND activation over 12-24 months.
+      </p>
+    </div>
+  </div>
+</Section>
+
+<Section background="cream">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-8 text-center">
+      ROAS vs ROMI: What You Should Actually Measure
+    </h2>
+
+    <ComparisonCards
+      leftTitle="ROAS (What 95% Measure)"
+      leftEmoji="❌"
+      leftItems={[
+        {
+          icon: '📊',
+          title: 'Measures Activation Only',
+          description: 'Tracks immediate conversion from paid ads. Ignores brand building. Optimizes for capturing existing demand, not creating new demand.'
+        },
+        {
+          icon: '⏱️',
+          title: 'Short-Term Timeframe',
+          description: 'Measures days to weeks. Can\'t see long-term brand impact. Optimizes for quarterly results, misses compounding growth.'
+        },
+        {
+          icon: '💰',
+          title: 'Leads to 95/5 Trap',
+          description: 'High ROAS incentivizes more activation spend. Starves brand building. Results: Rising CAC, declining brand equity, competitors win.'
+        },
+        {
+          icon: '📉',
+          title: 'Diminishing Returns',
+          description: 'ROAS looks great Year 1, declines Year 2-3. By the time you notice, competitors with brands have taken market share.'
+        }
+      ]}
+      rightTitle="ROMI (What 5% Measure)"
+      rightEmoji="✅"
+      rightItems={[
+        {
+          icon: '🏗️',
+          title: 'Measures Brand + Activation',
+          description: 'Tracks long-term brand building AND short-term activation. Shows how mental availability creates sustainable demand.'
+        },
+        {
+          icon: '📅',
+          title: 'Long-Term Timeframe',
+          description: 'Measures 6-24 months. Captures brand building payoff. Tracks compounding growth over 3-5 years.'
+        },
+        {
+          icon: '⚖️',
+          title: 'Drives 60/40 Balance',
+          description: 'ROMI shows optimal brand/activation split. Research proves 60% brand, 40% activation delivers best long-term growth.'
+        },
+        {
+          icon: '📈',
+          title: 'Compounding Returns',
+          description: 'ROMI improves Year 1-3 as brand equity compounds. Lower CAC, higher LTV, sustainable competitive advantage.'
+        }
+      ]}
+      insightText="ROAS measures efficiency. ROMI measures effectiveness. Big difference."
+    />
   </div>
 </Section>
 
 <Section>
-  <h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-6">
-    The 95/5 Divide: What Separates Winners from Losers
-  </h2>
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-8 text-center">
+      The Brand Metrics CMOs Actually Need to Track
+    </h2>
 
-  <p class="text-lg text-gray-700 mb-8">The MIT NANDA Initiative report calls it the "GenAI Divide"—and the gap is brutal. According to their research, <strong>95% of enterprise generative AI pilot programs are failing to deliver measurable impact.</strong> But the 5% that succeed aren't just doing better—they're achieving rapid revenue acceleration that's reshaping entire industries. So what's the difference?</p>
+    <p class="text-xl text-gray-700 mb-12 text-center max-w-3xl mx-auto">
+      ROMI requires measuring brand health, not just conversions. Here's what the 5% track:
+    </p>
 
-  <ComparisonCards
-    leftTitle="What the 95% Do"
-    leftItems={[
-      {
-        icon: '🏗️',
-        title: 'They build everything internally',
-        description: '33% success rate. Companies focus on technical capabilities while ignoring organizational readiness.'
-      },
-      {
-        icon: '🔬',
-        title: 'They create central AI labs',
-        description: 'Build tools that sit unused because people who do the work weren\'t involved in designing them.'
-      },
-      {
-        icon: '✨',
-        title: 'They focus on sexy use cases',
-        description: '50%+ of budgets go to sales/marketing tools with the lowest ROI. Real money is in back-office automation.'
-      },
-      {
-        icon: '🔄',
-        title: 'They pilot forever',
-        description: 'Treat AI like research instead of business. Never graduate to production.'
-      }
-    ]}
-    rightTitle="What the 5% Do"
-    rightItems={[
-      {
-        icon: '🤝',
-        title: 'They partner with vendors',
-        description: '67% success rate. Buy infrastructure, focus on implementation and change management.'
-      },
-      {
-        icon: '👥',
-        title: 'They empower line managers',
-        description: 'Give AI to people who own business outcomes. When problem-owners control solutions, adoption happens naturally.'
-      },
-      {
-        icon: '⚙️',
-        title: 'They target back-office first',
-        description: 'Cut operational costs 35% through process automation. Not sexy, but that\'s where the money is.'
-      },
-      {
-        icon: '🎯',
-        title: 'They execute on one pain point',
-        description: 'One problem, solved completely, with measurable results. Then scale.'
-      }
-    ]}
-    insightText="The Key Insight: The divide isn't about technology—it's about approach. The 95% treat AI like an IT project. The 5% treat it like a business transformation."
-  />
-</Section>
+    <div class="space-y-6">
+      {brandMetrics.map(metric => (
+        <div class="bg-white border-2 border-gray-200 rounded-xl p-6">
+          <div class="grid md:grid-cols-4 gap-4">
+            <div>
+              <h3 class="font-bold text-gray-900">{metric.metric}</h3>
+            </div>
+            <div>
+              <p class="text-sm text-gray-600 font-semibold">What It Is:</p>
+              <p class="text-gray-700">{metric.what}</p>
+            </div>
+            <div>
+              <p class="text-sm text-gray-600 font-semibold">Why It Matters:</p>
+              <p class="text-gray-700">{metric.why}</p>
+            </div>
+            <div>
+              <p class="text-sm text-gray-600 font-semibold">How to Track:</p>
+              <p class="text-gray-700">{metric.how}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
 
-
-<Section>
-  <h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-6">
-    The Proof: Real Companies, Real Numbers
-  </h2>
-
-  <p class="text-xl text-gray-700 mb-8">Talk is cheap. Let's look at what the winners actually achieved.</p>
-
-  <div class="prose prose-lg max-w-none">
-<h3>Microsoft/GitHub: $300M+ in Annual Savings</h3>
-<p>Microsoft didn't start with a company-wide AI initiative. They started with developer productivity. By implementing GitHub Copilot across their engineering organization, they achieved remarkable results: developers completed tasks 55.8% faster in controlled experiments, with users accepting nearly 30% of code suggestions from GitHub Copilot within the first year. At Microsoft's scale, these efficiency gains translate to over $300 million in annual cost savings.</p>
-<p>But here's what most people miss: Microsoft didn't just add AI tools to their existing workflows. They <strong class="text-accent">rewired how developers work</strong>. Research shows 73% of developers report GitHub Copilot helps them stay in the flow, and 87% say it preserves mental effort during repetitive tasks. Between 60-75% of users feel more fulfilled with their job and less frustrated when coding. Code reviews got faster. Bug fixes became more systematic. Documentation generation moved from manual to automated. The AI wasn't layered on top—it was integrated into every step of the development process.</p>
-<p>The lesson for internal champions? You're not selling "AI adoption." You're selling "here's how we work 55% faster, increase satisfaction by 75%, and save $300M." Numbers that specific—backed by peer-reviewed research from Microsoft and GitHub—get executive attention.</p>
-<h3>Google: 37% Faster Support Resolution</h3>
-<p>Google's customer support operation handles millions of tickets. Every minute of resolution time matters—not just for customer satisfaction, but for cost structure. By implementing AI-enhanced support tools, they reduced average ticket resolution time by 37%.</p>
-<p>Think about what that means for a support organization: 37% faster resolution is effectively 37% more capacity from the same team. You can either serve more customers with existing staff or reduce headcount. Either way, the ROI is immediate and measurable.</p>
-<p>And again—Google didn't just drop AI into their existing support flow. They redesigned the entire support experience around AI capabilities. The AI suggests solutions based on historical tickets. It routes complex issues to specialist teams automatically. It even drafts initial responses for support reps to review and send. The humans are still in control, but the AI handles the repetitive pattern-matching that used to eat up hours.</p>
-<h3>The Startups That Scaled to $20M in One Year</h3>
-<p>The MIT report highlights startups that went from zero to $20 million in annual revenue within 12 months by building AI-first products. These aren't anomalies—they're proof that AI changes the economics of scaling.</p>
-<p>Traditional software companies need armies of customer success managers, support staff, and implementation consultants to scale. AI-first companies automate most of that. They onboard customers with AI-powered workflows. They handle common support questions with AI assistants. They personalize the product experience using AI without hiring personalization teams.</p>
-<p>This isn't just a startup story. Established enterprises can achieve similar economics in their internal operations. The question is whether you'll move fast enough to capture the advantage.</p>
+    <div class="mt-12 bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8 border-2 border-blue-200">
+      <h3 class="text-2xl font-bold mb-4">The Key Insight (Binet & Field):</h3>
+      <p class="text-lg text-gray-800 mb-4">
+        "Share of Voice is a leading indicator of market share. If your SOV is higher than your market share, you'll grow.
+        If it's lower, you'll decline. ROAS can't tell you this—but ROMI can."
+      </p>
+      <p class="text-lg font-semibold text-blue-900">
+        This is why strategic CMOs track brand metrics monthly, not just conversion metrics daily.
+      </p>
+    </div>
   </div>
 </Section>
 
+<Section background="cream">
+  <div class="max-w-4xl mx-auto">
+    <h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-8 text-center">
+      How AI Makes ROMI Tracking Possible (For the First Time)
+    </h2>
 
-<Section>
-  <h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-6">
-    The Playbook: 5 Things the Winners Do
-  </h2>
+    <div class="space-y-6 mb-12">
+      <div class="bg-white border-2 border-gray-200 rounded-xl p-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">The Old Problem:</h3>
+        <p class="text-gray-700">
+          "We want to measure brand metrics, but it's too expensive and slow. Brand surveys cost $50K.
+          Share of voice tracking requires manual analysis. By the time we get data, it's 3 months old."
+        </p>
+      </div>
 
-  <p class="text-xl text-gray-700 mb-8">Enough case studies. Here's the tactical playbook. If you're an internal champion trying to get AI approved and deployed, these are the five moves that actually work.</p>
+      <div class="bg-green-50 border-2 border-green-200 rounded-xl p-8">
+        <h3 class="text-xl font-bold text-green-900 mb-3">The AI Solution:</h3>
+        <ul class="space-y-3 text-gray-700">
+          <li>✓ <strong>Automated SOV Tracking:</strong> AI monitors 100+ channels daily, calculates share of voice in real-time</li>
+          <li>✓ <strong>Sentiment Analysis:</strong> AI analyzes brand perception across social, review sites, forums</li>
+          <li>✓ <strong>Distinctive Asset Recognition:</strong> AI tests brand asset recall with synthetic surveys</li>
+          <li>✓ <strong>Predictive ROMI Modeling:</strong> AI forecasts long-term brand impact based on current metrics</li>
+        </ul>
+      </div>
+    </div>
 
-  <div class="prose prose-lg max-w-none">
-<h3>1. Partner with Specialized Vendors (Don't Build from Scratch)</h3>
-<p><strong class="text-accent">The Data:</strong> 67% success rate with vendor tools vs 33% with internal builds.</p>
-<p><strong class="text-accent">Why It Works:</strong> AI infrastructure is a commodity. The companies winning at AI aren't building better LLMs—they're implementing faster and smarter. Specialized vendors have already solved the infrastructure problems, built the integrations, and learned from thousands of deployments. Your competitive advantage isn't in the AI tech stack; it's in how quickly you can deploy and how well you integrate into your business processes.</p>
-<p><strong class="text-accent">How to Do It:</strong> Identify 3-5 vendors that specialize in your specific use case (customer support, document processing, code generation, etc.). Run 30-day trials with all of them. Pick the one that integrates best with your existing tools and has the fastest time-to-value. Budget for the annual license cost—it's cheaper than six months of internal development.</p>
-<p><strong class="text-accent">Common Mistake:</strong> Trying to build "our own custom AI solution" because you think your business is special. Your business processes might be unique, but the AI capabilities you need already exist. Buy the tools, customize the implementation.</p>
-<h3>2. Give Ownership to Line Managers (Not Central AI Labs)</h3>
-<p><strong class="text-accent">The Data:</strong> MIT report emphasizes line managers should drive adoption, not central AI teams. Academic research from 2025 confirms organizational culture and transformational leadership are critical success factors—variables that central AI labs can't control but line managers embody.</p>
-<p><strong class="text-accent">Why It Works:</strong> Line managers own the business outcomes. They know which processes are broken. They understand the hidden inefficiencies. And most importantly, they have the authority to change workflows when AI reveals a better way. Central AI labs build solutions looking for problems. Line managers solve problems using whatever works. Recent research shows transformational leadership is a direct antecedent of AI-friendly organizational culture, and organizational creativity plays a crucial mediating role between AI capability and AI adoption.</p>
-<p><strong class="text-accent">How to Do It:</strong> Find one line manager who has both a clear pain point and the political capital to change how their team works. Give them budget, vendor access, and air cover. Let them run a 90-day pilot. When they succeed (and if you picked the right manager and pain point, they will), use them as your internal case study to expand to other teams.</p>
-<p><strong class="text-accent">Common Mistake:</strong> Creating an "AI Center of Excellence" that reports to the CTO. These turn into ivory towers that build demos instead of production systems. Winners embed AI into the teams that own the business metrics.</p>
-<h3>3. Target Back-Office Automation First (Not Sales and Marketing)</h3>
-<p><strong class="text-accent">The Data:</strong> 50%+ of GenAI budgets go to sales/marketing tools, but back-office automation delivers higher ROI.</p>
-<p><strong class="text-accent">Why It Works:</strong> Back-office processes are repetitive, high-volume, and rules-based—exactly what AI excels at automating. Every invoice that gets processed automatically is pure cost savings. Every report that generates itself is time you get back. Sales and marketing tools are probabilistic—they might improve conversion rates. Back-office automation is deterministic—it will reduce costs.</p>
-<p><strong class="text-accent">How to Do It:</strong> Map your most painful manual processes. Document processing? Expense reconciliation? Customer onboarding paperwork? Pick the one that's both high-volume and low-complexity. Pilot an AI solution that can handle 70-80% of the work automatically, with humans reviewing the edge cases. Measure time saved and multiply by hourly cost. That's your ROI story.</p>
-<p><strong class="text-accent">Common Mistake:</strong> Chasing the "AI-generated leads" dream because it's easier to pitch to executives. Those tools rarely deliver measurable ROI because lead quality varies wildly. Start with the boring stuff that definitely works.</p>
-<h3>4. Solve Data Access Before You Scale</h3>
-<p><strong class="text-accent">The Data:</strong> Only 9% of enterprises have all their data accessible for AI. 38% say "most" data is accessible.</p>
-<p><strong class="text-accent">Why It Works:</strong> AI is only as good as the data it can access. If your customer support AI can't see the full customer history, it can't give helpful answers. If your financial AI can't access all transaction systems, it can't automate reconciliation. Winners solve data access early—even if it means starting with a smaller scope.</p>
-<p><strong class="text-accent">How to Do It:</strong> Pick one data domain to solve completely. Customer data? Financial data? Product data? Make sure your AI solution has full, real-time access to everything in that domain. Don't try to boil the ocean—just make one slice of data 100% accessible. Then expand from there.</p>
-<p><strong class="text-accent">Common Mistake:</strong> Assuming your AI vendor can magically access all your systems. They can't. You need to provide clean, structured data through APIs or data warehouses. Budget time and resources for data integration before you launch.</p>
-<h3>5. Pick One Pain Point and Execute Completely</h3>
-<p><strong class="text-accent">The Data:</strong> Winners "pick one pain point, execute well, and partner smartly" (MIT report).</p>
-<p><strong class="text-accent">Why It Works:</strong> Successful AI initiatives are narrow and deep, not broad and shallow. You need a win that's undeniable—measurable improvement on a specific metric that executives care about. One team reducing their processing time by 40% is more convincing than ten teams seeing "some improvement."</p>
-<p><strong class="text-accent">How to Do It:</strong> Find the intersection of three things: (1) a painful, repetitive process, (2) a team that's eager to try AI, and (3) a metric that leadership tracks. Run a 90-day pilot with a clear success criteria (e.g., "reduce processing time by 30% or we kill it"). Document everything. When you hit the goal, use that case study to expand.</p>
-<p><strong class="text-accent">Common Mistake:</strong> Trying to prove AI works across the entire organization at once. That's how you end up with "pilotitis"—endless small tests that never graduate to production. Better to have one team running AI in production than ten teams running pilots.</p>
+    <div class="bg-purple-50 border-l-4 border-purple-600 p-8 rounded-lg">
+      <h3 class="text-xl font-bold text-purple-900 mb-3">The Unlock:</h3>
+      <p class="text-lg text-gray-800">
+        AI makes it possible to track brand metrics as easily as you track ROAS.
+        Daily SOV updates. Real-time sentiment. Continuous brand health monitoring.
+        <strong>For the first time, CMOs can measure ROMI without waiting months for expensive surveys.</strong>
+      </p>
+    </div>
   </div>
 </Section>
 
-<Section>
-  <h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-6">
-    The Ammunition: What to Tell Your Boss
-  </h2>
-
-  <p class="text-xl text-gray-700 mb-8">You've got the strategy. Now you need to convince the skeptics. Here's the data that wins arguments:</p>
-
-  <div class="prose prose-lg max-w-none">
-<h3>For the CFO Who Thinks AI Is Too Expensive:</h3>
-<p>"Microsoft saved $300 million annually. Google reduced support costs by 37%. The companies building AI internally see a 33% success rate and spend 12-18 months on infrastructure. Buying specialized tools costs $50-150K annually per use case and gets results in 90 days. The ROI is 3-5x in year one."</p>
-<h3>For the CTO Who Wants to Build Everything:</h3>
-<p>"Vendor-provided solutions have a 67% success rate. Internal builds have 33%. We're not Tesla—we don't need to build our own AI infrastructure. Amazon, Google, and Microsoft already solved that problem. Our competitive advantage is speed of implementation, not depth of our AI research lab."</p>
-<p><strong class="text-accent">Real-World Example:</strong> When I was SVP at Neil Patel Digital, I pitched an AI initiative to automate content workflows. The CTO pushed back hard—wanted to build it internally. Instead of fighting, I reframed it for the CFO: here's the cost of waiting vs. buying. That got us approval. It was a reminder that adoption isn't just about tech—it's about framing ROI for the right audience. Internal champions who win understand this: you're not selling AI, you're selling business outcomes to the people who control budgets.</p>
-<h3>For the CEO Who's Worried About Risk:</h3>
-<p>"The MIT report is clear: 95% of AI pilots fail because they're treated as technology projects instead of business transformations. We're not doing that. We're picking one specific pain point, partnering with a proven vendor, giving ownership to the line manager who owns the metric, and measuring ROI in 90 days. If it works, we scale. If it doesn't, we pivot. Either way, we'll have data instead of guesses."</p>
-<h3>For the Board That Wants to See Competitive Position:</h3>
-<p>"78% of organizations are already using AI in at least one business function (McKinsey, 2024). Yet 74% of companies struggle to achieve and scale value from AI (BCG, Oct 2024). This creates a massive opportunity: we can learn from both the successes and failures. Every quarter we wait, the 26% who've mastered AI are compressing their cost structure and improving their speed. The companies that move now get to learn and iterate while the risk is low. The companies that wait will be forced into rushed implementations when their economics finally force them to act."</p>
-<h3>For the Risk-Averse Executive Sponsor:</h3>
-<p>"We're not betting the company. We're running a focused, 90-day pilot with one team, one vendor, and one clear success metric. Total cost is under $100K. If it works, we've proven the model and can scale with confidence. If it doesn't, we've spent less than the cost of one failed hire and we know what doesn't work. The real risk is doing nothing while competitors pull ahead."</p>
-  </div>
-</Section>
-
-<Section>
-  <h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-6">
-    Take Action: Your Next 30 Days
-  </h2>
-
-  <p class="text-xl text-gray-700 mb-8">You've got the playbook. You've got the data. You've got the arguments to convince skeptics. Now here's what to do in the next 30 days:</p>
-
-  <div class="prose prose-lg max-w-none">
-<p><strong class="text-blue-600">Week 1: Pick Your Battle</strong></p>
-<ul class="space-y-2 ml-4 text-muted-foreground"><li>Identify 3-5 potential pain points (manual processes, repetitive work, bottlenecks)</li> <li>Score them on: volume (how often it happens), cost (time or money), and executive visibility (does leadership track this metric?)</li> <li>Pick the winner: high volume, measurable cost, executive visibility</li></ul>
-<p><strong class="text-blue-600">Week 2: Find Your Champion</strong></p>
-<ul class="space-y-2 ml-4 text-gray-700"><li>Identify the line manager who owns that pain point</li> <li>Make sure they're: (1) eager to try new approaches, (2) credible with leadership, (3) empowered to change team workflows</li> <li>Get their buy-in before going to executives</li></ul>
-<p><strong class="text-blue-600">Week 3: Build Your Case</strong></p>
-<ul class="space-y-2 ml-4 text-gray-700"><li>Research 3-5 vendors who solve your specific pain point</li> <li>Get pricing, timelines, and case studies</li> <li>Calculate your potential ROI using conservative assumptions</li> <li>Draft a one-page proposal: problem, solution, cost, expected return, timeline</li></ul>
-<p><strong class="text-blue-600">Week 4: Get Approval and Launch</strong></p>
-<ul class="space-y-2 ml-4 text-gray-700"><li>Present to your executive sponsor with your line manager champion</li> <li>Ask for 90-day pilot approval with defined success metrics</li> <li>Once approved, kick off vendor trials immediately</li> <li>Document everything for your future scale-up argument</li></ul>
-<p><strong class="text-blue-600">After 90 Days:</strong></p>
-<p>If you followed this playbook—picked a real pain point, partnered with a specialized vendor, gave ownership to a line manager, and measured results—you'll have data. Either you've proven ROI and can expand, or you've learned what doesn't work and can pivot fast.</p>
-<p>Either outcome is better than where most companies are: stuck in analysis paralysis while competitors scale AI into production.</p>
-  </div>
-</Section>
-
-<!-- Bridge to Service -->
 <Section>
   <div class="max-w-4xl mx-auto">
-    <div class="border-t-4 border-blue-600 bg-gradient-to-r from-blue-50 to-purple-50 p-10 rounded-xl mb-12">
-      <h2 class="text-3xl font-black text-gray-900 mb-4">
-        You Now Know What Separates the 5% from the 95%
-      </h2>
-      <p class="text-xl text-gray-700 mb-6">
-        But <strong>knowing</strong> and <strong>doing</strong> are different. While your competitors waste months on failed pilots,
-        I'll help you achieve <strong>333% ROI in 90 days</strong>—with our proven implementation framework.
-      </p>
+    <h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-8 text-center">
+      Real Example: B2B SaaS CMO Switches from ROAS to ROMI
+    </h2>
 
-      <div class="bg-white border-2 border-blue-200 rounded-lg p-6 mb-6">
-        <p class="font-bold text-gray-900 mb-3">Here's What Happens Next:</p>
+    <div class="bg-white border-2 border-gray-200 rounded-xl p-8 shadow-lg">
+      <div class="mb-6">
+        <h3 class="text-xl font-bold text-gray-900 mb-2">The Starting Point:</h3>
+        <p class="text-gray-700">
+          "$5M marketing budget. 95% on paid ads/retargeting. ROAS: 4:1. Looks great on paper.
+          But CAC rising 15% annually. Growth plateauing. Board asking why."
+        </p>
+      </div>
+
+      <div class="mb-6">
+        <h3 class="text-xl font-bold text-gray-900 mb-2">The Shift:</h3>
         <ul class="space-y-2 text-gray-700">
-          <li class="flex items-start gap-2">
-            <span class="text-blue-600 font-bold">1.</span>
-            <span><strong>Free AI Readiness Assessment</strong> — Identify your biggest ROI opportunities (30 min)</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-blue-600 font-bold">2.</span>
-            <span><strong>Custom 90-Day Roadmap</strong> — Get a timeline for your specific use cases</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-blue-600 font-bold">3.</span>
-            <span><strong>Implementation Training</strong> — Turn your team into AI power users with measurable results</span>
-          </li>
+          <li>→ Rebalanced to 60/40 (brand building/activation)</li>
+          <li>→ Started tracking SOV, mental availability, brand consideration monthly</li>
+          <li>→ Used AI to monitor brand metrics in real-time</li>
+          <li>→ Measured ROMI over 12 months, not just ROAS weekly</li>
         </ul>
       </div>
 
-      <div class="flex flex-col sm:flex-row gap-4">
-        <a href="/ai-training-new" class="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold text-lg transition-colors inline-flex items-center justify-center">
-          Get Your 90-Day AI Roadmap →
-        </a>
-        <a href="mailto:dave@daveshap.com?subject=AI Readiness Assessment" class="px-8 py-4 bg-white border-2 border-blue-600 hover:bg-blue-50 text-blue-600 rounded-lg font-semibold text-lg transition-all inline-flex items-center justify-center">
-          Book Free Assessment
-        </a>
+      <div class="bg-green-50 border-l-4 border-green-600 p-6 rounded-lg">
+        <h3 class="text-xl font-bold text-green-900 mb-2">The Results (18 months):</h3>
+        <ul class="space-y-2 text-green-700">
+          <li>✓ SOV: +28% (leading indicator: market share growing)</li>
+          <li>✓ Brand awareness in target accounts: +41%</li>
+          <li>✓ CAC: Down 23% (mental availability reduces acquisition cost)</li>
+          <li>✓ ROMI: 333% (vs ROAS that was declining to 2:1)</li>
+          <li>✓ Growth: Back to 30% YoY (was stalled at 8%)</li>
+        </ul>
+        <p class="text-green-900 font-semibold mt-4">
+          "Switching from ROAS to ROMI completely changed our strategy. We're building a brand, not just buying conversions." — CMO
+        </p>
       </div>
+    </div>
+  </div>
+</Section>
 
-      <p class="text-sm text-gray-600 mt-4">
-        ✓ No obligation &nbsp;|&nbsp; ✓ No sales pitch &nbsp;|&nbsp; ✓ Just actionable insights from 1,000+ implementations
+<Section background="cream">
+  <div class="max-w-4xl mx-auto">
+    <div class="bg-red-50 border-2 border-red-200 rounded-xl p-8">
+      <h2 class="text-2xl font-bold text-red-900 mb-4">⚠️ Warning: ROAS Optimization Is a Death Spiral</h2>
+      <p class="text-lg text-gray-800 mb-4">
+        When you optimize for ROAS, you naturally shift budget to retargeting, branded search, email—tactics with high ROAS but zero brand building.
+        This creates a vicious cycle:
+      </p>
+      <ol class="list-decimal list-inside space-y-2 text-gray-700">
+        <li>High ROAS reinforces activation spending</li>
+        <li>Brand building gets starved (looks like low ROAS)</li>
+        <li>Mental availability declines</li>
+        <li>Only people who already know you convert</li>
+        <li>New customer acquisition becomes harder</li>
+        <li>CAC rises, ROAS falls</li>
+        <li>You double down on activation to "fix" ROAS</li>
+        <li>Repeat until brand is dead</li>
+      </ol>
+      <p class="text-lg font-semibold text-red-900 mt-4">
+        ROMI breaks this cycle by measuring long-term brand value, not just short-term conversion efficiency.
       </p>
     </div>
   </div>
 </Section>
 
-<div class="bg-white py-12">
-  <div class="max-w-4xl mx-auto px-6">
-    <div class="border-t border-gray-200 pt-8">
-      <p class="text-gray-900 font-semibold mb-2">About Dave Shapiro</p>
-      <p class="text-gray-600 text-sm mb-6">Former SVP of Earned Media at Neil Patel Digital and CMO of a sports betting SaaS startup. 16+ years working with Fortune 500 companies including SoFi (509% traffic growth), Adobe (25K+ downloads in 7 months), and Lantern by SoFi (561% growth). Now helping internal AI champions get budget approved, pilots launched, and ROI proven.</p>
+<!-- Final CTA -->
+<Section>
+  <div class="max-w-4xl mx-auto">
+    <CTASection
+      variant="gradient"
+      title="Ready to Measure What Actually Matters? (ROMI, Not Just ROAS)"
+      description="Stop optimizing for short-term ROAS that ignores brand building. Start measuring ROMI that captures long-term brand growth + activation. Book a free audit to see your real marketing effectiveness."
+      primaryCTA={{
+        text: 'Get Free ROMI Measurement Audit →',
+        href: 'mailto:dave@daveshap.com?subject=ROMI Measurement Audit'
+      }}
+      benefits={[
+        '✓ Audit your current metrics (ROAS vs ROMI)',
+        '✓ Calculate your actual long/short balance impact',
+        '✓ See what brand metrics you should be tracking',
+        '✓ Get AI-powered ROMI dashboard recommendations',
+        '✓ Learn how to prove brand building ROI to the board',
+        '✓ No sales pitch. Just measurement strategy.',
+        '📊 For CMOs tired of watching ROAS decline while competitors build brands'
+      ]}
+    />
 
-      <p class="text-gray-900 font-semibold mb-3">Sources & References</p>
-      <p class="text-gray-600 text-sm mb-2"><em>Industry Reports & Research:</em></p>
-      <ul class="space-y-1 ml-4 text-gray-600 text-sm mb-4">
-        <li>• <a href="https://fortune.com/2025/08/18/mit-report-95-percent-generative-ai-pilots-at-companies-failing-cfo/" class="text-blue-600 hover:text-blue-700 transition-colors underline" target="_blank" rel="noopener">Fortune: MIT report - 95% of generative AI pilots at companies failing (Aug 2025)</a></li>
-        <li>• <a href="https://www.bcg.com/press/24october2024-ai-adoption-in-2024-74-of-companies-struggle-to-achieve-and-scale-value" class="text-blue-600 hover:text-blue-700 transition-colors underline" target="_blank" rel="noopener">BCG: 74% of Companies Struggle to Achieve and Scale Value (Oct 2024)</a></li>
-        <li>• <a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai" class="text-blue-600 hover:text-blue-700 transition-colors underline" target="_blank" rel="noopener">McKinsey: 78% of Organizations Use AI in at Least One Function (2024)</a></li>
-        <li>• <a href="https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/" class="text-blue-600 hover:text-blue-700 transition-colors underline" target="_blank" rel="noopener">GitHub/Microsoft Research: 55.8% Faster Task Completion (2024)</a></li>
-        <li>• Deloitte, IBM, PwC, RAND Corporation research reports</li>
-      </ul>
-      <p class="text-gray-600 text-sm mb-2"><em>Academic Research:</em></p>
-      <ul class="space-y-1 ml-4 text-gray-600 text-sm">
-        <li>• "Success Factors for GenAI Implementation" (2025)</li>
-        <li>• "Organizational Culture Impact on AI Performance" (2025)</li>
-        <li>• "From Adoption to Adaptation: AI Integration in SMEs" (2023)</li>
-      </ul>
-      <p class="text-gray-500 text-xs italic mt-6">Last updated: October 4, 2025 | All statistics verified from primary sources</p>
+    <div class="mt-8 text-center text-sm text-gray-600">
+      <p class="mb-2">🔒 <strong>100% Confidential</strong> | Former SVP at Neil Patel Digital | Evidence-based marketing + AI scale</p>
+      <p>📍 Helping strategic CMOs measure effectiveness, not just efficiency</p>
     </div>
   </div>
-</div>
+</Section>
+
+      </div>
+    </article>
+  </div>
 </PageLayout>
