@@ -1,0 +1,396 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import Section from '../components/common/Section.astro';
+import CleanHero from '../components/design-system/CleanHero.astro';
+import ComparisonCards from '../components/design-system/ComparisonCards.astro';
+import CTASection from '../components/design-system/CTASection.astro';
+
+const title = "Marketing Science + AI: How to Execute Binet & Field's Principles at Scale";
+const description = "Binet & Field proved 60/40 works. Byron Sharp showed mental availability matters. AI makes it possible to execute at scale. Here's how strategic CMOs combine marketing science with AI to build brands that compound.";
+
+const marketingSciencePrinciples = [
+  {
+    principle: "60/40 Long/Short Balance",
+    source: "Binet & Field",
+    what: "60% budget to brand building, 40% to activation",
+    why: "Optimal ROMI over 3-5 years vs short-term ROAS",
+    aiUnlock: "AI creates 10x brand content without 10x budget"
+  },
+  {
+    principle: "Mental Availability",
+    source: "Byron Sharp",
+    what: "Brand comes to mind in buying situations",
+    why: "Drives category entry points and growth",
+    aiUnlock: "AI scales brand presence across 100+ channels"
+  },
+  {
+    principle: "Distinctive Brand Assets",
+    source: "Jenni Romaniuk",
+    what: "Ownable colors, sounds, symbols, taglines",
+    why: "Builds memory structures competitors can't copy",
+    aiUnlock: "AI maintains brand codes consistently everywhere"
+  },
+  {
+    principle: "Share of Voice → Market Share",
+    source: "Binet & Field",
+    what: "SOV predicts market share growth",
+    why: "Leading indicator of brand health",
+    aiUnlock: "AI tracks SOV across channels in real-time"
+  }
+];
+
+const beforeAfterAI = [
+  {
+    task: "Brand Content Creation",
+    before: "Agency: $50K/campaign, 3 campaigns/year",
+    after: "AI: 50+ pieces/month with distinctive voice",
+    savings: "90% cost reduction, 10x output"
+  },
+  {
+    task: "Share of Voice Tracking",
+    before: "Manual analysis: Quarterly, $25K per report",
+    after: "AI monitoring: Daily updates, real-time",
+    savings: "75% cost savings, 12x faster insights"
+  },
+  {
+    task: "Mental Availability Measurement",
+    before: "Brand surveys: $50K, every 6 months",
+    after: "AI synthetic surveys: $500/month, continuous",
+    savings: "98% cost reduction, real-time data"
+  },
+  {
+    task: "Creative Asset Production",
+    before: "Design team: 2-3 assets/week, $5K each",
+    after: "AI: 100+ variants maintaining brand codes",
+    savings: "95% cost reduction, consistent quality"
+  }
+];
+---
+
+<PageLayout
+  title={title}
+  description={description}
+>
+  <!-- Hero Section -->
+  <CleanHero
+    badge="📊 Evidence-Based Marketing Meets AI Execution"
+    badgeColor="blue"
+    title={'Marketing Science Proved <span class="text-blue-600">What Works</span>. AI Makes It <span class="text-purple-600">Scalable</span>.'}
+    subtitle="Binet & Field showed 60/40 drives optimal ROMI. Byron Sharp proved mental availability matters. AI makes it possible to execute these principles at scale without 10x budget. Here's how."
+    stats={[
+      { number: '60/40', label: 'Proven Balance', color: 'blue' },
+      { number: '10x', label: 'Scale with AI', color: 'purple' },
+      { number: '333%', label: 'Average ROMI', color: 'green' }
+    ]}
+    byline="<strong class='text-gray-900'>By Dave Shapiro</strong> • Former SVP at Neil Patel Digital • Evidence-Based Marketing + AI"
+  />
+
+  <!-- The Connection -->
+  <Section>
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-6">
+        The Missing Link: Marketing Science Without AI vs. AI Without Marketing Science
+      </h2>
+
+      <div class="space-y-6 mb-12">
+        <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 rounded-lg">
+          <h3 class="font-bold text-yellow-900 mb-2">⚠️ Marketing Science Without AI:</h3>
+          <p class="text-yellow-800">
+            You know 60/40 balance works. You understand mental availability. You want distinctive brand assets.
+            <strong>But it's too expensive and slow.</strong> Agencies charge $50K per campaign. Brand surveys cost $50K every 6 months.
+            By the time you get data, it's stale. You can't afford to build brands at scale.
+          </p>
+        </div>
+
+        <div class="bg-red-50 border-l-4 border-red-500 p-6 rounded-lg">
+          <h3 class="font-bold text-red-900 mb-2">❌ AI Without Marketing Science:</h3>
+          <p class="text-red-700">
+            You use AI to churn out content faster. But it's all generic performance marketing.
+            <strong>You're amplifying bad strategy.</strong> More blog posts that sound like everyone else's.
+            Social captions with no distinctive brand voice. SEO content that ranks but doesn't build mental availability.
+            AI helps you fail efficiently.
+          </p>
+        </div>
+
+        <div class="bg-green-50 border-l-4 border-green-500 p-6 rounded-lg">
+          <h3 class="font-bold text-green-900 mb-2">✅ Marketing Science + AI:</h3>
+          <p class="text-green-700">
+            You know what works (60/40, mental availability, distinctive assets). AI makes it scalable and affordable.
+            <strong>Execute evidence-based strategy at AI speed.</strong> Create 50+ distinctive brand pieces monthly.
+            Track SOV daily. Measure mental availability continuously. Prove ROMI to the board.
+            This is the unlock.
+          </p>
+        </div>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Marketing Science Principles + AI Execution -->
+  <Section background="cream">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-8 text-center">
+        4 Marketing Science Principles + How AI Makes Them Scalable
+      </h2>
+
+      <div class="space-y-6">
+        {marketingSciencePrinciples.map(item => (
+          <div class="bg-white border-2 border-gray-200 rounded-xl p-6">
+            <div class="mb-4">
+              <h3 class="text-2xl font-bold text-gray-900">{item.principle}</h3>
+              <p class="text-sm text-gray-600">Source: {item.source}</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-4">
+              <div>
+                <p class="text-sm text-gray-600 font-semibold mb-1">What It Is:</p>
+                <p class="text-gray-700">{item.what}</p>
+              </div>
+              <div>
+                <p class="text-sm text-gray-600 font-semibold mb-1">Why It Matters:</p>
+                <p class="text-gray-700">{item.why}</p>
+              </div>
+              <div>
+                <p class="text-sm text-gray-600 font-semibold mb-1">AI Unlock:</p>
+                <p class="text-purple-600 font-semibold">{item.aiUnlock}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-12 bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8 border-2 border-blue-200">
+        <h3 class="text-2xl font-bold mb-4">The Game-Changer:</h3>
+        <p class="text-lg text-gray-800">
+          For decades, only brands with massive budgets could execute marketing science principles properly.
+          <strong>AI changes this.</strong> Now CMOs can build mental availability, maintain distinctive brand assets,
+          track share of voice, and prove ROMI—all at a fraction of the traditional cost and speed.
+        </p>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Before/After AI -->
+  <Section background="white">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">
+        Before AI vs. After AI: Cost & Speed Transformation
+      </h2>
+
+      <div class="space-y-6">
+        {beforeAfterAI.map(item => (
+          <div class="bg-white border-2 border-gray-200 rounded-xl p-6">
+            <h3 class="font-bold text-gray-900 text-xl mb-4">{item.task}</h3>
+            <div class="grid md:grid-cols-3 gap-4">
+              <div>
+                <p class="text-sm text-gray-600 font-semibold mb-1">Before AI:</p>
+                <p class="text-red-700">{item.before}</p>
+              </div>
+              <div>
+                <p class="text-sm text-gray-600 font-semibold mb-1">With AI:</p>
+                <p class="text-green-700">{item.after}</p>
+              </div>
+              <div>
+                <p class="text-sm text-gray-600 font-semibold mb-1">Impact:</p>
+                <p class="text-purple-600 font-semibold">{item.savings}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </Section>
+
+  <!-- The Framework: Marketing Science + AI -->
+  <Section background="cream">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-8 text-center">
+        How to Execute Marketing Science with AI (The Framework)
+      </h2>
+
+      <div class="space-y-8">
+        <!-- Step 1 -->
+        <div class="bg-white border-2 border-blue-200 rounded-xl p-8">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="bg-blue-600 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold">1</div>
+            <h3 class="text-2xl font-bold text-gray-900">Start with Marketing Science (Not AI Tools)</h3>
+          </div>
+          <p class="text-gray-700 mb-4">
+            Don't ask "What AI tools should we use?" Ask: "What does marketing science tell us works?"
+          </p>
+          <ul class="space-y-2 text-gray-700">
+            <li>→ Binet & Field: 60/40 long/short balance for optimal ROMI</li>
+            <li>→ Byron Sharp: Mental availability drives category growth</li>
+            <li>→ Romaniuk: Distinctive brand assets build memory structures</li>
+            <li>→ Field & Binet: SOV predicts market share</li>
+          </ul>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="bg-white border-2 border-purple-200 rounded-xl p-8">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="bg-purple-600 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold">2</div>
+            <h3 class="text-2xl font-bold text-gray-900">Map AI Tools to Marketing Principles</h3>
+          </div>
+          <p class="text-gray-700 mb-4">
+            Now that you know what works, use AI to execute at scale:
+          </p>
+          <ul class="space-y-2 text-gray-700">
+            <li>→ Claude/GPT for distinctive brand content (60% budget)</li>
+            <li>→ Midjourney/DALL-E for consistent brand assets</li>
+            <li>→ AI monitoring for real-time SOV tracking</li>
+            <li>→ Synthetic surveys for continuous mental availability measurement</li>
+          </ul>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="bg-white border-2 border-green-200 rounded-xl p-8">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="bg-green-600 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold">3</div>
+            <h3 class="text-2xl font-bold text-gray-900">Measure What Marketing Science Says Matters</h3>
+          </div>
+          <p class="text-gray-700 mb-4">
+            Use AI to track the metrics that predict long-term growth:
+          </p>
+          <ul class="space-y-2 text-gray-700">
+            <li>→ Share of Voice (leading indicator of market share)</li>
+            <li>→ Mental availability (brand recall in buying situations)</li>
+            <li>→ Distinctive asset recognition (memory structure strength)</li>
+            <li>→ Brand consideration (funnel entry indicator)</li>
+            <li>→ ROMI over 12-24 months (not just weekly ROAS)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Real Example -->
+  <Section background="white">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center">
+        Real Example: B2B SaaS CMO Combines Marketing Science + AI
+      </h2>
+
+      <div class="bg-white border-2 border-gray-200 rounded-xl p-8 shadow-lg">
+        <div class="mb-6">
+          <h3 class="text-xl font-bold text-gray-900 mb-2">The Starting Point:</h3>
+          <p class="text-gray-700">
+            "We knew the research. We'd read Binet & Field. We understood 60/40. But we couldn't afford it.
+            Agencies wanted $50K per brand campaign. We had $5M total budget, 95% going to performance marketing."
+          </p>
+        </div>
+
+        <div class="mb-6">
+          <h3 class="text-xl font-bold text-gray-900 mb-2">The Marketing Science + AI Strategy:</h3>
+          <ul class="space-y-2 text-gray-700">
+            <li>→ <strong>Principle (Binet & Field):</strong> Rebalance to 60/40 long/short</li>
+            <li>→ <strong>AI Execution:</strong> Use Claude to create 50+ brand content pieces/month</li>
+            <li>→ <strong>Principle (Byron Sharp):</strong> Build mental availability</li>
+            <li>→ <strong>AI Execution:</strong> Scale brand presence across 100+ channels</li>
+            <li>→ <strong>Principle (Romaniuk):</strong> Maintain distinctive brand assets</li>
+            <li>→ <strong>AI Execution:</strong> Midjourney creates consistent visual brand codes</li>
+            <li>→ <strong>Principle (Binet & Field):</strong> Track SOV as leading indicator</li>
+            <li>→ <strong>AI Execution:</strong> Monitor SOV daily across all channels</li>
+          </ul>
+        </div>
+
+        <div class="bg-green-50 border-l-4 border-green-600 p-6 rounded-lg">
+          <h3 class="text-xl font-bold text-green-900 mb-2">The Results (18 months):</h3>
+          <ul class="space-y-2 text-green-700">
+            <li>✓ Executed 60/40 balance at 10% of traditional agency cost</li>
+            <li>✓ SOV: +35% (predicting 20%+ market share growth)</li>
+            <li>✓ Mental availability: +48% in target accounts</li>
+            <li>✓ Distinctive asset recognition: +62%</li>
+            <li>✓ ROMI: 333% over 18 months (vs 4:1 ROAS that was declining)</li>
+            <li>✓ CAC: Down 29% (mental availability reduces acquisition cost)</li>
+          </ul>
+          <p class="text-green-900 font-semibold mt-4">
+            "We finally could execute what the research told us worked. AI made marketing science affordable." — CMO
+          </p>
+        </div>
+      </div>
+    </div>
+  </Section>
+
+  <!-- The Sources -->
+  <Section background="cream">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center">
+        The Marketing Science Foundation
+      </h2>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-white border-2 border-gray-200 rounded-xl p-6">
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Les Binet & Peter Field</h3>
+          <p class="text-gray-700 mb-2"><strong>Key Work:</strong> "The Long and the Short of It"</p>
+          <p class="text-gray-600">
+            Proved 60/40 long/short balance drives optimal ROMI. Share of Voice predicts market share.
+            Brand building compounds over 3-5 years.
+          </p>
+        </div>
+
+        <div class="bg-white border-2 border-gray-200 rounded-xl p-6">
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Byron Sharp</h3>
+          <p class="text-gray-700 mb-2"><strong>Key Work:</strong> "How Brands Grow"</p>
+          <p class="text-gray-600">
+            Mental availability (coming to mind in buying situations) drives growth.
+            Physical availability + mental availability = category growth.
+          </p>
+        </div>
+
+        <div class="bg-white border-2 border-gray-200 rounded-xl p-6">
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Jenni Romaniuk</h3>
+          <p class="text-gray-700 mb-2"><strong>Key Work:</strong> "Building Distinctive Brand Assets"</p>
+          <p class="text-gray-600">
+            Distinctive brand assets (colors, sounds, symbols) build memory structures.
+            Competitors can't copy. Sustainable competitive advantage.
+          </p>
+        </div>
+
+        <div class="bg-white border-2 border-gray-200 rounded-xl p-6">
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Mark Ritson</h3>
+          <p class="text-gray-700 mb-2"><strong>Key Work:</strong> "Marketing effectiveness advocate"</p>
+          <p class="text-gray-600">
+            Long-term brand building vs short-term activation. Evidence-based marketing over best practices.
+            Strategy before tactics.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-8 bg-blue-50 border-l-4 border-blue-600 p-8 rounded-lg">
+        <h3 class="text-xl font-bold text-blue-900 mb-3">How AI Fits:</h3>
+        <p class="text-lg text-gray-800">
+          These researchers proved <strong>what works</strong>. AI makes it possible to <strong>execute at scale</strong>.
+          The science hasn't changed. The cost and speed of execution has transformed completely.
+        </p>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Final CTA -->
+  <Section background="white">
+    <div class="max-w-4xl mx-auto">
+      <CTASection
+        variant="gradient"
+        title="Ready to Execute Marketing Science at AI Scale?"
+        description="Stop choosing between what works and what's affordable. Use AI to execute Binet & Field's 60/40 balance, Byron Sharp's mental availability, and Romaniuk's distinctive brand assets—at a fraction of traditional cost."
+        primaryCTA={{
+          text: 'Get Free Marketing Science + AI Strategy Session →',
+          href: 'mailto:dave@daveshap.com?subject=Marketing Science + AI Strategy'
+        }}
+        benefits={[
+          '✓ Learn how to execute 60/40 balance with AI (not just theory)',
+          '✓ See how AI builds mental availability across 100+ channels',
+          '✓ Discover how to maintain distinctive brand assets at AI scale',
+          '✓ Get roadmap for tracking SOV and ROMI in real-time',
+          '✓ Understand cost savings: 90% reduction vs traditional agencies',
+          '✓ No sales pitch. Just evidence-based strategy + AI execution.',
+          '📊 For CMOs who know the science and want to execute at scale'
+        ]}
+      />
+
+      <div class="mt-8 text-center text-sm text-gray-600">
+        <p class="mb-2">🔒 <strong>100% Confidential</strong> | Former SVP at Neil Patel Digital | Marketing Science + AI Scale</p>
+        <p>📍 Helping CMOs execute what marketing research proves works</p>
+      </div>
+    </div>
+  </Section>
+</PageLayout>
