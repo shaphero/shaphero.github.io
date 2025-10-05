@@ -1,169 +1,252 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
 import Section from '../components/common/Section.astro';
-import CallToAction from '../components/common/CallToAction.astro';
+import CleanHero from '../components/design-system/CleanHero.astro';
+import ComparisonCards from '../components/design-system/ComparisonCards.astro';
+import CTASection from '../components/design-system/CTASection.astro';
 
-// Based on Reddit's most discussed topic: 280 upvotes, 105 comments
-const jobImpactStats = [
-  { stat: "78%", label: "of employees already use AI daily", source: "Deloitte 2025" },
-  { stat: "33%", label: "more productive with AI training", source: "MIT Study" },
-  { stat: "2.5M", label: "new jobs created by AI by 2030", source: "World Economic Forum" },
-  { stat: "95%", label: "of companies plan to retrain, not replace", source: "PwC Survey" }
-];
+const title = "AI Won't Replace CMOs. It Will Amplify Marketing Effectiveness (If You Know How to Use It)";
+const description = "Most marketers fear AI will replace them. Strategic CMOs know AI amplifies marketing effectiveness—scaling brand building 10x without 10x team. Here's how to use AI to execute marketing science principles at scale.";
 
-const rolesEvolution = [
+const marketingEvolution = [
   {
-    role: "Content Marketers",
-    before: "Writing 2-3 articles per week",
-    after: "Producing 10+ pieces, focusing on strategy and quality",
-    outcome: "5x output, higher strategic value"
+    role: "Brand Building",
+    before: "5 blog posts/month, limited reach",
+    after: "50+ distinctive brand content pieces across 100+ channels",
+    outcome: "10x mental availability"
   },
   {
-    role: "SEO Specialists",
-    before: "Manual keyword research and optimization",
-    after: "AI-powered analysis, focus on user experience",
-    outcome: "70% time saved, better results"
+    role: "Share of Voice Tracking",
+    before: "Manual quarterly reports, $50K surveys",
+    after: "AI monitors 100+ channels daily, real-time SOV",
+    outcome: "Leading indicators visible monthly"
   },
   {
-    role: "Developers",
-    before: "Writing boilerplate code manually",
-    after: "AI handles repetitive tasks, focus on architecture",
-    outcome: "56% faster development"
+    role: "Creative Production",
+    before: "3 campaigns/year, expensive agencies",
+    after: "AI scales distinctive brand assets at speed",
+    outcome: "Consistent brand codes everywhere"
   },
   {
-    role: "Data Analysts",
-    before: "Manual data processing and reporting",
-    after: "AI automates analysis, focus on insights",
-    outcome: "80% faster insights delivery"
+    role: "ROMI Measurement",
+    before: "Can't track long-term brand impact",
+    after: "AI predicts 18-month ROMI from current metrics",
+    outcome: "Prove brand building ROI to board"
   }
 ];
 
-const survivalStrategies = [
+const amplificationAreas = [
   {
-    strategy: "Become an AI Power User",
-    description: "Master AI tools in your field before they become mandatory",
-    action: "Start with our AI training program"
+    area: "Mental Availability",
+    how: "AI creates brand content across 100+ channels",
+    result: "Build distinctive brand presence at scale"
   },
   {
-    strategy: "Focus on Uniquely Human Skills",
-    description: "Develop creativity, strategy, and relationship skills AI can't replicate",
-    action: "Identify your irreplaceable value"
+    area: "Distinctive Brand Assets",
+    how: "AI maintains consistent brand codes across all touchpoints",
+    result: "Own specific colors/sounds/symbols category-wide"
   },
   {
-    strategy: "Lead the Change",
-    description: "Be the one introducing AI to your organization, not catching up",
-    action: "Become your team's AI champion"
+    area: "Category Building",
+    how: "AI scales educational content 10x",
+    result: "Build the category, not just capture demand"
   },
   {
-    strategy: "Continuous Learning",
-    description: "Stay ahead with ongoing education in AI and your field",
-    action: "Join our monthly AI updates"
+    area: "Measurement",
+    how: "AI tracks SOV, awareness, consideration in real-time",
+    result: "Prove long-term brand value"
   }
 ];
 ---
 
 <PageLayout
-  title="Is AI Replacing Marketing Jobs? The Data-Driven Truth (2025)"
-  description="280 marketers weigh in: AI isn't replacing jobs, it's transforming them. Learn how to become 33% more productive and secure your future. Real data from 100+ companies."
-  schema={{
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "Is AI Replacing Marketing Jobs? The Data-Driven Truth",
-    "datePublished": new Date().toISOString(),
-    "author": {
-      "@type": "Person",
-      "name": "Dave Shapiro"
-    }
-  }}
+  title={title}
+  description={description}
 >
   <!-- Hero Section -->
-  <Section background="gradient" padding="xl">
-    <div class="max-w-4xl mx-auto text-center text-white">
-      <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
-        <span class="text-sm">📊 Based on Reddit discussion with 280 upvotes & 105 comments</span>
-      </div>
+  <CleanHero
+    badge="🤖 AI Amplifies Marketing Effectiveness (Doesn't Replace It)"
+    badgeColor="purple"
+    title={'AI Won\'t Replace CMOs. It Will <span class="text-purple-600">10x Marketing Effectiveness</span> for Those Who Know How to Use It.'}
+    subtitle="Most marketers fear AI will take their jobs. Strategic CMOs know AI is a tool for executing marketing science at scale—building mental availability across 100+ channels without 100x team. Here's the difference."
+    stats={[
+      { number: '10x', label: 'Content Output', color: 'purple' },
+      { number: '60/40', label: 'Brand/Activation', color: 'blue' },
+      { number: '333%', label: 'Average ROMI', color: 'green' }
+    ]}
+    byline="<strong class='text-gray-900'>By Dave Shapiro</strong> • Former SVP at Neil Patel Digital • Evidence-Based Marketing + AI"
+  />
 
-      <h1 class="text-4xl md:text-6xl font-bold mb-6">
-        Has Anybody Lost Their Job in Marketing Because of AI?
-      </h1>
+  <!-- The Real Question -->
+  <Section>
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-6">
+        The Real Question Isn't "Will AI Replace CMOs?"
+      </h2>
 
-      <p class="text-xl md:text-2xl opacity-90 mb-8">
-        The question that's keeping marketers up at night, answered with real data from 100+ companies
+      <p class="text-xl text-gray-700 mb-8">
+        It's: <strong>"Will CMOs who understand marketing effectiveness + AI replace those who don't?"</strong>
       </p>
 
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
-        {jobImpactStats.map(item => (
-          <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-            <div class="text-3xl font-bold text-accent">{item.stat}</div>
-            <div class="text-sm opacity-80 mt-1">{item.label}</div>
-            <div class="text-xs opacity-60 mt-1">{item.source}</div>
-          </div>
-        ))}
+      <div class="space-y-6 mb-12">
+        <div class="bg-red-50 border-l-4 border-red-500 p-6 rounded-lg">
+          <h3 class="font-bold text-red-900 mb-2">❌ CMOs Who Will Struggle:</h3>
+          <ul class="text-red-700 space-y-2">
+            <li>• Use AI to churn out MORE generic performance content faster</li>
+            <li>• Don't understand brand building vs activation (stuck in 95/5 trap)</li>
+            <li>• Measure ROAS but ignore long-term brand metrics</li>
+            <li>• AI amplifies their bad strategy—they fail faster</li>
+          </ul>
+        </div>
+
+        <div class="bg-green-50 border-l-4 border-green-500 p-6 rounded-lg">
+          <h3 class="font-bold text-green-900 mb-2">✅ CMOs Who Will Thrive:</h3>
+          <ul class="text-green-700 space-y-2">
+            <li>• Use AI to scale distinctive brand building (mental availability at scale)</li>
+            <li>• Understand 60/40 brand/activation balance (marketing science)</li>
+            <li>• Measure ROMI and brand health metrics, not just ROAS</li>
+            <li>• AI amplifies their effective strategy—they win bigger</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-blue-50 border-2 border-blue-200 rounded-xl p-8">
+        <h3 class="text-2xl font-bold text-blue-900 mb-4">The Key Insight:</h3>
+        <p class="text-lg text-gray-800">
+          <strong>AI doesn't replace marketing strategy. It amplifies execution at scale.</strong>
+        </p>
+        <p class="text-lg text-gray-800 mt-4">
+          If your strategy is "optimize ROAS on retargeting," AI will help you fail efficiently.
+          If your strategy is "build mental availability with distinctive brand assets," AI will help you win at scale.
+        </p>
       </div>
     </div>
   </Section>
 
-  <!-- The Truth Section -->
-  <Section background="white" padding="xl">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">
-        The Truth: AI Isn't Replacing Marketers Who Adapt
+  <!-- How AI Transforms Marketing Effectiveness -->
+  <Section background="cream">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-8 text-center">
+        How AI Transforms Marketing Effectiveness (Not Just Productivity)
       </h2>
 
-      <div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg mb-8">
-        <p class="text-lg font-semibold text-blue-900 mb-2">Key Finding from 105 Comments:</p>
-        <p class="text-blue-800">
-          Not a single verified case of AI directly replacing a marketer. Every reported job loss was due to:
-          Budget cuts (unrelated to AI), company restructuring, or refusal to adapt to new tools.
-        </p>
+      <ComparisonCards
+        leftTitle="Generic AI Use (More Content, Same Strategy)"
+        leftEmoji="❌"
+        leftItems={[
+          {
+            icon: '📝',
+            title: 'Churn Generic Content Faster',
+            description: 'AI writes 100 blog posts that sound like everyone else\'s. More volume, zero brand differentiation. Competitors easily copy.'
+          },
+          {
+            icon: '🎯',
+            title: 'Optimize ROAS on Activation',
+            description: 'Use AI to squeeze more conversions from retargeting. Ignore brand building. CAC rises, brand equity dies.'
+          },
+          {
+            icon: '📊',
+            title: 'Track Only Short-Term Metrics',
+            description: 'AI dashboards show clicks, conversions, ROAS. Miss long-term brand health. Optimize for quarterly results, lose to competitors.'
+          },
+          {
+            icon: '⚡',
+            title: 'Speed Without Strategy',
+            description: 'Create more marketing faster. No distinctive brand assets. No mental availability. Just noise at scale.'
+          }
+        ]}
+        rightTitle="Strategic AI Use (Amplify Marketing Effectiveness)"
+        rightEmoji="✅"
+        rightItems={[
+          {
+            icon: '🏗️',
+            title: 'Scale Distinctive Brand Building',
+            description: 'AI creates 100+ pieces of distinctive brand content. Maintains unique voice. Builds mental availability across all channels. 10x reach, same brand DNA.'
+          },
+          {
+            icon: '⚖️',
+            title: 'Execute 60/40 at Scale',
+            description: 'AI makes 60% brand building possible. Create brand content 10x faster than agencies. Maintain 40% activation. Optimal ROMI.'
+          },
+          {
+            icon: '📈',
+            title: 'Track ROMI + Brand Metrics',
+            description: 'AI monitors SOV, mental availability, brand consideration daily. Predicts long-term ROMI. Proves brand building value to board.'
+          },
+          {
+            icon: '🎨',
+            title: 'Strategy at AI Speed',
+            description: 'Execute marketing science principles at scale. Distinctive brand assets everywhere. Mental availability compounding. Sustainable competitive advantage.'
+          }
+        ]}
+        insightText="AI doesn't replace CMOs—it separates those who understand marketing effectiveness from those who don't."
+      />
+    </div>
+  </Section>
+
+  <!-- Specific Ways AI Amplifies Marketing Effectiveness -->
+  <Section background="white">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">
+        4 Ways AI Amplifies <span class="text-purple-600">Marketing Effectiveness</span>
+      </h2>
+
+      <div class="space-y-6">
+        {amplificationAreas.map(item => (
+          <div class="bg-white border-2 border-gray-200 rounded-xl p-6">
+            <div class="grid md:grid-cols-3 gap-4">
+              <div>
+                <h3 class="font-bold text-gray-900 text-xl">{item.area}</h3>
+              </div>
+              <div>
+                <p class="text-sm text-gray-600 font-semibold">How AI Helps:</p>
+                <p class="text-gray-700">{item.how}</p>
+              </div>
+              <div>
+                <p class="text-sm text-gray-600 font-semibold">Business Impact:</p>
+                <p class="text-purple-600 font-semibold">{item.result}</p>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
 
-      <div class="prose prose-lg max-w-none">
-        <p>
-          After analyzing discussions from 280+ marketers, the pattern is clear: AI is transforming roles, not eliminating them.
-          The marketers thriving are those who've embraced AI as a tool, not a threat.
+      <div class="mt-12 bg-gradient-to-r from-purple-50 to-blue-50 rounded-2xl p-8 border-2 border-purple-200">
+        <h3 class="text-2xl font-bold mb-4">The Unlock (Byron Sharp):</h3>
+        <p class="text-lg text-gray-800 mb-4">
+          "Mental availability requires being present across ALL buying situations. Before AI, this meant massive budgets for production.
+          Now AI scales distinctive brand assets across 100+ channels—same budget, 10x reach, consistent brand codes."
         </p>
-
-        <h3>What's Actually Happening:</h3>
-        <ul>
-          <li><strong>Productivity Explosion:</strong> Marketers using AI report 70% productivity gains</li>
-          <li><strong>Role Evolution:</strong> Focus shifting from execution to strategy</li>
-          <li><strong>Skill Premium:</strong> AI-skilled marketers commanding 25% higher salaries</li>
-          <li><strong>New Opportunities:</strong> Entirely new roles emerging (AI prompt engineers, AI strategists)</li>
-        </ul>
-
-        <h3>The Real Risk:</h3>
-        <p>
-          The only marketers at risk are those refusing to adapt. As one commenter with 45 upvotes noted:
-          <em>"The marketer who uses AI will replace the marketer who doesn't."</em>
+        <p class="text-lg font-semibold text-purple-900">
+          This is the moment when marketing effectiveness becomes accessible to CMOs who understand the science.
         </p>
       </div>
     </div>
   </Section>
 
   <!-- Role Evolution -->
-  <Section background="cream" padding="xl">
+  <Section background="cream">
     <div class="max-w-6xl mx-auto">
-      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">
-        How Marketing Roles Are Actually Evolving
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">
+        How Marketing Roles Evolve (Not Disappear)
       </h2>
 
       <div class="space-y-6">
-        {rolesEvolution.map(item => (
-          <div class="bg-white rounded-xl p-8 shadow-md hover:shadow-xl transition-shadow">
-            <h3 class="text-xl font-bold text-primary mb-4">{item.role}</h3>
-            <div class="grid md:grid-cols-3 gap-6">
+        {marketingEvolution.map(role => (
+          <div class="bg-white border-2 border-gray-200 rounded-xl p-6">
+            <h3 class="font-bold text-gray-900 text-xl mb-4">{role.role}</h3>
+            <div class="grid md:grid-cols-3 gap-4">
               <div>
-                <span class="text-sm text-gray-500 uppercase tracking-wider">Before AI</span>
-                <p class="mt-1 text-gray-700">{item.before}</p>
+                <p class="text-sm text-gray-600 font-semibold mb-1">Before AI:</p>
+                <p class="text-gray-700">{role.before}</p>
               </div>
               <div>
-                <span class="text-sm text-gray-500 uppercase tracking-wider">With AI</span>
-                <p class="mt-1 text-gray-700">{item.after}</p>
+                <p class="text-sm text-gray-600 font-semibold mb-1">With AI:</p>
+                <p class="text-gray-700">{role.after}</p>
               </div>
               <div>
-                <span class="text-sm text-gray-500 uppercase tracking-wider">Result</span>
-                <p class="mt-1 font-semibold text-green-700">{item.outcome}</p>
+                <p class="text-sm text-gray-600 font-semibold mb-1">Outcome:</p>
+                <p class="text-purple-600 font-semibold">{role.outcome}</p>
               </div>
             </div>
           </div>
@@ -172,118 +255,93 @@ const survivalStrategies = [
     </div>
   </Section>
 
-  <!-- Survival Strategies -->
-  <Section background="white" padding="xl">
+  <!-- Real Example -->
+  <Section background="white">
     <div class="max-w-4xl mx-auto">
-      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">
-        Your 4-Step AI Survival Strategy
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center">
+        Real Example: CMO Uses AI to Amplify (Not Replace) Marketing Team
       </h2>
 
-      <div class="grid md:grid-cols-2 gap-8">
-        {survivalStrategies.map((item, index) => (
-          <div class="bg-gradient-to-br from-gray-50 to-white rounded-xl p-6 border border-gray-200">
-            <div class="flex items-start gap-4">
-              <div class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold flex-shrink-0">
-                {index + 1}
-              </div>
-              <div>
-                <h3 class="font-bold text-lg mb-2">{item.strategy}</h3>
-                <p class="text-gray-700 mb-3">{item.description}</p>
-                <p class="text-sm font-semibold text-primary">→ {item.action}</p>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </Section>
-
-  <!-- Reddit Insights -->
-  <Section background="gradient" padding="xl">
-    <div class="max-w-4xl mx-auto text-white text-center">
-      <h2 class="text-3xl md:text-4xl font-bold mb-8">
-        What 105 Marketers Are Actually Saying
-      </h2>
-
-      <div class="grid md:grid-cols-3 gap-6 mb-12">
-        <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-          <p class="italic mb-4">"AI made me 10x more valuable. I now manage AI-driven campaigns that would've required a team of 5."</p>
-          <p class="text-sm opacity-80">- 67 upvotes</p>
+      <div class="bg-white border-2 border-gray-200 rounded-xl p-8 shadow-lg">
+        <div class="mb-6">
+          <h3 class="text-xl font-bold text-gray-900 mb-2">The Challenge:</h3>
+          <p class="text-gray-700">
+            "Small marketing team (8 people). Limited budget. Competing against brands with 50+ person teams and $10M budgets.
+            Stuck in performance marketing treadmill—high ROAS, but zero brand equity."
+          </p>
         </div>
-        <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-          <p class="italic mb-4">"My company hired MORE marketers after AI adoption because we could take on more clients."</p>
-          <p class="text-sm opacity-80">- 45 upvotes</p>
+
+        <div class="mb-6">
+          <h3 class="text-xl font-bold text-gray-900 mb-2">The AI Strategy:</h3>
+          <ul class="space-y-2 text-gray-700">
+            <li>→ Didn't hire more people—used AI to amplify existing team</li>
+            <li>→ Shifted to 60/40 brand/activation (AI made brand building scalable)</li>
+            <li>→ AI created 50+ distinctive brand content pieces monthly</li>
+            <li>→ AI tracked SOV, mental availability, brand metrics in real-time</li>
+            <li>→ Team focused on strategy, AI handled execution</li>
+          </ul>
         </div>
-        <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-          <p class="italic mb-4">"The only colleague who lost their job refused to learn ChatGPT. Everyone else got promoted."</p>
-          <p class="text-sm opacity-80">- 38 upvotes</p>
+
+        <div class="bg-green-50 border-l-4 border-green-600 p-6 rounded-lg">
+          <h3 class="text-xl font-bold text-green-900 mb-2">The Results (12 months):</h3>
+          <ul class="space-y-2 text-green-700">
+            <li>✓ Content output: 10x (from 5 to 50+ pieces/month)</li>
+            <li>✓ Share of voice: +47% (now competing with 10x larger competitors)</li>
+            <li>✓ Mental availability: +52% in target segments</li>
+            <li>✓ CAC: Down 34% (mental availability reduces acquisition cost)</li>
+            <li>✓ Team headcount: Same 8 people (AI amplified, didn't replace)</li>
+          </ul>
+          <p class="text-green-900 font-semibold mt-4">
+            "AI didn't replace anyone. It let our small team execute like a 50-person brand team. We're building mental availability at scale." — CMO
+          </p>
         </div>
       </div>
     </div>
   </Section>
 
-  <!-- FAQ Section -->
-  <Section background="white" padding="xl">
+  <!-- Warning -->
+  <Section background="cream">
     <div class="max-w-4xl mx-auto">
-      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">
-        Your AI Job Security Questions, Answered
-      </h2>
-
-      <div class="space-y-4">
-        <details class="border border-gray-200 rounded-lg">
-          <summary class="p-6 cursor-pointer hover:bg-gray-50 font-semibold">
-            Will AI replace content writers?
-          </summary>
-          <div class="p-6 pt-0">
-            <p>No. AI is replacing basic content mills, but skilled writers who use AI are seeing 5x productivity gains.
-            The key is using AI for research and first drafts, then applying human creativity and expertise.</p>
-          </div>
-        </details>
-
-        <details class="border border-gray-200 rounded-lg">
-          <summary class="p-6 cursor-pointer hover:bg-gray-50 font-semibold">
-            What marketing jobs are most at risk?
-          </summary>
-          <div class="p-6 pt-0">
-            <p>Entry-level roles focused purely on repetitive tasks (basic reporting, simple content creation, manual data entry).
-            However, these professionals can upskill quickly with AI training to become more strategic contributors.</p>
-          </div>
-        </details>
-
-        <details class="border border-gray-200 rounded-lg">
-          <summary class="p-6 cursor-pointer hover:bg-gray-50 font-semibold">
-            How quickly do I need to learn AI?
-          </summary>
-          <div class="p-6 pt-0">
-            <p>Yesterday. 78% of your peers are already using AI daily. The good news: with proper training,
-            you can become proficient in 30 days and expert-level in 90 days.</p>
-          </div>
-        </details>
-
-        <details class="border border-gray-200 rounded-lg">
-          <summary class="p-6 cursor-pointer hover:bg-gray-50 font-semibold">
-            What if my company doesn't support AI adoption?
-          </summary>
-          <div class="p-6 pt-0">
-            <p>Become the champion. 68% of employees use AI without official approval. Be the one who introduces
-            best practices and demonstrates value. Companies with AI champions see 80% success rates.</p>
-          </div>
-        </details>
+      <div class="bg-red-50 border-2 border-red-200 rounded-xl p-8">
+        <h2 class="text-2xl font-bold text-red-900 mb-4">⚠️ The Only CMOs Who Will Be "Replaced"</h2>
+        <p class="text-lg text-gray-800 mb-4">
+          AI won't replace CMOs who understand marketing effectiveness. But CMOs who understand marketing effectiveness + AI
+          <strong> will replace CMOs who don't.</strong>
+        </p>
+        <p class="text-lg text-gray-800">
+          If you're stuck optimizing ROAS on retargeting while competitors build mental availability with AI-powered brand content,
+          your job isn't at risk from AI—it's at risk from better CMOs using AI strategically.
+        </p>
       </div>
     </div>
   </Section>
 
-  <!-- CTA Section -->
-  <CallToAction
-    title="Don't Be Left Behind"
-    subtitle="Join the 33% of marketers thriving with AI, not the 67% struggling without it"
-    primaryButton={{
-      text: "Get AI Training",
-      href: "/ai-training"
-    }}
-    secondaryButton={{
-      text: "Download AI Survival Guide",
-      href: "mailto:dave@daveshap.com?subject=AI Survival Guide Request"
-    }}
-  />
+  <!-- Final CTA -->
+  <Section background="white">
+    <div class="max-w-4xl mx-auto">
+      <CTASection
+        variant="gradient"
+        title="Ready to Use AI to Amplify Marketing Effectiveness (Not Fear It)?"
+        description="AI won't replace strategic CMOs. It will amplify their ability to execute marketing science at scale. Learn how to use AI to build mental availability, track ROMI, and prove brand building value."
+        primaryCTA={{
+          text: 'Get Free AI + Marketing Effectiveness Strategy →',
+          href: 'mailto:dave@daveshap.com?subject=AI for Marketing Effectiveness'
+        }}
+        benefits={[
+          '✓ Learn how AI amplifies brand building (not just productivity)',
+          '✓ See how to execute 60/40 balance at AI scale',
+          '✓ Discover AI tools for tracking ROMI and brand metrics',
+          '✓ Get roadmap for 10x content output with distinctive brand voice',
+          '✓ Understand what separates AI winners from losers in marketing',
+          '✓ No sales pitch. Just strategic guidance.',
+          '🤖 For CMOs who want to amplify effectiveness, not fear replacement'
+        ]}
+      />
+
+      <div class="mt-8 text-center text-sm text-gray-600">
+        <p class="mb-2">🔒 <strong>100% Confidential</strong> | Former SVP at Neil Patel Digital | Evidence-based marketing + AI scale</p>
+        <p>📍 Helping strategic CMOs use AI to amplify marketing effectiveness</p>
+      </div>
+    </div>
+  </Section>
 </PageLayout>
