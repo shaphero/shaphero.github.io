@@ -135,26 +135,35 @@ export class OpenAIReviewer implements LLMReviewer {
     };
 
     try {
-      const response = await fetch('https://api.openai.com/v1/chat/completions', {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${this.apiKey}`,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(body)
-      });
+      // Add AbortController for 25 second timeout (recommended by OpenAI community)
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 25000);
 
-      if (!response.ok) {
-        const error = await response.text();
-        throw new Error(`OpenAI API error: ${response.status} - ${error}`);
-      }
+      try {
+        const response = await fetch('https://api.openai.com/v1/chat/completions', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${this.apiKey}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(body),
+          signal: controller.signal
+        });
 
-      const data = await response.json();
-      const raw = data?.choices?.[0]?.message?.content;
-      if (typeof raw === 'string') {
-        return this.parseResponse(raw);
+        if (!response.ok) {
+          const error = await response.text();
+          throw new Error(`OpenAI API error: ${response.status} - ${error}`);
+        }
+
+        const data = await response.json();
+        const raw = data?.choices?.[0]?.message?.content;
+        if (typeof raw === 'string') {
+          return this.parseResponse(raw);
+        }
+        return null;
+      } finally {
+        clearTimeout(timeout);
       }
-      return null;
     } catch (error) {
       console.warn('[OpenAIReviewer] API call failed:', error);
       return null;

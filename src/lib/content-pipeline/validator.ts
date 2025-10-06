@@ -115,13 +115,26 @@ export class EnsembleValidator {
       let statuses = new Set<LLMReviewResult['status']>();
 
       for (const reviewer of this.reviewers) {
-        const response = await reviewer.review({
-          claim: target.claim,
-          evidence: target.snippet,
-          context: target.context
-        });
+        // Skip Claude CLI reviewer to avoid timeouts - use OpenAI only
+        if (reviewer.name === 'claude') {
+          console.log('[Validator] Skipping Claude CLI reviewer (using OpenAI instead)');
+          continue;
+        }
 
-        if (!response) continue;
+        // Add timeout wrapper (30 seconds per review)
+        const response = await Promise.race([
+          reviewer.review({
+            claim: target.claim,
+            evidence: target.snippet,
+            context: target.context
+          }),
+          new Promise<null>((resolve) => setTimeout(() => resolve(null), 30000))
+        ]);
+
+        if (!response) {
+          console.warn(`[Validator] ${reviewer.name} review timed out or returned null`);
+          continue;
+        }
         reviewersResponded += 1;
         aggregateScore += this.score(response.status);
         statuses.add(response.status);
