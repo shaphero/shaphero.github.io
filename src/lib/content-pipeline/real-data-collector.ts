@@ -7,9 +7,10 @@ interface SearchOptions {
   sortBy?: 'relevance' | 'date' | 'popularity';
 }
 
-const DEFAULT_FETCH_TIMEOUT = 15000;
+const DEFAULT_FETCH_TIMEOUT = 120000; // 120 seconds for DataForSEO API (recommended by DataForSEO)
+const SCRAPE_TIMEOUT = 30000; // 30 seconds for web scraping
 const MAX_RETRIES = 3;
-const RETRY_DELAY_MS = 1000;
+const RETRY_DELAY_MS = 2000; // Increased from 1s to 2s for better stability
 
 interface CollectorOptions {
   cache?: CacheProvider;
@@ -336,7 +337,7 @@ export class RealDataCollector {
             'Accept-Language': 'en-US,en;q=0.5',
             'Accept-Encoding': 'gzip, deflate, br'
           }
-        }, DEFAULT_FETCH_TIMEOUT);
+        }, SCRAPE_TIMEOUT);
 
         if (!response.ok) {
           throw new Error(`HTTP ${response.status}: ${response.statusText}`);
@@ -352,7 +353,7 @@ export class RealDataCollector {
         const html = await response.text();
         const content = this.extractContent(html);
 
-        if (content && content.length > 100) {
+        if (content && content.length > 50) { // Lowered from 100 to 50 chars minimum
           // Cache successful scrape with error handling
           try {
             await this.cache.set(cacheKey, content, { ttlMs: this.scrapeTtlMs });
@@ -362,7 +363,7 @@ export class RealDataCollector {
           }
           return content;
         } else {
-          throw new Error('Extracted content too short or empty');
+          throw new Error(`Extracted content too short or empty (${content?.length || 0} chars)`);
         }
       } catch (error: any) {
         lastError = error;
